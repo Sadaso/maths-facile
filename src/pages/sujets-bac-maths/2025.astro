@@ -8,11 +8,20 @@ const badgeColors = {
   "Asie": "#dc2626", "Polynésie": "#7c3aed", "Centres étrangers": "#0891b2",
   "Nouvelle Calédonie": "#be185d",
 };
+
+// Map slugs to correction pages
+const corrections = {
+  "metropole-jour-2": "/sujets-bac-maths/corrections/metropole-2025-jour-2/",
+  "metropole-jour-1-sept": "/sujets-bac-maths/corrections/metropole-2025-septembre-jour-1/",
+  "metropole-jour-2-sept": "/sujets-bac-maths/corrections/metropole-2025-septembre-jour-2/",
+  "polynesie-jour-1-juin": "/sujets-bac-maths/corrections/polynesie-2025-jour-1/",
+  "polynesie-jour-2": "/sujets-bac-maths/corrections/polynesie-2025-jour-2/",
+};
 ---
 
 <BaseLayout
   title="Sujets Bac Maths 2025 — 19 sujets corrigés spécialité | Maths Facile"
-  description="Les 19 sujets du baccalauréat de mathématiques spécialité 2025 : Métropole, Amérique du Nord, Asie, Polynésie. Liens vers les énoncés et corrigés APMEP."
+  description="Les 19 sujets du baccalauréat de mathématiques spécialité 2025 : Métropole, Amérique du Nord, Asie, Polynésie. Liens vers les énoncés et corrigés."
 >
   <nav aria-label="Fil d'Ariane" class="breadcrumbs">
     <a href="/">Accueil</a> &gt; <a href="/sujets-bac-maths/">Sujets Bac</a> &gt; Session 2025
@@ -21,18 +30,26 @@ const badgeColors = {
   <div class="container section">
     <h1 style="color:var(--blue-950); text-align:center;">Sujets Bac Maths 2025</h1>
     <p style="color:var(--slate-600); text-align:center; max-width:600px; margin:0.5rem auto 2rem;">
-      {sujets2025.length} sujets disponibles — session en cours
+      {sujets2025.length} sujets disponibles — 5 corrections détaillées
     </p>
 
     <div class="sujets-grid">
-      {sujets2025.map(s => (
-        <a href={apmepUrl} target="_blank" rel="noopener noreferrer" class="sujet-card">
-          <span class="sujet-badge" style={`background: ${badgeColors[s.centre] || '#64748b'}`}>{s.centre}</span>
-          <span class="sujet-title">{s.jour || s.centre}</span>
-          <span class="sujet-date">{s.date}</span>
-          <span class="sujet-link">Voir sur APMEP →</span>
-        </a>
-      ))}
+      {sujets2025.map(s => {
+        const corrUrl = corrections[s.slug];
+        return (
+          <div class="sujet-card">
+            <span class="sujet-badge" style={`background: ${badgeColors[s.centre] || '#64748b'}`}>{s.centre}</span>
+            <span class="sujet-title">{s.jour || s.centre}</span>
+            <span class="sujet-date">{s.date}</span>
+            <div class="sujet-links">
+              <a href={apmepUrl} target="_blank" rel="noopener noreferrer" class="sujet-link">Sujet APMEP →</a>
+              {corrUrl && (
+                <a href={corrUrl} class="sujet-correction-link">Correction détaillée →</a>
+              )}
+            </div>
+          </div>
+        );
+      })}
     </div>
   </div>
 </BaseLayout>
@@ -43,12 +60,19 @@ const badgeColors = {
   .sujets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
   .sujet-card {
     background: white; border: 1px solid var(--slate-200); border-radius: 10px;
-    padding: 1.25rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.35rem;
+    padding: 1.25rem; display: flex; flex-direction: column; gap: 0.35rem;
     transition: box-shadow 0.2s, transform 0.2s;
   }
   .sujet-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.07); transform: translateY(-1px); }
   .sujet-badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; color: white; font-size: 0.72rem; font-weight: 700; align-self: flex-start; }
   .sujet-title { font-weight: 700; font-size: 1rem; color: var(--blue-950); }
   .sujet-date { font-size: 0.82rem; color: var(--slate-500); }
-  .sujet-link { font-size: 0.8rem; color: var(--blue-600); font-weight: 600; margin-top: auto; }
+  .sujet-links { display: flex; flex-direction: column; gap: 0.3rem; margin-top: auto; padding-top: 0.5rem; }
+  .sujet-link { font-size: 0.8rem; color: var(--blue-600); font-weight: 600; text-decoration: none; }
+  .sujet-link:hover { text-decoration: underline; }
+  .sujet-correction-link {
+    font-size: 0.8rem; color: #059669; font-weight: 700; text-decoration: none;
+    background: #f0fdf4; padding: 0.3rem 0.6rem; border-radius: 6px; text-align: center;
+  }
+  .sujet-correction-link:hover { background: #dcfce7; }
 </style>
