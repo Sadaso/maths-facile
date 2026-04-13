@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { sujets2024 } from '../../data/sujetsBac.js';
+
+const apmepUrl = 'https://www.apmep.fr/Annee-2024';
+const badgeColors = {
+  "Métropole": "#2563eb", "Métropole, Antilles-Guyane": "#2563eb",
+  "Amérique du Nord": "#059669", "Amérique du Sud": "#d97706",
+  "Asie": "#dc2626", "Polynésie": "#7c3aed", "Centres étrangers": "#0891b2",
+  "Centres étrangers Suède": "#0891b2", "Sujet 0": "#64748b",
+};
+---
+
+<BaseLayout
+  title="Sujets Bac Maths 2024 — 16 sujets corrigés spécialité | Maths Facile"
+  description="Les 16 sujets du baccalauréat de mathématiques spécialité 2024 : Métropole, Amérique du Nord, Asie, Polynésie. Liens vers les énoncés et corrigés APMEP."
+>
+  <nav aria-label="Fil d'Ariane" class="breadcrumbs">
+    <a href="/">Accueil</a> &gt; <a href="/sujets-bac-maths/">Sujets Bac</a> &gt; Session 2024
+  </nav>
+
+  <div class="container section">
+    <h1 style="color:var(--blue-950); text-align:center;">Sujets Bac Maths 2024</h1>
+    <p style="color:var(--slate-600); text-align:center; max-width:600px; margin:0.5rem auto 2rem;">
+      {sujets2024.length} sujets disponibles — session complète
+    </p>
+
+    <div class="sujets-grid">
+      {sujets2024.map(s => (
+        <a href={apmepUrl} target="_blank" rel="noopener noreferrer" class="sujet-card">
+          <span class="sujet-badge" style={`background: ${badgeColors[s.centre] || '#64748b'}`}>{s.centre}</span>
+          <span class="sujet-title">{s.jour || s.centre}</span>
+          <span class="sujet-date">{s.date}</span>
+          <span class="sujet-link">Voir sur APMEP →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .breadcrumbs { padding: 1rem 2rem; font-size: 0.85rem; color: var(--slate-500); }
+  .breadcrumbs a { color: var(--blue-600); text-decoration: none; }
+  .sujets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .sujet-card {
+    background: white; border: 1px solid var(--slate-200); border-radius: 10px;
+    padding: 1.25rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.35rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .sujet-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.07); transform: translateY(-1px); }
+  .sujet-badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; color: white; font-size: 0.72rem; font-weight: 700; align-self: flex-start; }
+  .sujet-title { font-weight: 700; font-size: 1rem; color: var(--blue-950); }
+  .sujet-date { font-size: 0.82rem; color: var(--slate-500); }
+  .sujet-link { font-size: 0.8rem; color: var(--blue-600); font-weight: 600; margin-top: auto; }
+</style>

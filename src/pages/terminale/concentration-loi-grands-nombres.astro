@@ -1,0 +1,12 @@
+---
+import ChapterLayout from "../../layouts/ChapterLayout.astro";
+import ExerciseList from "../../components/ExerciseList.jsx";
+import { getChapterContent } from "../../data/content.js";
+
+const content = getChapterContent("terminale", 17);
+---
+
+<ChapterLayout level="terminale" slug="concentration-loi-grands-nombres">
+  <ExerciseList client:visible exercises={content?.exercices} slot="exercices" />
+  <ExerciseList client:visible exercises={content?.problemes} isProblems slot="problemes" />
+</ChapterLayout>

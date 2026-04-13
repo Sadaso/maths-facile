@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { levelsData } from '../../data/levels.js';
+
+const level = levelsData.terminale;
+const chapters = level.chapters;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Terminale Spé Maths — Tous les chapitres",
+  "description": level.seoIntro,
+  "provider": { "@type": "Organization", "name": "Maths Facile", "url": "https://maths-facile.com" },
+};
+---
+
+<BaseLayout
+  title="Terminale Spé Maths — 17 chapitres avec cours et exercices | Maths Facile"
+  description={level.seoIntro}
+  jsonLd={jsonLd}
+>
+  <nav aria-label="Fil d'Ariane" class="breadcrumbs">
+    <a href="/">Accueil</a> &gt; Terminale Spé
+  </nav>
+
+  <div class="container section">
+    <div style="text-align:center; margin-bottom: 2.5rem;">
+      <h1 style="color: var(--blue-950); margin-bottom: 0.5rem;">{level.title}</h1>
+      <p style="color: var(--slate-600); max-width: 650px; margin: 0 auto; font-size: 1.05rem;">
+        {level.subtitle}
+      </p>
+    </div>
+
+    <div class="chapters-grid">
+      {chapters.map((ch, i) => (
+        <a href={`/terminale/${ch.slug}/`} class="chapter-card" style="text-decoration:none;">
+          <div class="chapter-card-number">{String(ch.id).padStart(2, '0')}</div>
+          <h3 class="chapter-card-title">{ch.title}</h3>
+          <p class="chapter-card-subtitle">{ch.subtitle}</p>
+          <div class="chapter-card-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div style="text-align:center; margin-top: 2.5rem;">
+      <a href="/sujets-bac-maths/" class="nav-cta" style="display:inline-flex; padding: 0.8rem 1.5rem;">
+        Sujets de Bac corrigés
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .breadcrumbs {
+    padding: 1rem 2rem;
+    font-size: 0.85rem;
+    color: var(--slate-500);
+  }
+  .breadcrumbs a { color: var(--blue-600); text-decoration: none; }
+  .breadcrumbs a:hover { text-decoration: underline; }
+
+  .chapters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .chapter-card {
+    background: white;
+    border: 1px solid var(--slate-200);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    color: inherit;
+  }
+  .chapter-card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+  .chapter-card-number {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--blue-600);
+    margin-bottom: 0.5rem;
+  }
+  .chapter-card-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--blue-950);
+    margin: 0 0 0.35rem;
+  }
+  .chapter-card-subtitle {
+    font-size: 0.82rem;
+    color: var(--slate-500);
+    margin: 0;
+    flex: 1;
+  }
+  .chapter-card-arrow {
+    margin-top: 1rem;
+    color: var(--blue-600);
+  }
+</style>

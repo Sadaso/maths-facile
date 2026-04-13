@@ -1,17 +1,558 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { tex } from '../utils/katex.js';
+import { levelsData } from '../data/levels.js';
 
+const levels = [
+  { path: '/seconde/', label: 'Seconde', desc: 'Fonctions, geometrie, vecteurs et probabilites. Les bases solides pour le lycee.', chapters: levelsData.seconde.chapters.length || 8, icon: '\u2211', gradient: 'linear-gradient(135deg, #3B82F6, #6366F1)' },
+  { path: '/premiere/', label: 'Premiere Spe', desc: 'Derivation, suites, exponentielle, trigonometrie. Le coeur du programme.', chapters: levelsData.premiere.chapters.length || 8, icon: 'f(x)', gradient: 'linear-gradient(135deg, #6366F1, #7C3AED)' },
+  { path: '/terminale/', label: 'Terminale Spe', desc: 'Integrales, logarithme, continuite, equations differentielles. Cap vers le bac.', chapters: levelsData.terminale.chapters.length || 16, icon: '\u222B', gradient: 'linear-gradient(135deg, #7C3AED, #9333EA)' },
+];
+
+const topics = [
+  { name: 'Analyse', examples: 'Fonctions, limites, derivation, integration', icon: '/icons/analyse.svg' },
+  { name: 'Algebre', examples: 'Equations, polynomes, calcul litteral', icon: '/icons/algebre.svg' },
+  { name: 'Probabilites', examples: 'Lois, conditionnement, variables aleatoires', icon: '/icons/probabilites.svg' },
+  { name: 'Geometrie', examples: 'Vecteurs, droites, plans, espace', icon: '/icons/geometrie.svg' },
+  { name: 'Suites', examples: 'Arithmetiques, geometriques, recurrence', icon: '/icons/suites.svg' },
+  { name: 'Statistiques', examples: 'Moyenne, ecart-type, loi normale', icon: '/icons/statistiques.svg' },
+];
+
+const stats = [
+  { value: '10 000+', label: 'Eleves accompagnes' },
+  { value: '120', label: 'Chapitres complets' },
+  { value: '1 500+', label: 'Exercices corriges' },
+  { value: '98%', label: 'Satisfaction' },
+];
+
+const testimonials = [
+  { name: 'Sarah M.', level: 'Terminale', text: "Les demonstrations sont vraiment claires. J'ai enfin compris les integrales grace a maths-facile.", avatar: 'S', bg: 'var(--blue-50)', color: 'var(--blue-600)' },
+  { name: 'Youssef A.', level: 'Premiere', text: "Les exercices progressifs m'ont permis de passer de 8 a 15 de moyenne en maths.", avatar: 'Y', bg: 'var(--green-50)', color: 'var(--green-600)' },
+  { name: 'Camille R.', level: 'Terminale', text: "Le site est tres bien organise. Les fiches de revision sont parfaites pour le bac.", avatar: 'C', bg: 'var(--violet-50)', color: 'var(--violet-600)' },
+];
+
+const methods = [
+  {
+    num: '1',
+    title: 'Cours structures',
+    desc: 'Definitions, theoremes et proprietes clairement identifies. Chaque notion est construite pas a pas.',
+    iconSvg: '<svg viewBox="0 0 40 40" fill="none"><rect x="6" y="6" width="28" height="28" rx="4" stroke="var(--blue-400)" stroke-width="2"/><line x1="12" y1="14" x2="28" y2="14" stroke="var(--blue-400)" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="20" x2="24" y2="20" stroke="var(--blue-300)" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="26" x2="20" y2="26" stroke="var(--blue-200)" stroke-width="2" stroke-linecap="round"/></svg>',
+  },
+  {
+    num: '2',
+    title: 'Demonstrations completes',
+    desc: 'Chaque resultat est demontre etape par etape pour developper la rigueur mathematique.',
+    iconSvg: '<svg viewBox="0 0 40 40" fill="none"><path d="M8 32L20 8L32 32" stroke="var(--blue-400)" stroke-width="2" stroke-linejoin="round"/><line x1="13" y1="24" x2="27" y2="24" stroke="var(--blue-300)" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="8" r="3" fill="var(--blue-400)" opacity="0.3"/></svg>',
+  },
+  {
+    num: '3',
+    title: 'Exercices progressifs',
+    desc: "Du facile a l'avance, chaque exercice avec une correction detaillee et un rendu professionnel.",
+    iconSvg: '<svg viewBox="0 0 40 40" fill="none"><rect x="8" y="8" width="10" height="10" rx="2" fill="var(--blue-200)"/><rect x="22" y="8" width="10" height="10" rx="2" fill="var(--blue-300)"/><rect x="8" y="22" width="10" height="10" rx="2" fill="var(--blue-400)"/><rect x="22" y="22" width="10" height="10" rx="2" fill="var(--blue-500)"/></svg>',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalOrganization',
+  name: 'Maths Facile',
+  url: 'https://maths-facile.com',
+  description: 'Site educatif gratuit de cours de mathematiques pour le lycee',
+  areaServed: { '@type': 'Country', name: 'France' },
+  inLanguage: 'fr',
+};
+
+// Pre-compute the progress circle
+const circumference = 2 * Math.PI * 28;
+const progress = 92;
+const offset = circumference - (progress / 100) * circumference;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Maths Facile - Cours de maths gratuits pour le lycee"
+  description="Cours de maths gratuits pour le lycee : Seconde, Premiere, Terminale. Exercices corriges, fiches de revision et methodes pour reussir en mathematiques."
+  jsonLd={jsonLd}
+>
+  <div class="home">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg-pattern">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(148,163,184,0.08)" stroke-width="1" />
+            </pattern>
+            <linearGradient id="gridFade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="white" stop-opacity="0" />
+              <stop offset="50%" stop-color="white" stop-opacity="0" />
+              <stop offset="100%" stop-color="white" stop-opacity="1" />
+            </linearGradient>
+            <mask id="gridMask">
+              <rect width="100%" height="100%" fill="url(#gridFade)" />
+            </mask>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" mask="url(#gridMask)" />
+        </svg>
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-content anim-fade-up">
+          <div class="hero-badge">
+            <span class="hero-badge-dot">&#10003;</span>
+            100% gratuit &mdash; Acces illimite
+          </div>
+          <h1>
+            Les mathematiques enfin
+            <span class="hero-accent">comprises.</span>
+            <br />
+            Pas memorisees.
+          </h1>
+          <p class="hero-sub">
+            Cours structures, demonstrations completes et exercices progressifs
+            avec rendu mathematique professionnel. Du lycee a la prepa.
+          </p>
+          <div class="hero-actions">
+            <a href="/seconde/" class="btn btn-cta btn-lg">
+              Commencer maintenant
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="/terminale/combinatoire-denombrement/" class="btn btn-secondary btn-lg">
+              Voir un exemple
+            </a>
+          </div>
+          <div class="hero-social-proof">
+            <div class="hero-avatars">
+              {['S', 'Y', 'C', 'M', 'A'].map((l) => (
+                <div class="hero-avatar">{l}</div>
+              ))}
+            </div>
+            <div class="hero-social-text">
+              <strong>10 000+</strong> eleves utilisent deja maths-facile
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Scene (static) -->
+        <div class="hero-scene">
+          <div class="hero-orb hero-orb-1"></div>
+          <div class="hero-orb hero-orb-2"></div>
+
+          <!-- Theorem Card -->
+          <div class="hero-scene-card scene-theorem anim-fade-up" style="animation-delay: 0.3s;">
+            <div class="scene-card-label scene-label-green">Theoreme</div>
+            <div class="scene-card-title">Theoreme des accroissements finis</div>
+            <div class="scene-card-math">
+              <div set:html={tex('\\exists\\, c \\in ]a,b[ \\quad f\'(c) = \\frac{f(b) - f(a)}{b - a}', true)} />
+            </div>
+          </div>
+
+          <!-- Exercise Card -->
+          <div class="hero-scene-card scene-exercise anim-fade-up" style="animation-delay: 0.5s;">
+            <div class="scene-exercise-meta">
+              <span class="scene-exercise-badge">Intermediaire</span>
+              <span class="scene-exercise-time">~10 min</span>
+            </div>
+            <div class="scene-card-math">
+              <span style="font-size: 0.85rem; color: var(--slate-600);">Calculer </span>
+              <div set:html={tex('\\int_0^1 x\\,e^{x}\\,dx', true)} />
+            </div>
+            <div style="font-size: 0.72rem; color: var(--green-600); font-weight: 700; font-family: var(--font-heading); margin-top: 0.25rem;">
+              Resultat : <span set:html={tex('1')} />
+            </div>
+          </div>
+
+          <!-- Progress Card -->
+          <div class="hero-scene-card scene-progress anim-fade-up" style="animation-delay: 0.7s;">
+            <div class="scene-progress-ring">
+              <svg width="70" height="70" viewBox="0 0 70 70">
+                <defs>
+                  <linearGradient id="progressGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#2563EB" />
+                    <stop offset="100%" stop-color="#6366F1" />
+                  </linearGradient>
+                </defs>
+                <circle class="ring-bg" cx="35" cy="35" r="28" fill="none" stroke-width="5" />
+                <circle class="ring-fill" cx="35" cy="35" r="28" fill="none" stroke-width="5"
+                  stroke-dasharray={circumference} stroke-dashoffset={offset}
+                  transform="rotate(-90 35 35)" />
+              </svg>
+              <div class="scene-progress-center">{progress}%</div>
+            </div>
+            <div class="scene-progress-info">
+              <span class="scene-progress-label">Progression</span>
+              <span class="scene-progress-sub">Terminale Spe</span>
+            </div>
+          </div>
+
+          <!-- Grade Card -->
+          <div class="hero-scene-card scene-grade anim-fade-up" style="animation-delay: 0.9s;">
+            <div class="scene-grade-value">18/20</div>
+            <span class="scene-grade-label">Dernier exercice</span>
+            <div class="scene-grade-bar">
+              <div class="scene-grade-fill anim-grade-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <div class="trust-strip">
+      <div class="trust-track">
+        {['Rigueur', 'Clarte', 'Progression', 'Excellence', 'Methode', 'Precision', 'Comprehension', 'Reussite'].map((t) => (
+          <span class="trust-item">{t}</span>
+        ))}
+        {['Rigueur', 'Clarte', 'Progression', 'Excellence', 'Methode', 'Precision', 'Comprehension', 'Reussite'].map((t) => (
+          <span class="trust-item">{t}</span>
+        ))}
+      </div>
+    </div>
+
+    <!-- NIVEAUX -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Programmes</span>
+          <h2>Choisissez votre niveau</h2>
+          <p>Un programme complet et structure pour chaque classe, du cours aux exercices corriges.</p>
+        </div>
+        <div class="grid-3">
+          {levels.map((l, i) => (
+            <div class="anim-fade-up" style={`animation-delay: ${i * 0.15}s;`}>
+              <a href={l.path} class="level-card-v2">
+                <div class="lc-icon" style={`background: ${l.gradient};`}>
+                  <span>{l.icon}</span>
+                </div>
+                <h3 class="lc-title">{l.label}</h3>
+                <p class="lc-desc">{l.desc}</p>
+                <div class="lc-footer">
+                  <span class="lc-chapters">{l.chapters} chapitres</span>
+                  <span class="lc-arrow" style={`background: ${l.gradient};`}>
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+                <div class="lc-hover-overlay"></div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- DOMAINES -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Domaines</span>
+          <h2>Les grands chapitres</h2>
+          <p>Parcourez les domaines fondamentaux des mathematiques du lycee.</p>
+        </div>
+        <div class="topics-grid">
+          {topics.map((t, i) => (
+            <div class="topic-card anim-fade-up" style={`animation-delay: ${i * 0.06}s;`}>
+              <div class="topic-icon-wrap">
+                <img src={t.icon} alt={t.name} width="56" height="56" />
+              </div>
+              <h3>{t.name}</h3>
+              <p>{t.examples}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- APERCU COURS (static preview - shows theorem tab by default) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Contenu pedagogique</span>
+          <h2>Un apercu de nos fiches</h2>
+          <p>Du theoreme a l'exercice, chaque notion est traitee avec rigueur et clarte.</p>
+        </div>
+        <div class="preview-component">
+          <div class="preview-tabs">
+            <button class="preview-tab active" data-tab="theorem">Theoreme</button>
+            <button class="preview-tab" data-tab="proof">Demonstration</button>
+            <button class="preview-tab" data-tab="example">Exemple</button>
+            <button class="preview-tab" data-tab="exercise">Exercice</button>
+          </div>
+          <div class="preview-panels">
+            <div class="preview-panel preview-green" data-panel="theorem">
+              <div class="preview-panel-title">Theoreme des accroissements finis</div>
+              <p>Soit <span set:html={tex('f')} /> une fonction continue sur <span set:html={tex('[a, b]')} /> et derivable sur <span set:html={tex(']a, b[')} />.</p>
+              <p>Alors il existe <span set:html={tex('c \\in ]a, b[')} /> tel que :</p>
+              <div set:html={tex("f(b) - f(a) = f'(c)(b - a)", true)} />
+            </div>
+            <div class="preview-panel preview-violet" data-panel="proof" style="display:none;">
+              <div class="preview-panel-title">Demonstration</div>
+              <p>On pose la fonction auxiliaire :</p>
+              <div set:html={tex('g(x) = f(x) - f(a) - \\frac{f(b) - f(a)}{b - a}(x - a)', true)} />
+              <p>La fonction <span set:html={tex('g')} /> est continue sur <span set:html={tex('[a,b]')} />, derivable sur <span set:html={tex(']a,b[')} />, et verifie <span set:html={tex('g(a) = g(b) = 0')} />.</p>
+              <p>Par le theoreme de Rolle, <span set:html={tex('\\exists\\, c \\in ]a,b[')} /> tel que <span set:html={tex("g'(c) = 0")} />, soit :</p>
+              <div set:html={tex("f'(c) = \\frac{f(b) - f(a)}{b - a}", true)} />
+            </div>
+            <div class="preview-panel preview-amber" data-panel="example" style="display:none;">
+              <div class="preview-panel-title">Exemple d'application</div>
+              <p>Soit <span set:html={tex('f(x) = x^3')} /> sur <span set:html={tex('[0, 2]')} />.</p>
+              <p>On a <span set:html={tex('f(2) - f(0) = 8')} /> et <span set:html={tex("f'(x) = 3x^2")} />.</p>
+              <p>Le TAF donne :</p>
+              <div set:html={tex('8 = 3c^2 \\times 2 \\implies c^2 = \\frac{4}{3} \\implies c = \\frac{2}{\\sqrt{3}} \\approx 1{,}15', true)} />
+              <p>On verifie bien que <span set:html={tex('c \\in ]0, 2[')} />.</p>
+            </div>
+            <div class="preview-panel preview-blue" data-panel="exercise" style="display:none;">
+              <div class="preview-panel-title">Exercice</div>
+              <p>Montrer que pour tout <span set:html={tex('x > 0')} /> :</p>
+              <div set:html={tex('\\ln(1 + x) < x', true)} />
+              <p><strong>Indication :</strong> Appliquer le theoreme des accroissements finis a <span set:html={tex('f(t) = \\ln(1+t)')} /> sur <span set:html={tex('[0, x]')} />.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXERCICES (static demo) -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Entrainement</span>
+          <h2>S'entrainer efficacement</h2>
+          <p>Plus de 1 500 exercices avec difficulte progressive et corrections detaillees en KaTeX.</p>
+        </div>
+        <div class="exercise-demo">
+          <div class="exercise-demo-head">
+            <span class="exercise-demo-badge">Intermediaire</span>
+            <span class="exercise-demo-time">~10 min</span>
+          </div>
+          <div class="exercise-demo-body">
+            <p><strong>Exercice.</strong> Calculer la derivee de <span set:html={tex('f(x) = (2x + 1)e^{-x}')} /> et etudier ses variations.</p>
+          </div>
+          <div class="exercise-demo-actions">
+            <button class="btn btn-secondary btn-sm" id="hint-toggle">Voir l'indice</button>
+            <button class="btn btn-primary btn-sm" id="solution-toggle">Voir la correction</button>
+          </div>
+          <div class="exercise-demo-hint" id="hint-panel" style="display:none;">
+            Utilisez la formule de derivation d'un produit : <span set:html={tex("(uv)' = u'v + uv'")} />.
+          </div>
+          <div class="exercise-demo-solution" id="solution-panel" style="display:none;">
+            <div set:html={tex("f'(x) = 2e^{-x} + (2x+1)(-e^{-x}) = e^{-x}(1 - 2x)", true)} />
+            <p>Comme <span set:html={tex('e^{-x} > 0')} /> pour tout <span set:html={tex('x \\in \\mathbb{R}')} />, le signe de <span set:html={tex("f'(x)")} /> est celui de <span set:html={tex('(1-2x)')} />.</p>
+            <div set:html={tex("f'(x) = 0 \\iff x = \\frac{1}{2}", true)} />
+            <p><span set:html={tex('f')} /> est croissante sur <span set:html={tex('\\left]-\\infty,\\, \\frac{1}{2}\\right]')} /> et decroissante sur <span set:html={tex('\\left[\\frac{1}{2},\\, +\\infty\\right[')} />.</p>
+            <p>Maximum en <span set:html={tex('x = \\frac{1}{2}')} /> : <span set:html={tex('f\\left(\\frac{1}{2}\\right) = 2e^{-1/2} = \\frac{2}{\\sqrt{e}}')} />.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODE -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Notre approche</span>
+          <h2>Une methode claire et rigoureuse</h2>
+          <p>Trois piliers pour transformer votre rapport aux mathematiques.</p>
+        </div>
+        <div class="method-grid">
+          {methods.map((s, i) => (
+            <div class="method-card anim-fade-up" style={`animation-delay: ${i * 0.12}s;`}>
+              <div class="method-card-icon" set:html={s.iconSvg} />
+              <span class="method-num">{s.num}</span>
+              <h3>{s.title}</h3>
+              <p>{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="section-stats">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">En chiffres</span>
+          <h2>maths-facile en chiffres</h2>
+          <p>Des resultats concrets qui temoignent de la qualite de nos contenus.</p>
+        </div>
+        <div class="stats-grid">
+          {stats.map((s, i) => (
+            <div class="stat-card anim-fade-up" style={`animation-delay: ${i * 0.1}s;`}>
+              <span class="stat-val">{s.value}</span>
+              <span class="stat-lbl">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- TEMOIGNAGES -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-label">Temoignages</span>
+          <h2>Ils ont progresse avec maths-facile</h2>
+          <p>Decouvrez les retours de nos eleves.</p>
+        </div>
+        <div class="testimonial-slider">
+          {testimonials.map((t, i) => (
+            <div class={`testimonial-card ${i === 0 ? 'active' : ''}`} data-testimonial={i}>
+              <div class="testimonial-avatar" style={`background: ${t.bg}; color: ${t.color};`}>
+                {t.avatar}
+              </div>
+              <blockquote>"{t.text}"</blockquote>
+              <div class="testimonial-info">
+                <strong>{t.name}</strong>
+                <span>{t.level}</span>
+              </div>
+            </div>
+          ))}
+          <div class="testimonial-dots">
+            {testimonials.map((_, i) => (
+              <button class={`dot ${i === 0 ? 'active' : ''}`} data-dot={i} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section-final-cta">
+      <div class="cta-pattern">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="ctaDots" width="24" height="24" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.07)" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#ctaDots)" />
+        </svg>
+      </div>
+      <div class="container">
+        <div class="anim-fade-up">
+          <h2>Commencez a progresser des aujourd'hui</h2>
+          <p>Tous les cours, exercices et fiches sont accessibles gratuitement. Aucun compte requis.</p>
+          <div class="cta-actions">
+            <a href="/seconde/" class="btn btn-cta btn-lg">
+              Explorer les cours
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="/contact/" class="btn btn-outline-light btn-lg">Nous contacter</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <style>
+    /* ═══ CSS Animations replacing Framer Motion ═══ */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes gradeBarFill {
+      from { width: 0; }
+      to { width: 90%; }
+    }
+
+    .anim-fade-up {
+      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .anim-grade-fill {
+      animation: gradeBarFill 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both;
+    }
+
+    /* Testimonial slider: only show active card */
+    .testimonial-card {
+      display: none;
+    }
+    .testimonial-card.active {
+      display: block;
+      animation: fadeUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    /* Preview panels transition */
+    .preview-panel {
+      animation: fadeUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    /* Hint / solution reveal */
+    .exercise-demo-hint,
+    .exercise-demo-solution {
+      overflow: hidden;
+      transition: opacity 0.3s ease, max-height 0.3s ease;
+    }
+    .exercise-demo-hint.visible,
+    .exercise-demo-solution.visible {
+      display: block;
+    }
+  </style>
+
+  <script>
+    // Tab switching for course preview
+    document.querySelectorAll('.preview-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.tab;
+        // Update active tab button
+        document.querySelectorAll('.preview-tab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        // Show matching panel
+        document.querySelectorAll('.preview-panel').forEach(p => {
+          p.style.display = p.dataset.panel === tab ? '' : 'none';
+        });
+      });
+    });
+
+    // Exercise hint/solution toggles
+    const hintBtn = document.getElementById('hint-toggle');
+    const hintPanel = document.getElementById('hint-panel');
+    const solBtn = document.getElementById('solution-toggle');
+    const solPanel = document.getElementById('solution-panel');
+
+    if (hintBtn && hintPanel) {
+      hintBtn.addEventListener('click', () => {
+        const visible = hintPanel.style.display !== 'none';
+        hintPanel.style.display = visible ? 'none' : '';
+        hintBtn.textContent = visible ? "Voir l'indice" : "Masquer l'indice";
+      });
+    }
+    if (solBtn && solPanel) {
+      solBtn.addEventListener('click', () => {
+        const visible = solPanel.style.display !== 'none';
+        solPanel.style.display = visible ? 'none' : '';
+        solBtn.textContent = visible ? 'Masquer' : 'Voir la correction';
+      });
+    }
+
+    // Testimonial auto-slider
+    const cards = document.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.testimonial-dots .dot');
+    let current = 0;
+
+    function showTestimonial(index) {
+      cards.forEach(c => c.classList.remove('active'));
+      dots.forEach(d => d.classList.remove('active'));
+      if (cards[index]) cards[index].classList.add('active');
+      if (dots[index]) dots[index].classList.add('active');
+      current = index;
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        showTestimonial(Number(dot.dataset.dot));
+      });
+    });
+
+    if (cards.length > 1) {
+      setInterval(() => {
+        showTestimonial((current + 1) % cards.length);
+      }, 5000);
+    }
+  </script>
+</BaseLayout>

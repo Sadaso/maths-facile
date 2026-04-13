@@ -1,0 +1,161 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  jsonLd?: object;
+}
+
+const { title, description, canonical, jsonLd } = Astro.props;
+const canonicalURL = canonical || new URL(Astro.url.pathname, Astro.site).toString();
+const currentPath = Astro.url.pathname;
+
+import '../styles/global.css';
+
+const navItems = [
+  { label: 'Accueil', href: '/' },
+  { label: 'Seconde', href: '/seconde/' },
+  { label: 'Première', href: '/premiere/' },
+  { label: 'Terminale', href: '/terminale/' },
+  { label: 'Sujets Bac', href: '/sujets-bac-maths/' },
+  { label: 'Contact', href: '/contact/' },
+];
+---
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalURL} />
+  <meta name="theme-color" content="#1a3a5c" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/logo.png" />
+  <link rel="apple-touch-icon" href="/logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="https://maths-facile.com/logo.png" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Maths Facile" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+
+  <!-- KaTeX CSS (CDN — fonts included) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Structured Data -->
+  {jsonLd && (
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  )}
+
+  <link rel="sitemap" href="/sitemap-index.xml" />
+</head>
+<body>
+  <!-- Navbar (static HTML) -->
+  <header class="nav-wrapper">
+    <nav class="nav">
+      <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="Maths Facile" class="nav-logo-img" />
+      </a>
+
+      <div class="nav-center">
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class:list={['nav-link', { active: currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) }]}
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+
+      <div class="nav-right">
+        <a href="/terminale/" class="nav-cta">
+          Commencer gratuitement
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <slot />
+  </main>
+
+  <!-- Footer (static HTML) -->
+  <footer class="site-footer">
+    <div class="footer-grid-bg" aria-hidden="true">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="footerGrid" width="48" height="48" patternUnits="userSpaceOnUse">
+            <path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(148,163,184,0.04)" stroke-width="1" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#footerGrid)" />
+      </svg>
+    </div>
+
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-brand-mark">
+          <span class="footer-brand-icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M4 16C6 16 8 4 10 4C12 4 14 16 16 16" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+            </svg>
+          </span>
+          <span class="footer-brand-name">maths-facile</span>
+        </div>
+        <p class="footer-tagline">Les mathématiques enfin comprises — pas mémorisées.</p>
+        <p class="footer-desc">Plateforme éducative dédiée à l'apprentissage structuré des mathématiques.</p>
+      </div>
+
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Niveaux</h4>
+          <a href="/seconde/">Seconde</a>
+          <a href="/premiere/">Première Spé</a>
+          <a href="/terminale/">Terminale Spé</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <a href="/terminale/">Cours</a>
+          <a href="/sujets-bac-maths/">Sujets Bac</a>
+          <a href="/contact/">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <span class="footer-copyright">© {new Date().getFullYear()} maths-facile. Tous droits réservés.</span>
+        <span class="footer-made">Conçu avec rigueur pour les élèves ambitieux.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile nav toggle script (minimal) -->
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const center = document.querySelector('.nav-center');
+    if (toggle && center) {
+      toggle.addEventListener('click', () => center.classList.toggle('open'));
+    }
+  </script>
+</body>
+</html>

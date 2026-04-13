@@ -1,0 +1,22 @@
+{
+  "name": "Maths Facile",
+  "short_name": "MathsFacile",
+  "description": "Cours, fiches et exercices de maths pour le lycée",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1B2A4A",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
