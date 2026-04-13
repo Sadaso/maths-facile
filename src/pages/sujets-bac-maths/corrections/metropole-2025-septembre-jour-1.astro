@@ -5,8 +5,8 @@ import { tex } from '../../../utils/katex.js';
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "Corrigé Bac Maths 2025 Métropole Septembre Jour 1",
-  "description": "Correction détaillée du sujet de mathématiques spécialité du baccalauréat 2025, Métropole Septembre Jour 1, 9 septembre 2025.",
+  "name": "Bac Maths 2025 Métropole Septembre Jour 1 — Sujet et Corrigé",
+  "description": "Sujet complet et correction détaillée du bac maths 2025 Métropole Septembre Jour 1 (9 septembre 2025). Équation différentielle, géométrie dans l'espace, suites, probabilités.",
   "datePublished": "2025-09-09",
   "author": { "@type": "Organization", "name": "Maths Facile", "url": "https://maths-facile.com" },
   "publisher": { "@type": "Organization", "name": "Maths Facile" },
@@ -16,792 +16,1013 @@ const jsonLd = {
 ---
 
 <BaseLayout
-  title="Corrigé Bac Maths 2025 Métropole Septembre Jour 1 — Correction détaillée | Maths Facile"
-  description="Correction complète et détaillée du bac maths 2025 Métropole Septembre Jour 1 (9 septembre 2025). Équation différentielle, géométrie dans l'espace, suites, probabilités."
+  title="Bac Maths 2025 Métropole Septembre Jour 1 — Sujet et Corrigé détaillé | Maths Facile"
+  description="Sujet complet et correction détaillée du bac maths 2025 Métropole Septembre Jour 1 (9 septembre 2025). Équation différentielle, géométrie dans l'espace, suites, probabilités."
   jsonLd={jsonLd}
 >
   <nav aria-label="Fil d'Ariane" class="breadcrumbs">
-    <a href="/">Accueil</a> &gt; <a href="/sujets-bac-maths/">Sujets Bac</a> &gt; <a href="/sujets-bac-maths/2025/">Session 2025</a> &gt; Métropole Septembre Jour 1
+    <a href="/">Accueil</a> &gt; <a href="/sujets-bac-maths/">Sujets Bac</a> &gt; <a href="/sujets-bac-maths/2025/">Session 2025</a> &gt; Metropole Septembre Jour 1
   </nav>
 
   <article class="course-document">
-    <h1>Corrigé — Bac Maths 2025 Métropole Septembre Jour 1</h1>
+    <h1>Bac Maths 2025 — Metropole Septembre Jour 1</h1>
     <p class="subtitle">9 septembre 2025 — 4 exercices — 20 points</p>
 
     <div class="themes-summary">
-      <strong>Thèmes abordés :</strong>
-      <ul>
-        <li><strong>Exercice 1 (5 pts)</strong> — Équation différentielle, glycémie, intégration par parties</li>
-        <li><strong>Exercice 2 (5 pts)</strong> — Géométrie dans l'espace : cube, plans, projeté orthogonal, volume</li>
-        <li><strong>Exercice 3 (6 pts)</strong> — Suites, convergence, algorithme Python</li>
-        <li><strong>Exercice 4 (4 pts)</strong> — Vrai/Faux : dénombrement, probabilités conditionnelles, loi binomiale, espérance</li>
-      </ul>
+      <h2>Themes abordes</h2>
+      <div class="theme-tags">
+        <a href="/terminale/primitives-equations-differentielles/">Equations differentielles</a>
+        <a href="/terminale/calcul-integral/">Calcul integral</a>
+        <a href="/terminale/vecteurs-droites-plans-espace/">Geometrie dans l'espace</a>
+        <a href="/terminale/orthogonalite-distances-espace/">Orthogonalite</a>
+        <a href="/terminale/suites-numeriques/">Suites</a>
+        <a href="/terminale/epreuves-independantes-loi-binomiale/">Probabilites</a>
+        <a href="/terminale/denombrement/">Denombrement</a>
+      </div>
     </div>
 
-    <!-- ======================================================== -->
-    <!--  EXERCICE 1 — Équation différentielle (5 points)         -->
-    <!-- ======================================================== -->
-    <section class="exercise-correction">
-      <h2>Exercice 1 — Équation différentielle et glycémie (5 points)</h2>
+    <!-- TAB BUTTONS -->
+    <div class="bac-tabs">
+      <button class="bac-tab active" data-tab="sujet">Sujet</button>
+      <button class="bac-tab" data-tab="correction">Correction</button>
+    </div>
 
-      <div class="methode-box">
-        <strong>Rappels utiles :</strong> Équations différentielles du premier ordre <span set:html={tex("y' + ay = f(t)")} />, solution particulière, théorème des valeurs intermédiaires, intégration par parties.
-      </div>
+    <!-- ============================================================ -->
+    <!--                    ONGLET SUJET                              -->
+    <!-- ============================================================ -->
+    <div id="bac-sujet" class="bac-panel active">
 
-      <!-- Partie A -->
-      <div class="exercise-part">
-        <h3>Partie A — Résolution de l'équation différentielle</h3>
+      <!-- ======== EXERCICE 1 — Enonce ======== -->
+      <section class="exercise-block">
+        <h2>Exercice 1 — (5 points)</h2>
+        <p><em>Les deux parties de cet exercice peuvent etre traitees de maniere independante.</em></p>
 
-        <p>On considère l'équation différentielle <span set:html={tex("(E) : y' + 0{,}4y = e^{-0{,}4t}")} />.</p>
+        <p>Apres un repas, la glycemie (taux de sucre dans le sang, en g.L<sup>-1</sup>) d'une personne est modelisee par une fonction <span set:html={tex('f')} /> definie sur l'intervalle <span set:html={tex('[0\\,;\\,6]')} />.</p>
+        <p>Le temps <span set:html={tex('t')} /> est exprime en heures apres le repas. On a <span set:html={tex('f(0) = 1')} />.</p>
 
-        <!-- Question 1 -->
-        <div class="question">
-          <h4>1. Vérifier que <span set:html={tex('u(t) = t\\,e^{-0{,}4t}')} /> est solution de <span set:html={tex('(E)')} /></h4>
-          <div class="correction">
-            <p>Calculons <span set:html={tex("u'(t)")} /> :</p>
-            <div set:html={tex("u'(t) = 1 \\times e^{-0{,}4t} + t \\times (-0{,}4)\\,e^{-0{,}4t} = (1 - 0{,}4t)\\,e^{-0{,}4t}", true)} />
-            <p>Vérifions que <span set:html={tex("u'(t) + 0{,}4\\,u(t) = e^{-0{,}4t}")} /> :</p>
-            <div set:html={tex("u'(t) + 0{,}4\\,u(t) = (1 - 0{,}4t)\\,e^{-0{,}4t} + 0{,}4 \\times t\\,e^{-0{,}4t}", true)} />
-            <div set:html={tex('= (1 - 0{,}4t + 0{,}4t)\\,e^{-0{,}4t} = e^{-0{,}4t} \\quad \\checkmark', true)} />
-            <div class="resultat-box" set:html={tex("u'(t) + 0{,}4\\,u(t) = e^{-0{,}4t} : u \\text{ est bien solution de } (E)", true)} />
-          </div>
+        <h3>Partie A — Resolution de l'equation differentielle</h3>
+        <p>On considere l'equation differentielle :</p>
+        <div set:html={tex("(E) : y' + 0{,}4\\,y = e^{-0{,}4t}", true)} />
+
+        <p><strong>1.</strong> Verifier que la fonction <span set:html={tex('u')} /> definie sur <span set:html={tex('[0\\,;\\,6]')} /> par <span set:html={tex('u(t) = t\\,e^{-0{,}4t}')} /> est une solution de <span set:html={tex('(E)')} />.</p>
+
+        <p><strong>2.</strong></p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>a.</strong> On note <span set:html={tex("(H) : y' + 0{,}4\\,y = 0")} /> l'equation differentielle homogene associee a <span set:html={tex('(E)')} />. Demontrer que si <span set:html={tex('g')} /> est solution de <span set:html={tex('(H)')} />, alors <span set:html={tex('f = g + u')} /> est solution de <span set:html={tex('(E)')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>b.</strong> Resoudre l'equation differentielle <span set:html={tex("(H) : y' + 0{,}4\\,y = 0")} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>c.</strong> En deduire les solutions de <span set:html={tex('(E)')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>d.</strong> Determiner la solution <span set:html={tex('f')} /> de <span set:html={tex('(E)')} /> telle que <span set:html={tex('f(0) = 1')} />.</p>
+
+        <h3>Partie B — Application a la glycemie</h3>
+        <p>On admet que la glycemie est modelisee par <span set:html={tex('f(t) = (t + 1)\\,e^{-0{,}4t}')} /> sur <span set:html={tex('[0\\,;\\,6]')} />.</p>
+
+        <p><strong>1.</strong></p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>a.</strong> Montrer que <span set:html={tex("f'(t) = (-0{,}4t + 0{,}6)\\,e^{-0{,}4t}")} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>b.</strong> Etudier les variations de <span set:html={tex('f')} /> sur <span set:html={tex('[0\\,;\\,6]')} /> et dresser le tableau de variations.</p>
+
+        <!-- SVG Graph: f(t) = (t+1)e^{-0.4t} -->
+        <div class="svg-figure">
+          <svg viewBox="0 0 460 280" xmlns="http://www.w3.org/2000/svg" class="figure-svg" role="img" aria-label="Courbe representative de f(t) = (t+1)e^(-0.4t)">
+            <!-- Axes -->
+            <line x1="50" y1="240" x2="430" y2="240" stroke="var(--slate-400)" stroke-width="1.5" />
+            <line x1="50" y1="240" x2="50" y2="20" stroke="var(--slate-400)" stroke-width="1.5" />
+            <!-- Tick marks x -->
+            <line x1="113" y1="236" x2="113" y2="244" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="110" y="258" font-size="11" fill="var(--slate-500)">1</text>
+            <line x1="176" y1="236" x2="176" y2="244" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="173" y="258" font-size="11" fill="var(--slate-500)">2</text>
+            <line x1="239" y1="236" x2="239" y2="244" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="236" y="258" font-size="11" fill="var(--slate-500)">3</text>
+            <line x1="302" y1="236" x2="302" y2="244" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="299" y="258" font-size="11" fill="var(--slate-500)">4</text>
+            <line x1="365" y1="236" x2="365" y2="244" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="362" y="258" font-size="11" fill="var(--slate-500)">5</text>
+            <line x1="428" y1="236" x2="428" y2="244" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="425" y="258" font-size="11" fill="var(--slate-500)">6</text>
+            <!-- Tick marks y -->
+            <line x1="46" y1="100" x2="54" y2="100" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="35" y="104" font-size="11" fill="var(--slate-500)">1</text>
+            <line x1="46" y1="170" x2="54" y2="170" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="25" y="174" font-size="11" fill="var(--slate-500)">0,5</text>
+            <!-- Asymptote y=0 (axis) -->
+            <line x1="50" y1="240" x2="430" y2="240" stroke="var(--red-300)" stroke-width="1" stroke-dasharray="6,4" />
+            <!-- Seuil hypoglycemie y=0.7 -->
+            <line x1="50" y1="142" x2="430" y2="142" stroke="var(--orange-400)" stroke-width="1" stroke-dasharray="4,3" />
+            <text x="350" y="136" font-size="10" fill="var(--orange-500)" font-style="italic">y = 0,7</text>
+            <!-- Curve f(t) = (t+1)e^{-0.4t}: f(0)=1, f(1.5)~1.37, f(3)~1.2, f(6)~0.63 -->
+            <!-- Key points: f(0)=1 at y=100, f(1.5)=1.372 at y~48, f(6)=0.635 at y~151 -->
+            <path d="M50,100 Q82,60 113,52 Q144,40 145,40 Q160,42 176,62 Q210,90 239,118 Q270,140 302,156 Q340,168 365,176 Q400,184 428,190" fill="none" stroke="var(--blue-600)" stroke-width="2.5" />
+            <!-- Maximum point at t=1.5 -->
+            <circle cx="144" cy="40" r="4" fill="var(--emerald-600)" />
+            <text x="148" y="34" font-size="12" fill="var(--emerald-700)" font-weight="600">max</text>
+            <!-- Point f(0) = 1 -->
+            <circle cx="50" cy="100" r="4" fill="var(--blue-600)" />
+            <text x="55" y="95" font-size="11" fill="var(--blue-700)">f(0) = 1</text>
+            <!-- Labels -->
+            <text x="410" y="195" font-size="13" fill="var(--blue-700)" font-style="italic" font-weight="600">f</text>
+            <text x="40" y="15" font-size="13" fill="var(--slate-500)" font-style="italic">y</text>
+            <text x="415" y="258" font-size="13" fill="var(--slate-500)" font-style="italic">t</text>
+          </svg>
         </div>
 
-        <!-- Question 2a -->
-        <div class="question">
-          <h4>2.a. Démontrer que si <span set:html={tex('g')} /> est solution de <span set:html={tex('(H)')} /> alors <span set:html={tex('f = g + u')} /> est solution de <span set:html={tex('(E)')} /></h4>
-          <div class="correction">
-            <p>On pose <span set:html={tex('g(t) = f(t) - u(t)')} />, c'est-à-dire <span set:html={tex('f(t) = g(t) + u(t)')} />.</p>
-            <p>Supposons que <span set:html={tex('g')} /> est solution de <span set:html={tex("(H) : y' + 0{,}4y = 0")} />, c'est-à-dire <span set:html={tex("g'(t) + 0{,}4\\,g(t) = 0")} />.</p>
-            <p>Calculons <span set:html={tex("f'(t) + 0{,}4\\,f(t)")} /> :</p>
-            <div set:html={tex("f'(t) + 0{,}4\\,f(t) = g'(t) + u'(t) + 0{,}4\\,g(t) + 0{,}4\\,u(t)", true)} />
-            <div set:html={tex("= \\big(g'(t) + 0{,}4\\,g(t)\\big) + \\big(u'(t) + 0{,}4\\,u(t)\\big)", true)} />
-            <div set:html={tex("= 0 + e^{-0{,}4t} = e^{-0{,}4t}", true)} />
-            <p>Donc <span set:html={tex('f')} /> est bien solution de <span set:html={tex('(E)')} />.</p>
-            <div class="resultat-box" set:html={tex("f'(t) + 0{,}4\\,f(t) = e^{-0{,}4t} \\quad \\checkmark", true)} />
-          </div>
+        <p><strong>2.</strong></p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>a.</strong> On dit que la personne est en hypoglycemie lorsque sa glycemie est inferieure a <span set:html={tex('0{,}7')} /> g.L<sup>-1</sup>. Demontrer que l'equation <span set:html={tex('f(t) = 0{,}7')} /> admet une unique solution <span set:html={tex('\\alpha')} /> sur <span set:html={tex('[0\\,;\\,6]')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>b.</strong> Donner un encadrement de <span set:html={tex('\\alpha')} /> a <span set:html={tex('10^{-1}')} /> pres et indiquer au bout de combien de temps cette personne est en hypoglycemie.</p>
+
+        <p><strong>3.</strong></p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>a.</strong> Par une integration par parties, montrer que <span set:html={tex('\\displaystyle\\int_0^6 f(t)\\,\\mathrm{d}t = -23{,}75\\,e^{-2{,}4} + 8{,}75')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>b.</strong> En deduire la glycemie moyenne de cette personne sur les six heures suivant le repas.</p>
+      </section>
+
+      <!-- ======== EXERCICE 2 — Enonce ======== -->
+      <section class="exercise-block">
+        <h2>Exercice 2 — (5 points)</h2>
+        <p>On considere le cube <span set:html={tex('ABCDEFGH')} /> d'arete 1 et le point <span set:html={tex('M')} /> tel que <span set:html={tex('\\overrightarrow{BM} = \\overrightarrow{AB}')} />.</p>
+        <p>On se place dans le repere orthonorme <span set:html={tex('\\left(A\\,;\\, \\overrightarrow{AB},\\, \\overrightarrow{AD},\\, \\overrightarrow{AE}\\right)')} />.</p>
+
+        <!-- SVG Cube ABCDEFGH with point M -->
+        <div class="svg-figure">
+          <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" class="figure-svg" role="img" aria-label="Cube ABCDEFGH avec le point M">
+            <!-- Back face DCGH -->
+            <line x1="120" y1="200" x2="300" y2="200" stroke="var(--slate-300)" stroke-width="1" stroke-dasharray="5,3" />
+            <line x1="120" y1="200" x2="120" y2="60" stroke="var(--slate-300)" stroke-width="1" stroke-dasharray="5,3" />
+            <line x1="120" y1="60" x2="300" y2="60" stroke="var(--slate-300)" stroke-width="1" stroke-dasharray="5,3" />
+            <line x1="300" y1="200" x2="300" y2="60" stroke="var(--slate-300)" stroke-width="1" stroke-dasharray="5,3" />
+            <!-- Front face ABFE -->
+            <line x1="60" y1="280" x2="240" y2="280" stroke="var(--blue-600)" stroke-width="2" />
+            <line x1="60" y1="280" x2="60" y2="140" stroke="var(--blue-600)" stroke-width="2" />
+            <line x1="60" y1="140" x2="240" y2="140" stroke="var(--blue-600)" stroke-width="2" />
+            <line x1="240" y1="280" x2="240" y2="140" stroke="var(--blue-600)" stroke-width="2" />
+            <!-- Connecting edges -->
+            <line x1="60" y1="280" x2="120" y2="200" stroke="var(--slate-400)" stroke-width="1.5" stroke-dasharray="5,3" />
+            <line x1="240" y1="280" x2="300" y2="200" stroke="var(--slate-400)" stroke-width="1.5" />
+            <line x1="60" y1="140" x2="120" y2="60" stroke="var(--slate-400)" stroke-width="1.5" />
+            <line x1="240" y1="140" x2="300" y2="60" stroke="var(--slate-400)" stroke-width="1.5" />
+            <!-- Segment BM -->
+            <line x1="240" y1="280" x2="420" y2="280" stroke="var(--red-500)" stroke-width="2" stroke-dasharray="6,3" />
+            <!-- Point M -->
+            <circle cx="420" cy="280" r="6" fill="var(--red-500)" />
+            <text x="425" y="300" font-size="14" fill="var(--red-600)" font-weight="700">M(2;0;0)</text>
+            <!-- Vertex labels -->
+            <circle cx="60" cy="280" r="4" fill="var(--blue-700)" />
+            <text x="30" y="295" font-size="14" fill="var(--blue-800)" font-weight="700">A</text>
+            <circle cx="240" cy="280" r="4" fill="var(--blue-700)" />
+            <text x="245" y="298" font-size="14" fill="var(--blue-800)" font-weight="700">B</text>
+            <circle cx="300" cy="200" r="4" fill="var(--blue-700)" />
+            <text x="308" y="215" font-size="14" fill="var(--blue-800)" font-weight="700">C</text>
+            <circle cx="120" cy="200" r="4" fill="var(--blue-700)" />
+            <text x="96" y="215" font-size="14" fill="var(--blue-800)" font-weight="700">D</text>
+            <circle cx="60" cy="140" r="4" fill="var(--blue-700)" />
+            <text x="30" y="138" font-size="14" fill="var(--blue-800)" font-weight="700">E</text>
+            <circle cx="240" cy="140" r="4" fill="var(--blue-700)" />
+            <text x="248" y="135" font-size="14" fill="var(--blue-800)" font-weight="700">F</text>
+            <circle cx="300" cy="60" r="4" fill="var(--blue-700)" />
+            <text x="308" y="55" font-size="14" fill="var(--blue-800)" font-weight="700">G</text>
+            <circle cx="120" cy="60" r="4" fill="var(--blue-700)" />
+            <text x="96" y="55" font-size="14" fill="var(--blue-800)" font-weight="700">H</text>
+          </svg>
         </div>
 
-        <!-- Question 2b -->
-        <div class="question">
-          <h4>2.b. Résoudre l'équation différentielle <span set:html={tex("(H) : y' + 0{,}4y = 0")} /></h4>
-          <div class="correction">
-            <div class="methode-box">
-              <strong>Méthode :</strong> Les solutions de <span set:html={tex("y' + ay = 0")} /> sont les fonctions <span set:html={tex('y(t) = C\\,e^{-at}')} /> avec <span set:html={tex('C \\in \\mathbb{R}')} />.
-            </div>
-            <p>Ici <span set:html={tex('a = 0{,}4')} />, donc les solutions de <span set:html={tex('(H)')} /> sont :</p>
-            <div class="resultat-box" set:html={tex('g(t) = C\\,e^{-0{,}4t}, \\quad C \\in \\mathbb{R}', true)} />
-          </div>
-        </div>
-
-        <!-- Question 2c -->
-        <div class="question">
-          <h4>2.c. En déduire les solutions de <span set:html={tex('(E)')} /></h4>
-          <div class="correction">
-            <p>D'après la question 2.a. (et sa réciproque admise), <span set:html={tex('f')} /> est solution de <span set:html={tex('(E)')} /> si et seulement si <span set:html={tex('f - u')} /> est solution de <span set:html={tex('(H)')} />.</p>
-            <p>Les solutions de <span set:html={tex('(E)')} /> sont donc :</p>
-            <div set:html={tex('f(t) = u(t) + C\\,e^{-0{,}4t} = t\\,e^{-0{,}4t} + C\\,e^{-0{,}4t} = (t + C)\\,e^{-0{,}4t}', true)} />
-            <div class="resultat-box" set:html={tex('f(t) = (t + C)\\,e^{-0{,}4t}, \\quad C \\in \\mathbb{R}', true)} />
-          </div>
-        </div>
-
-        <!-- Question 2d -->
-        <div class="question">
-          <h4>2.d. Déterminer la solution <span set:html={tex('f')} /> de <span set:html={tex('(E)')} /> telle que <span set:html={tex('f(0) = 1')} /></h4>
-          <div class="correction">
-            <p>La condition initiale donne :</p>
-            <div set:html={tex('f(0) = (0 + C)\\,e^{0} = C = 1', true)} />
-            <div class="resultat-box" set:html={tex('f(t) = (t + 1)\\,e^{-0{,}4t}', true)} />
-          </div>
-        </div>
-      </div>
-
-      <!-- Partie B -->
-      <div class="exercise-part">
-        <h3>Partie B — Application à la glycémie</h3>
-
-        <p>La glycémie (en g.L<sup>-1</sup>) est modélisée par <span set:html={tex('f(t) = (t + 1)\\,e^{-0{,}4t}')} /> sur <span set:html={tex('[0\\,;\\,6]')} />.</p>
-
-        <!-- Question B1a -->
-        <div class="question">
-          <h4>1.a. Montrer que <span set:html={tex("f'(t) = (-0{,}4t + 0{,}6)\\,e^{-0{,}4t}")} /></h4>
-          <div class="correction">
-            <p>On dérive <span set:html={tex('f(t) = (t + 1)\\,e^{-0{,}4t}')} /> avec la formule du produit :</p>
-            <div set:html={tex("f'(t) = 1 \\times e^{-0{,}4t} + (t + 1) \\times (-0{,}4)\\,e^{-0{,}4t}", true)} />
-            <div set:html={tex("f'(t) = e^{-0{,}4t}\\big[1 - 0{,}4(t + 1)\\big]", true)} />
-            <div set:html={tex("f'(t) = e^{-0{,}4t}(1 - 0{,}4t - 0{,}4)", true)} />
-            <div class="resultat-box" set:html={tex("f'(t) = (-0{,}4t + 0{,}6)\\,e^{-0{,}4t}", true)} />
-          </div>
-        </div>
-
-        <!-- Question B1b -->
-        <div class="question">
-          <h4>1.b. Variations de <span set:html={tex('f')} /> sur <span set:html={tex('[0\\,;\\,6]')} /></h4>
-          <div class="correction">
-            <p>Puisque <span set:html={tex('e^{-0{,}4t} > 0')} /> pour tout <span set:html={tex('t')} />, le signe de <span set:html={tex("f'(t)")} /> est celui de <span set:html={tex('-0{,}4t + 0{,}6')} />.</p>
-            <div set:html={tex('-0{,}4t + 0{,}6 = 0 \\iff t = \\dfrac{0{,}6}{0{,}4} = 1{,}5', true)} />
-            <ul>
-              <li>Pour <span set:html={tex('t \\in [0\\,;\\,1{,}5[')} /> : <span set:html={tex("-0{,}4t + 0{,}6 > 0")} />, donc <span set:html={tex("f'(t) > 0")} /> et <span set:html={tex('f')} /> est <strong>croissante</strong>.</li>
-              <li>Pour <span set:html={tex('t \\in ]1{,}5\\,;\\,6]')} /> : <span set:html={tex("-0{,}4t + 0{,}6 < 0")} />, donc <span set:html={tex("f'(t) < 0")} /> et <span set:html={tex('f')} /> est <strong>décroissante</strong>.</li>
-            </ul>
-
-            <p>Valeurs aux bornes et au maximum :</p>
-            <div set:html={tex('f(0) = 1 \\times e^0 = 1', true)} />
-            <div set:html={tex('f(1{,}5) = 2{,}5 \\times e^{-0{,}6} \\approx 2{,}5 \\times 0{,}5488 \\approx 1{,}372', true)} />
-            <div set:html={tex('f(6) = 7 \\times e^{-2{,}4} \\approx 7 \\times 0{,}0907 \\approx 0{,}635', true)} />
-
-            <p><strong>Tableau de variations :</strong></p>
-            <div set:html={tex('\\begin{array}{|c|ccccc|} \\hline t & 0 & & 1{,}5 & & 6 \\\\ \\hline f\'(t) & & + & 0 & - & \\\\ \\hline & & \\nearrow & 1{,}372 & \\searrow & \\\\ f(t) & 1 & & & & 0{,}635 \\\\ \\hline \\end{array}', true)} />
-
-            <div class="resultat-box" set:html={tex('f \\text{ est croissante sur } [0\\,;\\,1{,}5] \\text{ et décroissante sur } [1{,}5\\,;\\,6]', true)} />
-          </div>
-        </div>
-
-        <!-- Question B2a -->
-        <div class="question">
-          <h4>2.a. Démontrer que <span set:html={tex('f(t) = 0{,}7')} /> admet une unique solution <span set:html={tex('\\alpha')} /> sur <span set:html={tex('[0\\,;\\,6]')} /></h4>
-          <div class="correction">
-            <div class="methode-box">
-              <strong>Méthode :</strong> On utilise le théorème des valeurs intermédiaires sur un intervalle où <span set:html={tex('f')} /> est strictement monotone.
-            </div>
-            <p>Sur l'intervalle <span set:html={tex('[1{,}5\\,;\\,6]')} />, la fonction <span set:html={tex('f')} /> est <strong>continue</strong> et <strong>strictement décroissante</strong>.</p>
-            <p>De plus :</p>
-            <ul>
-              <li><span set:html={tex('f(1{,}5) \\approx 1{,}372 > 0{,}7')} /></li>
-              <li><span set:html={tex('f(6) \\approx 0{,}635 < 0{,}7')} /></li>
-            </ul>
-            <p>D'après le <strong>théorème des valeurs intermédiaires</strong>, l'équation <span set:html={tex('f(t) = 0{,}7')} /> admet une <strong>unique</strong> solution <span set:html={tex('\\alpha')} /> dans <span set:html={tex('[1{,}5\\,;\\,6]')} />.</p>
-            <p>Sur <span set:html={tex('[0\\,;\\,1{,}5]')} />, <span set:html={tex('f')} /> est croissante avec <span set:html={tex('f(0) = 1 > 0{,}7')} />, donc <span set:html={tex('f(t) \\geqslant 1 > 0{,}7')} /> pour tout <span set:html={tex('t \\in [0\\,;\\,1{,}5]')} /> : pas de solution sur cet intervalle.</p>
-
-            <div class="resultat-box" set:html={tex('f(t) = 0{,}7 \\text{ admet une unique solution } \\alpha \\in [1{,}5\\,;\\,6]', true)} />
-          </div>
-        </div>
-
-        <!-- Question B2b -->
-        <div class="question">
-          <h4>2.b. Au bout de combien de temps cette personne est-elle en hypoglycémie ?</h4>
-          <div class="correction">
-            <p>On cherche <span set:html={tex('\\alpha')} /> tel que <span set:html={tex('(\\alpha + 1)\\,e^{-0{,}4\\alpha} = 0{,}7')} />. Par balayage à la calculatrice :</p>
-            <div set:html={tex('f(5) = 6\\,e^{-2} \\approx 0{,}812', true)} />
-            <div set:html={tex('f(5{,}5) = 6{,}5\\,e^{-2{,}2} \\approx 0{,}720', true)} />
-            <div set:html={tex('f(5{,}6) = 6{,}6\\,e^{-2{,}24} \\approx 0{,}703', true)} />
-            <div set:html={tex('f(5{,}7) = 6{,}7\\,e^{-2{,}28} \\approx 0{,}685', true)} />
-            <p>On a <span set:html={tex('f(5{,}6) \\approx 0{,}703 > 0{,}7')} /> et <span set:html={tex('f(5{,}7) \\approx 0{,}685 < 0{,}7')} />, donc <span set:html={tex('\\alpha \\approx 5{,}65')} />.</p>
-            <p>Cela correspond à environ <strong>5 heures et 39 minutes</strong> après le repas.</p>
-
-            <div class="attention-box">
-              <strong>Attention :</strong> La personne est en hypoglycémie lorsque <span set:html={tex('f(t) < 0{,}7')} />, c'est-à-dire pour <span set:html={tex('t > \\alpha')} />.
-            </div>
-
-            <div class="resultat-box" set:html={tex('\\alpha \\approx 5{,}65 \\text{, soit environ } 5 \\text{ h } 39 \\text{ min après le repas}', true)} />
-          </div>
-        </div>
-
-        <!-- Question B3a -->
-        <div class="question">
-          <h4>3.a. Par intégration par parties, montrer que <span set:html={tex('\\displaystyle\\int_0^6 f(t)\\,\\mathrm{d}t = -23{,}75\\,e^{-2{,}4} + 8{,}75')} /></h4>
-          <div class="correction">
-            <div class="methode-box">
-              <strong>Méthode :</strong> On pose <span set:html={tex('\\displaystyle\\int_0^6 (t+1)\\,e^{-0{,}4t}\\,\\mathrm{d}t')} /> et on effectue une intégration par parties.
-            </div>
-
-            <p>On pose :</p>
-            <ul>
-              <li><span set:html={tex('u(t) = t + 1')} /> donc <span set:html={tex("u'(t) = 1")} /></li>
-              <li><span set:html={tex("v'(t) = e^{-0{,}4t}")} /> donc <span set:html={tex('v(t) = \\dfrac{1}{-0{,}4}\\,e^{-0{,}4t} = -2{,}5\\,e^{-0{,}4t}')} /></li>
-            </ul>
-
-            <p>Par intégration par parties :</p>
-            <div set:html={tex('\\int_0^6 (t+1)\\,e^{-0{,}4t}\\,\\mathrm{d}t = \\Big[-(t+1) \\times 2{,}5\\,e^{-0{,}4t}\\Big]_0^6 - \\int_0^6 1 \\times \\big(-2{,}5\\,e^{-0{,}4t}\\big)\\,\\mathrm{d}t', true)} />
-            <div set:html={tex('= \\Big[-2{,}5(t+1)\\,e^{-0{,}4t}\\Big]_0^6 + 2{,}5\\int_0^6 e^{-0{,}4t}\\,\\mathrm{d}t', true)} />
-
-            <p>Calculons chaque terme :</p>
-            <div set:html={tex('\\Big[-2{,}5(t+1)\\,e^{-0{,}4t}\\Big]_0^6 = -2{,}5 \\times 7 \\times e^{-2{,}4} - \\big(-2{,}5 \\times 1 \\times e^{0}\\big) = -17{,}5\\,e^{-2{,}4} + 2{,}5', true)} />
-
-            <div set:html={tex('2{,}5\\int_0^6 e^{-0{,}4t}\\,\\mathrm{d}t = 2{,}5\\Big[-2{,}5\\,e^{-0{,}4t}\\Big]_0^6 = 2{,}5\\big(-2{,}5\\,e^{-2{,}4} + 2{,}5\\big) = -6{,}25\\,e^{-2{,}4} + 6{,}25', true)} />
-
-            <p>En additionnant :</p>
-            <div set:html={tex('\\int_0^6 f(t)\\,\\mathrm{d}t = -17{,}5\\,e^{-2{,}4} + 2{,}5 - 6{,}25\\,e^{-2{,}4} + 6{,}25', true)} />
-            <div set:html={tex('= -(17{,}5 + 6{,}25)\\,e^{-2{,}4} + (2{,}5 + 6{,}25)', true)} />
-
-            <div class="resultat-box" set:html={tex('\\int_0^6 f(t)\\,\\mathrm{d}t = -23{,}75\\,e^{-2{,}4} + 8{,}75', true)} />
-          </div>
-        </div>
-
-        <!-- Question B3b -->
-        <div class="question">
-          <h4>3.b. Glycémie moyenne sur les six heures</h4>
-          <div class="correction">
-            <p>La glycémie moyenne est :</p>
-            <div set:html={tex('\\mu = \\dfrac{1}{6 - 0}\\int_0^6 f(t)\\,\\mathrm{d}t = \\dfrac{1}{6}\\big(-23{,}75\\,e^{-2{,}4} + 8{,}75\\big)', true)} />
-            <p>Or <span set:html={tex('e^{-2{,}4} \\approx 0{,}0907')} /> :</p>
-            <div set:html={tex('\\mu \\approx \\dfrac{1}{6}(-23{,}75 \\times 0{,}0907 + 8{,}75) = \\dfrac{1}{6}(-2{,}154 + 8{,}75) = \\dfrac{6{,}596}{6} \\approx 1{,}099', true)} />
-
-            <div class="resultat-box" set:html={tex('\\mu = \\dfrac{-23{,}75\\,e^{-2{,}4} + 8{,}75}{6} \\approx 1{,}10 \\text{ g.L}^{-1}', true)} />
-          </div>
-        </div>
-
-        <!-- Question B3c -->
-        <div class="question">
-          <h4>3.c. Méthode alternative utilisant l'équation différentielle</h4>
-          <div class="correction">
-            <p>Puisque <span set:html={tex('f')} /> est solution de <span set:html={tex("(E) : f'(t) + 0{,}4\\,f(t) = e^{-0{,}4t}")} />, on a :</p>
-            <div set:html={tex("0{,}4\\,f(t) = e^{-0{,}4t} - f'(t)", true)} />
-            <p>En intégrant sur <span set:html={tex('[0\\,;\\,6]')} /> :</p>
-            <div set:html={tex("0{,}4\\int_0^6 f(t)\\,\\mathrm{d}t = \\int_0^6 e^{-0{,}4t}\\,\\mathrm{d}t - \\int_0^6 f'(t)\\,\\mathrm{d}t", true)} />
-            <div set:html={tex("0{,}4\\int_0^6 f(t)\\,\\mathrm{d}t = \\Big[-2{,}5\\,e^{-0{,}4t}\\Big]_0^6 - \\Big[f(t)\\Big]_0^6", true)} />
-            <div set:html={tex('0{,}4\\int_0^6 f(t)\\,\\mathrm{d}t = (-2{,}5\\,e^{-2{,}4} + 2{,}5) - (f(6) - f(0))', true)} />
-            <div set:html={tex('= -2{,}5\\,e^{-2{,}4} + 2{,}5 - 7\\,e^{-2{,}4} + 1 = -9{,}5\\,e^{-2{,}4} + 3{,}5', true)} />
-            <div set:html={tex('\\int_0^6 f(t)\\,\\mathrm{d}t = \\dfrac{-9{,}5\\,e^{-2{,}4} + 3{,}5}{0{,}4} = -23{,}75\\,e^{-2{,}4} + 8{,}75', true)} />
-            <p>On retrouve bien le même résultat <strong>sans intégration par parties</strong>.</p>
-          </div>
-        </div>
-      </div>
-
-      <a class="reviser-link" href="/terminale/primitives-equations-differentielles/">Réviser les équations différentielles →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/calcul-integral/">Réviser le calcul intégral →</a>
-    </section>
-
-    <!-- ======================================================== -->
-    <!--  EXERCICE 2 — Géométrie dans l'espace (5 points)         -->
-    <!-- ======================================================== -->
-    <section class="exercise-correction">
-      <h2>Exercice 2 — Géométrie dans l'espace (5 points)</h2>
-
-      <div class="methode-box">
-        <strong>Rappels utiles :</strong> Produit scalaire dans l'espace, vecteur normal, coplanarité, projeté orthogonal, volume de tétraèdre.
-      </div>
-
-      <p>On considère le cube <span set:html={tex('ABCDEFGH')} /> et le point <span set:html={tex('M')} /> tel que <span set:html={tex('\\overrightarrow{BM} = \\overrightarrow{AB}')} />.</p>
-      <p>On se place dans le repère orthonormé <span set:html={tex('\\left(A\\,;\\, \\overrightarrow{AB},\\, \\overrightarrow{AD},\\, \\overrightarrow{AE}\\right)')} />. Les coordonnées des sommets sont :</p>
-      <div set:html={tex('A(0;0;0), \\; B(1;0;0), \\; C(1;1;0), \\; D(0;1;0)', true)} />
-      <div set:html={tex('E(0;0;1), \\; F(1;0;1), \\; G(1;1;1), \\; H(0;1;1)', true)} />
-      <p>Puisque <span set:html={tex('\\overrightarrow{BM} = \\overrightarrow{AB} = (1;0;0)')} />, on a <span set:html={tex('M = B + (1;0;0) = (2;0;0)')} />.</p>
-
-      <!-- Partie A -->
-      <div class="exercise-part">
         <h3>Partie A</h3>
+        <p><strong>1.</strong> Montrer que les droites <span set:html={tex('(FG)')} /> et <span set:html={tex('(FM)')} /> sont perpendiculaires.</p>
+        <p><strong>2.</strong> Montrer que les points <span set:html={tex('A')} />, <span set:html={tex('M')} />, <span set:html={tex('G')} /> et <span set:html={tex('H')} /> sont coplanaires.</p>
 
-        <!-- Question A1 -->
-        <div class="question">
-          <h4>1. Montrer que les droites <span set:html={tex('(FG)')} /> et <span set:html={tex('(FM)')} /> sont perpendiculaires</h4>
-          <div class="correction">
-            <p>Calculons les vecteurs directeurs :</p>
-            <div set:html={tex('\\overrightarrow{FG} = G - F = (1-1\\,;\\, 1-0\\,;\\, 1-1) = (0\\,;\\,1\\,;\\,0)', true)} />
-            <div set:html={tex('\\overrightarrow{FM} = M - F = (2-1\\,;\\, 0-0\\,;\\, 0-1) = (1\\,;\\,0\\,;\\,-1)', true)} />
-
-            <p>Calculons le produit scalaire :</p>
-            <div set:html={tex('\\overrightarrow{FG} \\cdot \\overrightarrow{FM} = 0 \\times 1 + 1 \\times 0 + 0 \\times (-1) = 0', true)} />
-
-            <p>Le produit scalaire est nul, donc les droites <span set:html={tex('(FG)')} /> et <span set:html={tex('(FM)')} /> sont <strong>perpendiculaires</strong>.</p>
-            <div class="resultat-box" set:html={tex('\\overrightarrow{FG} \\cdot \\overrightarrow{FM} = 0 : \\text{les droites sont perpendiculaires}', true)} />
-          </div>
-        </div>
-
-        <!-- Question A2 -->
-        <div class="question">
-          <h4>2. Montrer que les points <span set:html={tex('A')} />, <span set:html={tex('M')} />, <span set:html={tex('G')} /> et <span set:html={tex('H')} /> sont coplanaires</h4>
-          <div class="correction">
-            <div class="methode-box">
-              <strong>Méthode :</strong> Quatre points sont coplanaires si et seulement si le déterminant de trois vecteurs formés à partir de ces points est nul.
-            </div>
-            <p>Calculons les vecteurs :</p>
-            <div set:html={tex('\\overrightarrow{AM} = (2\\,;\\,0\\,;\\,0)', true)} />
-            <div set:html={tex('\\overrightarrow{AG} = (1\\,;\\,1\\,;\\,1)', true)} />
-            <div set:html={tex('\\overrightarrow{AH} = (0\\,;\\,1\\,;\\,1)', true)} />
-
-            <p>Calculons le déterminant :</p>
-            <div set:html={tex('\\det(\\overrightarrow{AM}, \\overrightarrow{AG}, \\overrightarrow{AH}) = \\begin{vmatrix} 2 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 0 & 1 & 1 \\end{vmatrix}', true)} />
-            <div set:html={tex('= 2(1 \\times 1 - 1 \\times 1) - 1(0 \\times 1 - 0 \\times 1) + 0 = 2 \\times 0 - 0 + 0 = 0', true)} />
-
-            <p>Le déterminant est nul, donc les points <span set:html={tex('A')} />, <span set:html={tex('M')} />, <span set:html={tex('G')} /> et <span set:html={tex('H')} /> sont <strong>coplanaires</strong>.</p>
-            <div class="resultat-box" set:html={tex('\\det(\\overrightarrow{AM}, \\overrightarrow{AG}, \\overrightarrow{AH}) = 0 : \\text{les quatre points sont coplanaires}', true)} />
-          </div>
-        </div>
-      </div>
-
-      <!-- Partie B -->
-      <div class="exercise-part">
         <h3>Partie B</h3>
+        <p><strong>1.</strong> Donner les coordonnees de <span set:html={tex('\\overrightarrow{GM}')} /> et de <span set:html={tex('\\overrightarrow{AH}')} />, et montrer que ces vecteurs ne sont pas colineaires.</p>
+        <p><strong>2.</strong></p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>a.</strong> Donner une representation parametrique de la droite <span set:html={tex('(GM)')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>b.</strong> Montrer que le point d'intersection <span set:html={tex('N')} /> de <span set:html={tex('(GM)')} /> et <span set:html={tex('(AH)')} /> a pour coordonnees <span set:html={tex('(0\\,;\\,2\\,;\\,2)')} />.</p>
+        <p><strong>3.</strong></p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>a.</strong> Montrer que le triangle <span set:html={tex('AMN')} /> est rectangle en <span set:html={tex('A')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>b.</strong> Calculer l'aire du triangle <span set:html={tex('AMN')} />.</p>
+        <p><strong>4.</strong></p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>a.</strong> Determiner les coordonnees du point <span set:html={tex('J')} />, centre de la face <span set:html={tex('BCGF')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>b.</strong> Montrer que <span set:html={tex('\\overrightarrow{FJ}')} /> est un vecteur normal au plan <span set:html={tex('(AMN)')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>c.</strong> Montrer que <span set:html={tex('J')} /> appartient au plan <span set:html={tex('(AMN)')} /> et en deduire que <span set:html={tex('J')} /> est le projete orthogonal de <span set:html={tex('F')} /> sur le plan <span set:html={tex('(AMN)')} />.</p>
+        <p><strong>5.</strong> Montrer que le volume du tetraedre <span set:html={tex('AMNF')} /> est le double de celui de la pyramide <span set:html={tex('BCGFM')} />.</p>
+      </section>
 
-        <!-- Question B1 -->
-        <div class="question">
-          <h4>1. Coordonnées de <span set:html={tex('\\overrightarrow{GM}')} /> et <span set:html={tex('\\overrightarrow{AH}')} />, non-colinéarité</h4>
-          <div class="correction">
-            <div set:html={tex('\\overrightarrow{GM} = M - G = (2-1\\,;\\, 0-1\\,;\\, 0-1) = (1\\,;\\,-1\\,;\\,-1)', true)} />
-            <div set:html={tex('\\overrightarrow{AH} = H - A = (0\\,;\\,1\\,;\\,1)', true)} />
+      <!-- ======== EXERCICE 3 — Enonce ======== -->
+      <section class="exercise-block">
+        <h2>Exercice 3 — (6 points)</h2>
+        <p><em>Les parties A, B et C peuvent etre traitees de maniere independante.</em></p>
 
-            <p>Si ces vecteurs étaient colinéaires, il existerait <span set:html={tex('k \\in \\mathbb{R}')} /> tel que <span set:html={tex('(1\\,;\\,-1\\,;\\,-1) = k(0\\,;\\,1\\,;\\,1)')} />.</p>
-            <p>Or la première coordonnée donne <span set:html={tex('1 = 0 \\times k = 0')} />, ce qui est <strong>impossible</strong>.</p>
-            <div class="resultat-box" set:html={tex('\\overrightarrow{GM} \\text{ et } \\overrightarrow{AH} \\text{ ne sont pas colinéaires}', true)} />
+        <h3>Partie A — Etude de la suite <span set:html={tex('(u_n)')} /></h3>
+        <p>On considere la fonction <span set:html={tex('f')} /> definie sur <span set:html={tex('[2\\,;\\,+\\infty[')} /> par <span set:html={tex('f(x) = \\sqrt{3x - 2}')} /> et la suite <span set:html={tex('(u_n)')} /> definie par <span set:html={tex('u_0 = 6')} /> et, pour tout entier naturel <span set:html={tex('n')} />, <span set:html={tex('u_{n+1} = f(u_n)')} />.</p>
+
+        <p><strong>1.</strong> Justifier le tableau de variations de <span set:html={tex('f')} /> sur <span set:html={tex('[2\\,;\\,+\\infty[')} />.</p>
+        <p><strong>2.</strong></p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>a.</strong> Demontrer par recurrence que, pour tout entier naturel <span set:html={tex('n')} />, <span set:html={tex('2 \\leqslant u_{n+1} \\leqslant u_n \\leqslant 6')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>b.</strong> En deduire que la suite <span set:html={tex('(u_n)')} /> converge.</p>
+        <p><strong>3.</strong> Determiner la limite <span set:html={tex('\\ell')} /> de la suite <span set:html={tex('(u_n)')} />.</p>
+
+        <p><strong>4.</strong> On considere la fonction Python suivante :</p>
+        <pre><code>def rang(a):
+    u = 6
+    n = 0
+    while u >= a:
+        u = (3*u - 2)**0.5
+        n = n + 1
+    return n</code></pre>
+        <p>&nbsp;&nbsp;&nbsp;<strong>a.</strong> Expliquer pourquoi l'instruction <span set:html={tex('\\texttt{rang(2.000001)}')} /> renvoie une valeur.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>b.</strong> Pour quelles valeurs de <span set:html={tex('a')} /> l'instruction <span set:html={tex('\\texttt{rang(a)}')} /> renvoie-t-elle un resultat ?</p>
+
+        <h3>Partie B — Etude de la suite <span set:html={tex('(v_n)')} /></h3>
+        <p>La suite <span set:html={tex('(v_n)')} /> est definie par <span set:html={tex('v_0 = 6')} /> et, pour tout entier naturel <span set:html={tex('n')} />, <span set:html={tex('v_{n+1} = 3 - \\dfrac{2}{v_n}')} />.</p>
+
+        <p><strong>1.</strong> Calculer <span set:html={tex('v_1')} />.</p>
+        <p><strong>2.</strong> On pose, pour tout entier naturel <span set:html={tex('n')} />, <span set:html={tex('w_n = \\dfrac{v_n - 1}{v_n - 2}')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>a.</strong> Demontrer que <span set:html={tex('(w_n)')} /> est une suite geometrique dont on precisera le premier terme et la raison.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>b.</strong> En deduire l'expression de <span set:html={tex('v_n')} /> en fonction de <span set:html={tex('n')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>c.</strong> En deduire la limite de la suite <span set:html={tex('(v_n)')} />.</p>
+        <p><strong>3.</strong> Determiner le plus petit entier <span set:html={tex('n')} /> tel que <span set:html={tex('v_n < 2{,}01')} />.</p>
+
+        <h3>Partie C</h3>
+        <p>Determiner le plus petit entier <span set:html={tex('N')} /> tel que, pour tout <span set:html={tex('n \\geqslant N')} />, <span set:html={tex('u_n')} /> et <span set:html={tex('v_n')} /> appartiennent a l'intervalle <span set:html={tex(']1{,}99\\,;\\,2{,}01[')} />.</p>
+      </section>
+
+      <!-- ======== EXERCICE 4 — Enonce ======== -->
+      <section class="exercise-block">
+        <h2>Exercice 4 — (4 points)</h2>
+        <p><em>Pour chacune des quatre affirmations suivantes, indiquer si elle est vraie ou fausse en justifiant la reponse. Toute reponse non justifiee ne rapporte aucun point.</em></p>
+
+        <p>Un musee propose des visites avec ou sans audioguide. Les billets peuvent etre achetes en ligne ou au guichet. On sait que :</p>
+        <ul>
+          <li><span set:html={tex('70\\,\\%')} /> des visiteurs achetent leur billet en ligne ;</li>
+          <li>parmi les visiteurs ayant achete en ligne, <span set:html={tex('80\\,\\%')} /> optent pour l'audioguide ;</li>
+          <li>au total, <span set:html={tex('32\\,\\%')} /> des visiteurs ne prennent pas l'audioguide.</li>
+        </ul>
+        <p>On note <span set:html={tex('L')} /> l'evenement &laquo; le visiteur a achete en ligne &raquo; et <span set:html={tex('A')} /> l'evenement &laquo; le visiteur choisit l'audioguide &raquo;.</p>
+
+        <p><strong>Affirmation 1.</strong> Un code de validation est constitue de 4 chiffres deux a deux distincts, le premier chiffre etant different de 0. Le nombre de codes differents est <span set:html={tex('5\\,040')} />.</p>
+
+        <p><strong>Affirmation 2.</strong> La probabilite qu'un visiteur ne prenne pas l'audioguide sachant qu'il a achete son billet au guichet est superieure a <span set:html={tex('\\dfrac{2}{3}')} />.</p>
+
+        <p><strong>Affirmation 3.</strong> On choisit au hasard 12 visiteurs. La probabilite qu'exactement la moitie opte pour l'audioguide est egale a <span set:html={tex('924 \\times 0{,}2176^6')} />.</p>
+
+        <p><strong>Affirmation 4.</strong> Le temps de parcours peut etre modelise par une variable aleatoire <span set:html={tex('X')} /> dont la loi est donnee par :</p>
+        <div set:html={tex('\\begin{array}{|c|c|c|c|} \\hline x_i & 50 \\text{ min} & 80 \\text{ min} & 100 \\text{ min} \\\\ \\hline P(X = x_i) & 0{,}1 & 0{,}6 & 0{,}3 \\\\ \\hline \\end{array}', true)} />
+        <p>L'esperance de <span set:html={tex('X')} /> est 77 minutes.</p>
+      </section>
+
+    </div>
+
+    <!-- ============================================================ -->
+    <!--                   ONGLET CORRECTION                          -->
+    <!-- ============================================================ -->
+    <div id="bac-correction" class="bac-panel" style="display:none;">
+
+      <!-- ======================================================== -->
+      <!--  EXERCICE 1 — Equation differentielle (5 points)         -->
+      <!-- ======================================================== -->
+      <section class="exercise-correction">
+        <h2>Exercice 1 — Equation differentielle et glycemie (5 points)</h2>
+
+        <div class="methode-box">
+          <strong>Rappels utiles :</strong> Equations differentielles du premier ordre <span set:html={tex("y' + ay = f(t)")} />, solution particuliere, theoreme des valeurs intermediaires, integration par parties.
+        </div>
+
+        <!-- Partie A -->
+        <div class="exercise-part">
+          <h3>Partie A — Resolution de l'equation differentielle</h3>
+
+          <p>On considere l'equation differentielle <span set:html={tex("(E) : y' + 0{,}4y = e^{-0{,}4t}")} />.</p>
+
+          <!-- Question 1 -->
+          <div class="question">
+            <h4>1. Verifier que <span set:html={tex('u(t) = t\\,e^{-0{,}4t}')} /> est solution de <span set:html={tex('(E)')} /></h4>
+            <div class="correction">
+              <p>Calculons <span set:html={tex("u'(t)")} /> :</p>
+              <div set:html={tex("u'(t) = 1 \\times e^{-0{,}4t} + t \\times (-0{,}4)\\,e^{-0{,}4t} = (1 - 0{,}4t)\\,e^{-0{,}4t}", true)} />
+              <p>Verifions que <span set:html={tex("u'(t) + 0{,}4\\,u(t) = e^{-0{,}4t}")} /> :</p>
+              <div set:html={tex("u'(t) + 0{,}4\\,u(t) = (1 - 0{,}4t)\\,e^{-0{,}4t} + 0{,}4 \\times t\\,e^{-0{,}4t}", true)} />
+              <div set:html={tex('= (1 - 0{,}4t + 0{,}4t)\\,e^{-0{,}4t} = e^{-0{,}4t} \\quad \\checkmark', true)} />
+              <div class="resultat-box" set:html={tex("u'(t) + 0{,}4\\,u(t) = e^{-0{,}4t} : u \\text{ est bien solution de } (E)", true)} />
+            </div>
+          </div>
+
+          <!-- Question 2a -->
+          <div class="question">
+            <h4>2.a. Demontrer que si <span set:html={tex('g')} /> est solution de <span set:html={tex('(H)')} /> alors <span set:html={tex('f = g + u')} /> est solution de <span set:html={tex('(E)')} /></h4>
+            <div class="correction">
+              <p>On pose <span set:html={tex('f(t) = g(t) + u(t)')} />.</p>
+              <p>Supposons que <span set:html={tex('g')} /> est solution de <span set:html={tex("(H) : y' + 0{,}4y = 0")} />, c'est-a-dire <span set:html={tex("g'(t) + 0{,}4\\,g(t) = 0")} />.</p>
+              <p>Calculons <span set:html={tex("f'(t) + 0{,}4\\,f(t)")} /> :</p>
+              <div set:html={tex("f'(t) + 0{,}4\\,f(t) = g'(t) + u'(t) + 0{,}4\\,g(t) + 0{,}4\\,u(t)", true)} />
+              <div set:html={tex("= \\big(g'(t) + 0{,}4\\,g(t)\\big) + \\big(u'(t) + 0{,}4\\,u(t)\\big)", true)} />
+              <div set:html={tex("= 0 + e^{-0{,}4t} = e^{-0{,}4t}", true)} />
+              <p>Donc <span set:html={tex('f')} /> est bien solution de <span set:html={tex('(E)')} />.</p>
+              <div class="resultat-box" set:html={tex("f'(t) + 0{,}4\\,f(t) = e^{-0{,}4t} \\quad \\checkmark", true)} />
+            </div>
+          </div>
+
+          <!-- Question 2b -->
+          <div class="question">
+            <h4>2.b. Resoudre l'equation differentielle <span set:html={tex("(H) : y' + 0{,}4y = 0")} /></h4>
+            <div class="correction">
+              <div class="methode-box">
+                <strong>Methode :</strong> Les solutions de <span set:html={tex("y' + ay = 0")} /> sont les fonctions <span set:html={tex('y(t) = C\\,e^{-at}')} /> avec <span set:html={tex('C \\in \\mathbb{R}')} />.
+              </div>
+              <p>Ici <span set:html={tex('a = 0{,}4')} />, donc les solutions de <span set:html={tex('(H)')} /> sont :</p>
+              <div class="resultat-box" set:html={tex('g(t) = C\\,e^{-0{,}4t}, \\quad C \\in \\mathbb{R}', true)} />
+            </div>
+          </div>
+
+          <!-- Question 2c -->
+          <div class="question">
+            <h4>2.c. En deduire les solutions de <span set:html={tex('(E)')} /></h4>
+            <div class="correction">
+              <p>D'apres la question 2.a. (et sa reciproque admise), <span set:html={tex('f')} /> est solution de <span set:html={tex('(E)')} /> si et seulement si <span set:html={tex('f - u')} /> est solution de <span set:html={tex('(H)')} />.</p>
+              <p>Les solutions de <span set:html={tex('(E)')} /> sont donc :</p>
+              <div set:html={tex('f(t) = u(t) + C\\,e^{-0{,}4t} = t\\,e^{-0{,}4t} + C\\,e^{-0{,}4t} = (t + C)\\,e^{-0{,}4t}', true)} />
+              <div class="resultat-box" set:html={tex('f(t) = (t + C)\\,e^{-0{,}4t}, \\quad C \\in \\mathbb{R}', true)} />
+            </div>
+          </div>
+
+          <!-- Question 2d -->
+          <div class="question">
+            <h4>2.d. Determiner la solution <span set:html={tex('f')} /> de <span set:html={tex('(E)')} /> telle que <span set:html={tex('f(0) = 1')} /></h4>
+            <div class="correction">
+              <p>La condition initiale donne :</p>
+              <div set:html={tex('f(0) = (0 + C)\\,e^{0} = C = 1', true)} />
+              <div class="resultat-box" set:html={tex('f(t) = (t + 1)\\,e^{-0{,}4t}', true)} />
+            </div>
           </div>
         </div>
 
-        <!-- Question B2a -->
-        <div class="question">
-          <h4>2.a. Représentation paramétrique de la droite <span set:html={tex('(GM)')} /></h4>
-          <div class="correction">
-            <p>La droite <span set:html={tex('(GM)')} /> passe par <span set:html={tex('G(1\\,;\\,1\\,;\\,1)')} /> et a pour vecteur directeur <span set:html={tex('\\overrightarrow{GM}(1\\,;\\,-1\\,;\\,-1)')} /> :</p>
-            <div class="resultat-box" set:html={tex('(GM) : \\begin{cases} x = 1 + t \\\\ y = 1 - t \\\\ z = 1 - t \\end{cases}, \\quad t \\in \\mathbb{R}', true)} />
+        <!-- Partie B -->
+        <div class="exercise-part">
+          <h3>Partie B — Application a la glycemie</h3>
+
+          <p>La glycemie (en g.L<sup>-1</sup>) est modelisee par <span set:html={tex('f(t) = (t + 1)\\,e^{-0{,}4t}')} /> sur <span set:html={tex('[0\\,;\\,6]')} />.</p>
+
+          <!-- Question B1a -->
+          <div class="question">
+            <h4>1.a. Montrer que <span set:html={tex("f'(t) = (-0{,}4t + 0{,}6)\\,e^{-0{,}4t}")} /></h4>
+            <div class="correction">
+              <p>On derive <span set:html={tex('f(t) = (t + 1)\\,e^{-0{,}4t}')} /> avec la formule du produit :</p>
+              <div set:html={tex("f'(t) = 1 \\times e^{-0{,}4t} + (t + 1) \\times (-0{,}4)\\,e^{-0{,}4t}", true)} />
+              <div set:html={tex("f'(t) = e^{-0{,}4t}\\big[1 - 0{,}4(t + 1)\\big]", true)} />
+              <div set:html={tex("f'(t) = e^{-0{,}4t}(1 - 0{,}4t - 0{,}4)", true)} />
+              <div class="resultat-box" set:html={tex("f'(t) = (-0{,}4t + 0{,}6)\\,e^{-0{,}4t}", true)} />
+            </div>
+          </div>
+
+          <!-- Question B1b -->
+          <div class="question">
+            <h4>1.b. Variations de <span set:html={tex('f')} /> sur <span set:html={tex('[0\\,;\\,6]')} /></h4>
+            <div class="correction">
+              <p>Puisque <span set:html={tex('e^{-0{,}4t} > 0')} /> pour tout <span set:html={tex('t')} />, le signe de <span set:html={tex("f'(t)")} /> est celui de <span set:html={tex('-0{,}4t + 0{,}6')} />.</p>
+              <div set:html={tex('-0{,}4t + 0{,}6 = 0 \\iff t = \\dfrac{0{,}6}{0{,}4} = 1{,}5', true)} />
+              <ul>
+                <li>Pour <span set:html={tex('t \\in [0\\,;\\,1{,}5[')} /> : <span set:html={tex("-0{,}4t + 0{,}6 > 0")} />, donc <span set:html={tex("f'(t) > 0")} /> et <span set:html={tex('f')} /> est <strong>croissante</strong>.</li>
+                <li>Pour <span set:html={tex('t \\in ]1{,}5\\,;\\,6]')} /> : <span set:html={tex("-0{,}4t + 0{,}6 < 0")} />, donc <span set:html={tex("f'(t) < 0")} /> et <span set:html={tex('f')} /> est <strong>decroissante</strong>.</li>
+              </ul>
+
+              <p>Valeurs aux bornes et au maximum :</p>
+              <div set:html={tex('f(0) = 1 \\times e^0 = 1', true)} />
+              <div set:html={tex('f(1{,}5) = 2{,}5 \\times e^{-0{,}6} \\approx 2{,}5 \\times 0{,}5488 \\approx 1{,}372', true)} />
+              <div set:html={tex('f(6) = 7 \\times e^{-2{,}4} \\approx 7 \\times 0{,}0907 \\approx 0{,}635', true)} />
+
+              <p><strong>Tableau de variations :</strong></p>
+              <div set:html={tex('\\begin{array}{|c|ccccc|} \\hline t & 0 & & 1{,}5 & & 6 \\\\ \\hline f\'(t) & & + & 0 & - & \\\\ \\hline & & \\nearrow & 1{,}372 & \\searrow & \\\\ f(t) & 1 & & & & 0{,}635 \\\\ \\hline \\end{array}', true)} />
+
+              <div class="resultat-box" set:html={tex('f \\text{ est croissante sur } [0\\,;\\,1{,}5] \\text{ et decroissante sur } [1{,}5\\,;\\,6]', true)} />
+            </div>
+          </div>
+
+          <!-- Question B2a -->
+          <div class="question">
+            <h4>2.a. Demontrer que <span set:html={tex('f(t) = 0{,}7')} /> admet une unique solution <span set:html={tex('\\alpha')} /> sur <span set:html={tex('[0\\,;\\,6]')} /></h4>
+            <div class="correction">
+              <div class="methode-box">
+                <strong>Methode :</strong> On utilise le theoreme des valeurs intermediaires sur un intervalle ou <span set:html={tex('f')} /> est strictement monotone.
+              </div>
+              <p>Sur l'intervalle <span set:html={tex('[1{,}5\\,;\\,6]')} />, la fonction <span set:html={tex('f')} /> est <strong>continue</strong> et <strong>strictement decroissante</strong>.</p>
+              <p>De plus :</p>
+              <ul>
+                <li><span set:html={tex('f(1{,}5) \\approx 1{,}372 > 0{,}7')} /></li>
+                <li><span set:html={tex('f(6) \\approx 0{,}635 < 0{,}7')} /></li>
+              </ul>
+              <p>D'apres le <strong>theoreme des valeurs intermediaires</strong>, l'equation <span set:html={tex('f(t) = 0{,}7')} /> admet une <strong>unique</strong> solution <span set:html={tex('\\alpha')} /> dans <span set:html={tex('[1{,}5\\,;\\,6]')} />.</p>
+              <p>Sur <span set:html={tex('[0\\,;\\,1{,}5]')} />, <span set:html={tex('f')} /> est croissante avec <span set:html={tex('f(0) = 1 > 0{,}7')} />, donc <span set:html={tex('f(t) \\geqslant 1 > 0{,}7')} /> pour tout <span set:html={tex('t \\in [0\\,;\\,1{,}5]')} /> : pas de solution sur cet intervalle.</p>
+
+              <div class="resultat-box" set:html={tex('f(t) = 0{,}7 \\text{ admet une unique solution } \\alpha \\in [1{,}5\\,;\\,6]', true)} />
+            </div>
+          </div>
+
+          <!-- Question B2b -->
+          <div class="question">
+            <h4>2.b. Encadrement de <span set:html={tex('\\alpha')} /> et temps d'hypoglycemie</h4>
+            <div class="correction">
+              <p>On cherche <span set:html={tex('\\alpha')} /> tel que <span set:html={tex('(\\alpha + 1)\\,e^{-0{,}4\\alpha} = 0{,}7')} />. Par balayage a la calculatrice :</p>
+              <div set:html={tex('f(5) = 6\\,e^{-2} \\approx 0{,}812', true)} />
+              <div set:html={tex('f(5{,}5) = 6{,}5\\,e^{-2{,}2} \\approx 0{,}720', true)} />
+              <div set:html={tex('f(5{,}6) = 6{,}6\\,e^{-2{,}24} \\approx 0{,}703', true)} />
+              <div set:html={tex('f(5{,}7) = 6{,}7\\,e^{-2{,}28} \\approx 0{,}685', true)} />
+              <p>On a <span set:html={tex('f(5{,}6) \\approx 0{,}703 > 0{,}7')} /> et <span set:html={tex('f(5{,}7) \\approx 0{,}685 < 0{,}7')} />, donc :</p>
+
+              <div class="resultat-box" set:html={tex('5{,}6 \\leqslant \\alpha \\leqslant 5{,}7 \\text{, soit environ 5 h 39 min apres le repas}', true)} />
+
+              <div class="attention-box">
+                <strong>Attention :</strong> La personne est en hypoglycemie lorsque <span set:html={tex('f(t) < 0{,}7')} />, c'est-a-dire pour <span set:html={tex('t > \\alpha')} />.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question B3a -->
+          <div class="question">
+            <h4>3.a. Par integration par parties, montrer que <span set:html={tex('\\displaystyle\\int_0^6 f(t)\\,\\mathrm{d}t = -23{,}75\\,e^{-2{,}4} + 8{,}75')} /></h4>
+            <div class="correction">
+              <div class="methode-box">
+                <strong>Methode :</strong> On pose <span set:html={tex('\\displaystyle\\int_0^6 (t+1)\\,e^{-0{,}4t}\\,\\mathrm{d}t')} /> et on effectue une integration par parties.
+              </div>
+
+              <p>On pose :</p>
+              <ul>
+                <li><span set:html={tex('u(t) = t + 1')} /> donc <span set:html={tex("u'(t) = 1")} /></li>
+                <li><span set:html={tex("v'(t) = e^{-0{,}4t}")} /> donc <span set:html={tex('v(t) = \\dfrac{1}{-0{,}4}\\,e^{-0{,}4t} = -2{,}5\\,e^{-0{,}4t}')} /></li>
+              </ul>
+
+              <p>Par integration par parties :</p>
+              <div set:html={tex('\\int_0^6 (t+1)\\,e^{-0{,}4t}\\,\\mathrm{d}t = \\Big[-(t+1) \\times 2{,}5\\,e^{-0{,}4t}\\Big]_0^6 - \\int_0^6 1 \\times \\big(-2{,}5\\,e^{-0{,}4t}\\big)\\,\\mathrm{d}t', true)} />
+              <div set:html={tex('= \\Big[-2{,}5(t+1)\\,e^{-0{,}4t}\\Big]_0^6 + 2{,}5\\int_0^6 e^{-0{,}4t}\\,\\mathrm{d}t', true)} />
+
+              <p>Calculons chaque terme :</p>
+              <div set:html={tex('\\Big[-2{,}5(t+1)\\,e^{-0{,}4t}\\Big]_0^6 = -2{,}5 \\times 7 \\times e^{-2{,}4} - \\big(-2{,}5 \\times 1 \\times e^{0}\\big) = -17{,}5\\,e^{-2{,}4} + 2{,}5', true)} />
+
+              <div set:html={tex('2{,}5\\int_0^6 e^{-0{,}4t}\\,\\mathrm{d}t = 2{,}5\\Big[-2{,}5\\,e^{-0{,}4t}\\Big]_0^6 = 2{,}5\\big(-2{,}5\\,e^{-2{,}4} + 2{,}5\\big) = -6{,}25\\,e^{-2{,}4} + 6{,}25', true)} />
+
+              <p>En additionnant :</p>
+              <div set:html={tex('\\int_0^6 f(t)\\,\\mathrm{d}t = -17{,}5\\,e^{-2{,}4} + 2{,}5 - 6{,}25\\,e^{-2{,}4} + 6{,}25', true)} />
+              <div set:html={tex('= -(17{,}5 + 6{,}25)\\,e^{-2{,}4} + (2{,}5 + 6{,}25)', true)} />
+
+              <div class="resultat-box" set:html={tex('\\int_0^6 f(t)\\,\\mathrm{d}t = -23{,}75\\,e^{-2{,}4} + 8{,}75', true)} />
+            </div>
+          </div>
+
+          <!-- Question B3b -->
+          <div class="question">
+            <h4>3.b. Glycemie moyenne sur les six heures</h4>
+            <div class="correction">
+              <p>La glycemie moyenne est :</p>
+              <div set:html={tex('\\mu = \\dfrac{1}{6 - 0}\\int_0^6 f(t)\\,\\mathrm{d}t = \\dfrac{1}{6}\\big(-23{,}75\\,e^{-2{,}4} + 8{,}75\\big)', true)} />
+              <p>Or <span set:html={tex('e^{-2{,}4} \\approx 0{,}0907')} /> :</p>
+              <div set:html={tex('\\mu \\approx \\dfrac{1}{6}(-23{,}75 \\times 0{,}0907 + 8{,}75) = \\dfrac{1}{6}(-2{,}154 + 8{,}75) = \\dfrac{6{,}596}{6} \\approx 1{,}099', true)} />
+
+              <div class="resultat-box" set:html={tex('\\mu = \\dfrac{-23{,}75\\,e^{-2{,}4} + 8{,}75}{6} \\approx 1{,}10 \\text{ g.L}^{-1}', true)} />
+            </div>
           </div>
         </div>
 
-        <!-- Question B2b -->
-        <div class="question">
-          <h4>2.b. Montrer que le point d'intersection <span set:html={tex('N')} /> de <span set:html={tex('(GM)')} /> et <span set:html={tex('(AH)')} /> a pour coordonnées <span set:html={tex('(0\\,;\\,2\\,;\\,2)')} /></h4>
-          <div class="correction">
-            <p>On admet que <span set:html={tex('(AH)')} /> a pour représentation paramétrique :</p>
-            <div set:html={tex('(AH) : \\begin{cases} x = 0 \\\\ y = k \\\\ z = k \\end{cases}, \\quad k \\in \\mathbb{R}', true)} />
+        <a class="reviser-link" href="/terminale/primitives-equations-differentielles/">Reviser les equations differentielles &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/calcul-integral/">Reviser le calcul integral &rarr;</a>
+      </section>
 
-            <p>On cherche <span set:html={tex('t')} /> et <span set:html={tex('k')} /> tels que les coordonnées coïncident :</p>
-            <div set:html={tex('\\begin{cases} 1 + t = 0 \\\\ 1 - t = k \\\\ 1 - t = k \\end{cases}', true)} />
+      <!-- ======================================================== -->
+      <!--  EXERCICE 2 — Geometrie dans l'espace (5 points)         -->
+      <!-- ======================================================== -->
+      <section class="exercise-correction">
+        <h2>Exercice 2 — Geometrie dans l'espace (5 points)</h2>
 
-            <p>De la première équation : <span set:html={tex('t = -1')} />.</p>
-            <p>On en déduit : <span set:html={tex('k = 1 - (-1) = 2')} />.</p>
-            <p><strong>Vérification</strong> avec la troisième équation : <span set:html={tex('1 - (-1) = 2 = k \\; \\checkmark')} /></p>
+        <div class="methode-box">
+          <strong>Rappels utiles :</strong> Produit scalaire dans l'espace, vecteur normal, coplanarite, projete orthogonal, volume de tetraedre.
+        </div>
 
-            <p>Les coordonnées du point d'intersection sont :</p>
-            <div class="resultat-box" set:html={tex('N(0\\,;\\,2\\,;\\,2)', true)} />
+        <p>On considere le cube <span set:html={tex('ABCDEFGH')} /> et le point <span set:html={tex('M')} /> tel que <span set:html={tex('\\overrightarrow{BM} = \\overrightarrow{AB}')} />.</p>
+        <p>On se place dans le repere orthonorme <span set:html={tex('\\left(A\\,;\\, \\overrightarrow{AB},\\, \\overrightarrow{AD},\\, \\overrightarrow{AE}\\right)')} />. Les coordonnees des sommets sont :</p>
+        <div set:html={tex('A(0;0;0), \\; B(1;0;0), \\; C(1;1;0), \\; D(0;1;0)', true)} />
+        <div set:html={tex('E(0;0;1), \\; F(1;0;1), \\; G(1;1;1), \\; H(0;1;1)', true)} />
+        <p>Puisque <span set:html={tex('\\overrightarrow{BM} = \\overrightarrow{AB} = (1;0;0)')} />, on a <span set:html={tex('M = B + (1;0;0) = (2;0;0)')} />.</p>
+
+        <!-- Partie A -->
+        <div class="exercise-part">
+          <h3>Partie A</h3>
+
+          <!-- Question A1 -->
+          <div class="question">
+            <h4>1. Montrer que les droites <span set:html={tex('(FG)')} /> et <span set:html={tex('(FM)')} /> sont perpendiculaires</h4>
+            <div class="correction">
+              <p>Calculons les vecteurs directeurs :</p>
+              <div set:html={tex('\\overrightarrow{FG} = G - F = (1-1\\,;\\, 1-0\\,;\\, 1-1) = (0\\,;\\,1\\,;\\,0)', true)} />
+              <div set:html={tex('\\overrightarrow{FM} = M - F = (2-1\\,;\\, 0-0\\,;\\, 0-1) = (1\\,;\\,0\\,;\\,-1)', true)} />
+
+              <p>Calculons le produit scalaire :</p>
+              <div set:html={tex('\\overrightarrow{FG} \\cdot \\overrightarrow{FM} = 0 \\times 1 + 1 \\times 0 + 0 \\times (-1) = 0', true)} />
+
+              <p>Le produit scalaire est nul, donc les droites <span set:html={tex('(FG)')} /> et <span set:html={tex('(FM)')} /> sont <strong>perpendiculaires</strong>.</p>
+              <div class="resultat-box" set:html={tex('\\overrightarrow{FG} \\cdot \\overrightarrow{FM} = 0 : \\text{les droites sont perpendiculaires}', true)} />
+            </div>
+          </div>
+
+          <!-- Question A2 -->
+          <div class="question">
+            <h4>2. Montrer que les points <span set:html={tex('A')} />, <span set:html={tex('M')} />, <span set:html={tex('G')} /> et <span set:html={tex('H')} /> sont coplanaires</h4>
+            <div class="correction">
+              <div class="methode-box">
+                <strong>Methode :</strong> Quatre points sont coplanaires si et seulement si le determinant de trois vecteurs formes a partir de ces points est nul.
+              </div>
+              <p>Calculons les vecteurs :</p>
+              <div set:html={tex('\\overrightarrow{AM} = (2\\,;\\,0\\,;\\,0)', true)} />
+              <div set:html={tex('\\overrightarrow{AG} = (1\\,;\\,1\\,;\\,1)', true)} />
+              <div set:html={tex('\\overrightarrow{AH} = (0\\,;\\,1\\,;\\,1)', true)} />
+
+              <p>Calculons le determinant :</p>
+              <div set:html={tex('\\det(\\overrightarrow{AM}, \\overrightarrow{AG}, \\overrightarrow{AH}) = \\begin{vmatrix} 2 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 0 & 1 & 1 \\end{vmatrix}', true)} />
+              <div set:html={tex('= 2(1 \\times 1 - 1 \\times 1) - 1(0 \\times 1 - 0 \\times 1) + 0 = 2 \\times 0 - 0 + 0 = 0', true)} />
+
+              <p>Le determinant est nul, donc les points <span set:html={tex('A')} />, <span set:html={tex('M')} />, <span set:html={tex('G')} /> et <span set:html={tex('H')} /> sont <strong>coplanaires</strong>.</p>
+              <div class="resultat-box" set:html={tex('\\det(\\overrightarrow{AM}, \\overrightarrow{AG}, \\overrightarrow{AH}) = 0 : \\text{les quatre points sont coplanaires}', true)} />
+            </div>
           </div>
         </div>
 
-        <!-- Question B3a -->
-        <div class="question">
-          <h4>3.a. Montrer que le triangle <span set:html={tex('AMN')} /> est rectangle en <span set:html={tex('A')} /></h4>
-          <div class="correction">
-            <p>Calculons les vecteurs <span set:html={tex('\\overrightarrow{AM}')} /> et <span set:html={tex('\\overrightarrow{AN}')} /> :</p>
-            <div set:html={tex('\\overrightarrow{AM} = (2\\,;\\,0\\,;\\,0)', true)} />
-            <div set:html={tex('\\overrightarrow{AN} = (0\\,;\\,2\\,;\\,2)', true)} />
+        <!-- Partie B -->
+        <div class="exercise-part">
+          <h3>Partie B</h3>
 
-            <p>Produit scalaire :</p>
-            <div set:html={tex('\\overrightarrow{AM} \\cdot \\overrightarrow{AN} = 2 \\times 0 + 0 \\times 2 + 0 \\times 2 = 0', true)} />
+          <!-- Question B1 -->
+          <div class="question">
+            <h4>1. Coordonnees de <span set:html={tex('\\overrightarrow{GM}')} /> et <span set:html={tex('\\overrightarrow{AH}')} />, non-colinearite</h4>
+            <div class="correction">
+              <div set:html={tex('\\overrightarrow{GM} = M - G = (2-1\\,;\\, 0-1\\,;\\, 0-1) = (1\\,;\\,-1\\,;\\,-1)', true)} />
+              <div set:html={tex('\\overrightarrow{AH} = H - A = (0\\,;\\,1\\,;\\,1)', true)} />
 
-            <p>Le produit scalaire est nul, donc <span set:html={tex('\\overrightarrow{AM} \\perp \\overrightarrow{AN}')} /> : le triangle <span set:html={tex('AMN')} /> est <strong>rectangle en <span set:html={tex('A')} /></strong>.</p>
-            <div class="resultat-box" set:html={tex('\\overrightarrow{AM} \\cdot \\overrightarrow{AN} = 0 : \\text{triangle } AMN \\text{ rectangle en } A', true)} />
+              <p>Si ces vecteurs etaient colineaires, il existerait <span set:html={tex('k \\in \\mathbb{R}')} /> tel que <span set:html={tex('(1\\,;\\,-1\\,;\\,-1) = k(0\\,;\\,1\\,;\\,1)')} />.</p>
+              <p>Or la premiere coordonnee donne <span set:html={tex('1 = 0 \\times k = 0')} />, ce qui est <strong>impossible</strong>.</p>
+              <div class="resultat-box" set:html={tex('\\overrightarrow{GM} \\text{ et } \\overrightarrow{AH} \\text{ ne sont pas colineaires}', true)} />
+            </div>
+          </div>
+
+          <!-- Question B2a -->
+          <div class="question">
+            <h4>2.a. Representation parametrique de la droite <span set:html={tex('(GM)')} /></h4>
+            <div class="correction">
+              <p>La droite <span set:html={tex('(GM)')} /> passe par <span set:html={tex('G(1\\,;\\,1\\,;\\,1)')} /> et a pour vecteur directeur <span set:html={tex('\\overrightarrow{GM}(1\\,;\\,-1\\,;\\,-1)')} /> :</p>
+              <div class="resultat-box" set:html={tex('(GM) : \\begin{cases} x = 1 + t \\\\ y = 1 - t \\\\ z = 1 - t \\end{cases}, \\quad t \\in \\mathbb{R}', true)} />
+            </div>
+          </div>
+
+          <!-- Question B2b -->
+          <div class="question">
+            <h4>2.b. Montrer que le point d'intersection <span set:html={tex('N')} /> de <span set:html={tex('(GM)')} /> et <span set:html={tex('(AH)')} /> a pour coordonnees <span set:html={tex('(0\\,;\\,2\\,;\\,2)')} /></h4>
+            <div class="correction">
+              <p>La droite <span set:html={tex('(AH)')} /> a pour representation parametrique :</p>
+              <div set:html={tex('(AH) : \\begin{cases} x = 0 \\\\ y = k \\\\ z = k \\end{cases}, \\quad k \\in \\mathbb{R}', true)} />
+
+              <p>On cherche <span set:html={tex('t')} /> et <span set:html={tex('k')} /> tels que les coordonnees coincident :</p>
+              <div set:html={tex('\\begin{cases} 1 + t = 0 \\\\ 1 - t = k \\\\ 1 - t = k \\end{cases}', true)} />
+
+              <p>De la premiere equation : <span set:html={tex('t = -1')} />.</p>
+              <p>On en deduit : <span set:html={tex('k = 1 - (-1) = 2')} />.</p>
+              <p><strong>Verification</strong> avec la troisieme equation : <span set:html={tex('1 - (-1) = 2 = k \\; \\checkmark')} /></p>
+
+              <div class="resultat-box" set:html={tex('N(0\\,;\\,2\\,;\\,2)', true)} />
+            </div>
+          </div>
+
+          <!-- Question B3a -->
+          <div class="question">
+            <h4>3.a. Montrer que le triangle <span set:html={tex('AMN')} /> est rectangle en <span set:html={tex('A')} /></h4>
+            <div class="correction">
+              <p>Calculons les vecteurs <span set:html={tex('\\overrightarrow{AM}')} /> et <span set:html={tex('\\overrightarrow{AN}')} /> :</p>
+              <div set:html={tex('\\overrightarrow{AM} = (2\\,;\\,0\\,;\\,0)', true)} />
+              <div set:html={tex('\\overrightarrow{AN} = (0\\,;\\,2\\,;\\,2)', true)} />
+
+              <p>Produit scalaire :</p>
+              <div set:html={tex('\\overrightarrow{AM} \\cdot \\overrightarrow{AN} = 2 \\times 0 + 0 \\times 2 + 0 \\times 2 = 0', true)} />
+
+              <p>Le produit scalaire est nul, donc <span set:html={tex('\\overrightarrow{AM} \\perp \\overrightarrow{AN}')} /> : le triangle <span set:html={tex('AMN')} /> est <strong>rectangle en <span set:html={tex('A')} /></strong>.</p>
+              <div class="resultat-box" set:html={tex('\\overrightarrow{AM} \\cdot \\overrightarrow{AN} = 0 : \\text{triangle } AMN \\text{ rectangle en } A', true)} />
+            </div>
+          </div>
+
+          <!-- Question B3b -->
+          <div class="question">
+            <h4>3.b. Calculer l'aire du triangle <span set:html={tex('AMN')} /></h4>
+            <div class="correction">
+              <p>Le triangle est rectangle en <span set:html={tex('A')} />, donc son aire est :</p>
+              <div set:html={tex('\\mathcal{A} = \\dfrac{1}{2} \\times AM \\times AN', true)} />
+
+              <p>Calculons les longueurs :</p>
+              <div set:html={tex('AM = \\sqrt{2^2 + 0^2 + 0^2} = 2', true)} />
+              <div set:html={tex('AN = \\sqrt{0^2 + 2^2 + 2^2} = \\sqrt{8} = 2\\sqrt{2}', true)} />
+
+              <div set:html={tex('\\mathcal{A} = \\dfrac{1}{2} \\times 2 \\times 2\\sqrt{2} = 2\\sqrt{2}', true)} />
+
+              <div class="resultat-box" set:html={tex('\\mathcal{A}_{AMN} = 2\\sqrt{2}', true)} />
+            </div>
+          </div>
+
+          <!-- Question B4a -->
+          <div class="question">
+            <h4>4.a. Coordonnees du point <span set:html={tex('J')} />, centre de la face <span set:html={tex('BCGF')} /></h4>
+            <div class="correction">
+              <p>Le centre de la face <span set:html={tex('BCGF')} /> est le milieu des diagonales :</p>
+              <div set:html={tex('J = \\dfrac{1}{4}(B + C + G + F) = \\dfrac{1}{4}\\big((1;0;0) + (1;1;0) + (1;1;1) + (1;0;1)\\big)', true)} />
+              <div set:html={tex('J = \\dfrac{1}{4}(4\\,;\\,2\\,;\\,2) = \\left(1\\,;\\,\\dfrac{1}{2}\\,;\\,\\dfrac{1}{2}\\right)', true)} />
+              <div class="resultat-box" set:html={tex('J\\!\\left(1\\,;\\,\\dfrac{1}{2}\\,;\\,\\dfrac{1}{2}\\right)', true)} />
+            </div>
+          </div>
+
+          <!-- Question B4b -->
+          <div class="question">
+            <h4>4.b. Montrer que <span set:html={tex('\\overrightarrow{FJ}')} /> est un vecteur normal au plan <span set:html={tex('(AMN)')} /></h4>
+            <div class="correction">
+              <p>Calculons <span set:html={tex('\\overrightarrow{FJ}')} /> :</p>
+              <div set:html={tex('\\overrightarrow{FJ} = J - F = \\left(1-1\\,;\\, \\dfrac{1}{2}-0\\,;\\, \\dfrac{1}{2}-1\\right) = \\left(0\\,;\\,\\dfrac{1}{2}\\,;\\,-\\dfrac{1}{2}\\right)', true)} />
+
+              <p>Verifions que <span set:html={tex('\\overrightarrow{FJ}')} /> est orthogonal a <span set:html={tex('\\overrightarrow{AM}')} /> et <span set:html={tex('\\overrightarrow{AN}')} /> :</p>
+              <div set:html={tex('\\overrightarrow{FJ} \\cdot \\overrightarrow{AM} = 0 \\times 2 + \\dfrac{1}{2} \\times 0 + \\left(-\\dfrac{1}{2}\\right) \\times 0 = 0 \\quad \\checkmark', true)} />
+              <div set:html={tex('\\overrightarrow{FJ} \\cdot \\overrightarrow{AN} = 0 \\times 0 + \\dfrac{1}{2} \\times 2 + \\left(-\\dfrac{1}{2}\\right) \\times 2 = 1 - 1 = 0 \\quad \\checkmark', true)} />
+
+              <p>Le vecteur <span set:html={tex('\\overrightarrow{FJ}')} /> est orthogonal a deux vecteurs non colineaires du plan <span set:html={tex('(AMN)')} />, donc il est <strong>normal au plan <span set:html={tex('(AMN)')} /></strong>.</p>
+              <div class="resultat-box" set:html={tex('\\overrightarrow{FJ} \\text{ est normal au plan } (AMN)', true)} />
+            </div>
+          </div>
+
+          <!-- Question B4c -->
+          <div class="question">
+            <h4>4.c. Montrer que <span set:html={tex('J')} /> appartient au plan <span set:html={tex('(AMN)')} /> et en deduire qu'il est le projete orthogonal de <span set:html={tex('F')} /></h4>
+            <div class="correction">
+              <p>Le plan <span set:html={tex('(AMN)')} /> passe par <span set:html={tex('A(0;0;0)')} /> et a pour vecteur normal <span set:html={tex('\\overrightarrow{FJ}(0\\,;\\,\\frac{1}{2}\\,;\\,-\\frac{1}{2})')} />, soit <span set:html={tex('\\vec{n}(0\\,;\\,1\\,;\\,-1)')} />.</p>
+              <p>L'equation du plan est : <span set:html={tex('0x + 1y - 1z = 0')} />, soit <span set:html={tex('y - z = 0')} />.</p>
+
+              <p>Verifions que <span set:html={tex('J')} /> appartient au plan :</p>
+              <div set:html={tex('y_J - z_J = \\dfrac{1}{2} - \\dfrac{1}{2} = 0 \\quad \\checkmark', true)} />
+
+              <p>Donc <span set:html={tex('J \\in (AMN)')} />. Puisque <span set:html={tex('\\overrightarrow{FJ}')} /> est normal au plan <span set:html={tex('(AMN)')} /> et que <span set:html={tex('J')} /> appartient a ce plan, <span set:html={tex('J')} /> est le <strong>projete orthogonal</strong> de <span set:html={tex('F')} /> sur le plan <span set:html={tex('(AMN)')} />.</p>
+              <div class="resultat-box" set:html={tex('J \\text{ est le projete orthogonal de } F \\text{ sur le plan } (AMN)', true)} />
+            </div>
+          </div>
+
+          <!-- Question B5 -->
+          <div class="question">
+            <h4>5. Montrer que le volume du tetraedre <span set:html={tex('AMNF')} /> est le double de celui de la pyramide <span set:html={tex('BCGFM')} /></h4>
+            <div class="correction">
+              <p><strong>Volume du tetraedre <span set:html={tex('AMNF')} /> :</strong></p>
+              <p>On prend le triangle <span set:html={tex('AMN')} /> comme base (aire <span set:html={tex('\\mathcal{A} = 2\\sqrt{2}')} />) et <span set:html={tex('FJ')} /> comme hauteur, puisque <span set:html={tex('J')} /> est le projete orthogonal de <span set:html={tex('F')} /> sur le plan <span set:html={tex('(AMN)')} />.</p>
+              <div set:html={tex('FJ = \\sqrt{0^2 + \\left(\\dfrac{1}{2}\\right)^2 + \\left(-\\dfrac{1}{2}\\right)^2} = \\sqrt{\\dfrac{1}{4} + \\dfrac{1}{4}} = \\sqrt{\\dfrac{1}{2}} = \\dfrac{\\sqrt{2}}{2}', true)} />
+              <div set:html={tex('V_{AMNF} = \\dfrac{1}{3} \\times 2\\sqrt{2} \\times \\dfrac{\\sqrt{2}}{2} = \\dfrac{1}{3} \\times \\dfrac{2 \\times 2}{2} = \\dfrac{1}{3} \\times 2 = \\dfrac{2}{3}', true)} />
+
+              <p><strong>Volume de la pyramide <span set:html={tex('BCGFM')} /> :</strong></p>
+              <p>La base est la face carree <span set:html={tex('BCGF')} /> (d'aire <span set:html={tex('1')} />, car c'est une face du cube de cote 1). Le sommet est <span set:html={tex('M(2;0;0)')} />.</p>
+              <p>La face <span set:html={tex('BCGF')} /> est dans le plan <span set:html={tex('x = 1')} />. La hauteur est la distance de <span set:html={tex('M')} /> a ce plan :</p>
+              <div set:html={tex('h = |x_M - 1| = |2 - 1| = 1', true)} />
+              <div set:html={tex('V_{BCGFM} = \\dfrac{1}{3} \\times 1 \\times 1 = \\dfrac{1}{3}', true)} />
+
+              <p><strong>Comparaison :</strong></p>
+              <div set:html={tex('V_{AMNF} = \\dfrac{2}{3} = 2 \\times \\dfrac{1}{3} = 2 \\times V_{BCGFM}', true)} />
+
+              <div class="resultat-box" set:html={tex('V_{AMNF} = \\dfrac{2}{3} = 2 \\times V_{BCGFM}', true)} />
+            </div>
           </div>
         </div>
 
-        <!-- Question B3b -->
-        <div class="question">
-          <h4>3.b. Calculer l'aire du triangle <span set:html={tex('AMN')} /></h4>
-          <div class="correction">
-            <p>Le triangle est rectangle en <span set:html={tex('A')} />, donc son aire est :</p>
-            <div set:html={tex('\\mathcal{A} = \\dfrac{1}{2} \\times AM \\times AN', true)} />
+        <a class="reviser-link" href="/terminale/vecteurs-droites-plans-espace/">Reviser les droites et plans de l'espace &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/orthogonalite-distances-espace/">Reviser l'orthogonalite et les distances &rarr;</a>
+      </section>
 
-            <p>Calculons les longueurs :</p>
-            <div set:html={tex('AM = \\sqrt{2^2 + 0^2 + 0^2} = 2', true)} />
-            <div set:html={tex('AN = \\sqrt{0^2 + 2^2 + 2^2} = \\sqrt{8} = 2\\sqrt{2}', true)} />
+      <!-- ======================================================== -->
+      <!--  EXERCICE 3 — Suites et convergence (6 points)           -->
+      <!-- ======================================================== -->
+      <section class="exercise-correction">
+        <h2>Exercice 3 — Suites et convergence (6 points)</h2>
 
-            <div set:html={tex('\\mathcal{A} = \\dfrac{1}{2} \\times 2 \\times 2\\sqrt{2} = 2\\sqrt{2}', true)} />
+        <div class="methode-box">
+          <strong>Rappels utiles :</strong> Suites monotones bornees, theoreme de convergence monotone, suites geometriques, algorithme Python.
+        </div>
 
-            <div class="resultat-box" set:html={tex('\\mathcal{A}_{AMN} = 2\\sqrt{2}', true)} />
+        <!-- Partie A -->
+        <div class="exercise-part">
+          <h3>Partie A — Etude de la suite <span set:html={tex('(u_n)')} /></h3>
+
+          <p>On considere <span set:html={tex('f(x) = \\sqrt{3x - 2}')} /> definie sur <span set:html={tex('[2\\,;\\,+\\infty[')} /> et la suite <span set:html={tex('(u_n)')} /> definie par <span set:html={tex('u_0 = 6')} /> et <span set:html={tex('u_{n+1} = f(u_n)')} />.</p>
+
+          <!-- Question A1 -->
+          <div class="question">
+            <h4>1. Justifier le tableau de variations de <span set:html={tex('f')} /></h4>
+            <div class="correction">
+              <p>La fonction <span set:html={tex('f')} /> est definie sur <span set:html={tex('[2\\,;\\,+\\infty[')} /> car <span set:html={tex('3x - 2 \\geqslant 4 > 0')} /> pour <span set:html={tex('x \\geqslant 2')} />.</p>
+              <p>Derivons :</p>
+              <div set:html={tex("f'(x) = \\dfrac{3}{2\\sqrt{3x - 2}}", true)} />
+              <p>Pour tout <span set:html={tex('x \\geqslant 2')} />, <span set:html={tex("f'(x) > 0")} /> : <span set:html={tex('f')} /> est <strong>strictement croissante</strong> sur <span set:html={tex('[2\\,;\\,+\\infty[')} />.</p>
+              <p>Valeurs : <span set:html={tex('f(2) = \\sqrt{4} = 2')} /> et <span set:html={tex('\\lim_{x \\to +\\infty} f(x) = +\\infty')} />.</p>
+              <div class="resultat-box" set:html={tex("f'(x) > 0 \\text{ sur } [2\\,;\\,+\\infty[ : f \\text{ est strictement croissante, } f(2) = 2", true)} />
+            </div>
+          </div>
+
+          <!-- Question A2a -->
+          <div class="question">
+            <h4>2.a. Demontrer par recurrence que <span set:html={tex('2 \\leqslant u_{n+1} \\leqslant u_n \\leqslant 6')} /></h4>
+            <div class="correction">
+              <p><strong>Initialisation (n = 0) :</strong> <span set:html={tex('u_0 = 6')} /> et <span set:html={tex('u_1 = \\sqrt{3 \\times 6 - 2} = \\sqrt{16} = 4')} />.</p>
+              <p>On a <span set:html={tex('2 \\leqslant 4 \\leqslant 6')} /> et <span set:html={tex('u_1 = 4 \\leqslant 6 = u_0')} />. La propriete est vraie au rang 0.</p>
+
+              <p><strong>Heredite :</strong> Supposons que <span set:html={tex('2 \\leqslant u_{n+1} \\leqslant u_n \\leqslant 6')} /> pour un entier <span set:html={tex('n \\geqslant 0')} />.</p>
+
+              <p><em>Montrons que <span set:html={tex('u_{n+2} \\geqslant 2')} /> :</em></p>
+              <p>On a <span set:html={tex('u_{n+1} \\geqslant 2')} />, donc <span set:html={tex('3u_{n+1} - 2 \\geqslant 4')} />, d'ou <span set:html={tex('u_{n+2} = \\sqrt{3u_{n+1} - 2} \\geqslant \\sqrt{4} = 2')} />.</p>
+
+              <p><em>Montrons que <span set:html={tex('u_{n+2} \\leqslant u_{n+1}')} /> :</em></p>
+              <div set:html={tex('u_{n+2} \\leqslant u_{n+1} \\iff \\sqrt{3u_{n+1} - 2} \\leqslant u_{n+1} \\iff 3u_{n+1} - 2 \\leqslant u_{n+1}^2', true)} />
+              <p>(les deux membres etant positifs puisque <span set:html={tex('u_{n+1} \\geqslant 2')} />)</p>
+              <div set:html={tex('\\iff u_{n+1}^2 - 3u_{n+1} + 2 \\geqslant 0 \\iff (u_{n+1} - 1)(u_{n+1} - 2) \\geqslant 0', true)} />
+              <p>Comme <span set:html={tex('u_{n+1} \\geqslant 2')} />, on a <span set:html={tex('u_{n+1} - 1 \\geqslant 1 > 0')} /> et <span set:html={tex('u_{n+1} - 2 \\geqslant 0')} />, donc le produit est positif. <span set:html={tex('\\checkmark')} /></p>
+
+              <p><em>De plus <span set:html={tex('u_{n+2} \\leqslant u_{n+1} \\leqslant 6')} />.</em></p>
+
+              <p><strong>Conclusion :</strong> Par recurrence, pour tout <span set:html={tex('n \\in \\mathbb{N}')} />, <span set:html={tex('2 \\leqslant u_{n+1} \\leqslant u_n \\leqslant 6')} />.</p>
+              <div class="resultat-box" set:html={tex('\\forall n \\in \\mathbb{N}, \\quad 2 \\leqslant u_{n+1} \\leqslant u_n \\leqslant 6', true)} />
+            </div>
+          </div>
+
+          <!-- Question A2b -->
+          <div class="question">
+            <h4>2.b. En deduire que <span set:html={tex('(u_n)')} /> converge</h4>
+            <div class="correction">
+              <p>La suite <span set:html={tex('(u_n)')} /> est <strong>decroissante</strong> (car <span set:html={tex('u_{n+1} \\leqslant u_n')} />) et <strong>minoree</strong> par 2.</p>
+              <p>D'apres le <strong>theoreme de convergence monotone</strong>, la suite <span set:html={tex('(u_n)')} /> converge.</p>
+              <div class="resultat-box" set:html={tex('(u_n) \\text{ est decroissante et minoree : elle converge}', true)} />
+            </div>
+          </div>
+
+          <!-- Question A3 -->
+          <div class="question">
+            <h4>3. Determiner la limite <span set:html={tex('\\ell')} /></h4>
+            <div class="correction">
+              <p>La limite <span set:html={tex('\\ell')} /> verifie <span set:html={tex('f(\\ell) = \\ell')} />, soit <span set:html={tex('\\sqrt{3\\ell - 2} = \\ell')} />.</p>
+              <p>En elevant au carre (valide car <span set:html={tex('\\ell \\geqslant 2 > 0')} />) :</p>
+              <div set:html={tex('3\\ell - 2 = \\ell^2 \\iff \\ell^2 - 3\\ell + 2 = 0 \\iff (\\ell - 1)(\\ell - 2) = 0', true)} />
+              <p>Donc <span set:html={tex('\\ell = 1')} /> ou <span set:html={tex('\\ell = 2')} />. Comme <span set:html={tex('u_n \\geqslant 2')} /> pour tout <span set:html={tex('n')} />, on a <span set:html={tex('\\ell \\geqslant 2')} />, donc :</p>
+              <div class="resultat-box" set:html={tex('\\ell = 2', true)} />
+            </div>
+          </div>
+
+          <!-- Question A4a -->
+          <div class="question">
+            <h4>4.a. Pourquoi <span set:html={tex('\\texttt{rang(2.000001)}')} /> renvoie-t-il une valeur ?</h4>
+            <div class="correction">
+              <p>La suite <span set:html={tex('(u_n)')} /> converge vers <span set:html={tex('\\ell = 2')} /> et <span set:html={tex('u_n > 2')} /> pour tout <span set:html={tex('n')} /> (car <span set:html={tex('u_n \\geqslant 2')} /> avec decroissance stricte depuis <span set:html={tex('u_0 = 6')} />).</p>
+              <p>Puisque <span set:html={tex('\\lim u_n = 2')} />, il existe un rang <span set:html={tex('N')} /> tel que <span set:html={tex('u_N < 2{,}000001')} />.</p>
+              <p>La condition <span set:html={tex('\\texttt{u >= a}')} /> avec <span set:html={tex('a = 2{,}000001')} /> finira donc par etre fausse, et la boucle <span set:html={tex('\\texttt{while}')} /> se terminera.</p>
+              <div class="resultat-box" set:html={tex("(u_n) \\to 2 \\text{ donc } u_n < 2{,}000001 \\text{ a partir d'un certain rang : la boucle se termine}", true)} />
+            </div>
+          </div>
+
+          <!-- Question A4b -->
+          <div class="question">
+            <h4>4.b. Pour quelles valeurs de <span set:html={tex('a')} /> l'instruction <span set:html={tex('\\texttt{rang(a)}')} /> renvoie-t-elle un resultat ?</h4>
+            <div class="correction">
+              <p>La boucle <span set:html={tex('\\texttt{while u >= a}')} /> se termine si et seulement si on atteint <span set:html={tex('u_n < a')} /> pour un certain <span set:html={tex('n')} />.</p>
+              <p>Comme <span set:html={tex('u_n > 2')} /> pour tout <span set:html={tex('n')} /> et <span set:html={tex('\\lim u_n = 2')} />, la condition <span set:html={tex('u_n < a')} /> sera verifiee si et seulement si <span set:html={tex('a > 2')} />.</p>
+              <ul>
+                <li>Si <span set:html={tex('a > 2')} /> : la boucle se termine car <span set:html={tex('u_n \\to 2 < a')} />.</li>
+                <li>Si <span set:html={tex('a \\leqslant 2')} /> : la condition <span set:html={tex('u_n \\geqslant a')} /> est toujours vraie (car <span set:html={tex('u_n > 2 \\geqslant a')} />), donc boucle infinie.</li>
+              </ul>
+              <div class="resultat-box" set:html={tex('\\texttt{rang(a)} \\text{ renvoie un resultat si et seulement si } a > 2', true)} />
+            </div>
           </div>
         </div>
 
-        <!-- Question B4a -->
-        <div class="question">
-          <h4>4.a. Coordonnées du point <span set:html={tex('J')} />, centre de la face <span set:html={tex('BCGF')} /></h4>
-          <div class="correction">
-            <p>Le centre de la face <span set:html={tex('BCGF')} /> est le milieu des diagonales :</p>
-            <div set:html={tex('J = \\dfrac{1}{4}(B + C + G + F) = \\dfrac{1}{4}\\big((1;0;0) + (1;1;0) + (1;1;1) + (1;0;1)\\big)', true)} />
-            <div set:html={tex('J = \\dfrac{1}{4}(4\\,;\\,2\\,;\\,2) = \\left(1\\,;\\,\\dfrac{1}{2}\\,;\\,\\dfrac{1}{2}\\right)', true)} />
-            <div class="resultat-box" set:html={tex('J\\!\\left(1\\,;\\,\\dfrac{1}{2}\\,;\\,\\dfrac{1}{2}\\right)', true)} />
+        <!-- Partie B -->
+        <div class="exercise-part">
+          <h3>Partie B — Etude de la suite <span set:html={tex('(v_n)')} /></h3>
+
+          <p>La suite <span set:html={tex('(v_n)')} /> verifie <span set:html={tex('v_0 = 6')} /> et <span set:html={tex('v_{n+1} = 3 - \\dfrac{2}{v_n}')} /> pour tout <span set:html={tex('n \\in \\mathbb{N}')} />.</p>
+
+          <!-- Question B1 -->
+          <div class="question">
+            <h4>1. Calculer <span set:html={tex('v_1')} /></h4>
+            <div class="correction">
+              <div set:html={tex('v_1 = 3 - \\dfrac{2}{v_0} = 3 - \\dfrac{2}{6} = 3 - \\dfrac{1}{3} = \\dfrac{8}{3}', true)} />
+              <div class="resultat-box" set:html={tex('v_1 = \\dfrac{8}{3}', true)} />
+            </div>
+          </div>
+
+          <!-- Question B2a -->
+          <div class="question">
+            <h4>2.a. Demontrer que <span set:html={tex('(w_n)')} /> est geometrique, preciser premier terme et raison</h4>
+            <div class="correction">
+              <p>On pose <span set:html={tex('w_n = \\dfrac{v_n - 1}{v_n - 2}')} /> pour tout <span set:html={tex('n')} /> (on admet <span set:html={tex('v_n \\neq 2')} />).</p>
+
+              <p>Calculons <span set:html={tex('w_{n+1}')} /> :</p>
+              <div set:html={tex('w_{n+1} = \\dfrac{v_{n+1} - 1}{v_{n+1} - 2} = \\dfrac{3 - \\dfrac{2}{v_n} - 1}{3 - \\dfrac{2}{v_n} - 2} = \\dfrac{2 - \\dfrac{2}{v_n}}{1 - \\dfrac{2}{v_n}}', true)} />
+
+              <p>Multiplions numerateur et denominateur par <span set:html={tex('v_n')} /> :</p>
+              <div set:html={tex('w_{n+1} = \\dfrac{2v_n - 2}{v_n - 2} = \\dfrac{2(v_n - 1)}{v_n - 2} = 2 \\times \\dfrac{v_n - 1}{v_n - 2} = 2\\,w_n', true)} />
+
+              <p>Calculons <span set:html={tex('w_0')} /> :</p>
+              <div set:html={tex('w_0 = \\dfrac{v_0 - 1}{v_0 - 2} = \\dfrac{6 - 1}{6 - 2} = \\dfrac{5}{4}', true)} />
+
+              <div class="resultat-box" set:html={tex('(w_n) \\text{ est geometrique de raison } 2 \\text{ et de premier terme } w_0 = \\dfrac{5}{4}', true)} />
+            </div>
+          </div>
+
+          <!-- Question B2b -->
+          <div class="question">
+            <h4>2.b. En deduire l'expression de <span set:html={tex('v_n')} /></h4>
+            <div class="correction">
+              <p>Puisque <span set:html={tex('(w_n)')} /> est geometrique : <span set:html={tex('w_n = w_0 \\times 2^n = \\dfrac{5}{4} \\times 2^n')} />.</p>
+
+              <p>Or <span set:html={tex('w_n - 1 = \\dfrac{v_n - 1}{v_n - 2} - 1 = \\dfrac{1}{v_n - 2}')} />, donc :</p>
+              <div set:html={tex('\\dfrac{1}{v_n - 2} = \\dfrac{5}{4} \\times 2^n - 1 = \\dfrac{5 \\times 2^n - 4}{4}', true)} />
+              <div set:html={tex('v_n - 2 = \\dfrac{4}{5 \\times 2^n - 4}', true)} />
+              <div class="resultat-box" set:html={tex('v_n = 2 + \\dfrac{4}{5 \\times 2^n - 4}', true)} />
+            </div>
+          </div>
+
+          <!-- Question B2c -->
+          <div class="question">
+            <h4>2.c. Calculer la limite de <span set:html={tex('(v_n)')} /></h4>
+            <div class="correction">
+              <p>Quand <span set:html={tex('n \\to +\\infty')} />, <span set:html={tex('5 \\times 2^n - 4 \\to +\\infty')} />, donc <span set:html={tex('\\dfrac{4}{5 \\times 2^n - 4} \\to 0')} />.</p>
+              <div class="resultat-box" set:html={tex('\\lim_{n \\to +\\infty} v_n = 2', true)} />
+            </div>
+          </div>
+
+          <!-- Question B3 -->
+          <div class="question">
+            <h4>3. Plus petit entier <span set:html={tex('n')} /> tel que <span set:html={tex('v_n < 2{,}01')} /></h4>
+            <div class="correction">
+              <p>On cherche le plus petit <span set:html={tex('n')} /> tel que :</p>
+              <div set:html={tex('v_n < 2{,}01 \\iff 2 + \\dfrac{4}{5 \\times 2^n - 4} < 2{,}01', true)} />
+              <div set:html={tex('\\iff \\dfrac{4}{5 \\times 2^n - 4} < 0{,}01', true)} />
+              <div set:html={tex('\\iff 5 \\times 2^n - 4 > 400', true)} />
+              <div set:html={tex('\\iff 5 \\times 2^n > 404 \\iff 2^n > 80{,}8', true)} />
+
+              <p>Or <span set:html={tex('2^6 = 64 < 80{,}8')} /> et <span set:html={tex('2^7 = 128 > 80{,}8')} />.</p>
+
+              <div class="resultat-box" set:html={tex('n = 7 \\text{ est le plus petit entier tel que } v_n < 2{,}01', true)} />
+            </div>
           </div>
         </div>
 
-        <!-- Question B4b -->
-        <div class="question">
-          <h4>4.b. Montrer que <span set:html={tex('\\overrightarrow{FJ}')} /> est un vecteur normal au plan <span set:html={tex('(AMN)')} /></h4>
-          <div class="correction">
-            <p>Calculons <span set:html={tex('\\overrightarrow{FJ}')} /> :</p>
-            <div set:html={tex('\\overrightarrow{FJ} = J - F = \\left(1-1\\,;\\, \\dfrac{1}{2}-0\\,;\\, \\dfrac{1}{2}-1\\right) = \\left(0\\,;\\,\\dfrac{1}{2}\\,;\\,-\\dfrac{1}{2}\\right)', true)} />
+        <!-- Partie C -->
+        <div class="exercise-part">
+          <h3>Partie C — Determination de <span set:html={tex('N')} /></h3>
 
-            <p>Vérifions que <span set:html={tex('\\overrightarrow{FJ}')} /> est orthogonal à <span set:html={tex('\\overrightarrow{AM}')} /> et <span set:html={tex('\\overrightarrow{AN}')} /> :</p>
-            <div set:html={tex('\\overrightarrow{FJ} \\cdot \\overrightarrow{AM} = 0 \\times 2 + \\dfrac{1}{2} \\times 0 + \\left(-\\dfrac{1}{2}\\right) \\times 0 = 0 \\quad \\checkmark', true)} />
-            <div set:html={tex('\\overrightarrow{FJ} \\cdot \\overrightarrow{AN} = 0 \\times 0 + \\dfrac{1}{2} \\times 2 + \\left(-\\dfrac{1}{2}\\right) \\times 2 = 1 - 1 = 0 \\quad \\checkmark', true)} />
+          <div class="question">
+            <h4>Determiner le plus petit <span set:html={tex('N')} /> tel que pour tout <span set:html={tex('n \\geqslant N')} />, <span set:html={tex('v_n')} /> et <span set:html={tex('u_n')} /> appartiennent a <span set:html={tex(']1{,}99\\,;\\,2{,}01[')} /></h4>
+            <div class="correction">
+              <p><strong>Pour <span set:html={tex('(v_n)')} /> :</strong></p>
+              <p>On a <span set:html={tex('v_n > 2')} /> pour tout <span set:html={tex('n')} /> (car <span set:html={tex('\\dfrac{4}{5 \\times 2^n - 4} > 0')} /> pour <span set:html={tex('n \\geqslant 1')} />), donc <span set:html={tex('v_n > 1{,}99')} /> est automatiquement verifiee. D'apres la question B.3, <span set:html={tex('v_n < 2{,}01')} /> pour <span set:html={tex('n \\geqslant 7')} />.</p>
 
-            <p>Le vecteur <span set:html={tex('\\overrightarrow{FJ}')} /> est orthogonal à deux vecteurs non colinéaires du plan <span set:html={tex('(AMN)')} />, donc il est <strong>normal au plan <span set:html={tex('(AMN)')} /></strong>.</p>
-            <div class="resultat-box" set:html={tex('\\overrightarrow{FJ} \\text{ est normal au plan } (AMN)', true)} />
+              <p><strong>Pour <span set:html={tex('(u_n)')} /> :</strong></p>
+              <p>On a <span set:html={tex('u_n > 2')} /> pour tout <span set:html={tex('n')} /> (car la suite est decroissante minoree par 2, avec <span set:html={tex('u_n > 2')} /> strictement), donc <span set:html={tex('u_n > 1{,}99')} /> est automatiquement verifiee.</p>
+              <p>Il reste a trouver le plus petit <span set:html={tex('n')} /> tel que <span set:html={tex('u_n < 2{,}01')} />. On calcule les termes successifs :</p>
+
+              <div set:html={tex('u_0 = 6, \\quad u_1 = 4, \\quad u_2 \\approx 3{,}162, \\quad u_3 \\approx 2{,}736', true)} />
+              <div set:html={tex('u_4 \\approx 2{,}492, \\quad u_5 \\approx 2{,}340, \\quad u_6 \\approx 2{,}241', true)} />
+              <div set:html={tex('u_7 \\approx 2{,}173, \\quad u_8 \\approx 2{,}126, \\quad u_9 \\approx 2{,}092', true)} />
+              <div set:html={tex('u_{10} \\approx 2{,}068, \\quad u_{11} \\approx 2{,}050, \\quad u_{12} \\approx 2{,}037', true)} />
+              <div set:html={tex('u_{13} \\approx 2{,}028, \\quad u_{14} \\approx 2{,}021, \\quad u_{15} \\approx 2{,}016', true)} />
+              <div set:html={tex('u_{16} \\approx 2{,}012, \\quad u_{17} \\approx 2{,}009 < 2{,}01', true)} />
+
+              <p>On a <span set:html={tex('u_{16} \\approx 2{,}012 > 2{,}01')} /> et <span set:html={tex('u_{17} \\approx 2{,}009 < 2{,}01')} />, donc <span set:html={tex('u_n < 2{,}01')} /> pour <span set:html={tex('n \\geqslant 17')} />.</p>
+
+              <p><strong>Conclusion :</strong> La condition la plus contraignante est celle sur <span set:html={tex('(u_n)')} />, qui necessite <span set:html={tex('n \\geqslant 17')} />.</p>
+
+              <div class="resultat-box" set:html={tex('N = 17', true)} />
+            </div>
           </div>
         </div>
 
-        <!-- Question B4c -->
-        <div class="question">
-          <h4>4.c. Montrer que <span set:html={tex('J')} /> appartient au plan <span set:html={tex('(AMN)')} /> et en déduire qu'il est le projeté orthogonal de <span set:html={tex('F')} /></h4>
-          <div class="correction">
-            <p>Le plan <span set:html={tex('(AMN)')} /> passe par <span set:html={tex('A(0;0;0)')} /> et a pour vecteur normal <span set:html={tex('\\overrightarrow{FJ}(0\\,;\\,\\frac{1}{2}\\,;\\,-\\frac{1}{2})')} />, soit <span set:html={tex('\\vec{n}(0\\,;\\,1\\,;\\,-1)')} />.</p>
-            <p>L'équation du plan est : <span set:html={tex('0x + 1y - 1z = 0')} />, soit <span set:html={tex('y - z = 0')} />.</p>
+        <a class="reviser-link" href="/terminale/suites-numeriques/">Reviser les suites &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/suites-geometriques/">Reviser les suites geometriques &rarr;</a>
+      </section>
 
-            <p>Vérifions que <span set:html={tex('J')} /> appartient au plan :</p>
-            <div set:html={tex('y_J - z_J = \\dfrac{1}{2} - \\dfrac{1}{2} = 0 \\quad \\checkmark', true)} />
+      <!-- ======================================================== -->
+      <!--  EXERCICE 4 — Vrai/Faux (4 points)                      -->
+      <!-- ======================================================== -->
+      <section class="exercise-correction">
+        <h2>Exercice 4 — Vrai/Faux (4 points)</h2>
 
-            <p>Donc <span set:html={tex('J \\in (AMN)')} />. Puisque <span set:html={tex('\\overrightarrow{FJ}')} /> est normal au plan <span set:html={tex('(AMN)')} /> et que <span set:html={tex('J')} /> appartient à ce plan, <span set:html={tex('J')} /> est le <strong>projeté orthogonal</strong> de <span set:html={tex('F')} /> sur le plan <span set:html={tex('(AMN)')} />.</p>
-            <div class="resultat-box" set:html={tex('J \\text{ est le projeté orthogonal de } F \\text{ sur le plan } (AMN)', true)} />
-          </div>
+        <div class="methode-box">
+          <strong>Rappel :</strong> Dans un exercice Vrai/Faux, chaque affirmation doit etre justifiee. Une reponse non justifiee ne rapporte aucun point.
         </div>
 
-        <!-- Question B5 -->
+        <p>Un musee propose des visites avec ou sans audioguide. Les billets peuvent etre achetes en ligne ou au guichet.</p>
+
+        <!-- Affirmation 1 -->
         <div class="question">
-          <h4>5. Montrer que le volume du tétraèdre <span set:html={tex('AMNF')} /> est le double de celui de la pyramide <span set:html={tex('BCGFM')} /></h4>
+          <h4>Affirmation 1</h4>
+          <p>Un code de validation est constitue de 4 chiffres deux a deux distincts, le premier chiffre etant different de 0. Le nombre de codes differents est 5 040.</p>
           <div class="correction">
-            <p><strong>Volume du tétraèdre <span set:html={tex('AMNF')} /> :</strong></p>
-            <p>On prend le triangle <span set:html={tex('AMN')} /> comme base (aire <span set:html={tex('\\mathcal{A} = 2\\sqrt{2}')} />) et <span set:html={tex('FJ')} /> comme hauteur, puisque <span set:html={tex('J')} /> est le projeté orthogonal de <span set:html={tex('F')} /> sur le plan <span set:html={tex('(AMN)')} />.</p>
-            <div set:html={tex('FJ = \\sqrt{0^2 + \\left(\\dfrac{1}{2}\\right)^2 + \\left(-\\dfrac{1}{2}\\right)^2} = \\sqrt{\\dfrac{1}{4} + \\dfrac{1}{4}} = \\sqrt{\\dfrac{1}{2}} = \\dfrac{\\sqrt{2}}{2}', true)} />
-            <div set:html={tex('V_{AMNF} = \\dfrac{1}{3} \\times 2\\sqrt{2} \\times \\dfrac{\\sqrt{2}}{2} = \\dfrac{1}{3} \\times \\dfrac{2 \\times 2}{2} = \\dfrac{1}{3} \\times 2 = \\dfrac{2}{3}', true)} />
+            <p><strong>FAUX.</strong></p>
+            <div class="methode-box">
+              <strong>Methode :</strong> On denombre les codes en choisissant les chiffres un par un, en tenant compte des contraintes.
+            </div>
 
-            <p><strong>Volume de la pyramide <span set:html={tex('BCGFM')} /> :</strong></p>
-            <p>La base est la face carrée <span set:html={tex('BCGF')} /> (d'aire <span set:html={tex('1')} />, car c'est une face du cube de côté 1). Le sommet est <span set:html={tex('M(2;0;0)')} />.</p>
-            <p>La face <span set:html={tex('BCGF')} /> est dans le plan <span set:html={tex('x = 1')} />. La hauteur est la distance de <span set:html={tex('M')} /> à ce plan :</p>
-            <div set:html={tex('h = |x_M - 1| = |2 - 1| = 1', true)} />
-            <div set:html={tex('V_{BCGFM} = \\dfrac{1}{3} \\times 1 \\times 1 = \\dfrac{1}{3}', true)} />
-
-            <p><strong>Comparaison :</strong></p>
-            <div set:html={tex('V_{AMNF} = \\dfrac{2}{3} = 2 \\times \\dfrac{1}{3} = 2 \\times V_{BCGFM}', true)} />
-
-            <div class="resultat-box" set:html={tex('V_{AMNF} = \\dfrac{2}{3} = 2 \\times V_{BCGFM}', true)} />
-          </div>
-        </div>
-      </div>
-
-      <a class="reviser-link" href="/terminale/vecteurs-droites-plans-espace/">Réviser les droites et plans de l'espace →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/orthogonalite-distances-espace/">Réviser l'orthogonalité et les distances →</a>
-    </section>
-
-    <!-- ======================================================== -->
-    <!--  EXERCICE 3 — Suites et convergence (6 points)           -->
-    <!-- ======================================================== -->
-    <section class="exercise-correction">
-      <h2>Exercice 3 — Suites et convergence (6 points)</h2>
-
-      <div class="methode-box">
-        <strong>Rappels utiles :</strong> Suites monotones bornées, théorème de convergence monotone, suites géométriques, algorithme Python.
-      </div>
-
-      <!-- Partie A -->
-      <div class="exercise-part">
-        <h3>Partie A — Étude de la suite <span set:html={tex('(u_n)')} /></h3>
-
-        <p>On considère <span set:html={tex('f(x) = \\sqrt{3x - 2}')} /> définie sur <span set:html={tex('[2\\,;\\,+\\infty[')} /> et la suite <span set:html={tex('(u_n)')} /> définie par <span set:html={tex('u_0 = 6')} /> et <span set:html={tex('u_{n+1} = f(u_n)')} />.</p>
-
-        <!-- Question A1 -->
-        <div class="question">
-          <h4>1. Justifier le tableau de variations de <span set:html={tex('f')} /></h4>
-          <div class="correction">
-            <p>La fonction <span set:html={tex('f')} /> est définie sur <span set:html={tex('[2\\,;\\,+\\infty[')} /> car <span set:html={tex('3x - 2 \\geqslant 4 > 0')} /> pour <span set:html={tex('x \\geqslant 2')} />.</p>
-            <p>Dérivons :</p>
-            <div set:html={tex("f'(x) = \\dfrac{3}{2\\sqrt{3x - 2}}", true)} />
-            <p>Pour tout <span set:html={tex('x \\geqslant 2')} />, <span set:html={tex("f'(x) > 0")} /> : <span set:html={tex('f')} /> est <strong>strictement croissante</strong> sur <span set:html={tex('[2\\,;\\,+\\infty[')} />.</p>
-            <p>Valeurs : <span set:html={tex('f(2) = \\sqrt{4} = 2')} /> et <span set:html={tex('\\lim_{x \\to +\\infty} f(x) = +\\infty')} />.</p>
-            <div class="resultat-box" set:html={tex("f'(x) > 0 \\text{ sur } [2\\,;\\,+\\infty[ : f \\text{ est strictement croissante, } f(2) = 2", true)} />
-          </div>
-        </div>
-
-        <!-- Question A2a -->
-        <div class="question">
-          <h4>2.a. Démontrer par récurrence que <span set:html={tex('2 \\leqslant u_{n+1} \\leqslant u_n \\leqslant 6')} /></h4>
-          <div class="correction">
-            <p><strong>Initialisation (n = 0) :</strong> <span set:html={tex('u_0 = 6')} /> et <span set:html={tex('u_1 = \\sqrt{3 \\times 6 - 2} = \\sqrt{16} = 4')} />.</p>
-            <p>On a <span set:html={tex('2 \\leqslant 4 \\leqslant 6')} /> et <span set:html={tex('u_1 = 4 \\leqslant 6 = u_0')} />. La propriété est vraie au rang 0.</p>
-
-            <p><strong>Hérédité :</strong> Supposons que <span set:html={tex('2 \\leqslant u_{n+1} \\leqslant u_n \\leqslant 6')} /> pour un entier <span set:html={tex('n \\geqslant 0')} />.</p>
-
-            <p><em>Montrons que <span set:html={tex('u_{n+2} \\geqslant 2')} /> :</em></p>
-            <p>On a <span set:html={tex('u_{n+1} \\geqslant 2')} />, donc <span set:html={tex('3u_{n+1} - 2 \\geqslant 4')} />, d'où <span set:html={tex('u_{n+2} = \\sqrt{3u_{n+1} - 2} \\geqslant \\sqrt{4} = 2')} />.</p>
-
-            <p><em>Montrons que <span set:html={tex('u_{n+2} \\leqslant u_{n+1}')} /> :</em></p>
-            <div set:html={tex('u_{n+2} \\leqslant u_{n+1} \\iff \\sqrt{3u_{n+1} - 2} \\leqslant u_{n+1} \\iff 3u_{n+1} - 2 \\leqslant u_{n+1}^2', true)} />
-            <p>(les deux membres étant positifs puisque <span set:html={tex('u_{n+1} \\geqslant 2')} />)</p>
-            <div set:html={tex('\\iff u_{n+1}^2 - 3u_{n+1} + 2 \\geqslant 0 \\iff (u_{n+1} - 1)(u_{n+1} - 2) \\geqslant 0', true)} />
-            <p>Comme <span set:html={tex('u_{n+1} \\geqslant 2')} />, on a <span set:html={tex('u_{n+1} - 1 \\geqslant 1 > 0')} /> et <span set:html={tex('u_{n+1} - 2 \\geqslant 0')} />, donc le produit est positif. <span set:html={tex('\\checkmark')} /></p>
-
-            <p><em>De plus <span set:html={tex('u_{n+2} \\leqslant u_{n+1} \\leqslant 6')} />.</em></p>
-
-            <p><strong>Conclusion :</strong> Par récurrence, pour tout <span set:html={tex('n \\in \\mathbb{N}')} />, <span set:html={tex('2 \\leqslant u_{n+1} \\leqslant u_n \\leqslant 6')} />.</p>
-            <div class="resultat-box" set:html={tex('\\forall n \\in \\mathbb{N}, \\quad 2 \\leqslant u_{n+1} \\leqslant u_n \\leqslant 6', true)} />
-          </div>
-        </div>
-
-        <!-- Question A2b -->
-        <div class="question">
-          <h4>2.b. En déduire que <span set:html={tex('(u_n)')} /> converge</h4>
-          <div class="correction">
-            <p>La suite <span set:html={tex('(u_n)')} /> est <strong>décroissante</strong> (car <span set:html={tex('u_{n+1} \\leqslant u_n')} />) et <strong>minorée</strong> par 2.</p>
-            <p>D'après le <strong>théorème de convergence monotone</strong>, la suite <span set:html={tex('(u_n)')} /> converge.</p>
-            <div class="resultat-box" set:html={tex('(u_n) \\text{ est décroissante et minorée : elle converge}', true)} />
-          </div>
-        </div>
-
-        <!-- Question A3 -->
-        <div class="question">
-          <h4>3. Déterminer la limite <span set:html={tex('\\ell')} /></h4>
-          <div class="correction">
-            <p>La limite <span set:html={tex('\\ell')} /> vérifie <span set:html={tex('f(\\ell) = \\ell')} />, soit <span set:html={tex('\\sqrt{3\\ell - 2} = \\ell')} />.</p>
-            <p>En élevant au carré (valide car <span set:html={tex('\\ell \\geqslant 2 > 0')} />) :</p>
-            <div set:html={tex('3\\ell - 2 = \\ell^2 \\iff \\ell^2 - 3\\ell + 2 = 0 \\iff (\\ell - 1)(\\ell - 2) = 0', true)} />
-            <p>Donc <span set:html={tex('\\ell = 1')} /> ou <span set:html={tex('\\ell = 2')} />. Comme <span set:html={tex('u_n \\geqslant 2')} /> pour tout <span set:html={tex('n')} />, on a <span set:html={tex('\\ell \\geqslant 2')} />, donc :</p>
-            <div class="resultat-box" set:html={tex('\\ell = 2', true)} />
-          </div>
-        </div>
-
-        <!-- Question A4a -->
-        <div class="question">
-          <h4>4.a. Pourquoi <span set:html={tex('\\texttt{rang(2.000001)}')} /> renvoie-t-il une valeur ?</h4>
-          <div class="correction">
-            <p>La suite <span set:html={tex('(u_n)')} /> converge vers <span set:html={tex('\\ell = 2')} /> et <span set:html={tex('u_n > 2')} /> pour tout <span set:html={tex('n')} /> (car <span set:html={tex('u_n \\geqslant 2')} /> avec décroissance stricte depuis <span set:html={tex('u_0 = 6')} />).</p>
-            <p>Puisque <span set:html={tex('\\lim u_n = 2')} />, il existe un rang <span set:html={tex('N')} /> tel que <span set:html={tex('u_N < 2{,}000001')} />.</p>
-            <p>La condition <span set:html={tex('\\texttt{u >= a}')} /> avec <span set:html={tex('a = 2{,}000001')} /> finira donc par être fausse, et la boucle <span set:html={tex('\\texttt{while}')} /> se terminera.</p>
-            <div class="resultat-box" set:html={tex('(u_n) \\to 2 \\text{ donc } u_n < 2{,}000001 \\text{ à partir d\'un certain rang : la boucle se termine}', true)} />
-          </div>
-        </div>
-
-        <!-- Question A4b -->
-        <div class="question">
-          <h4>4.b. Pour quelles valeurs de <span set:html={tex('a')} /> l'instruction <span set:html={tex('\\texttt{rang(a)}')} /> renvoie-t-elle un résultat ?</h4>
-          <div class="correction">
-            <p>La boucle <span set:html={tex('\\texttt{while u >= a}')} /> se termine si et seulement si on atteint <span set:html={tex('u_n < a')} /> pour un certain <span set:html={tex('n')} />.</p>
-            <p>Comme <span set:html={tex('u_n > 2')} /> pour tout <span set:html={tex('n')} /> et <span set:html={tex('\\lim u_n = 2')} />, la condition <span set:html={tex('u_n < a')} /> sera vérifiée si et seulement si <span set:html={tex('a > 2')} />.</p>
+            <p>Les 4 chiffres sont <strong>deux a deux distincts</strong> et le premier est <strong>different de 0</strong>.</p>
             <ul>
-              <li>Si <span set:html={tex('a > 2')} /> : la boucle se termine car <span set:html={tex('u_n \\to 2 < a')} />.</li>
-              <li>Si <span set:html={tex('a \\leqslant 2')} /> : la condition <span set:html={tex('u_n \\geqslant a')} /> est toujours vraie (car <span set:html={tex('u_n > 2 \\geqslant a')} />), donc boucle infinie.</li>
+              <li>1er chiffre : 9 choix possibles (de 1 a 9)</li>
+              <li>2e chiffre : 9 choix possibles (de 0 a 9 sauf le 1er chiffre)</li>
+              <li>3e chiffre : 8 choix possibles</li>
+              <li>4e chiffre : 7 choix possibles</li>
             </ul>
-            <div class="resultat-box" set:html={tex('\\texttt{rang(a)} \\text{ renvoie un résultat si et seulement si } a > 2', true)} />
-          </div>
-        </div>
-      </div>
-
-      <!-- Partie B -->
-      <div class="exercise-part">
-        <h3>Partie B — Étude de la suite <span set:html={tex('(v_n)')} /></h3>
-
-        <p>La suite <span set:html={tex('(v_n)')} /> vérifie <span set:html={tex('v_0 = 6')} /> et <span set:html={tex('v_{n+1} = 3 - \\dfrac{2}{v_n}')} /> pour tout <span set:html={tex('n \\in \\mathbb{N}')} />.</p>
-
-        <!-- Question B1 -->
-        <div class="question">
-          <h4>1. Calculer <span set:html={tex('v_1')} /></h4>
-          <div class="correction">
-            <div set:html={tex('v_1 = 3 - \\dfrac{2}{v_0} = 3 - \\dfrac{2}{6} = 3 - \\dfrac{1}{3} = \\dfrac{8}{3}', true)} />
-            <div class="resultat-box" set:html={tex('v_1 = \\dfrac{8}{3}', true)} />
-          </div>
-        </div>
-
-        <!-- Question B2a -->
-        <div class="question">
-          <h4>2.a. Démontrer que <span set:html={tex('(w_n)')} /> est géométrique de raison <span set:html={tex('\\dfrac{1}{2}')} /></h4>
-          <div class="correction">
-            <p>On pose <span set:html={tex('w_n = \\dfrac{v_n - 1}{v_n - 2}')} /> pour tout <span set:html={tex('n')} /> (on admet <span set:html={tex('v_n \\neq 2')} />).</p>
-
-            <p>Calculons <span set:html={tex('w_{n+1}')} /> :</p>
-            <div set:html={tex('w_{n+1} = \\dfrac{v_{n+1} - 1}{v_{n+1} - 2} = \\dfrac{3 - \\dfrac{2}{v_n} - 1}{3 - \\dfrac{2}{v_n} - 2} = \\dfrac{2 - \\dfrac{2}{v_n}}{1 - \\dfrac{2}{v_n}}', true)} />
-
-            <p>Multiplions numérateur et dénominateur par <span set:html={tex('v_n')} /> :</p>
-            <div set:html={tex('w_{n+1} = \\dfrac{2v_n - 2}{v_n - 2} = \\dfrac{2(v_n - 1)}{v_n - 2} = 2 \\times \\dfrac{v_n - 1}{v_n - 2} = 2\\,w_n', true)} />
+            <div set:html={tex('\\text{Nombre de codes} = 9 \\times 9 \\times 8 \\times 7 = 4\\,536', true)} />
 
             <div class="attention-box">
-              <strong>Attention :</strong> Il faut bien lire l'énoncé : la raison est <span set:html={tex('\\dfrac{1}{2}')} /> si la relation est <span set:html={tex('w_{n+1} = \\dfrac{1}{2}\\,w_n')} />, mais ici on trouve <span set:html={tex('w_{n+1} = 2\\,w_n')} />, donc la raison est <span set:html={tex('2')} />.
+              <strong>Attention :</strong> Le resultat <span set:html={tex('5\\,040 = 10 \\times 9 \\times 8 \\times 7')} /> correspond au cas ou le premier chiffre pourrait etre 0, ce qui n'est pas le cas ici.
             </div>
 
-            <p>Calculons <span set:html={tex('w_0')} /> :</p>
-            <div set:html={tex('w_0 = \\dfrac{v_0 - 1}{v_0 - 2} = \\dfrac{6 - 1}{6 - 2} = \\dfrac{5}{4}', true)} />
-
-            <div class="resultat-box" set:html={tex('(w_n) \\text{ est géométrique de raison } 2 \\text{ et de premier terme } w_0 = \\dfrac{5}{4}', true)} />
+            <div class="resultat-box" set:html={tex('\\text{FAUX : le nombre de codes est } 9 \\times 9 \\times 8 \\times 7 = 4\\,536 \\neq 5\\,040', true)} />
           </div>
         </div>
 
-        <!-- Question B2b -->
+        <!-- Affirmation 2 -->
         <div class="question">
-          <h4>2.b. En déduire l'expression de <span set:html={tex('v_n')} /></h4>
+          <h4>Affirmation 2</h4>
+          <p>La probabilite qu'un visiteur ne prenne pas l'audioguide sachant qu'il a achete son billet au guichet est superieure a <span set:html={tex('\\dfrac{2}{3}')} />.</p>
           <div class="correction">
-            <p>Puisque <span set:html={tex('(w_n)')} /> est géométrique : <span set:html={tex('w_n = w_0 \\times 2^n = \\dfrac{5}{4} \\times 2^n')} />.</p>
+            <p><strong>FAUX.</strong></p>
+            <p>On note <span set:html={tex('L')} /> : &laquo; achat en ligne &raquo; et <span set:html={tex('A')} /> : &laquo; choisir l'audioguide &raquo;. Les donnees sont :</p>
+            <ul>
+              <li><span set:html={tex('P(L) = 0{,}7')} /> donc <span set:html={tex('P(\\bar{L}) = 0{,}3')} /></li>
+              <li><span set:html={tex('P_L(A) = 0{,}8')} /></li>
+              <li><span set:html={tex('P(\\bar{A}) = 0{,}32')} /> donc <span set:html={tex('P(A) = 0{,}68')} /></li>
+            </ul>
 
-            <p>On admet que <span set:html={tex('w_n - 1 = \\dfrac{1}{v_n - 2}')} />. Vérifions :</p>
-            <div set:html={tex('w_n - 1 = \\dfrac{v_n - 1}{v_n - 2} - 1 = \\dfrac{v_n - 1 - (v_n - 2)}{v_n - 2} = \\dfrac{1}{v_n - 2} \\quad \\checkmark', true)} />
+            <p>Calculons <span set:html={tex('P(A \\cap L)')} /> :</p>
+            <div set:html={tex('P(A \\cap L) = P(L) \\times P_L(A) = 0{,}7 \\times 0{,}8 = 0{,}56', true)} />
+
+            <p>Par la formule des probabilites totales :</p>
+            <div set:html={tex('P(A) = P(A \\cap L) + P(A \\cap \\bar{L})', true)} />
+            <div set:html={tex('P(A \\cap \\bar{L}) = P(A) - P(A \\cap L) = 0{,}68 - 0{,}56 = 0{,}12', true)} />
 
             <p>Donc :</p>
-            <div set:html={tex('\\dfrac{1}{v_n - 2} = \\dfrac{5}{4} \\times 2^n - 1 = \\dfrac{5 \\times 2^n - 4}{4}', true)} />
-            <div set:html={tex('v_n - 2 = \\dfrac{4}{5 \\times 2^n - 4}', true)} />
-            <div class="resultat-box" set:html={tex('v_n = 2 + \\dfrac{4}{5 \\times 2^n - 4}', true)} />
+            <div set:html={tex('P(\\bar{A} \\cap \\bar{L}) = P(\\bar{L}) - P(A \\cap \\bar{L}) = 0{,}3 - 0{,}12 = 0{,}18', true)} />
+
+            <p>La probabilite cherchee est :</p>
+            <div set:html={tex('P_{\\bar{L}}(\\bar{A}) = \\dfrac{P(\\bar{A} \\cap \\bar{L})}{P(\\bar{L})} = \\dfrac{0{,}18}{0{,}3} = 0{,}6 = \\dfrac{3}{5}', true)} />
+
+            <p>Or <span set:html={tex('\\dfrac{3}{5} = 0{,}6 < \\dfrac{2}{3} \\approx 0{,}667')} />, donc la probabilite n'est <strong>pas</strong> superieure a <span set:html={tex('\\dfrac{2}{3}')} />.</p>
+
+            <div class="resultat-box" set:html={tex('\\text{FAUX : } P_{\\bar{L}}(\\bar{A}) = \\dfrac{3}{5} = 0{,}6 < \\dfrac{2}{3}', true)} />
           </div>
         </div>
 
-        <!-- Question B2c -->
+        <!-- Affirmation 3 -->
         <div class="question">
-          <h4>2.c. Calculer la limite de <span set:html={tex('(v_n)')} /></h4>
+          <h4>Affirmation 3</h4>
+          <p>On choisit 12 visiteurs. La probabilite qu'exactement la moitie opte pour l'audioguide est egale a <span set:html={tex('924 \\times 0{,}2176^6')} />.</p>
           <div class="correction">
-            <p>Quand <span set:html={tex('n \\to +\\infty')} />, <span set:html={tex('5 \\times 2^n - 4 \\to +\\infty')} />, donc <span set:html={tex('\\dfrac{4}{5 \\times 2^n - 4} \\to 0')} />.</p>
-            <div class="resultat-box" set:html={tex('\\lim_{n \\to +\\infty} v_n = 2', true)} />
+            <p><strong>VRAI.</strong></p>
+            <p>Le choix de l'audioguide est independant d'un visiteur a l'autre, avec <span set:html={tex('P(A) = 0{,}68')} />.</p>
+            <p>Soit <span set:html={tex('X')} /> le nombre de visiteurs optant pour l'audioguide parmi 12. Alors <span set:html={tex('X \\sim \\mathcal{B}(12\\,;\\, 0{,}68)')} />.</p>
+
+            <p>La moitie de 12 est 6, donc on cherche <span set:html={tex('P(X = 6)')} /> :</p>
+            <div set:html={tex('P(X = 6) = \\binom{12}{6} \\times 0{,}68^6 \\times 0{,}32^6', true)} />
+
+            <p>Or <span set:html={tex('\\binom{12}{6} = 924')} /> et :</p>
+            <div set:html={tex('0{,}68^6 \\times 0{,}32^6 = (0{,}68 \\times 0{,}32)^6 = 0{,}2176^6', true)} />
+
+            <p>Donc :</p>
+            <div set:html={tex('P(X = 6) = 924 \\times 0{,}2176^6 \\approx 924 \\times 1{,}062 \\times 10^{-4} \\approx 0{,}098', true)} />
+
+            <div class="resultat-box" set:html={tex('\\text{VRAI : } P(X = 6) = 924 \\times 0{,}2176^6 \\approx 0{,}098', true)} />
           </div>
         </div>
 
-        <!-- Question B3 -->
+        <!-- Affirmation 4 -->
         <div class="question">
-          <h4>3. Plus petit entier <span set:html={tex('n')} /> tel que <span set:html={tex('v_n < 2{,}01')} /></h4>
+          <h4>Affirmation 4</h4>
+          <p>L'esperance de <span set:html={tex('X')} /> est 77 minutes.</p>
           <div class="correction">
-            <p>On cherche le plus petit <span set:html={tex('n')} /> tel que :</p>
-            <div set:html={tex('v_n < 2{,}01 \\iff 2 + \\dfrac{4}{5 \\times 2^n - 4} < 2{,}01', true)} />
-            <div set:html={tex('\\iff \\dfrac{4}{5 \\times 2^n - 4} < 0{,}01', true)} />
-            <div set:html={tex('\\iff 5 \\times 2^n - 4 > 400', true)} />
-            <div set:html={tex('\\iff 5 \\times 2^n > 404 \\iff 2^n > 80{,}8', true)} />
+            <p><strong>FAUX.</strong></p>
+            <p>Les durees sont : 50 min, 80 min et 100 min.</p>
+            <p>Calculons l'esperance :</p>
+            <div set:html={tex('E(X) = 50 \\times 0{,}1 + 80 \\times 0{,}6 + 100 \\times 0{,}3', true)} />
+            <div set:html={tex('E(X) = 5 + 48 + 30 = 83', true)} />
 
-            <p>Or <span set:html={tex('2^6 = 64 < 80{,}8')} /> et <span set:html={tex('2^7 = 128 > 80{,}8')} />.</p>
-
-            <div class="resultat-box" set:html={tex('n = 7 \\text{ est le plus petit entier tel que } v_n < 2{,}01', true)} />
+            <div class="resultat-box" set:html={tex('\\text{FAUX : } E(X) = 83 \\text{ minutes} \\neq 77 \\text{ minutes}', true)} />
           </div>
         </div>
-      </div>
 
-      <!-- Partie C -->
-      <div class="exercise-part">
-        <h3>Partie C — Détermination de <span set:html={tex('N')} /></h3>
+        <a class="reviser-link" href="/terminale/epreuves-independantes-loi-binomiale/">Reviser les probabilites &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/denombrement/">Reviser le denombrement &rarr;</a>
+      </section>
 
-        <div class="question">
-          <h4>Déterminer le plus petit <span set:html={tex('N')} /> tel que pour tout <span set:html={tex('n \\geqslant N')} />, <span set:html={tex('v_n')} /> et <span set:html={tex('u_n')} /> appartiennent à <span set:html={tex(']1{,}99\\,;\\,2{,}01[')} /></h4>
-          <div class="correction">
-            <p><strong>Pour <span set:html={tex('(v_n)')} /> :</strong></p>
-            <p>On a <span set:html={tex('v_n > 2')} /> pour tout <span set:html={tex('n')} /> (car <span set:html={tex('\\dfrac{4}{5 \\times 2^n - 4} > 0')} /> pour <span set:html={tex('n \\geqslant 1')} />), donc <span set:html={tex('v_n > 1{,}99')} /> est automatiquement vérifiée. D'après la question B.3, <span set:html={tex('v_n < 2{,}01')} /> pour <span set:html={tex('n \\geqslant 7')} />.</p>
-
-            <p><strong>Pour <span set:html={tex('(u_n)')} /> :</strong></p>
-            <p>On a <span set:html={tex('u_n > 2')} /> pour tout <span set:html={tex('n')} /> (car la suite est décroissante minorée par 2, avec <span set:html={tex('u_n > 2')} /> strictement), donc <span set:html={tex('u_n > 1{,}99')} /> est automatiquement vérifiée.</p>
-            <p>Il reste à trouver le plus petit <span set:html={tex('n')} /> tel que <span set:html={tex('u_n < 2{,}01')} />. On utilise la fonction <span set:html={tex('\\texttt{rang(2.01)}')} /> ou on calcule les termes successifs :</p>
-
-            <div set:html={tex('u_0 = 6, \\quad u_1 = 4, \\quad u_2 \\approx 3{,}162, \\quad u_3 \\approx 2{,}736', true)} />
-            <div set:html={tex('u_4 \\approx 2{,}492, \\quad u_5 \\approx 2{,}340, \\quad u_6 \\approx 2{,}241', true)} />
-            <div set:html={tex('u_7 \\approx 2{,}173, \\quad u_8 \\approx 2{,}126, \\quad u_9 \\approx 2{,}092', true)} />
-            <div set:html={tex('u_{10} \\approx 2{,}068, \\quad u_{11} \\approx 2{,}050, \\quad u_{12} \\approx 2{,}037', true)} />
-            <div set:html={tex('u_{13} \\approx 2{,}028, \\quad u_{14} \\approx 2{,}021, \\quad u_{15} \\approx 2{,}016', true)} />
-            <div set:html={tex('u_{16} \\approx 2{,}012, \\quad u_{17} \\approx 2{,}009 < 2{,}01', true)} />
-
-            <p>On a <span set:html={tex('u_{16} \\approx 2{,}012 > 2{,}01')} /> et <span set:html={tex('u_{17} \\approx 2{,}009 < 2{,}01')} />, donc <span set:html={tex('u_n < 2{,}01')} /> pour <span set:html={tex('n \\geqslant 17')} />.</p>
-
-            <p><strong>Conclusion :</strong> La condition la plus contraignante est celle sur <span set:html={tex('(u_n)')} />, qui nécessite <span set:html={tex('n \\geqslant 17')} />.</p>
-
-            <div class="resultat-box" set:html={tex('N = 17', true)} />
-          </div>
-        </div>
-      </div>
-
-      <a class="reviser-link" href="/terminale/suites-numeriques/">Réviser les suites →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/suites-geometriques/">Réviser les suites géométriques →</a>
-    </section>
-
-    <!-- ======================================================== -->
-    <!--  EXERCICE 4 — Vrai/Faux (4 points)                      -->
-    <!-- ======================================================== -->
-    <section class="exercise-correction">
-      <h2>Exercice 4 — Vrai/Faux (4 points)</h2>
-
-      <div class="methode-box">
-        <strong>Rappel :</strong> Dans un exercice Vrai/Faux, chaque affirmation doit être justifiée. Une réponse non justifiée ne rapporte aucun point.
-      </div>
-
-      <p>Un musée propose des visites avec ou sans audioguide. Les billets peuvent être achetés en ligne ou au guichet.</p>
-
-      <!-- Affirmation 1 -->
-      <div class="question">
-        <h4>Affirmation 1</h4>
-        <p>Un code de validation est constitué de 4 chiffres deux à deux distincts, le premier chiffre étant différent de 0. Le nombre de codes différents est 5 040.</p>
-        <div class="correction">
-          <p><strong>FAUX.</strong></p>
-          <div class="methode-box">
-            <strong>Méthode :</strong> On dénombre les codes en choisissant les chiffres un par un, en tenant compte des contraintes.
-          </div>
-
-          <p>Les 4 chiffres sont <strong>deux à deux distincts</strong> et le premier est <strong>différent de 0</strong>.</p>
-          <ul>
-            <li>1er chiffre : 9 choix possibles (de 1 à 9)</li>
-            <li>2e chiffre : 9 choix possibles (de 0 à 9 sauf le 1er chiffre)</li>
-            <li>3e chiffre : 8 choix possibles</li>
-            <li>4e chiffre : 7 choix possibles</li>
-          </ul>
-          <div set:html={tex('\\text{Nombre de codes} = 9 \\times 9 \\times 8 \\times 7 = 4\\,536', true)} />
-
-          <div class="attention-box">
-            <strong>Attention :</strong> Le résultat <span set:html={tex('5\\,040 = 10 \\times 9 \\times 8 \\times 7')} /> correspond au cas où le premier chiffre pourrait être 0, ce qui n'est pas le cas ici.
-          </div>
-
-          <div class="resultat-box" set:html={tex('\\text{FAUX : le nombre de codes est } 9 \\times 9 \\times 8 \\times 7 = 4\\,536 \\neq 5\\,040', true)} />
-        </div>
-      </div>
-
-      <!-- Affirmation 2 -->
-      <div class="question">
-        <h4>Affirmation 2</h4>
-        <p>La probabilité qu'un visiteur ne prenne pas l'audioguide sachant qu'il a acheté son billet au guichet est supérieure à <span set:html={tex('\\dfrac{2}{3}')} />.</p>
-        <div class="correction">
-          <p><strong>FAUX.</strong></p>
-          <p>On note <span set:html={tex('L')} /> : « achat en ligne » et <span set:html={tex('A')} /> : « choisir l'audioguide ». Les données sont :</p>
-          <ul>
-            <li><span set:html={tex('P(L) = 0{,}7')} /> donc <span set:html={tex('P(\\bar{L}) = 0{,}3')} /></li>
-            <li><span set:html={tex('P_L(A) = 0{,}8')} /></li>
-            <li><span set:html={tex('P(\\bar{A}) = 0{,}32')} /> donc <span set:html={tex('P(A) = 0{,}68')} /></li>
-          </ul>
-
-          <p>Calculons <span set:html={tex('P(A \\cap L)')} /> :</p>
-          <div set:html={tex('P(A \\cap L) = P(L) \\times P_L(A) = 0{,}7 \\times 0{,}8 = 0{,}56', true)} />
-
-          <p>Par la formule des probabilités totales :</p>
-          <div set:html={tex('P(A) = P(A \\cap L) + P(A \\cap \\bar{L})', true)} />
-          <div set:html={tex('P(A \\cap \\bar{L}) = P(A) - P(A \\cap L) = 0{,}68 - 0{,}56 = 0{,}12', true)} />
-
-          <p>Donc :</p>
-          <div set:html={tex('P(\\bar{A} \\cap \\bar{L}) = P(\\bar{L}) - P(A \\cap \\bar{L}) = 0{,}3 - 0{,}12 = 0{,}18', true)} />
-
-          <p>La probabilité cherchée est :</p>
-          <div set:html={tex('P_{\\bar{L}}(\\bar{A}) = \\dfrac{P(\\bar{A} \\cap \\bar{L})}{P(\\bar{L})} = \\dfrac{0{,}18}{0{,}3} = 0{,}6 = \\dfrac{3}{5}', true)} />
-
-          <p>Or <span set:html={tex('\\dfrac{3}{5} = 0{,}6 < \\dfrac{2}{3} \\approx 0{,}667')} />, donc la probabilité n'est <strong>pas</strong> supérieure à <span set:html={tex('\\dfrac{2}{3}')} />.</p>
-
-          <div class="resultat-box" set:html={tex('\\text{FAUX : } P_{\\bar{L}}(\\bar{A}) = \\dfrac{3}{5} = 0{,}6 < \\dfrac{2}{3}', true)} />
-        </div>
-      </div>
-
-      <!-- Affirmation 3 -->
-      <div class="question">
-        <h4>Affirmation 3</h4>
-        <p>On choisit 12 visiteurs. La probabilité qu'exactement la moitié opte pour l'audioguide est égale à <span set:html={tex('924 \\times 0{,}2176^6')} />.</p>
-        <div class="correction">
-          <p><strong>VRAI.</strong></p>
-          <p>Le choix de l'audioguide est indépendant d'un visiteur à l'autre, avec <span set:html={tex('P(A) = 0{,}68')} />.</p>
-          <p>Soit <span set:html={tex('X')} /> le nombre de visiteurs optant pour l'audioguide parmi 12. Alors <span set:html={tex('X \\sim \\mathcal{B}(12\\,;\\, 0{,}68)')} />.</p>
-
-          <p>La moitié de 12 est 6, donc on cherche <span set:html={tex('P(X = 6)')} /> :</p>
-          <div set:html={tex('P(X = 6) = \\binom{12}{6} \\times 0{,}68^6 \\times 0{,}32^6', true)} />
-
-          <p>Or <span set:html={tex('\\binom{12}{6} = 924')} /> et :</p>
-          <div set:html={tex('0{,}68^6 \\times 0{,}32^6 = (0{,}68 \\times 0{,}32)^6 = 0{,}2176^6', true)} />
-
-          <p>Donc :</p>
-          <div set:html={tex('P(X = 6) = 924 \\times 0{,}2176^6 \\approx 924 \\times 1{,}062 \\times 10^{-4} \\approx 0{,}098', true)} />
-
-          <div class="resultat-box" set:html={tex('\\text{VRAI : } P(X = 6) = 924 \\times 0{,}2176^6 \\approx 0{,}098', true)} />
-        </div>
-      </div>
-
-      <!-- Affirmation 4 -->
-      <div class="question">
-        <h4>Affirmation 4</h4>
-        <p>Le temps de parcours peut être modélisé par une variable aléatoire <span set:html={tex('X')} /> avec :</p>
-        <div set:html={tex('\\begin{array}{|c|c|c|c|} \\hline x_i & 50 \\text{ min} & 80 \\text{ min} & 100 \\text{ min} \\\\ \\hline P(X = x_i) & 0{,}1 & 0{,}6 & 0{,}3 \\\\ \\hline \\end{array}', true)} />
-        <p>L'espérance de <span set:html={tex('X')} /> est 77 minutes.</p>
-        <div class="correction">
-          <p><strong>FAUX.</strong></p>
-          <p>Les durées sont : 50 min, 1 h 20 min = 80 min, 1 h 40 min = 100 min.</p>
-          <p>Calculons l'espérance :</p>
-          <div set:html={tex('E(X) = 50 \\times 0{,}1 + 80 \\times 0{,}6 + 100 \\times 0{,}3', true)} />
-          <div set:html={tex('E(X) = 5 + 48 + 30 = 83', true)} />
-
-          <div class="resultat-box" set:html={tex('\\text{FAUX : } E(X) = 83 \\text{ minutes} \\neq 77 \\text{ minutes}', true)} />
-        </div>
-      </div>
-
-      <a class="reviser-link" href="/terminale/epreuves-independantes-loi-binomiale/">Réviser les probabilités →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/denombrement/">Réviser le dénombrement →</a>
-    </section>
-
+    </div>
   </article>
+
+  <!-- Tab switching script -->
+  <script>
+    document.querySelectorAll('.bac-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.bac-tab').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.bac-panel').forEach(p => { p.style.display = 'none'; p.classList.remove('active'); });
+        btn.classList.add('active');
+        const panel = document.getElementById('bac-' + btn.dataset.tab);
+        panel.style.display = '';
+        panel.classList.add('active');
+      });
+    });
+  </script>
 </BaseLayout>
 
 <style>
@@ -817,12 +1038,55 @@ const jsonLd = {
     margin-bottom: 1.5rem;
   }
 
-  .exercise-part {
+  .themes-summary { margin: 1.5rem 0; }
+  .themes-summary h2 { font-size: 1.1rem; color: var(--slate-700); margin-bottom: 0.75rem; }
+  .theme-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .theme-tags a {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    background: var(--blue-50);
+    color: var(--blue-700);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--blue-200);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .theme-tags a:hover { background: var(--blue-100); border-color: var(--blue-300); }
+
+  /* Tabs */
+  .bac-tabs { display: flex; gap: 0; margin: 1.5rem 0; border-bottom: 2px solid var(--slate-200); }
+  .bac-tab {
+    padding: 0.75rem 1.5rem; border: none; background: none; cursor: pointer;
+    font-weight: 600; font-size: 1rem; color: var(--slate-500);
+    border-bottom: 3px solid transparent; margin-bottom: -2px;
+    font-family: var(--font-heading);
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .bac-tab.active { color: var(--blue-700); border-bottom-color: var(--blue-600); }
+  .bac-tab:hover { color: var(--blue-600); }
+
+  .bac-panel { animation: fadeIn 0.2s ease; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Sujet blocks */
+  .exercise-block { margin: 2rem 0; }
+  .exercise-block h2 { color: var(--blue-800); border-bottom: 1px solid var(--slate-200); padding-bottom: 0.5rem; }
+  .exercise-block h3 { color: var(--slate-700); font-size: 1.05rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+  /* Correction blocks */
+  .exercise-part { margin: 1.5rem 0; }
+  .exercise-part h3 { color: var(--slate-600); font-size: 1.05rem; margin-bottom: 0.5rem; }
+
+  /* SVG figures */
+  .svg-figure {
+    display: flex; justify-content: center;
     margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--slate-50);
+    border-radius: 12px;
+    border: 1px solid var(--slate-200);
   }
-  .exercise-part h3 {
-    color: var(--slate-600);
-    font-size: 1.05rem;
-    margin-bottom: 0.5rem;
-  }
+  .figure-svg { max-width: 500px; width: 100%; height: auto; }
 </style>

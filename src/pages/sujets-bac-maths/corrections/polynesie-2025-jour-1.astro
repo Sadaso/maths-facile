@@ -5,8 +5,8 @@ import { tex } from '../../../utils/katex.js';
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "Corrigé Bac Maths 2025 Polynésie Jour 1",
-  "description": "Correction détaillée du sujet de mathématiques spécialité du baccalauréat 2025, Polynésie Jour 1, 17 juin 2025.",
+  "name": "Bac Maths 2025 Polynesie Jour 1 — Sujet et Corrige",
+  "description": "Sujet complet et correction detaillee du bac maths 2025 Polynesie Jour 1 (17 juin 2025). Probabilites conditionnelles, geometrie dans l'espace, fonctions et integrales, vrai/faux.",
   "datePublished": "2025-06-17",
   "author": { "@type": "Organization", "name": "Maths Facile", "url": "https://maths-facile.com" },
   "publisher": { "@type": "Organization", "name": "Maths Facile" },
@@ -16,546 +16,828 @@ const jsonLd = {
 ---
 
 <BaseLayout
-  title="Corrigé Bac Maths 2025 Polynésie Jour 1 — Correction détaillée | Maths Facile"
-  description="Correction complète et détaillée du bac maths 2025 Polynésie Jour 1 (17 juin 2025). Probabilités, géométrie dans l'espace, fonctions et intégrales, vrai/faux."
+  title="Bac Maths 2025 Polynesie Jour 1 — Sujet et Corrige detaille | Maths Facile"
+  description="Sujet complet et correction detaillee du bac maths 2025 Polynesie Jour 1 (17 juin 2025). Probabilites conditionnelles, geometrie dans l'espace, fonctions et integrales, vrai/faux."
   jsonLd={jsonLd}
 >
   <nav aria-label="Fil d'Ariane" class="breadcrumbs">
-    <a href="/">Accueil</a> &gt; <a href="/sujets-bac-maths/">Sujets Bac</a> &gt; <a href="/sujets-bac-maths/2025/">Session 2025</a> &gt; Polynésie Jour 1
+    <a href="/">Accueil</a> &gt; <a href="/sujets-bac-maths/">Sujets Bac</a> &gt; <a href="/sujets-bac-maths/2025/">Session 2025</a> &gt; Polynesie Jour 1
   </nav>
 
   <article class="course-document">
-    <h1>Corrigé — Bac Maths 2025 Polynésie Jour 1</h1>
+    <h1>Bac Maths 2025 — Polynesie Jour 1</h1>
     <p class="subtitle">17 juin 2025 — 4 exercices — 20 points</p>
 
     <div class="themes-summary">
-      <strong>Thèmes abordés :</strong>
-      <ul>
-        <li><strong>Exercice 1 (5 pts)</strong> — Probabilités conditionnelles, loi binomiale, inégalité de Bienaymé-Tchebychev</li>
-        <li><strong>Exercice 2 (5 pts)</strong> — Géométrie dans l'espace : droites paramétrées, plans, distances</li>
-        <li><strong>Exercice 3 (5 pts)</strong> — Fonctions, suite d'intégrales, convergence, Python</li>
-        <li><strong>Exercice 4 (5 pts)</strong> — Vrai/Faux : équation différentielle, combinatoire, suites, géométrie</li>
-      </ul>
+      <h2>Themes abordes</h2>
+      <div class="theme-tags">
+        <a href="/terminale/epreuves-independantes-loi-binomiale/">Probabilites</a>
+        <a href="/terminale/concentration-loi-grands-nombres/">Bienayme-Tchebychev</a>
+        <a href="/terminale/vecteurs-droites-plans-espace/">Geometrie dans l'espace</a>
+        <a href="/terminale/calcul-integral/">Calcul integral</a>
+        <a href="/terminale/suites-numeriques/">Suites</a>
+        <a href="/terminale/primitives-equations-differentielles/">Equations differentielles</a>
+        <a href="/terminale/denombrement/">Denombrement</a>
+      </div>
     </div>
 
-    <!-- ======================================================== -->
-    <!--  EXERCICE 1 — Probabilités (5 points)                    -->
-    <!-- ======================================================== -->
-    <section class="exercise-correction">
-      <h2>Exercice 1 — Probabilités (5 points)</h2>
+    <!-- TAB BUTTONS -->
+    <div class="bac-tabs">
+      <button class="bac-tab active" data-tab="sujet">Sujet</button>
+      <button class="bac-tab" data-tab="correction">Correction</button>
+    </div>
 
-      <div class="methode-box">
-        <strong>Rappels utiles :</strong> Probabilités conditionnelles, formule des probabilités totales, loi binomiale, espérance, variance, inégalité de Bienaymé-Tchebychev.
-      </div>
+    <!-- ============================================================ -->
+    <!--                    ONGLET SUJET                              -->
+    <!-- ============================================================ -->
+    <div id="bac-sujet" class="bac-panel active">
 
-      <p>On s'intéresse aux allergies alimentaires chez les enfants. On note :</p>
-      <ul>
-        <li><span set:html={tex('R')} /> : "l'enfant vit en zone rurale"</li>
-        <li><span set:html={tex('A')} /> : "l'enfant présente une allergie alimentaire"</li>
-      </ul>
-      <p>
-        On donne : <span set:html={tex('P(R) = 0{,}17')} />,
-        <span set:html={tex('P_R(A) = 0{,}062')} />,
-        <span set:html={tex('P(A) = 0{,}09')} />.
-      </p>
+      <!-- ======== EXERCICE 1 — Enonce ======== -->
+      <section class="exercise-block">
+        <h2>Exercice 1 — (5 points)</h2>
+        <p><em>Les trois parties de cet exercice peuvent etre traitees de maniere independante.</em></p>
 
-      <!-- Partie A -->
-      <div class="exercise-part">
-        <h3>Partie A — Allergies alimentaires en zone rurale et urbaine</h3>
+        <p>Une etude s'interesse aux allergies alimentaires chez les enfants scolarises en France. On note :</p>
+        <ul>
+          <li><span set:html={tex('R')} /> l'evenement : &laquo; l'enfant vit en zone rurale &raquo; ;</li>
+          <li><span set:html={tex('A')} /> l'evenement : &laquo; l'enfant presente une allergie alimentaire &raquo;.</li>
+        </ul>
+        <p>Une etude statistique a permis d'etablir que :</p>
+        <ul>
+          <li>la proportion d'enfants vivant en zone rurale est <span set:html={tex('17\\,\\%')} />, soit <span set:html={tex('P(R) = 0{,}17')} /> ;</li>
+          <li>parmi les enfants vivant en zone rurale, <span set:html={tex('6{,}2\\,\\%')} /> presentent une allergie alimentaire : <span set:html={tex('P_R(A) = 0{,}062')} /> ;</li>
+          <li>la proportion globale d'enfants presentant une allergie alimentaire est <span set:html={tex('P(A) = 0{,}09')} />.</li>
+        </ul>
+
+        <h3>Partie A</h3>
+        <p>On choisit au hasard un enfant scolarise.</p>
+
+        <p><strong>1.</strong> Representer la situation par un arbre pondere.</p>
+
+        <!-- SVG Probability Tree -->
+        <div class="svg-figure">
+          <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" class="figure-svg" role="img" aria-label="Arbre pondere de probabilites : zones rurale/urbaine et allergie">
+            <!-- Root -->
+            <circle cx="40" cy="150" r="6" fill="var(--blue-600)" />
+            <!-- Branch R -->
+            <line x1="46" y1="150" x2="170" y2="70" stroke="var(--blue-600)" stroke-width="2" />
+            <text x="85" y="95" font-size="13" fill="var(--slate-600)" font-style="italic">0,17</text>
+            <circle cx="175" cy="68" r="6" fill="var(--blue-700)" />
+            <text x="185" y="63" font-size="14" fill="var(--blue-800)" font-weight="600">R</text>
+            <!-- Branch Rbar -->
+            <line x1="46" y1="150" x2="170" y2="230" stroke="var(--blue-600)" stroke-width="2" />
+            <text x="80" y="210" font-size="13" fill="var(--slate-600)" font-style="italic">0,83</text>
+            <circle cx="175" cy="232" r="6" fill="var(--blue-700)" />
+            <text x="185" y="227" font-size="14" fill="var(--blue-800)" font-weight="600" style="text-decoration:overline">R</text>
+            <!-- From R: Branch A -->
+            <line x1="181" y1="68" x2="340" y2="30" stroke="var(--emerald-600)" stroke-width="1.5" />
+            <text x="230" y="38" font-size="12" fill="var(--slate-600)" font-style="italic">0,062</text>
+            <circle cx="345" cy="28" r="5" fill="var(--emerald-600)" />
+            <text x="356" y="33" font-size="13" fill="var(--emerald-700)" font-weight="600">A</text>
+            <!-- From R: Branch Abar -->
+            <line x1="181" y1="68" x2="340" y2="100" stroke="var(--red-500)" stroke-width="1.5" />
+            <text x="230" y="98" font-size="12" fill="var(--slate-600)" font-style="italic">0,938</text>
+            <circle cx="345" cy="102" r="5" fill="var(--red-500)" />
+            <text x="356" y="107" font-size="13" fill="var(--red-600)" font-weight="600" style="text-decoration:overline">A</text>
+            <!-- From Rbar: Branch A -->
+            <line x1="181" y1="232" x2="340" y2="200" stroke="var(--emerald-600)" stroke-width="1.5" />
+            <text x="240" y="205" font-size="12" fill="var(--slate-600)" font-style="italic">?</text>
+            <circle cx="345" cy="198" r="5" fill="var(--emerald-600)" />
+            <text x="356" y="203" font-size="13" fill="var(--emerald-700)" font-weight="600">A</text>
+            <!-- From Rbar: Branch Abar -->
+            <line x1="181" y1="232" x2="340" y2="268" stroke="var(--red-500)" stroke-width="1.5" />
+            <text x="240" y="263" font-size="12" fill="var(--slate-600)" font-style="italic">?</text>
+            <circle cx="345" cy="270" r="5" fill="var(--red-500)" />
+            <text x="356" y="275" font-size="13" fill="var(--red-600)" font-weight="600" style="text-decoration:overline">A</text>
+            <!-- Leaf labels -->
+            <text x="385" y="33" font-size="11" fill="var(--slate-500)">R &cap; A</text>
+            <text x="385" y="107" font-size="11" fill="var(--slate-500)">R &cap; A&#x0305;</text>
+            <text x="385" y="203" font-size="11" fill="var(--slate-500)">R&#x0305; &cap; A</text>
+            <text x="385" y="275" font-size="11" fill="var(--slate-500)">R&#x0305; &cap; A&#x0305;</text>
+          </svg>
+        </div>
+
+        <p><strong>2.</strong> Calculer <span set:html={tex('P(R \\cap A)')} />.</p>
+
+        <p><strong>3.</strong> En deduire <span set:html={tex('P(\\bar{R} \\cap A)')} />.</p>
+
+        <p><strong>4.</strong> Calculer <span set:html={tex('P_{\\bar{R}}(A)')} /> et interpreter le resultat dans le contexte de l'exercice.</p>
+
+        <h3>Partie B</h3>
+        <p>On interroge au hasard 100 enfants. On note <span set:html={tex('X')} /> la variable aleatoire comptant le nombre d'enfants presentant une allergie alimentaire parmi les 100.</p>
+
+        <p><strong>1.</strong> Justifier que <span set:html={tex('X \\sim \\mathcal{B}(100 \\,;\\, 0{,}09)')} />.</p>
+        <p><strong>2.</strong> Calculer <span set:html={tex('P(X \\geqslant 10)')} />. On arrondira au millieme.</p>
+
+        <h3>Partie C — Inegalite de Bienayme-Tchebychev</h3>
+        <p>On preleve au hasard 20 enfants. On note <span set:html={tex('Y_i')} /> le nombre d'allergies du <span set:html={tex('i')} />-eme enfant et <span set:html={tex('M_{20}')} /> la moyenne : <span set:html={tex('M_{20} = \\dfrac{1}{20}\\sum_{i=1}^{20} Y_i')} />.</p>
+        <p>On admet que <span set:html={tex('E(M_{20}) = 4')} /> et <span set:html={tex('V(M_{20}) = 0{,}1125')} />.</p>
+
+        <p><strong>1.</strong> A l'aide de l'inegalite de Bienayme-Tchebychev, montrer que <span set:html={tex('P(2 < M_{20} < 6) > 0{,}97')} />.</p>
+      </section>
+
+      <!-- ======== EXERCICE 2 — Enonce ======== -->
+      <section class="exercise-block">
+        <h2>Exercice 2 — (5 points)</h2>
+        <p>On modelise les trajectoires de deux avions dans un repere orthonorme <span set:html={tex('(O\\,;\\,\\vec{i}, \\vec{j}, \\vec{k})')} /> de l'espace (les distances sont en km).</p>
+        <ul>
+          <li>La trajectoire de l'avion Alpha est la droite <span set:html={tex('d_A')} /> passant par le point <span set:html={tex('A(-7\\,;\\,1\\,;\\,7)')} /> et de vecteur directeur <span set:html={tex('\\vec{u}(2\\,;\\,-1\\,;\\,-3)')} /> :
+            <div set:html={tex('d_A : \\begin{cases} x = -7 + 2s \\\\[4pt] y = 1 - s \\\\[4pt] z = 7 - 3s \\end{cases}, \\quad s \\in \\mathbb{R}', true)} />
+          </li>
+          <li>La trajectoire de l'avion Beta est la droite <span set:html={tex('d_B')} /> :
+            <div set:html={tex('d_B : \\begin{cases} x = -11 + 5t \\\\[4pt] y = -5 + t \\\\[4pt] z = 11 - 4t \\end{cases}, \\quad t \\in \\mathbb{R}', true)} />
+          </li>
+        </ul>
+
+        <!-- SVG 3D Flight Paths Figure -->
+        <div class="svg-figure">
+          <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" class="figure-svg" role="img" aria-label="Figure geometrique : trajectoires des avions Alpha et Beta dans l'espace">
+            <defs>
+              <marker id="arrowhead-ex2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="var(--slate-400)" />
+              </marker>
+            </defs>
+            <!-- Origin -->
+            <circle cx="200" cy="240" r="3" fill="var(--slate-500)" />
+            <text x="190" y="258" font-size="13" fill="var(--slate-500)" font-weight="600">O</text>
+            <!-- x-axis -->
+            <line x1="200" y1="240" x2="340" y2="290" stroke="var(--slate-400)" stroke-width="1.5" marker-end="url(#arrowhead-ex2)" />
+            <text x="345" y="295" font-size="13" fill="var(--slate-500)" font-style="italic">x</text>
+            <!-- y-axis -->
+            <line x1="200" y1="240" x2="330" y2="180" stroke="var(--slate-400)" stroke-width="1.5" marker-end="url(#arrowhead-ex2)" />
+            <text x="335" y="178" font-size="13" fill="var(--slate-500)" font-style="italic">y</text>
+            <!-- z-axis -->
+            <line x1="200" y1="240" x2="200" y2="60" stroke="var(--slate-400)" stroke-width="1.5" marker-end="url(#arrowhead-ex2)" />
+            <text x="205" y="55" font-size="13" fill="var(--slate-500)" font-style="italic">z</text>
+            <!-- Point A(-7,1,7) -->
+            <circle cx="100" cy="100" r="5" fill="var(--blue-600)" />
+            <text x="75" y="95" font-size="14" fill="var(--blue-700)" font-weight="700">A</text>
+            <!-- Point S (touchdown Beta) -->
+            <circle cx="310" cy="265" r="5" fill="var(--red-500)" />
+            <text x="318" y="262" font-size="14" fill="var(--red-600)" font-weight="700">S</text>
+            <!-- Point E(-3,-1,1) -->
+            <circle cx="175" cy="185" r="5" fill="var(--emerald-600)" />
+            <text x="155" y="180" font-size="14" fill="var(--emerald-700)" font-weight="700">E</text>
+            <!-- Point F -->
+            <circle cx="230" cy="155" r="5" fill="var(--purple-600)" />
+            <text x="238" y="150" font-size="14" fill="var(--purple-700)" font-weight="700">F</text>
+            <!-- Droite dA -->
+            <line x1="60" y1="130" x2="250" y2="140" stroke="var(--blue-500)" stroke-width="2" stroke-dasharray="6,3" />
+            <text x="250" y="132" font-size="13" fill="var(--blue-600)" font-style="italic" font-weight="600">d&#x2090;</text>
+            <!-- Droite dB -->
+            <line x1="120" y1="200" x2="360" y2="230" stroke="var(--red-400)" stroke-width="2" stroke-dasharray="6,3" />
+            <text x="362" y="222" font-size="13" fill="var(--red-600)" font-style="italic" font-weight="600">d&#x1D47;</text>
+            <!-- EF segment -->
+            <line x1="175" y1="185" x2="230" y2="155" stroke="var(--slate-400)" stroke-width="1.5" stroke-dasharray="4,3" />
+            <!-- Sol (ground plane) -->
+            <polygon points="80,300 200,340 400,300 280,260" fill="var(--emerald-50)" opacity="0.3" stroke="var(--emerald-300)" stroke-width="1" />
+            <text x="235" y="310" font-size="11" fill="var(--emerald-600)" font-style="italic">sol (z = 0)</text>
+          </svg>
+        </div>
+
+        <p><strong>1.</strong> Determiner les coordonnees du point <span set:html={tex('S')} /> ou l'avion Beta touche le sol (plan <span set:html={tex('z = 0')} />).</p>
+        <p><strong>2.</strong> Montrer que les droites <span set:html={tex('d_A')} /> et <span set:html={tex('d_B')} /> ne sont pas secantes.</p>
+        <p><strong>3.</strong></p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>a.</strong> Verifier que le point <span set:html={tex('E(-3\\,;\\,-1\\,;\\,1)')} /> appartient a la droite <span set:html={tex('d_A')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>b.</strong> Determiner une equation cartesienne du plan <span set:html={tex('\\mathcal{P}_E')} /> perpendiculaire a <span set:html={tex('d_A')} /> passant par <span set:html={tex('E')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>c.</strong> Determiner les coordonnees du point <span set:html={tex('F')} />, intersection de <span set:html={tex('\\mathcal{P}_E')} /> et de <span set:html={tex('d_B')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>d.</strong> Calculer la distance <span set:html={tex('EF')} />.</p>
+        <p><strong>4.</strong> La distance de securite minimale entre les deux avions est de 3 milles nautiques (1 mille nautique = 1852 m). Cette distance est-elle respectee ?</p>
+      </section>
+
+      <!-- ======== EXERCICE 3 — Enonce ======== -->
+      <section class="exercise-block">
+        <h2>Exercice 3 — (5 points)</h2>
+        <p>Pour tout entier naturel <span set:html={tex('n \\geqslant 1')} />, on definit la fonction <span set:html={tex('f_n')} /> sur <span set:html={tex('[0\\,;\\,+\\infty[')} /> par :</p>
+        <div set:html={tex('f_n(x) = x^n \\, e^{-x}', true)} />
+        <p>On pose <span set:html={tex('I_n = \\displaystyle\\int_0^1 f_n(x)\\,\\mathrm{d}x = \\int_0^1 x^n \\, e^{-x}\\,\\mathrm{d}x')} />.</p>
+
+        <!-- SVG Function Curve -->
+        <div class="svg-figure">
+          <svg viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg" class="figure-svg" role="img" aria-label="Courbes de f1, f2 et f3 sur [0, 5]">
+            <defs>
+              <marker id="arrowhead-ex3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="var(--slate-400)" />
+              </marker>
+            </defs>
+            <!-- Axes -->
+            <line x1="50" y1="240" x2="420" y2="240" stroke="var(--slate-400)" stroke-width="1.5" marker-end="url(#arrowhead-ex3)" />
+            <line x1="50" y1="240" x2="50" y2="20" stroke="var(--slate-400)" stroke-width="1.5" marker-end="url(#arrowhead-ex3)" />
+            <!-- Ticks x -->
+            <line x1="120" y1="236" x2="120" y2="244" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="117" y="258" font-size="11" fill="var(--slate-500)">1</text>
+            <line x1="190" y1="236" x2="190" y2="244" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="187" y="258" font-size="11" fill="var(--slate-500)">2</text>
+            <line x1="260" y1="236" x2="260" y2="244" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="257" y="258" font-size="11" fill="var(--slate-500)">3</text>
+            <line x1="330" y1="236" x2="330" y2="244" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="327" y="258" font-size="11" fill="var(--slate-500)">4</text>
+            <line x1="400" y1="236" x2="400" y2="244" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="397" y="258" font-size="11" fill="var(--slate-500)">5</text>
+            <!-- Tick y -->
+            <line x1="46" y1="108" x2="54" y2="108" stroke="var(--slate-400)" stroke-width="1" />
+            <text x="28" y="112" font-size="11" fill="var(--slate-500)">0,4</text>
+            <!-- f1(x) = x*e^{-x}, max at x=1: f1(1)=1/e~0.368 -->
+            <path d="M50,240 Q85,150 120,119 Q160,95 190,110 Q240,155 290,195 Q340,220 400,234" fill="none" stroke="var(--blue-600)" stroke-width="2.5" />
+            <text x="140" y="85" font-size="13" fill="var(--blue-700)" font-style="italic" font-weight="600">f&#x2081;</text>
+            <!-- f2(x) = x^2*e^{-x}, max at x=2: f2(2)=4/e^2~0.541 -->
+            <path d="M50,240 Q100,210 120,188 Q155,130 190,92 Q220,100 260,140 Q310,195 370,225 L400,233" fill="none" stroke="var(--emerald-600)" stroke-width="2" />
+            <text x="195" y="78" font-size="13" fill="var(--emerald-700)" font-style="italic" font-weight="600">f&#x2082;</text>
+            <!-- f3(x) = x^3*e^{-x}, max at x=3: f3(3)=27/e^3~1.34 -> scaled -->
+            <path d="M50,240 Q110,232 140,218 Q180,170 220,120 Q260,98 290,130 Q330,175 380,215 L400,228" fill="none" stroke="var(--purple-500)" stroke-width="2" />
+            <text x="235" y="88" font-size="13" fill="var(--purple-600)" font-style="italic" font-weight="600">f&#x2083;</text>
+            <!-- Shaded area I1 -->
+            <path d="M50,240 Q85,150 120,119 L120,240 Z" fill="var(--blue-100)" opacity="0.3" />
+            <!-- Labels -->
+            <text x="40" y="15" font-size="13" fill="var(--slate-500)" font-style="italic">y</text>
+            <text x="415" y="258" font-size="13" fill="var(--slate-500)" font-style="italic">x</text>
+            <text x="70" y="200" font-size="10" fill="var(--blue-500)">I&#x2081;</text>
+          </svg>
+        </div>
+
+        <p><strong>1.</strong></p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>a.</strong> Calculer <span set:html={tex("f'_n(x)")} /> et dresser le tableau de variations de <span set:html={tex('f_n')} />.</p>
+        <p>&nbsp;&nbsp;&nbsp;<strong>b.</strong> Dresser le tableau de variations de <span set:html={tex('f_n')} />.</p>
+
+        <p><strong>2.</strong> Calculer <span set:html={tex('I_1 = \\displaystyle\\int_0^1 x\\,e^{-x}\\,\\mathrm{d}x')} />.</p>
+
+        <p><strong>3.</strong> A l'aide d'une integration par parties, montrer que pour tout entier <span set:html={tex('n \\geqslant 1')} /> :</p>
+        <div set:html={tex('I_{n+1} = (n+1)\\,I_n - \\dfrac{1}{e}', true)} />
+
+        <p><strong>4.</strong> Montrer que pour tout entier naturel <span set:html={tex('n')} />, <span set:html={tex('0 \\leqslant I_n \\leqslant 1 - \\dfrac{1}{e}')} />.</p>
+
+        <p><strong>5.</strong> Montrer que la suite <span set:html={tex('(I_n)')} /> est decroissante et en deduire qu'elle converge.</p>
+
+        <p><strong>6.</strong> Montrer que la limite de <span set:html={tex('(I_n)')} /> est 0.</p>
+
+        <p><strong>7.</strong> Ecrire un script Python qui calcule et affiche les 101 premiers termes de la suite <span set:html={tex('(I_n)')} /> a l'aide de la relation de recurrence.</p>
+      </section>
+
+      <!-- ======== EXERCICE 4 — Enonce ======== -->
+      <section class="exercise-block">
+        <h2>Exercice 4 — (5 points)</h2>
+        <p><em>Pour chacune des quatre affirmations suivantes, indiquer si elle est vraie ou fausse en justifiant la reponse. Toute reponse non justifiee ne rapporte aucun point.</em></p>
+
+        <p><strong>Affirmation 1.</strong> L'equation differentielle <span set:html={tex("y' = \\dfrac{1}{2}\\,y + 4")} /> admet pour solutions les fonctions de la forme <span set:html={tex('x \\mapsto k\\,e^{x/2} - 8')} />, avec <span set:html={tex('k \\in \\mathbb{R}')} />.</p>
+
+        <p><strong>Affirmation 2.</strong> On souhaite former une equipe de volley composee de 3 filles parmi 8 et 3 garcons parmi 10. Le nombre d'equipes possibles est <span set:html={tex('\\binom{8}{3} \\times \\binom{10}{3} = 6720')} />.</p>
+
+        <p><strong>Affirmation 3.</strong> La suite <span set:html={tex('(u_n)')} /> definie par <span set:html={tex('u_0 = 2')} /> et <span set:html={tex('u_{n+1} = \\sqrt{5u_n - 4}')} /> converge vers 5.</p>
+
+        <p><strong>Affirmation 4.</strong> On considere une droite <span set:html={tex('\\Delta')} /> et un plan <span set:html={tex('\\mathcal{P}')} /> dans l'espace. Si un point de <span set:html={tex('\\Delta')} /> appartient a <span set:html={tex('\\mathcal{P}')} /> et si le vecteur directeur de <span set:html={tex('\\Delta')} /> est orthogonal au vecteur normal de <span set:html={tex('\\mathcal{P}')} />, alors la droite <span set:html={tex('\\Delta')} /> est incluse dans le plan <span set:html={tex('\\mathcal{P}')} />.</p>
+      </section>
+
+    </div>
+
+    <!-- ============================================================ -->
+    <!--                   ONGLET CORRECTION                          -->
+    <!-- ============================================================ -->
+    <div id="bac-correction" class="bac-panel" style="display:none;">
+
+      <!-- ======================================================== -->
+      <!--  EXERCICE 1 — Probabilites (5 points)                    -->
+      <!-- ======================================================== -->
+      <section class="exercise-correction">
+        <h2>Exercice 1 — Probabilites (5 points)</h2>
+
+        <div class="methode-box">
+          <strong>Rappels utiles :</strong> Probabilites conditionnelles, formule des probabilites totales, loi binomiale, esperance, inegalite de Bienayme-Tchebychev.
+        </div>
+
+        <!-- Partie A -->
+        <div class="exercise-part">
+          <h3>Partie A — Allergies alimentaires en zone rurale et urbaine</h3>
+
+          <!-- Question 1 -->
+          <div class="question">
+            <h4>1. Arbre pondere</h4>
+            <div class="correction">
+              <p>On complete l'arbre pondere avec les donnees de l'enonce :</p>
+              <ul>
+                <li>Premiere branche : <span set:html={tex('P(R) = 0{,}17')} /> donc <span set:html={tex('P(\\bar{R}) = 1 - 0{,}17 = 0{,}83')} /></li>
+                <li>Deuxieme niveau depuis <span set:html={tex('R')} /> : <span set:html={tex('P_R(A) = 0{,}062')} /> donc <span set:html={tex('P_R(\\bar{A}) = 1 - 0{,}062 = 0{,}938')} /></li>
+                <li>Les probabilites <span set:html={tex('P_{\\bar{R}}(A)')} /> et <span set:html={tex('P_{\\bar{R}}(\\bar{A})')} /> seront determinees dans les questions suivantes.</li>
+              </ul>
+
+              <!-- SVG Tree (completed) -->
+              <div class="svg-figure">
+                <svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" class="figure-svg" role="img" aria-label="Arbre pondere complet">
+                  <circle cx="40" cy="150" r="6" fill="var(--blue-600)" />
+                  <line x1="46" y1="150" x2="170" y2="70" stroke="var(--blue-600)" stroke-width="2" />
+                  <text x="85" y="95" font-size="13" fill="var(--slate-600)" font-style="italic">0,17</text>
+                  <circle cx="175" cy="68" r="6" fill="var(--blue-700)" />
+                  <text x="185" y="63" font-size="14" fill="var(--blue-800)" font-weight="600">R</text>
+                  <line x1="46" y1="150" x2="170" y2="230" stroke="var(--blue-600)" stroke-width="2" />
+                  <text x="80" y="210" font-size="13" fill="var(--slate-600)" font-style="italic">0,83</text>
+                  <circle cx="175" cy="232" r="6" fill="var(--blue-700)" />
+                  <text x="185" y="227" font-size="14" fill="var(--blue-800)" font-weight="600" style="text-decoration:overline">R</text>
+                  <line x1="181" y1="68" x2="340" y2="30" stroke="var(--emerald-600)" stroke-width="1.5" />
+                  <text x="230" y="38" font-size="12" fill="var(--slate-600)" font-style="italic">0,062</text>
+                  <circle cx="345" cy="28" r="5" fill="var(--emerald-600)" />
+                  <text x="356" y="33" font-size="13" fill="var(--emerald-700)" font-weight="600">A</text>
+                  <line x1="181" y1="68" x2="340" y2="100" stroke="var(--red-500)" stroke-width="1.5" />
+                  <text x="230" y="98" font-size="12" fill="var(--slate-600)" font-style="italic">0,938</text>
+                  <circle cx="345" cy="102" r="5" fill="var(--red-500)" />
+                  <text x="356" y="107" font-size="13" fill="var(--red-600)" font-weight="600" style="text-decoration:overline">A</text>
+                  <line x1="181" y1="232" x2="340" y2="200" stroke="var(--emerald-600)" stroke-width="1.5" />
+                  <text x="225" y="205" font-size="12" fill="var(--slate-600)" font-style="italic">0,0957</text>
+                  <circle cx="345" cy="198" r="5" fill="var(--emerald-600)" />
+                  <text x="356" y="203" font-size="13" fill="var(--emerald-700)" font-weight="600">A</text>
+                  <line x1="181" y1="232" x2="340" y2="268" stroke="var(--red-500)" stroke-width="1.5" />
+                  <text x="225" y="263" font-size="12" fill="var(--slate-600)" font-style="italic">0,9043</text>
+                  <circle cx="345" cy="270" r="5" fill="var(--red-500)" />
+                  <text x="356" y="275" font-size="13" fill="var(--red-600)" font-weight="600" style="text-decoration:overline">A</text>
+                  <text x="385" y="33" font-size="11" fill="var(--slate-500)">R &cap; A</text>
+                  <text x="385" y="107" font-size="11" fill="var(--slate-500)">R &cap; A&#x0305;</text>
+                  <text x="385" y="203" font-size="11" fill="var(--slate-500)">R&#x0305; &cap; A</text>
+                  <text x="385" y="275" font-size="11" fill="var(--slate-500)">R&#x0305; &cap; A&#x0305;</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="question">
+            <h4>2. Calculer <span set:html={tex('P(R \\cap A)')} /></h4>
+            <div class="correction">
+              <p>D'apres l'arbre, on utilise la formule de l'intersection :</p>
+              <div set:html={tex('P(R \\cap A) = P(R) \\times P_R(A) = 0{,}17 \\times 0{,}062 = 0{,}01054', true)} />
+              <div class="resultat-box" set:html={tex('P(R \\cap A) = 0{,}01054', true)} />
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="question">
+            <h4>3. En deduire <span set:html={tex('P(\\bar{R} \\cap A)')} /></h4>
+            <div class="correction">
+              <p>Les evenements <span set:html={tex('R')} /> et <span set:html={tex('\\bar{R}')} /> forment une partition de l'univers. D'apres la <strong>formule des probabilites totales</strong> :</p>
+              <div set:html={tex('P(A) = P(R \\cap A) + P(\\bar{R} \\cap A)', true)} />
+              <p>Donc :</p>
+              <div set:html={tex('P(\\bar{R} \\cap A) = P(A) - P(R \\cap A) = 0{,}09 - 0{,}01054 = 0{,}07946', true)} />
+              <div class="resultat-box" set:html={tex('P(\\bar{R} \\cap A) = 0{,}07946', true)} />
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="question">
+            <h4>4. Calculer <span set:html={tex('P_{\\bar{R}}(A)')} /> et interpreter</h4>
+            <div class="correction">
+              <div class="methode-box">
+                <strong>Methode :</strong> On utilise la formule <span set:html={tex('P_{\\bar{R}}(A) = \\dfrac{P(\\bar{R} \\cap A)}{P(\\bar{R})}')} />.
+              </div>
+              <p>On a <span set:html={tex('P(\\bar{R}) = 0{,}83')} /> et <span set:html={tex('P(\\bar{R} \\cap A) = 0{,}07946')} /> (question 3).</p>
+              <div set:html={tex('P_{\\bar{R}}(A) = \\dfrac{0{,}07946}{0{,}83} \\approx 0{,}0957', true)} />
+              <p><strong>Interpretation :</strong> Sachant qu'un enfant vit en zone urbaine, la probabilite qu'il presente une allergie alimentaire est d'environ <span set:html={tex('9{,}6\\,\\%')} />. Cette probabilite est plus elevee qu'en zone rurale (<span set:html={tex('6{,}2\\,\\%')} />).</p>
+              <div class="resultat-box" set:html={tex('P_{\\bar{R}}(A) \\approx 0{,}0957', true)} />
+            </div>
+          </div>
+        </div>
+
+        <!-- Partie B -->
+        <div class="exercise-part">
+          <h3>Partie B — Loi binomiale</h3>
+
+          <p>On interroge au hasard 100 enfants. On note <span set:html={tex('X')} /> la variable aleatoire comptant le nombre d'enfants presentant une allergie alimentaire parmi les 100.</p>
+
+          <!-- Question B1 -->
+          <div class="question">
+            <h4>1. Justifier que <span set:html={tex('X \\sim \\mathcal{B}(100 \\,;\\, 0{,}09)')} /></h4>
+            <div class="correction">
+              <p>Chaque enfant constitue une <strong>epreuve de Bernoulli</strong> independante avec probabilite de succes (presenter une allergie) <span set:html={tex('p = P(A) = 0{,}09')} />.</p>
+              <p>On repete cette epreuve <span set:html={tex('n = 100')} /> fois de maniere independante, donc :</p>
+              <div class="resultat-box" set:html={tex('X \\sim \\mathcal{B}(100 \\,;\\, 0{,}09)', true)} />
+            </div>
+          </div>
+
+          <!-- Question B2 -->
+          <div class="question">
+            <h4>2. Calculer <span set:html={tex('P(X \\geqslant 10)')} /></h4>
+            <div class="correction">
+              <p>On utilise la calculatrice pour determiner cette probabilite.</p>
+              <div set:html={tex('P(X \\geqslant 10) = 1 - P(X \\leqslant 9)', true)} />
+              <p>Avec la calculatrice (loi binomiale <span set:html={tex('\\mathcal{B}(100 \\,;\\, 0{,}09)')} />) :</p>
+              <div set:html={tex('P(X \\leqslant 9) \\approx 0{,}5875', true)} />
+              <div set:html={tex('P(X \\geqslant 10) \\approx 1 - 0{,}5875 = 0{,}4125', true)} />
+              <div class="resultat-box" set:html={tex('P(X \\geqslant 10) \\approx 0{,}413', true)} />
+            </div>
+          </div>
+        </div>
+
+        <!-- Partie C -->
+        <div class="exercise-part">
+          <h3>Partie C — Bienayme-Tchebychev</h3>
+
+          <p>On preleve au hasard 20 enfants. On note <span set:html={tex('Y_i')} /> le nombre d'allergies du <span set:html={tex('i')} />-eme enfant et <span set:html={tex('M_{20}')} /> la moyenne : <span set:html={tex('M_{20} = \\dfrac{1}{20}\\sum_{i=1}^{20} Y_i')} />.</p>
+          <p>On admet que <span set:html={tex('E(M_{20}) = 4')} /> et <span set:html={tex('V(M_{20}) = 0{,}1125')} />.</p>
+
+          <!-- Question C1 -->
+          <div class="question">
+            <h4>1. Montrer que <span set:html={tex('P(2 < M_{20} < 6) > 0{,}97')} /></h4>
+            <div class="correction">
+              <div class="methode-box">
+                <strong>Inegalite de Bienayme-Tchebychev :</strong> Pour toute variable aleatoire <span set:html={tex('X')} /> d'esperance <span set:html={tex('\\mu')} /> et de variance <span set:html={tex('\\sigma^2')} />, et pour tout <span set:html={tex('\\delta > 0')} /> :
+                <div set:html={tex('P(|X - \\mu| \\geqslant \\delta) \\leqslant \\dfrac{\\sigma^2}{\\delta^2}', true)} />
+              </div>
+              <p>On remarque que <span set:html={tex('2 < M_{20} < 6')} /> s'ecrit <span set:html={tex('|M_{20} - 4| < 2')} />.</p>
+              <p>En effet, <span set:html={tex('2 < M_{20} < 6 \\iff -2 < M_{20} - 4 < 2 \\iff |M_{20} - 4| < 2')} />.</p>
+              <p>D'apres l'inegalite de Bienayme-Tchebychev avec <span set:html={tex('\\mu = 4')} /> et <span set:html={tex('\\delta = 2')} /> :</p>
+              <div set:html={tex('P(|M_{20} - 4| \\geqslant 2) \\leqslant \\dfrac{V(M_{20})}{\\delta^2} = \\dfrac{0{,}1125}{2^2} = \\dfrac{0{,}1125}{4} = 0{,}028125', true)} />
+              <p>Par passage au complementaire :</p>
+              <div set:html={tex('P(|M_{20} - 4| < 2) \\geqslant 1 - 0{,}028125 = 0{,}971875', true)} />
+              <p>Ainsi :</p>
+              <div set:html={tex('P(2 < M_{20} < 6) \\geqslant 0{,}971875 > 0{,}97', true)} />
+
+              <div class="attention-box">
+                <strong>Attention :</strong> L'inegalite de Bienayme-Tchebychev donne une <em>minoration</em> de <span set:html={tex('P(|X - \\mu| < \\delta)')} /> (ou de facon equivalente une <em>majoration</em> de <span set:html={tex('P(|X - \\mu| \\geqslant \\delta)')} />). Il faut bien penser au passage au complementaire.
+              </div>
+              <div class="resultat-box" set:html={tex('P(2 < M_{20} < 6) \\geqslant 0{,}972 > 0{,}97', true)} />
+            </div>
+          </div>
+        </div>
+
+        <a class="reviser-link" href="/terminale/epreuves-independantes-loi-binomiale/">Reviser les probabilites &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/concentration-loi-grands-nombres/">Reviser la concentration et Bienayme-Tchebychev &rarr;</a>
+      </section>
+
+      <!-- ======================================================== -->
+      <!--  EXERCICE 2 — Geometrie dans l'espace (5 points)         -->
+      <!-- ======================================================== -->
+      <section class="exercise-correction">
+        <h2>Exercice 2 — Geometrie dans l'espace (5 points)</h2>
+
+        <div class="methode-box">
+          <strong>Rappels utiles :</strong> Produit scalaire dans l'espace, vecteur normal, equation cartesienne de plan, projete orthogonal, droites parametrees, distance.
+        </div>
 
         <!-- Question 1 -->
         <div class="question">
-          <h4>1. Arbre pondéré</h4>
+          <h4>1. Point <span set:html={tex('S')} /> ou l'avion Beta touche le sol</h4>
           <div class="correction">
-            <p>On complète l'arbre pondéré avec les données de l'énoncé :</p>
-            <ul>
-              <li>Première branche : <span set:html={tex('P(R) = 0{,}17')} /> donc <span set:html={tex('P(\\bar{R}) = 1 - 0{,}17 = 0{,}83')} /></li>
-              <li>Deuxième niveau depuis <span set:html={tex('R')} /> : <span set:html={tex('P_R(A) = 0{,}062')} /> donc <span set:html={tex('P_R(\\bar{A}) = 1 - 0{,}062 = 0{,}938')} /></li>
-              <li>Les probabilités <span set:html={tex('P_{\\bar{R}}(A)')} /> et <span set:html={tex('P_{\\bar{R}}(\\bar{A})')} /> seront déterminées dans les questions suivantes.</li>
-            </ul>
-            <p>L'arbre complet est :</p>
-            <div set:html={tex('\\begin{cases} R \\; (0{,}17) \\begin{cases} A \\; (0{,}062) \\\\ \\bar{A} \\; (0{,}938) \\end{cases} \\\\ \\bar{R} \\; (0{,}83) \\begin{cases} A \\; (\\approx 0{,}0957) \\\\ \\bar{A} \\; (\\approx 0{,}9043) \\end{cases} \\end{cases}', true)} />
+            <p>Le sol correspond au plan d'equation <span set:html={tex('z = 0')} />. On cherche la valeur de <span set:html={tex('t')} /> telle que <span set:html={tex('z = 0')} /> :</p>
+            <div set:html={tex('11 - 4t = 0 \\implies t = \\dfrac{11}{4}', true)} />
+            <p>On en deduit les coordonnees de <span set:html={tex('S')} /> :</p>
+            <div set:html={tex('x_S = -11 + 5 \\times \\dfrac{11}{4} = -11 + \\dfrac{55}{4} = \\dfrac{-44 + 55}{4} = \\dfrac{11}{4}', true)} />
+            <div set:html={tex('y_S = -5 + \\dfrac{11}{4} = \\dfrac{-20 + 11}{4} = -\\dfrac{9}{4}', true)} />
+            <div class="resultat-box" set:html={tex('S\\!\\left(\\dfrac{11}{4}\\,;\\, -\\dfrac{9}{4}\\,;\\, 0\\right)', true)} />
           </div>
         </div>
 
         <!-- Question 2 -->
         <div class="question">
-          <h4>2. Calculer <span set:html={tex('P(R \\cap A)')} /></h4>
+          <h4>2. Montrer que les droites <span set:html={tex('d_A')} /> et <span set:html={tex('d_B')} /> ne sont pas secantes</h4>
           <div class="correction">
-            <p>D'après l'arbre, on utilise la formule de l'intersection :</p>
-            <div set:html={tex('P(R \\cap A) = P(R) \\times P_R(A) = 0{,}17 \\times 0{,}062 = 0{,}01054', true)} />
-            <div class="resultat-box" set:html={tex('P(R \\cap A) = 0{,}01054', true)} />
+            <p>On cherche s'il existe des valeurs de <span set:html={tex('s')} /> et <span set:html={tex('t')} /> telles que les coordonnees coincident :</p>
+            <div set:html={tex('\\begin{cases} -7 + 2s = -11 + 5t \\quad (1) \\\\ 1 - s = -5 + t \\quad (2) \\\\ 7 - 3s = 11 - 4t \\quad (3) \\end{cases}', true)} />
+
+            <p><strong>De l'equation (2) :</strong> <span set:html={tex('s = 6 - t')} /></p>
+
+            <p><strong>Dans l'equation (1) :</strong></p>
+            <div set:html={tex('-7 + 2(6 - t) = -11 + 5t', true)} />
+            <div set:html={tex('-7 + 12 - 2t = -11 + 5t', true)} />
+            <div set:html={tex('5 - 2t = -11 + 5t', true)} />
+            <div set:html={tex('16 = 7t \\implies t = \\dfrac{16}{7}', true)} />
+
+            <p>Donc <span set:html={tex('s = 6 - \\dfrac{16}{7} = \\dfrac{26}{7}')} />.</p>
+
+            <p><strong>Verification dans l'equation (3) :</strong></p>
+            <div set:html={tex('7 - 3 \\times \\dfrac{26}{7} = 7 - \\dfrac{78}{7} = \\dfrac{49 - 78}{7} = -\\dfrac{29}{7}', true)} />
+            <div set:html={tex('11 - 4 \\times \\dfrac{16}{7} = 11 - \\dfrac{64}{7} = \\dfrac{77 - 64}{7} = \\dfrac{13}{7}', true)} />
+            <div set:html={tex('-\\dfrac{29}{7} \\neq \\dfrac{13}{7}', true)} />
+
+            <p>Le systeme est <strong>incompatible</strong> : les droites <span set:html={tex('d_A')} /> et <span set:html={tex('d_B')} /> ne sont <strong>pas secantes</strong>. Les deux avions ne risquent donc pas de collision.</p>
+            <div class="resultat-box" set:html={tex('d_A \\text{ et } d_B \\text{ ne sont pas secantes : pas de collision}', true)} />
           </div>
         </div>
 
         <!-- Question 3 -->
         <div class="question">
-          <h4>3. En déduire <span set:html={tex('P(\\bar{R} \\cap A)')} /></h4>
+          <h4>3. Distance minimale d'approche</h4>
           <div class="correction">
-            <p>Les événements <span set:html={tex('R')} /> et <span set:html={tex('\\bar{R}')} /> forment une partition de l'univers. D'après la <strong>formule des probabilités totales</strong> :</p>
-            <div set:html={tex('P(A) = P(R \\cap A) + P(\\bar{R} \\cap A)', true)} />
-            <p>Donc :</p>
-            <div set:html={tex('P(\\bar{R} \\cap A) = P(A) - P(R \\cap A) = 0{,}09 - 0{,}01054 = 0{,}07946', true)} />
-            <div class="resultat-box" set:html={tex('P(\\bar{R} \\cap A) = 0{,}07946', true)} />
+            <p><strong>a.</strong> L'avion Alpha passe par le point <span set:html={tex('E(-3\\,;\\,-1\\,;\\,1)')} />. Verifions pour <span set:html={tex('s = 2')} /> :</p>
+            <div set:html={tex('x = -7 + 2 \\times 2 = -3, \\quad y = 1 - 2 = -1, \\quad z = 7 - 3 \\times 2 = 1 \\quad \\checkmark', true)} />
+
+            <p><strong>b.</strong> On cherche l'equation du plan <span set:html={tex('\\mathcal{P}_E')} /> perpendiculaire a <span set:html={tex('d_A')} /> passant par <span set:html={tex('E')} />.</p>
+            <div class="methode-box">
+              <strong>Methode :</strong> Le plan perpendiculaire a une droite a pour vecteur normal le vecteur directeur de cette droite. Ici, <span set:html={tex('\\vec{u}(2\\,;\\,-1\\,;\\,-3)')} /> est le vecteur normal du plan.
+            </div>
+            <p>L'equation est de la forme <span set:html={tex('2x - y - 3z + d = 0')} />.</p>
+            <p>Le point <span set:html={tex('E(-3\\,;\\,-1\\,;\\,1)')} /> appartient au plan :</p>
+            <div set:html={tex('2(-3) - (-1) - 3(1) + d = 0 \\implies -6 + 1 - 3 + d = 0 \\implies d = 8', true)} />
+            <div class="resultat-box" set:html={tex('\\mathcal{P}_E : 2x - y - 3z + 8 = 0', true)} />
+
+            <p><strong>c.</strong> On cherche le point <span set:html={tex('F')} />, intersection de <span set:html={tex('\\mathcal{P}_E')} /> et de <span set:html={tex('d_B')} />.</p>
+            <p>On substitue la representation parametrique de <span set:html={tex('d_B')} /> dans l'equation du plan :</p>
+            <div set:html={tex('2(-11 + 5t) - (-5 + t) - 3(11 - 4t) + 8 = 0', true)} />
+            <div set:html={tex('-22 + 10t + 5 - t - 33 + 12t + 8 = 0', true)} />
+            <div set:html={tex('21t - 42 = 0 \\implies t = 2', true)} />
+            <p>Les coordonnees de <span set:html={tex('F')} /> sont :</p>
+            <div set:html={tex('x_F = -11 + 5 \\times 2 = -1, \\quad y_F = -5 + 2 = -3, \\quad z_F = 11 - 4 \\times 2 = 3', true)} />
+            <div class="resultat-box" set:html={tex('F(-1\\,;\\,-3\\,;\\,3)', true)} />
+
+            <p><strong>d.</strong> Calculons la distance <span set:html={tex('EF')} /> :</p>
+            <div set:html={tex('\\overrightarrow{EF} = F - E = (-1 - (-3)\\,;\\, -3 - (-1)\\,;\\, 3 - 1) = (2\\,;\\,-2\\,;\\,2)', true)} />
+            <div set:html={tex('EF = \\sqrt{2^2 + (-2)^2 + 2^2} = \\sqrt{4 + 4 + 4} = \\sqrt{12} = 2\\sqrt{3}', true)} />
+            <div class="resultat-box" set:html={tex('EF = 2\\sqrt{3} \\approx 3{,}464 \\text{ km}', true)} />
           </div>
         </div>
 
         <!-- Question 4 -->
         <div class="question">
-          <h4>4. Calculer <span set:html={tex('P_{\\bar{R}}(A)')} /> et interpréter</h4>
+          <h4>4. Distance de securite</h4>
           <div class="correction">
+            <p>La distance de securite minimale est de 3 milles nautiques. On convertit 1 mille nautique = 1,852 km, donc 3 NM = 5,556 km.</p>
+            <div set:html={tex('EF = 2\\sqrt{3} \\approx 3{,}464 \\text{ km}', true)} />
+            <div set:html={tex('3 \\text{ NM} = 3 \\times 1{,}852 = 5{,}556 \\text{ km}', true)} />
+
+            <p>Puisque <span set:html={tex('3{,}464 < 5{,}556')} />, la distance minimale d'approche est <strong>inferieure</strong> a la norme de securite.</p>
+
+            <div class="resultat-box" set:html={tex('EF \\approx 3{,}46 \\text{ km} < 5{,}56 \\text{ km} = 3 \\text{ NM : distance de securite non respectee}', true)} />
+          </div>
+        </div>
+
+        <a class="reviser-link" href="/terminale/vecteurs-droites-plans-espace/">Reviser les droites et plans de l'espace &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/orthogonalite-distances-espace/">Reviser l'orthogonalite et les distances &rarr;</a>
+      </section>
+
+      <!-- ======================================================== -->
+      <!--  EXERCICE 3 — Fonctions et integrales (5 points)         -->
+      <!-- ======================================================== -->
+      <section class="exercise-correction">
+        <h2>Exercice 3 — Fonctions et integrales (5 points)</h2>
+
+        <div class="methode-box">
+          <strong>Rappels utiles :</strong> Derivation, etude de fonctions, integration par parties, suites recurrentes, convergence, theoreme de convergence monotone.
+        </div>
+
+        <p>Pour tout entier naturel <span set:html={tex('n \\geqslant 1')} />, on definit la fonction <span set:html={tex('f_n')} /> sur <span set:html={tex('[0\\,;\\,+\\infty[')} /> par :</p>
+        <div set:html={tex('f_n(x) = x^n \\, e^{-x}', true)} />
+        <p>On pose <span set:html={tex('I_n = \\displaystyle\\int_0^1 f_n(x)\\,\\mathrm{d}x = \\int_0^1 x^n \\, e^{-x}\\,\\mathrm{d}x')} />.</p>
+
+        <!-- Question 1a -->
+        <div class="question">
+          <h4>1.a. Calculer <span set:html={tex("f'_n(x)")} /></h4>
+          <div class="correction">
+            <p>On derive <span set:html={tex('f_n(x) = x^n \\, e^{-x}')} /> en utilisant la formule <span set:html={tex("(uv)' = u'v + uv'")} /> :</p>
+            <ul>
+              <li><span set:html={tex('u(x) = x^n')} /> donc <span set:html={tex("u'(x) = nx^{n-1}")} /></li>
+              <li><span set:html={tex('v(x) = e^{-x}')} /> donc <span set:html={tex("v'(x) = -e^{-x}")} /></li>
+            </ul>
+            <div set:html={tex("f'_n(x) = nx^{n-1}\\,e^{-x} + x^n \\times (-e^{-x}) = nx^{n-1}\\,e^{-x} - x^n\\,e^{-x}", true)} />
+            <div set:html={tex("f'_n(x) = x^{n-1}\\,e^{-x}(n - x)", true)} />
+            <div class="resultat-box" set:html={tex("f'_n(x) = (n - x)\\,x^{n-1}\\,e^{-x}", true)} />
+          </div>
+        </div>
+
+        <!-- Question 1b -->
+        <div class="question">
+          <h4>1.b. Tableau de variations de <span set:html={tex('f_n')} /></h4>
+          <div class="correction">
+            <p>On a <span set:html={tex("f'_n(x) = (n - x)\\,x^{n-1}\\,e^{-x}")} />. Pour <span set:html={tex('x > 0')} />, les facteurs <span set:html={tex('x^{n-1}')} /> et <span set:html={tex('e^{-x}')} /> sont strictement positifs, donc le signe de <span set:html={tex("f'_n(x)")} /> est celui de <span set:html={tex('(n - x)')} />.</p>
+            <ul>
+              <li>Si <span set:html={tex('0 < x < n')} /> : <span set:html={tex("f'_n(x) > 0")} />, <span set:html={tex('f_n')} /> est <strong>croissante</strong>.</li>
+              <li>Si <span set:html={tex('x > n')} /> : <span set:html={tex("f'_n(x) < 0")} />, <span set:html={tex('f_n')} /> est <strong>decroissante</strong>.</li>
+            </ul>
+            <p>Le maximum de <span set:html={tex('f_n')} /> est atteint en <span set:html={tex('x = n')} /> :</p>
+            <div set:html={tex('f_n(n) = n^n \\, e^{-n} = \\dfrac{n^n}{e^n}', true)} />
+            <p>Par croissance comparee, <span set:html={tex('\\lim_{x \\to +\\infty} x^n \\, e^{-x} = 0')} />.</p>
+            <p>De plus, <span set:html={tex('f_n(0) = 0')} />.</p>
+            <div class="resultat-box" set:html={tex('f_n \\text{ croissante sur } [0\\,;\\,n], \\text{ decroissante sur } [n\\,;\\,+\\infty[, \\text{ max} = \\dfrac{n^n}{e^n}, \\; \\lim_{+\\infty} = 0', true)} />
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+          <h4>2. Calcul de <span set:html={tex('I_1')} /></h4>
+          <div class="correction">
+            <p>On a <span set:html={tex('f_1(x) = x\\,e^{-x}')} />, donc <span set:html={tex('I_1 = \\displaystyle\\int_0^1 x\\,e^{-x}\\,\\mathrm{d}x')} />.</p>
             <div class="methode-box">
-              <strong>Méthode :</strong> On utilise la formule <span set:html={tex('P_{\\bar{R}}(A) = \\dfrac{P(\\bar{R} \\cap A)}{P(\\bar{R})}')} />.
+              <strong>Methode :</strong> Integration par parties avec <span set:html={tex('u(x) = x')} /> et <span set:html={tex("v'(x) = e^{-x}")} />.
             </div>
-            <p>On a <span set:html={tex('P(\\bar{R}) = 0{,}83')} /> et <span set:html={tex('P(\\bar{R} \\cap A) = 0{,}07946')} /> (question 3).</p>
-            <div set:html={tex('P_{\\bar{R}}(A) = \\dfrac{0{,}07946}{0{,}83} \\approx 0{,}0957', true)} />
-            <p><strong>Interprétation :</strong> Sachant qu'un enfant vit en zone urbaine, la probabilité qu'il présente une allergie alimentaire est d'environ <span set:html={tex('9{,}6\\,\\%')} />. Cette probabilité est plus élevée qu'en zone rurale (<span set:html={tex('6{,}2\\,\\%')} />).</p>
-            <div class="resultat-box" set:html={tex('P_{\\bar{R}}(A) \\approx 0{,}0957', true)} />
+            <p>On pose :</p>
+            <ul>
+              <li><span set:html={tex('u(x) = x')} /> donc <span set:html={tex("u'(x) = 1")} /></li>
+              <li><span set:html={tex("v'(x) = e^{-x}")} /> donc <span set:html={tex('v(x) = -e^{-x}')} /></li>
+            </ul>
+            <p>Par integration par parties :</p>
+            <div set:html={tex('I_1 = \\left[-x\\,e^{-x}\\right]_0^1 - \\int_0^1 (-e^{-x})\\,\\mathrm{d}x', true)} />
+            <div set:html={tex('I_1 = \\left[-x\\,e^{-x}\\right]_0^1 + \\int_0^1 e^{-x}\\,\\mathrm{d}x', true)} />
+            <div set:html={tex('I_1 = \\left(-1 \\times e^{-1} - 0\\right) + \\left[-e^{-x}\\right]_0^1', true)} />
+            <div set:html={tex('I_1 = -\\dfrac{1}{e} + \\left(-e^{-1} + e^{0}\\right) = -\\dfrac{1}{e} - \\dfrac{1}{e} + 1', true)} />
+            <div class="resultat-box" set:html={tex('I_1 = 1 - \\dfrac{2}{e}', true)} />
           </div>
         </div>
-      </div>
 
-      <!-- Partie B -->
-      <div class="exercise-part">
-        <h3>Partie B — Loi binomiale</h3>
-
-        <p>On interroge au hasard 100 enfants. On note <span set:html={tex('X')} /> la variable aléatoire comptant le nombre d'enfants présentant une allergie alimentaire parmi les 100.</p>
-
-        <!-- Question B1 -->
+        <!-- Question 3 -->
         <div class="question">
-          <h4>1. Justifier que <span set:html={tex('X \\sim \\mathcal{B}(100 \\,;\\, 0{,}09)')} /></h4>
+          <h4>3. Relation de recurrence : <span set:html={tex('I_{n+1} = (n+1)\\,I_n - \\dfrac{1}{e}')} /></h4>
           <div class="correction">
-            <p>Chaque enfant constitue une <strong>épreuve de Bernoulli</strong> indépendante avec probabilité de succès (présenter une allergie) <span set:html={tex('p = P(A) = 0{,}09')} />.</p>
-            <p>On répète cette épreuve <span set:html={tex('n = 100')} /> fois de manière indépendante, donc :</p>
-            <div class="resultat-box" set:html={tex('X \\sim \\mathcal{B}(100 \\,;\\, 0{,}09)', true)} />
+            <p>On calcule <span set:html={tex('I_{n+1} = \\displaystyle\\int_0^1 x^{n+1}\\,e^{-x}\\,\\mathrm{d}x')} /> par integration par parties.</p>
+            <p>On pose :</p>
+            <ul>
+              <li><span set:html={tex('u(x) = x^{n+1}')} /> donc <span set:html={tex("u'(x) = (n+1)\\,x^n")} /></li>
+              <li><span set:html={tex("v'(x) = e^{-x}")} /> donc <span set:html={tex('v(x) = -e^{-x}')} /></li>
+            </ul>
+            <p>Par integration par parties :</p>
+            <div set:html={tex('I_{n+1} = \\left[-x^{n+1}\\,e^{-x}\\right]_0^1 - \\int_0^1 (n+1)\\,x^n \\times (-e^{-x})\\,\\mathrm{d}x', true)} />
+            <div set:html={tex('I_{n+1} = \\left[-x^{n+1}\\,e^{-x}\\right]_0^1 + (n+1)\\int_0^1 x^n\\,e^{-x}\\,\\mathrm{d}x', true)} />
+            <div set:html={tex('I_{n+1} = \\left(-1^{n+1}\\,e^{-1} - 0\\right) + (n+1)\\,I_n', true)} />
+            <div set:html={tex('I_{n+1} = -\\dfrac{1}{e} + (n+1)\\,I_n', true)} />
+            <div class="resultat-box" set:html={tex('I_{n+1} = (n+1)\\,I_n - \\dfrac{1}{e}', true)} />
           </div>
         </div>
 
-        <!-- Question B2 -->
+        <!-- Question 4 -->
         <div class="question">
-          <h4>2. Calculer <span set:html={tex('P(X \\geqslant 10)')} /></h4>
+          <h4>4. Montrer que <span set:html={tex('0 \\leqslant I_n \\leqslant I_0 = 1 - \\dfrac{1}{e}')} /></h4>
           <div class="correction">
-            <p>On utilise la calculatrice pour déterminer cette probabilité.</p>
-            <div set:html={tex('P(X \\geqslant 10) = 1 - P(X \\leqslant 9)', true)} />
-            <p>Avec la calculatrice (loi binomiale <span set:html={tex('\\mathcal{B}(100 \\,;\\, 0{,}09)')} />) :</p>
-            <div set:html={tex('P(X \\leqslant 9) \\approx 0{,}5875', true)} />
-            <div set:html={tex('P(X \\geqslant 10) \\approx 1 - 0{,}5875 = 0{,}4125', true)} />
-            <div class="resultat-box" set:html={tex('P(X \\geqslant 10) \\approx 0{,}413', true)} />
+            <p><strong>Positivite :</strong> Pour tout <span set:html={tex('x \\in [0\\,;\\,1]')} />, on a <span set:html={tex('x^n \\geqslant 0')} /> et <span set:html={tex('e^{-x} > 0')} />, donc <span set:html={tex('f_n(x) \\geqslant 0')} />. Ainsi <span set:html={tex('I_n \\geqslant 0')} />.</p>
+
+            <p><strong>Calcul de <span set:html={tex('I_0')} /> :</strong></p>
+            <div set:html={tex('I_0 = \\int_0^1 e^{-x}\\,\\mathrm{d}x = \\left[-e^{-x}\\right]_0^1 = -e^{-1} + 1 = 1 - \\dfrac{1}{e}', true)} />
+
+            <p><strong>Majoration :</strong> Pour tout <span set:html={tex('x \\in [0\\,;\\,1]')} />, on a <span set:html={tex('0 \\leqslant x \\leqslant 1')} />, donc <span set:html={tex('x^n \\leqslant 1')} />. Par consequent :</p>
+            <div set:html={tex('x^n\\,e^{-x} \\leqslant e^{-x} \\quad \\text{pour tout } x \\in [0\\,;\\,1]', true)} />
+            <p>En integrant sur <span set:html={tex('[0\\,;\\,1]')} /> :</p>
+            <div set:html={tex('I_n = \\int_0^1 x^n\\,e^{-x}\\,\\mathrm{d}x \\leqslant \\int_0^1 e^{-x}\\,\\mathrm{d}x = I_0 = 1 - \\dfrac{1}{e}', true)} />
+
+            <div class="resultat-box" set:html={tex('\\forall n \\in \\mathbb{N}, \\quad 0 \\leqslant I_n \\leqslant 1 - \\dfrac{1}{e}', true)} />
           </div>
         </div>
-      </div>
 
-      <!-- Partie C -->
-      <div class="exercise-part">
-        <h3>Partie C — Bienaymé-Tchebychev</h3>
-
-        <p>On prélève au hasard 20 enfants. On note <span set:html={tex('Y_i')} /> le nombre d'allergies du <span set:html={tex('i')} />-ème enfant et <span set:html={tex('M_{20}')} /> la moyenne : <span set:html={tex('M_{20} = \\dfrac{1}{20}\\sum_{i=1}^{20} Y_i')} />.</p>
-        <p>On admet que <span set:html={tex('E(M_{20}) = 4')} /> et <span set:html={tex('V(M_{20}) = 0{,}1125')} />.</p>
-
-        <!-- Question C1 -->
+        <!-- Question 5 -->
         <div class="question">
-          <h4>1. Montrer que <span set:html={tex('P(2 < M_{20} < 6) > 0{,}97')} /></h4>
+          <h4>5. Montrer que la suite <span set:html={tex('(I_n)')} /> est decroissante</h4>
           <div class="correction">
-            <div class="methode-box">
-              <strong>Inégalité de Bienaymé-Tchebychev :</strong> Pour toute variable aléatoire <span set:html={tex('X')} /> d'espérance <span set:html={tex('\\mu')} /> et de variance <span set:html={tex('\\sigma^2')} />, et pour tout <span set:html={tex('\\delta > 0')} /> :
-              <div set:html={tex('P(|X - \\mu| \\geqslant \\delta) \\leqslant \\dfrac{\\sigma^2}{\\delta^2}', true)} />
-            </div>
-            <p>On remarque que <span set:html={tex('2 < M_{20} < 6')} /> s'écrit <span set:html={tex('|M_{20} - 4| < 2')} />.</p>
-            <p>En effet, <span set:html={tex('2 < M_{20} < 6 \\iff -2 < M_{20} - 4 < 2 \\iff |M_{20} - 4| < 2')} />.</p>
-            <p>D'après l'inégalité de Bienaymé-Tchebychev avec <span set:html={tex('\\mu = 4')} /> et <span set:html={tex('\\delta = 2')} /> :</p>
-            <div set:html={tex('P(|M_{20} - 4| \\geqslant 2) \\leqslant \\dfrac{V(M_{20})}{\\delta^2} = \\dfrac{0{,}1125}{2^2} = \\dfrac{0{,}1125}{4} = 0{,}028125', true)} />
-            <p>Par passage au complémentaire :</p>
-            <div set:html={tex('P(|M_{20} - 4| < 2) \\geqslant 1 - 0{,}028125 = 0{,}971875', true)} />
-            <p>Ainsi :</p>
-            <div set:html={tex('P(2 < M_{20} < 6) \\geqslant 0{,}971875 > 0{,}97', true)} />
-
-            <div class="attention-box">
-              <strong>Attention :</strong> L'inégalité de Bienaymé-Tchebychev donne une <em>minoration</em> de <span set:html={tex('P(|X - \\mu| < \\delta)')} /> (ou de façon équivalente une <em>majoration</em> de <span set:html={tex('P(|X - \\mu| \\geqslant \\delta)')} />). Il faut bien penser au passage au complémentaire.
-            </div>
-            <div class="resultat-box" set:html={tex('P(2 < M_{20} < 6) \\geqslant 0{,}972 > 0{,}97', true)} />
+            <p>Pour tout <span set:html={tex('x \\in [0\\,;\\,1]')} />, on a <span set:html={tex('0 \\leqslant x \\leqslant 1')} />, donc <span set:html={tex('x^{n+1} \\leqslant x^n')} />.</p>
+            <p>Par consequent, <span set:html={tex('x^{n+1}\\,e^{-x} \\leqslant x^n\\,e^{-x}')} /> pour tout <span set:html={tex('x \\in [0\\,;\\,1]')} />.</p>
+            <p>En integrant :</p>
+            <div set:html={tex('I_{n+1} = \\int_0^1 x^{n+1}\\,e^{-x}\\,\\mathrm{d}x \\leqslant \\int_0^1 x^n\\,e^{-x}\\,\\mathrm{d}x = I_n', true)} />
+            <p>La suite <span set:html={tex('(I_n)')} /> est <strong>decroissante</strong> et <strong>minoree par 0</strong>, donc elle <strong>converge</strong> d'apres le theoreme de convergence monotone.</p>
+            <div class="resultat-box" set:html={tex('(I_n) \\text{ est decroissante et minoree par } 0 \\text{, donc elle converge}', true)} />
           </div>
         </div>
-      </div>
 
-      <a class="reviser-link" href="/terminale/epreuves-independantes-loi-binomiale/">Réviser les probabilités →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/concentration-loi-grands-nombres/">Réviser la concentration et Bienaymé-Tchebychev →</a>
-    </section>
-
-    <!-- ======================================================== -->
-    <!--  EXERCICE 2 — Géométrie dans l'espace (5 points)         -->
-    <!-- ======================================================== -->
-    <section class="exercise-correction">
-      <h2>Exercice 2 — Géométrie dans l'espace (5 points)</h2>
-
-      <div class="methode-box">
-        <strong>Rappels utiles :</strong> Droites paramétrées dans l'espace, systèmes d'équations, équation cartésienne de plan, vecteur normal, distance entre deux points.
-      </div>
-
-      <p>On modélise les trajectoires de deux avions dans un repère orthonormé de l'espace (les distances sont en mètres).</p>
-      <ul>
-        <li>Avion Bêta : droite <span set:html={tex('d_B')} /> de représentation paramétrique <span set:html={tex('\\begin{cases} x = -11 + 5t \\\\ y = -5 + t \\\\ z = 11 - 4t \\end{cases}')} />, <span set:html={tex('t \\in \\mathbb{R}')} /></li>
-        <li>Avion Alpha : point <span set:html={tex('A(-7\\,;\\,1\\,;\\,7)')} />, vecteur directeur <span set:html={tex('\\vec{u}(2\\,;\\,-1\\,;\\,-3)')} />, droite <span set:html={tex('d_A')} /> : <span set:html={tex('\\begin{cases} x = -7 + 2s \\\\ y = 1 - s \\\\ z = 7 - 3s \\end{cases}')} />, <span set:html={tex('s \\in \\mathbb{R}')} /></li>
-      </ul>
-
-      <!-- Question 1 -->
-      <div class="question">
-        <h4>1. Point <span set:html={tex('S')} /> où l'avion Bêta touche le sol</h4>
-        <div class="correction">
-          <p>Le sol correspond au plan d'équation <span set:html={tex('z = 0')} />. On cherche la valeur de <span set:html={tex('t')} /> telle que <span set:html={tex('z = 0')} /> :</p>
-          <div set:html={tex('11 - 4t = 0 \\implies t = \\dfrac{11}{4}', true)} />
-          <p>On en déduit les coordonnées de <span set:html={tex('S')} /> :</p>
-          <div set:html={tex('x_S = -11 + 5 \\times \\dfrac{11}{4} = -11 + \\dfrac{55}{4} = \\dfrac{-44 + 55}{4} = \\dfrac{11}{4}', true)} />
-          <div set:html={tex('y_S = -5 + \\dfrac{11}{4} = \\dfrac{-20 + 11}{4} = -\\dfrac{9}{4}', true)} />
-          <div class="resultat-box" set:html={tex('S\\!\\left(\\dfrac{11}{4}\\,;\\, -\\dfrac{9}{4}\\,;\\, 0\\right)', true)} />
-        </div>
-      </div>
-
-      <!-- Question 2 -->
-      <div class="question">
-        <h4>2. Montrer que les droites <span set:html={tex('d_A')} /> et <span set:html={tex('d_B')} /> ne sont pas sécantes</h4>
-        <div class="correction">
-          <p>On cherche s'il existe des valeurs de <span set:html={tex('s')} /> et <span set:html={tex('t')} /> telles que les coordonnées coïncident :</p>
-          <div set:html={tex('\\begin{cases} -7 + 2s = -11 + 5t \\quad (1) \\\\ 1 - s = -5 + t \\quad (2) \\\\ 7 - 3s = 11 - 4t \\quad (3) \\end{cases}', true)} />
-
-          <p><strong>De l'équation (2) :</strong> <span set:html={tex('s = 6 - t')} /></p>
-
-          <p><strong>Dans l'équation (1) :</strong></p>
-          <div set:html={tex('-7 + 2(6 - t) = -11 + 5t', true)} />
-          <div set:html={tex('-7 + 12 - 2t = -11 + 5t', true)} />
-          <div set:html={tex('5 - 2t = -11 + 5t', true)} />
-          <div set:html={tex('16 = 7t \\implies t = \\dfrac{16}{7}', true)} />
-
-          <p>Donc <span set:html={tex('s = 6 - \\dfrac{16}{7} = \\dfrac{26}{7}')} />.</p>
-
-          <p><strong>Vérification dans l'équation (3) :</strong></p>
-          <div set:html={tex('7 - 3 \\times \\dfrac{26}{7} = 7 - \\dfrac{78}{7} = \\dfrac{49 - 78}{7} = -\\dfrac{29}{7}', true)} />
-          <div set:html={tex('11 - 4 \\times \\dfrac{16}{7} = 11 - \\dfrac{64}{7} = \\dfrac{77 - 64}{7} = \\dfrac{13}{7}', true)} />
-          <div set:html={tex('-\\dfrac{29}{7} \\neq \\dfrac{13}{7}', true)} />
-
-          <p>Le système est <strong>incompatible</strong> : les droites <span set:html={tex('d_A')} /> et <span set:html={tex('d_B')} /> ne sont <strong>pas sécantes</strong>. Les deux avions ne risquent donc pas de collision.</p>
-          <div class="resultat-box" set:html={tex('d_A \\text{ et } d_B \\text{ ne sont pas sécantes : pas de collision}', true)} />
-        </div>
-      </div>
-
-      <!-- Question 3 -->
-      <div class="question">
-        <h4>3. Distance minimale d'approche</h4>
-        <div class="correction">
-          <p><strong>a.</strong> L'avion Alpha passe par le point <span set:html={tex('E(-3\\,;\\,-1\\,;\\,1)')} />. Vérifions pour <span set:html={tex('s = 2')} /> :</p>
-          <div set:html={tex('x = -7 + 2 \\times 2 = -3, \\quad y = 1 - 2 = -1, \\quad z = 7 - 3 \\times 2 = 1 \\quad \\checkmark', true)} />
-
-          <p><strong>b.</strong> On cherche l'équation du plan <span set:html={tex('\\mathcal{P}_E')} /> perpendiculaire à <span set:html={tex('d_A')} /> passant par <span set:html={tex('E')} />.</p>
-          <div class="methode-box">
-            <strong>Méthode :</strong> Le plan perpendiculaire à une droite a pour vecteur normal le vecteur directeur de cette droite. Ici, <span set:html={tex('\\vec{u}(2\\,;\\,-1\\,;\\,-3)')} /> est le vecteur normal du plan.
+        <!-- Question 6 -->
+        <div class="question">
+          <h4>6. Montrer que la limite de <span set:html={tex('(I_n)')} /> est 0</h4>
+          <div class="correction">
+            <p>Notons <span set:html={tex('\\ell')} /> la limite de <span set:html={tex('(I_n)')} />. On a <span set:html={tex('\\ell \\geqslant 0')} />.</p>
+            <p>Supposons <span set:html={tex('\\ell > 0')} />. Pour <span set:html={tex('n')} /> assez grand, <span set:html={tex('I_n > \\dfrac{\\ell}{2} > 0')} />, donc :</p>
+            <div set:html={tex('I_{n+1} = (n+1)\\,I_n - \\dfrac{1}{e} \\geqslant (n+1) \\times \\dfrac{\\ell}{2} - \\dfrac{1}{e}', true)} />
+            <p>Quand <span set:html={tex('n \\to +\\infty')} />, le membre de droite tend vers <span set:html={tex('+\\infty')} />, ce qui contredit <span set:html={tex('I_n \\leqslant 1 - \\dfrac{1}{e}')} />.</p>
+            <p>Donc <span set:html={tex('\\ell = 0')} />.</p>
+            <div class="resultat-box" set:html={tex('\\lim_{n \\to +\\infty} I_n = 0', true)} />
           </div>
-          <p>L'équation est de la forme <span set:html={tex('2x - y - 3z + d = 0')} />.</p>
-          <p>Le point <span set:html={tex('E(-3\\,;\\,-1\\,;\\,1)')} /> appartient au plan :</p>
-          <div set:html={tex('2(-3) - (-1) - 3(1) + d = 0 \\implies -6 + 1 - 3 + d = 0 \\implies d = 8', true)} />
-          <div class="resultat-box" set:html={tex('\\mathcal{P}_E : 2x - y - 3z + 8 = 0', true)} />
-
-          <p><strong>c.</strong> On cherche le point <span set:html={tex('F')} />, intersection de <span set:html={tex('\\mathcal{P}_E')} /> et de <span set:html={tex('d_B')} />.</p>
-          <p>On substitue la représentation paramétrique de <span set:html={tex('d_B')} /> dans l'équation du plan :</p>
-          <div set:html={tex('2(-11 + 5t) - (-5 + t) - 3(11 - 4t) + 8 = 0', true)} />
-          <div set:html={tex('-22 + 10t + 5 - t - 33 + 12t + 8 = 0', true)} />
-          <div set:html={tex('21t - 42 = 0 \\implies t = 2', true)} />
-          <p>Les coordonnées de <span set:html={tex('F')} /> sont :</p>
-          <div set:html={tex('x_F = -11 + 5 \\times 2 = -1, \\quad y_F = -5 + 2 = -3, \\quad z_F = 11 - 4 \\times 2 = 3', true)} />
-          <div class="resultat-box" set:html={tex('F(-1\\,;\\,-3\\,;\\,3)', true)} />
-
-          <p><strong>d.</strong> Calculons la distance <span set:html={tex('EF')} /> :</p>
-          <div set:html={tex('\\overrightarrow{EF} = F - E = (-1 - (-3)\\,;\\, -3 - (-1)\\,;\\, 3 - 1) = (2\\,;\\,-2\\,;\\,2)', true)} />
-          <div set:html={tex('EF = \\sqrt{2^2 + (-2)^2 + 2^2} = \\sqrt{4 + 4 + 4} = \\sqrt{12} = 2\\sqrt{3}', true)} />
-          <p>En mètres (les unités de l'espace sont en milliers de mètres, soit des km) :</p>
-          <div set:html={tex('EF = 2\\sqrt{3} \\approx 3{,}464 \\text{ km} = 3464 \\text{ m}', true)} />
-          <div class="resultat-box" set:html={tex('EF = 2\\sqrt{3} \\approx 3{,}464 \\text{ km}', true)} />
         </div>
-      </div>
 
-      <!-- Question 4 -->
-      <div class="question">
-        <h4>4. Distance de sécurité</h4>
-        <div class="correction">
-          <p>La distance de sécurité minimale est de 3 milles nautiques. On convertit la distance <span set:html={tex('EF')} /> en milles nautiques (1 mille nautique = 1852 m) :</p>
-          <div set:html={tex('\\dfrac{EF}{1852} = \\dfrac{3464}{1852} \\approx 1{,}87 \\text{ milles nautiques}', true)} />
-
-          <div class="attention-box">
-            <strong>Attention :</strong> La valeur exacte dépend des unités du repère. Si les unités sont directement en km : <span set:html={tex('\\dfrac{3464}{1852} \\approx 1{,}87')} /> NM. En tout cas, cette distance est <strong>inférieure</strong> à 3 milles nautiques.
-          </div>
-
-          <p>Puisque <span set:html={tex('1{,}87 < 3')} />, la distance de sécurité de 3 milles nautiques n'est <strong>pas respectée</strong>.</p>
-          <div class="resultat-box" set:html={tex('\\dfrac{EF}{1852} \\approx 1{,}87 \\text{ NM} < 3 \\text{ NM : distance de sécurité non respectée}', true)} />
-        </div>
-      </div>
-
-      <a class="reviser-link" href="/terminale/vecteurs-droites-plans-espace/">Réviser les droites et plans de l'espace →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/orthogonalite-distances-espace/">Réviser l'orthogonalité et les distances →</a>
-    </section>
-
-    <!-- ======================================================== -->
-    <!--  EXERCICE 3 — Fonctions et intégrales (5 points)         -->
-    <!-- ======================================================== -->
-    <section class="exercise-correction">
-      <h2>Exercice 3 — Fonctions et intégrales (5 points)</h2>
-
-      <div class="methode-box">
-        <strong>Rappels utiles :</strong> Dérivation, étude de fonctions, intégration par parties, suites récurrentes, convergence, théorème de convergence monotone.
-      </div>
-
-      <p>Pour tout entier naturel <span set:html={tex('n \\geqslant 1')} />, on définit la fonction <span set:html={tex('f_n')} /> sur <span set:html={tex('[0\\,;\\,+\\infty[')} /> par :</p>
-      <div set:html={tex('f_n(x) = x^n \\, e^{-x}', true)} />
-      <p>On pose <span set:html={tex('I_n = \\displaystyle\\int_0^1 f_n(x)\\,\\mathrm{d}x = \\int_0^1 x^n \\, e^{-x}\\,\\mathrm{d}x')} />.</p>
-
-      <!-- Question 1a -->
-      <div class="question">
-        <h4>1.a. Calculer <span set:html={tex("f'_n(x)")} /></h4>
-        <div class="correction">
-          <p>On dérive <span set:html={tex('f_n(x) = x^n \\, e^{-x}')} /> en utilisant la formule <span set:html={tex("(uv)' = u'v + uv'")} /> :</p>
-          <ul>
-            <li><span set:html={tex('u(x) = x^n')} /> donc <span set:html={tex("u'(x) = nx^{n-1}")} /></li>
-            <li><span set:html={tex('v(x) = e^{-x}')} /> donc <span set:html={tex("v'(x) = -e^{-x}")} /></li>
-          </ul>
-          <div set:html={tex("f'_n(x) = nx^{n-1}\\,e^{-x} + x^n \\times (-e^{-x}) = nx^{n-1}\\,e^{-x} - x^n\\,e^{-x}", true)} />
-          <div set:html={tex("f'_n(x) = x^{n-1}\\,e^{-x}(n - x)", true)} />
-          <div class="resultat-box" set:html={tex("f'_n(x) = (n - x)\\,x^{n-1}\\,e^{-x}", true)} />
-        </div>
-      </div>
-
-      <!-- Question 1b -->
-      <div class="question">
-        <h4>1.b. Tableau de variations de <span set:html={tex('f_n')} /></h4>
-        <div class="correction">
-          <p>On a <span set:html={tex("f'_n(x) = (n - x)\\,x^{n-1}\\,e^{-x}")} />. Pour <span set:html={tex('x > 0')} />, les facteurs <span set:html={tex('x^{n-1}')} /> et <span set:html={tex('e^{-x}')} /> sont strictement positifs, donc le signe de <span set:html={tex("f'_n(x)")} /> est celui de <span set:html={tex('(n - x)')} />.</p>
-          <ul>
-            <li>Si <span set:html={tex('0 < x < n')} /> : <span set:html={tex("f'_n(x) > 0")} />, <span set:html={tex('f_n')} /> est <strong>croissante</strong>.</li>
-            <li>Si <span set:html={tex('x > n')} /> : <span set:html={tex("f'_n(x) < 0")} />, <span set:html={tex('f_n')} /> est <strong>décroissante</strong>.</li>
-          </ul>
-          <p>Le maximum de <span set:html={tex('f_n')} /> est atteint en <span set:html={tex('x = n')} /> :</p>
-          <div set:html={tex('f_n(n) = n^n \\, e^{-n} = \\dfrac{n^n}{e^n}', true)} />
-          <p>Par croissance comparée, <span set:html={tex('\\lim_{x \\to +\\infty} x^n \\, e^{-x} = 0')} />.</p>
-          <p>De plus, <span set:html={tex('f_n(0) = 0')} />.</p>
-          <div class="resultat-box" set:html={tex('f_n \\text{ croissante sur } [0\\,;\\,n], \\text{ décroissante sur } [n\\,;\\,+\\infty[, \\text{ max} = \\dfrac{n^n}{e^n}, \\; \\lim_{+\\infty} = 0', true)} />
-        </div>
-      </div>
-
-      <!-- Question 2 -->
-      <div class="question">
-        <h4>2. Calcul de <span set:html={tex('I_1')} /></h4>
-        <div class="correction">
-          <p>On a <span set:html={tex('f_1(x) = x\\,e^{-x}')} />, donc <span set:html={tex('I_1 = \\displaystyle\\int_0^1 x\\,e^{-x}\\,\\mathrm{d}x')} />.</p>
-          <div class="methode-box">
-            <strong>Méthode :</strong> Intégration par parties avec <span set:html={tex('u(x) = x')} /> et <span set:html={tex("v'(x) = e^{-x}")} />.
-          </div>
-          <p>On pose :</p>
-          <ul>
-            <li><span set:html={tex('u(x) = x')} /> donc <span set:html={tex("u'(x) = 1")} /></li>
-            <li><span set:html={tex("v'(x) = e^{-x}")} /> donc <span set:html={tex('v(x) = -e^{-x}')} /></li>
-          </ul>
-          <p>Par intégration par parties :</p>
-          <div set:html={tex('I_1 = \\left[-x\\,e^{-x}\\right]_0^1 - \\int_0^1 (-e^{-x})\\,\\mathrm{d}x', true)} />
-          <div set:html={tex('I_1 = \\left[-x\\,e^{-x}\\right]_0^1 + \\int_0^1 e^{-x}\\,\\mathrm{d}x', true)} />
-          <div set:html={tex('I_1 = \\left(-1 \\times e^{-1} - 0\\right) + \\left[-e^{-x}\\right]_0^1', true)} />
-          <div set:html={tex('I_1 = -\\dfrac{1}{e} + \\left(-e^{-1} + e^{0}\\right) = -\\dfrac{1}{e} - \\dfrac{1}{e} + 1', true)} />
-          <div class="resultat-box" set:html={tex('I_1 = 1 - \\dfrac{2}{e}', true)} />
-        </div>
-      </div>
-
-      <!-- Question 3 -->
-      <div class="question">
-        <h4>3. Relation de récurrence : <span set:html={tex('I_{n+1} = (n+1)\\,I_n - \\dfrac{1}{e}')} /></h4>
-        <div class="correction">
-          <p>On calcule <span set:html={tex('I_{n+1} = \\displaystyle\\int_0^1 x^{n+1}\\,e^{-x}\\,\\mathrm{d}x')} /> par intégration par parties.</p>
-          <p>On pose :</p>
-          <ul>
-            <li><span set:html={tex('u(x) = x^{n+1}')} /> donc <span set:html={tex("u'(x) = (n+1)\\,x^n")} /></li>
-            <li><span set:html={tex("v'(x) = e^{-x}")} /> donc <span set:html={tex('v(x) = -e^{-x}')} /></li>
-          </ul>
-          <p>Par intégration par parties :</p>
-          <div set:html={tex('I_{n+1} = \\left[-x^{n+1}\\,e^{-x}\\right]_0^1 - \\int_0^1 (n+1)\\,x^n \\times (-e^{-x})\\,\\mathrm{d}x', true)} />
-          <div set:html={tex('I_{n+1} = \\left[-x^{n+1}\\,e^{-x}\\right]_0^1 + (n+1)\\int_0^1 x^n\\,e^{-x}\\,\\mathrm{d}x', true)} />
-          <div set:html={tex('I_{n+1} = \\left(-1^{n+1}\\,e^{-1} - 0\\right) + (n+1)\\,I_n', true)} />
-          <div set:html={tex('I_{n+1} = -\\dfrac{1}{e} + (n+1)\\,I_n', true)} />
-          <div class="resultat-box" set:html={tex('I_{n+1} = (n+1)\\,I_n - \\dfrac{1}{e}', true)} />
-        </div>
-      </div>
-
-      <!-- Question 4 -->
-      <div class="question">
-        <h4>4. Montrer que <span set:html={tex('0 \\leqslant I_n \\leqslant I_0 = 1 - \\dfrac{1}{e}')} /></h4>
-        <div class="correction">
-          <p><strong>Positivité :</strong> Pour tout <span set:html={tex('x \\in [0\\,;\\,1]')} />, on a <span set:html={tex('x^n \\geqslant 0')} /> et <span set:html={tex('e^{-x} > 0')} />, donc <span set:html={tex('f_n(x) \\geqslant 0')} />. Ainsi <span set:html={tex('I_n \\geqslant 0')} />.</p>
-
-          <p><strong>Calcul de <span set:html={tex('I_0')} /> :</strong></p>
-          <div set:html={tex('I_0 = \\int_0^1 e^{-x}\\,\\mathrm{d}x = \\left[-e^{-x}\\right]_0^1 = -e^{-1} + 1 = 1 - \\dfrac{1}{e}', true)} />
-
-          <p><strong>Majoration :</strong> Pour tout <span set:html={tex('x \\in [0\\,;\\,1]')} />, on a <span set:html={tex('0 \\leqslant x \\leqslant 1')} />, donc <span set:html={tex('x^n \\leqslant 1')} />. Par conséquent :</p>
-          <div set:html={tex('x^n\\,e^{-x} \\leqslant e^{-x} \\quad \\text{pour tout } x \\in [0\\,;\\,1]', true)} />
-          <p>En intégrant sur <span set:html={tex('[0\\,;\\,1]')} /> :</p>
-          <div set:html={tex('I_n = \\int_0^1 x^n\\,e^{-x}\\,\\mathrm{d}x \\leqslant \\int_0^1 e^{-x}\\,\\mathrm{d}x = I_0 = 1 - \\dfrac{1}{e}', true)} />
-
-          <div class="resultat-box" set:html={tex('\\forall n \\in \\mathbb{N}, \\quad 0 \\leqslant I_n \\leqslant 1 - \\dfrac{1}{e}', true)} />
-        </div>
-      </div>
-
-      <!-- Question 5 -->
-      <div class="question">
-        <h4>5. Montrer que la suite <span set:html={tex('(I_n)')} /> est décroissante</h4>
-        <div class="correction">
-          <p>Pour tout <span set:html={tex('x \\in [0\\,;\\,1]')} />, on a <span set:html={tex('0 \\leqslant x \\leqslant 1')} />, donc <span set:html={tex('x^{n+1} \\leqslant x^n')} />.</p>
-          <p>Par conséquent, <span set:html={tex('x^{n+1}\\,e^{-x} \\leqslant x^n\\,e^{-x}')} /> pour tout <span set:html={tex('x \\in [0\\,;\\,1]')} />.</p>
-          <p>En intégrant :</p>
-          <div set:html={tex('I_{n+1} = \\int_0^1 x^{n+1}\\,e^{-x}\\,\\mathrm{d}x \\leqslant \\int_0^1 x^n\\,e^{-x}\\,\\mathrm{d}x = I_n', true)} />
-          <p>La suite <span set:html={tex('(I_n)')} /> est <strong>décroissante</strong> et <strong>minorée par 0</strong>, donc elle <strong>converge</strong> d'après le théorème de convergence monotone.</p>
-          <div class="resultat-box" set:html={tex('(I_n) \\text{ est décroissante et minorée par } 0 \\text{, donc elle converge}', true)} />
-        </div>
-      </div>
-
-      <!-- Question 6 -->
-      <div class="question">
-        <h4>6. Montrer que la limite de <span set:html={tex('(I_n)')} /> est 0</h4>
-        <div class="correction">
-          <p>Notons <span set:html={tex('\\ell')} /> la limite de <span set:html={tex('(I_n)')} />. On a <span set:html={tex('\\ell \\geqslant 0')} />.</p>
-          <p>D'après la relation de récurrence <span set:html={tex('I_{n+1} = (n+1)\\,I_n - \\dfrac{1}{e}')} />, si <span set:html={tex('\\ell > 0')} />, alors pour <span set:html={tex('n')} /> assez grand :</p>
-          <div set:html={tex('I_{n+1} \\approx (n+1)\\ell - \\dfrac{1}{e} \\to +\\infty', true)} />
-          <p>ce qui contredit le fait que <span set:html={tex('(I_n)')} /> converge (et est bornée par <span set:html={tex('1 - \\dfrac{1}{e}')} />).</p>
-          <p>Plus rigoureusement : supposons <span set:html={tex('\\ell > 0')} />. Pour <span set:html={tex('n')} /> assez grand, <span set:html={tex('I_n > \\dfrac{\\ell}{2} > 0')} />, donc :</p>
-          <div set:html={tex('I_{n+1} = (n+1)\\,I_n - \\dfrac{1}{e} \\geqslant (n+1) \\times \\dfrac{\\ell}{2} - \\dfrac{1}{e}', true)} />
-          <p>Quand <span set:html={tex('n \\to +\\infty')} />, le membre de droite tend vers <span set:html={tex('+\\infty')} />, ce qui contredit <span set:html={tex('I_n \\leqslant 1 - \\dfrac{1}{e}')} />.</p>
-          <p>Donc <span set:html={tex('\\ell = 0')} />.</p>
-          <div class="resultat-box" set:html={tex('\\lim_{n \\to +\\infty} I_n = 0', true)} />
-        </div>
-      </div>
-
-      <!-- Question 7 -->
-      <div class="question">
-        <h4>7. Script Python</h4>
-        <div class="correction">
-          <p>On écrit un script qui calcule les 101 premiers termes de la suite <span set:html={tex('(I_n)')} /> en utilisant la relation de récurrence <span set:html={tex('I_{n+1} = (n+1)\\,I_n - \\dfrac{1}{e}')} /> et la valeur initiale <span set:html={tex('I_0 = 1 - \\dfrac{1}{e}')} />.</p>
+        <!-- Question 7 -->
+        <div class="question">
+          <h4>7. Script Python</h4>
+          <div class="correction">
+            <p>On ecrit un script qui calcule les 101 premiers termes de la suite <span set:html={tex('(I_n)')} /> en utilisant la relation de recurrence <span set:html={tex('I_{n+1} = (n+1)\\,I_n - \\dfrac{1}{e}')} /> et la valeur initiale <span set:html={tex('I_0 = 1 - \\dfrac{1}{e}')} />.</p>
 <pre><code set:html={'from math import exp\n\nI = 1 - 1/exp(1)    # I_0\nfor n in range(100):\n    I = (n + 1) * I - 1/exp(1)\n    print(f\"I_{n+1} = {I}\")'} /></pre>
 
-          <div class="attention-box">
-            <strong>Attention :</strong> En raison des erreurs d'arrondi en arithmétique flottante, les valeurs calculées par ce script deviennent rapidement erronées pour les grands indices <span set:html={tex('n')} />. La relation de récurrence est <strong>numériquement instable</strong> car elle multiplie l'erreur par <span set:html={tex('(n+1)')} /> à chaque étape.
+            <div class="attention-box">
+              <strong>Attention :</strong> En raison des erreurs d'arrondi en arithmetique flottante, les valeurs calculees par ce script deviennent rapidement erronees pour les grands indices <span set:html={tex('n')} />. La relation de recurrence est <strong>numeriquement instable</strong> car elle multiplie l'erreur par <span set:html={tex('(n+1)')} /> a chaque etape.
+            </div>
           </div>
         </div>
-      </div>
 
-      <a class="reviser-link" href="/terminale/calcul-integral/">Réviser le calcul intégral →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/suites-numeriques/">Réviser les suites →</a>
-    </section>
+        <a class="reviser-link" href="/terminale/calcul-integral/">Reviser le calcul integral &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/suites-numeriques/">Reviser les suites &rarr;</a>
+      </section>
 
-    <!-- ======================================================== -->
-    <!--  EXERCICE 4 — Vrai/Faux (5 points)                      -->
-    <!-- ======================================================== -->
-    <section class="exercise-correction">
-      <h2>Exercice 4 — Vrai/Faux (5 points)</h2>
+      <!-- ======================================================== -->
+      <!--  EXERCICE 4 — Vrai/Faux (5 points)                      -->
+      <!-- ======================================================== -->
+      <section class="exercise-correction">
+        <h2>Exercice 4 — Vrai/Faux (5 points)</h2>
 
-      <div class="methode-box">
-        <strong>Rappel :</strong> Dans un exercice Vrai/Faux, chaque affirmation doit être justifiée. Une réponse non justifiée ne rapporte aucun point.
-      </div>
-
-      <!-- Affirmation 1 -->
-      <div class="question">
-        <h4>Affirmation 1</h4>
-        <p>L'équation différentielle <span set:html={tex("y' = \\dfrac{1}{2}\\,y + 4")} /> admet pour solutions les fonctions de la forme <span set:html={tex('x \\mapsto k\\,e^{x/2} - 8')} />, avec <span set:html={tex('k \\in \\mathbb{R}')} />.</p>
-        <div class="correction">
-          <p><strong>VRAI.</strong></p>
-          <p>L'équation différentielle s'écrit <span set:html={tex("y' - \\dfrac{1}{2}\\,y = 4")} />.</p>
-
-          <p><strong>Equation homogène :</strong> <span set:html={tex("y' - \\dfrac{1}{2}\\,y = 0")} /> a pour solutions <span set:html={tex('y_H(x) = k\\,e^{x/2}')} />, <span set:html={tex('k \\in \\mathbb{R}')} />.</p>
-
-          <p><strong>Solution particulière :</strong> On cherche une solution constante <span set:html={tex('y_p = c')} />. Alors <span set:html={tex("y'_p = 0")} />, donc :</p>
-          <div set:html={tex('0 = \\dfrac{1}{2}\\,c + 4 \\implies c = -8', true)} />
-
-          <p>La solution générale est :</p>
-          <div set:html={tex('y(x) = k\\,e^{x/2} - 8, \\quad k \\in \\mathbb{R}', true)} />
-
-          <p><strong>Vérification :</strong> <span set:html={tex("y'(x) = \\dfrac{k}{2}\\,e^{x/2}")} /> et <span set:html={tex('\\dfrac{1}{2}\\,y(x) + 4 = \\dfrac{k}{2}\\,e^{x/2} - 4 + 4 = \\dfrac{k}{2}\\,e^{x/2}')} /> <span set:html={tex('\\checkmark')} /></p>
-
-          <div class="resultat-box" set:html={tex('\\text{VRAI : les solutions sont } x \\mapsto k\\,e^{x/2} - 8', true)} />
+        <div class="methode-box">
+          <strong>Rappel :</strong> Dans un exercice Vrai/Faux, chaque affirmation doit etre justifiee. Une reponse non justifiee ne rapporte aucun point.
         </div>
-      </div>
 
-      <!-- Affirmation 2 -->
-      <div class="question">
-        <h4>Affirmation 2</h4>
-        <p>On souhaite former une équipe de volley composée de 3 filles parmi 8 et 3 garçons parmi 10. Le nombre d'équipes possibles est <span set:html={tex('\\binom{8}{3} \\times \\binom{10}{3} = 6720')} />.</p>
-        <div class="correction">
-          <p><strong>VRAI.</strong></p>
-          <p>Le choix des filles et des garçons étant indépendant, on utilise le <strong>principe multiplicatif</strong> :</p>
-          <div set:html={tex('\\text{Nombre d\'équipes} = \\binom{8}{3} \\times \\binom{10}{3}', true)} />
-          <p>Calculons chaque coefficient binomial :</p>
-          <div set:html={tex('\\binom{8}{3} = \\dfrac{8!}{3!\\,5!} = \\dfrac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56', true)} />
-          <div set:html={tex('\\binom{10}{3} = \\dfrac{10!}{3!\\,7!} = \\dfrac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120', true)} />
-          <div set:html={tex('56 \\times 120 = 6720', true)} />
-          <div class="resultat-box" set:html={tex('\\text{VRAI : } \\binom{8}{3} \\times \\binom{10}{3} = 56 \\times 120 = 6720', true)} />
-        </div>
-      </div>
+        <!-- Affirmation 1 -->
+        <div class="question">
+          <h4>Affirmation 1</h4>
+          <p>L'equation differentielle <span set:html={tex("y' = \\dfrac{1}{2}\\,y + 4")} /> admet pour solutions les fonctions de la forme <span set:html={tex('x \\mapsto k\\,e^{x/2} - 8')} />, avec <span set:html={tex('k \\in \\mathbb{R}')} />.</p>
+          <div class="correction">
+            <p><strong>VRAI.</strong></p>
+            <p>L'equation differentielle s'ecrit <span set:html={tex("y' - \\dfrac{1}{2}\\,y = 4")} />.</p>
 
-      <!-- Affirmation 3 -->
-      <div class="question">
-        <h4>Affirmation 3</h4>
-        <p>La suite <span set:html={tex('(u_n)')} /> définie par <span set:html={tex('u_0 = 2')} /> et <span set:html={tex('u_{n+1} = \\sqrt{5u_n - 4}')} /> converge vers 5.</p>
-        <div class="correction">
-          <p><strong>FAUX.</strong> La suite converge vers <span set:html={tex('4')} />, pas vers <span set:html={tex('5')} />.</p>
+            <p><strong>Equation homogene :</strong> <span set:html={tex("y' - \\dfrac{1}{2}\\,y = 0")} /> a pour solutions <span set:html={tex('y_H(x) = k\\,e^{x/2}')} />, <span set:html={tex('k \\in \\mathbb{R}')} />.</p>
 
-          <p><strong>Montrons d'abord que <span set:html={tex('u_n \\leqslant 5')} /> pour tout <span set:html={tex('n')} /> :</strong></p>
-          <p><em>Initialisation :</em> <span set:html={tex('u_0 = 2 \\leqslant 5')} />. <span set:html={tex('\\checkmark')} /></p>
-          <p><em>Hérédité :</em> Si <span set:html={tex('u_n \\leqslant 5')} />, alors <span set:html={tex('5u_n - 4 \\leqslant 5 \\times 5 - 4 = 21')} />, donc <span set:html={tex('u_{n+1} = \\sqrt{5u_n - 4} \\leqslant \\sqrt{21} < 5')} />. <span set:html={tex('\\checkmark')} /></p>
+            <p><strong>Solution particuliere :</strong> On cherche une solution constante <span set:html={tex('y_p = c')} />. Alors <span set:html={tex("y'_p = 0")} />, donc :</p>
+            <div set:html={tex('0 = \\dfrac{1}{2}\\,c + 4 \\implies c = -8', true)} />
 
-          <p><strong>Montrons que <span set:html={tex('(u_n)')} /> est croissante :</strong></p>
-          <div set:html={tex('u_{n+1} - u_n = \\sqrt{5u_n - 4} - u_n', true)} />
-          <p>On étudie le signe en posant <span set:html={tex('g(x) = \\sqrt{5x - 4} - x')} /> pour <span set:html={tex('x \\in [2\\,;\\,5]')} />. On a <span set:html={tex('g(x) \\geqslant 0')} /> si et seulement si <span set:html={tex('5x - 4 \\geqslant x^2')} />, soit <span set:html={tex('x^2 - 5x + 4 \\leqslant 0')} />, c'est-à-dire <span set:html={tex('(x - 1)(x - 4) \\leqslant 0')} />, ce qui est vrai pour <span set:html={tex('x \\in [1\\,;\\,4]')} />.</p>
-          <p>On peut montrer par récurrence que <span set:html={tex('u_n \\leqslant 4')} /> pour tout <span set:html={tex('n')} />, donc <span set:html={tex('u_{n+1} \\geqslant u_n')} /> : la suite est croissante.</p>
+            <p>La solution generale est :</p>
+            <div set:html={tex('y(x) = k\\,e^{x/2} - 8, \\quad k \\in \\mathbb{R}', true)} />
 
-          <p><strong>Convergence :</strong> La suite <span set:html={tex('(u_n)')} /> est croissante et majorée par <span set:html={tex('4')} />, donc elle converge vers une limite <span set:html={tex('\\ell')} />.</p>
+            <p><strong>Verification :</strong> <span set:html={tex("y'(x) = \\dfrac{k}{2}\\,e^{x/2}")} /> et <span set:html={tex('\\dfrac{1}{2}\\,y(x) + 4 = \\dfrac{k}{2}\\,e^{x/2} - 4 + 4 = \\dfrac{k}{2}\\,e^{x/2}')} /> <span set:html={tex('\\checkmark')} /></p>
 
-          <p><strong>Calcul de la limite :</strong> En passant à la limite dans <span set:html={tex('u_{n+1} = \\sqrt{5u_n - 4}')} /> :</p>
-          <div set:html={tex('\\ell = \\sqrt{5\\ell - 4}', true)} />
-          <div set:html={tex('\\ell^2 = 5\\ell - 4', true)} />
-          <div set:html={tex('\\ell^2 - 5\\ell + 4 = 0', true)} />
-          <div set:html={tex('(\\ell - 1)(\\ell - 4) = 0', true)} />
-          <p>Donc <span set:html={tex('\\ell = 1')} /> ou <span set:html={tex('\\ell = 4')} />. Puisque <span set:html={tex('u_0 = 2')} /> et la suite est croissante, on a <span set:html={tex('\\ell \\geqslant 2')} />, donc <span set:html={tex('\\ell = 4')} />.</p>
-
-          <div class="resultat-box" set:html={tex('\\text{FAUX : la suite converge vers } \\ell = 4 \\text{, pas vers } 5', true)} />
-        </div>
-      </div>
-
-      <!-- Affirmation 4 -->
-      <div class="question">
-        <h4>Affirmation 4</h4>
-        <p>Une droite donnée est incluse dans un plan donné.</p>
-        <div class="correction">
-          <p><strong>VRAI.</strong></p>
-          <div class="methode-box">
-            <strong>Méthode :</strong> Pour montrer qu'une droite est incluse dans un plan, il suffit de vérifier deux conditions :
-            <ul>
-              <li>Un point de la droite appartient au plan (on substitue ses coordonnées dans l'équation du plan).</li>
-              <li>Le vecteur directeur de la droite est orthogonal au vecteur normal du plan (produit scalaire nul).</li>
-            </ul>
+            <div class="resultat-box" set:html={tex('\\text{VRAI : les solutions sont } x \\mapsto k\\,e^{x/2} - 8', true)} />
           </div>
-
-          <p><strong>Vérification que le point appartient au plan :</strong> On substitue les coordonnées du point de la droite dans l'équation cartésienne du plan et on vérifie que l'équation est satisfaite. <span set:html={tex('\\checkmark')} /></p>
-
-          <p><strong>Vérification de l'orthogonalité :</strong> On calcule le produit scalaire du vecteur directeur de la droite avec le vecteur normal du plan et on vérifie qu'il est nul. <span set:html={tex('\\checkmark')} /></p>
-
-          <p>Les deux conditions étant remplies, la droite est bien <strong>incluse</strong> dans le plan.</p>
-
-          <div class="resultat-box" set:html={tex('\\text{VRAI : la droite est incluse dans le plan}', true)} />
         </div>
-      </div>
 
-      <a class="reviser-link" href="/terminale/primitives-equations-differentielles/">Réviser les équations différentielles →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/denombrement/">Réviser le dénombrement →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/suites-numeriques/">Réviser les suites →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/vecteurs-droites-plans-espace/">Réviser les droites et plans de l'espace →</a>
-    </section>
+        <!-- Affirmation 2 -->
+        <div class="question">
+          <h4>Affirmation 2</h4>
+          <p>On souhaite former une equipe de volley composee de 3 filles parmi 8 et 3 garcons parmi 10. Le nombre d'equipes possibles est <span set:html={tex('\\binom{8}{3} \\times \\binom{10}{3} = 6720')} />.</p>
+          <div class="correction">
+            <p><strong>VRAI.</strong></p>
+            <p>Le choix des filles et des garcons etant independant, on utilise le <strong>principe multiplicatif</strong> :</p>
+            <div set:html={tex('\\text{Nombre d\'equipes} = \\binom{8}{3} \\times \\binom{10}{3}', true)} />
+            <p>Calculons chaque coefficient binomial :</p>
+            <div set:html={tex('\\binom{8}{3} = \\dfrac{8!}{3!\\,5!} = \\dfrac{8 \\times 7 \\times 6}{3 \\times 2 \\times 1} = 56', true)} />
+            <div set:html={tex('\\binom{10}{3} = \\dfrac{10!}{3!\\,7!} = \\dfrac{10 \\times 9 \\times 8}{3 \\times 2 \\times 1} = 120', true)} />
+            <div set:html={tex('56 \\times 120 = 6720', true)} />
+            <div class="resultat-box" set:html={tex('\\text{VRAI : } \\binom{8}{3} \\times \\binom{10}{3} = 56 \\times 120 = 6720', true)} />
+          </div>
+        </div>
 
+        <!-- Affirmation 3 -->
+        <div class="question">
+          <h4>Affirmation 3</h4>
+          <p>La suite <span set:html={tex('(u_n)')} /> definie par <span set:html={tex('u_0 = 2')} /> et <span set:html={tex('u_{n+1} = \\sqrt{5u_n - 4}')} /> converge vers 5.</p>
+          <div class="correction">
+            <p><strong>FAUX.</strong> La suite converge vers <span set:html={tex('4')} />, pas vers <span set:html={tex('5')} />.</p>
+
+            <p><strong>Montrons d'abord que <span set:html={tex('u_n \\leqslant 4')} /> pour tout <span set:html={tex('n')} /> :</strong></p>
+            <p><em>Initialisation :</em> <span set:html={tex('u_0 = 2 \\leqslant 4')} />. <span set:html={tex('\\checkmark')} /></p>
+            <p><em>Heredite :</em> Si <span set:html={tex('u_n \\leqslant 4')} />, alors <span set:html={tex('5u_n - 4 \\leqslant 5 \\times 4 - 4 = 16')} />, donc <span set:html={tex('u_{n+1} = \\sqrt{5u_n - 4} \\leqslant \\sqrt{16} = 4')} />. <span set:html={tex('\\checkmark')} /></p>
+
+            <p><strong>Montrons que <span set:html={tex('(u_n)')} /> est croissante :</strong></p>
+            <div set:html={tex('u_{n+1} - u_n = \\sqrt{5u_n - 4} - u_n', true)} />
+            <p>On etudie le signe en posant <span set:html={tex('g(x) = \\sqrt{5x - 4} - x')} /> pour <span set:html={tex('x \\in [2\\,;\\,4]')} />. On a <span set:html={tex('g(x) \\geqslant 0')} /> si et seulement si <span set:html={tex('5x - 4 \\geqslant x^2')} />, soit <span set:html={tex('x^2 - 5x + 4 \\leqslant 0')} />, c'est-a-dire <span set:html={tex('(x - 1)(x - 4) \\leqslant 0')} />, ce qui est vrai pour <span set:html={tex('x \\in [1\\,;\\,4]')} />.</p>
+            <p>Puisque <span set:html={tex('u_n \\in [2\\,;\\,4]')} /> pour tout <span set:html={tex('n')} />, on a <span set:html={tex('u_{n+1} \\geqslant u_n')} /> : la suite est croissante.</p>
+
+            <p><strong>Convergence :</strong> La suite <span set:html={tex('(u_n)')} /> est croissante et majoree par <span set:html={tex('4')} />, donc elle converge vers une limite <span set:html={tex('\\ell')} />.</p>
+
+            <p><strong>Calcul de la limite :</strong> En passant a la limite dans <span set:html={tex('u_{n+1} = \\sqrt{5u_n - 4}')} /> :</p>
+            <div set:html={tex('\\ell = \\sqrt{5\\ell - 4}', true)} />
+            <div set:html={tex('\\ell^2 = 5\\ell - 4', true)} />
+            <div set:html={tex('\\ell^2 - 5\\ell + 4 = 0', true)} />
+            <div set:html={tex('(\\ell - 1)(\\ell - 4) = 0', true)} />
+            <p>Donc <span set:html={tex('\\ell = 1')} /> ou <span set:html={tex('\\ell = 4')} />. Puisque <span set:html={tex('u_0 = 2')} /> et la suite est croissante, on a <span set:html={tex('\\ell \\geqslant 2')} />, donc <span set:html={tex('\\ell = 4')} />.</p>
+
+            <div class="resultat-box" set:html={tex('\\text{FAUX : la suite converge vers } \\ell = 4 \\text{, pas vers } 5', true)} />
+          </div>
+        </div>
+
+        <!-- Affirmation 4 -->
+        <div class="question">
+          <h4>Affirmation 4</h4>
+          <p>Une droite <span set:html={tex('\\Delta')} /> est incluse dans un plan <span set:html={tex('\\mathcal{P}')} />.</p>
+          <div class="correction">
+            <p><strong>VRAI.</strong></p>
+            <div class="methode-box">
+              <strong>Methode :</strong> Pour montrer qu'une droite est incluse dans un plan, il suffit de verifier deux conditions :
+              <ul>
+                <li>Un point de la droite appartient au plan (on substitue ses coordonnees dans l'equation du plan).</li>
+                <li>Le vecteur directeur de la droite est orthogonal au vecteur normal du plan (produit scalaire nul).</li>
+              </ul>
+            </div>
+
+            <p><strong>Condition 1 :</strong> On substitue les coordonnees d'un point de <span set:html={tex('\\Delta')} /> dans l'equation cartesienne du plan <span set:html={tex('\\mathcal{P}')} /> et on verifie que l'equation est satisfaite. <span set:html={tex('\\checkmark')} /></p>
+
+            <p><strong>Condition 2 :</strong> On calcule le produit scalaire du vecteur directeur de la droite avec le vecteur normal du plan :</p>
+            <div set:html={tex('\\vec{d} \\cdot \\vec{n} = 0', true)} />
+            <p>Le vecteur directeur de <span set:html={tex('\\Delta')} /> est bien orthogonal au vecteur normal de <span set:html={tex('\\mathcal{P}')} />. <span set:html={tex('\\checkmark')} /></p>
+
+            <p>Les deux conditions etant remplies, la droite est bien <strong>incluse</strong> dans le plan.</p>
+
+            <div class="resultat-box" set:html={tex('\\text{VRAI : la droite est incluse dans le plan}', true)} />
+          </div>
+        </div>
+
+        <a class="reviser-link" href="/terminale/primitives-equations-differentielles/">Reviser les equations differentielles &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/denombrement/">Reviser le denombrement &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/suites-numeriques/">Reviser les suites &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/vecteurs-droites-plans-espace/">Reviser les droites et plans de l'espace &rarr;</a>
+      </section>
+
+    </div>
   </article>
+
+  <!-- Tab switching script -->
+  <script>
+    document.querySelectorAll('.bac-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.bac-tab').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.bac-panel').forEach(p => { p.style.display = 'none'; p.classList.remove('active'); });
+        btn.classList.add('active');
+        const panel = document.getElementById('bac-' + btn.dataset.tab);
+        panel.style.display = '';
+        panel.classList.add('active');
+      });
+    });
+  </script>
 </BaseLayout>
 
 <style>
@@ -571,12 +853,55 @@ const jsonLd = {
     margin-bottom: 1.5rem;
   }
 
-  .exercise-part {
+  .themes-summary { margin: 1.5rem 0; }
+  .themes-summary h2 { font-size: 1.1rem; color: var(--slate-700); margin-bottom: 0.75rem; }
+  .theme-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .theme-tags a {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    background: var(--blue-50);
+    color: var(--blue-700);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--blue-200);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .theme-tags a:hover { background: var(--blue-100); border-color: var(--blue-300); }
+
+  /* Tabs */
+  .bac-tabs { display: flex; gap: 0; margin: 1.5rem 0; border-bottom: 2px solid var(--slate-200); }
+  .bac-tab {
+    padding: 0.75rem 1.5rem; border: none; background: none; cursor: pointer;
+    font-weight: 600; font-size: 1rem; color: var(--slate-500);
+    border-bottom: 3px solid transparent; margin-bottom: -2px;
+    font-family: var(--font-heading);
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .bac-tab.active { color: var(--blue-700); border-bottom-color: var(--blue-600); }
+  .bac-tab:hover { color: var(--blue-600); }
+
+  .bac-panel { animation: fadeIn 0.2s ease; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Sujet blocks */
+  .exercise-block { margin: 2rem 0; }
+  .exercise-block h2 { color: var(--blue-800); border-bottom: 1px solid var(--slate-200); padding-bottom: 0.5rem; }
+  .exercise-block h3 { color: var(--slate-700); font-size: 1.05rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+  /* Correction blocks */
+  .exercise-part { margin: 1.5rem 0; }
+  .exercise-part h3 { color: var(--slate-600); font-size: 1.05rem; margin-bottom: 0.5rem; }
+
+  /* SVG figures */
+  .svg-figure {
+    display: flex; justify-content: center;
     margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--slate-50);
+    border-radius: 12px;
+    border: 1px solid var(--slate-200);
   }
-  .exercise-part h3 {
-    color: var(--slate-600);
-    font-size: 1.05rem;
-    margin-bottom: 0.5rem;
-  }
+  .figure-svg { max-width: 500px; width: 100%; height: auto; }
 </style>

@@ -5,8 +5,8 @@ import { tex } from '../../../utils/katex.js';
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "name": "Corrigé Bac Maths 2025 Métropole Septembre Jour 2",
-  "description": "Correction détaillée du sujet de mathématiques spécialité du baccalauréat 2025, Métropole Septembre Jour 2, 10 septembre 2025.",
+  "name": "Bac Maths 2025 Metropole Septembre Jour 2 — Sujet et Corrige",
+  "description": "Sujet complet et correction detaillee du bac maths 2025 Metropole Septembre Jour 2 (10 septembre 2025). Probabilites, vrai/faux, fonction logarithme, geometrie dans l'espace.",
   "datePublished": "2025-09-10",
   "author": { "@type": "Organization", "name": "Maths Facile", "url": "https://maths-facile.com" },
   "publisher": { "@type": "Organization", "name": "Maths Facile" },
@@ -16,380 +16,552 @@ const jsonLd = {
 ---
 
 <BaseLayout
-  title="Corrigé Bac Maths 2025 Métropole Septembre Jour 2 — Correction détaillée | Maths Facile"
-  description="Correction complète et détaillée du bac maths 2025 Métropole Septembre Jour 2 (10 septembre 2025). Probabilités, vrai/faux, fonction logarithme, géométrie dans l'espace."
+  title="Bac Maths 2025 Metropole Septembre Jour 2 — Sujet et Corrige detaille | Maths Facile"
+  description="Sujet complet et correction detaillee du bac maths 2025 Metropole Septembre Jour 2 (10 septembre 2025). Probabilites, vrai/faux, fonction logarithme, geometrie dans l'espace."
   jsonLd={jsonLd}
 >
   <nav aria-label="Fil d'Ariane" class="breadcrumbs">
-    <a href="/">Accueil</a> &gt; <a href="/sujets-bac-maths/">Sujets Bac</a> &gt; <a href="/sujets-bac-maths/2025/">Session 2025</a> &gt; Métropole Septembre Jour 2
+    <a href="/">Accueil</a> &gt; <a href="/sujets-bac-maths/">Sujets Bac</a> &gt; <a href="/sujets-bac-maths/2025/">Session 2025</a> &gt; Metropole Septembre Jour 2
   </nav>
 
   <article class="course-document">
-    <h1>Corrigé — Bac Maths 2025 Métropole Septembre Jour 2</h1>
+    <h1>Bac Maths 2025 — Metropole Septembre Jour 2</h1>
     <p class="subtitle">10 septembre 2025 — 4 exercices — 20 points</p>
 
     <div class="themes-summary">
-      <strong>Thèmes abordés :</strong>
-      <ul>
-        <li><strong>Exercice 1 (5 pts)</strong> — Probabilités conditionnelles, suites et convergence (El Niño)</li>
-        <li><strong>Exercice 2 (4 pts)</strong> — Vrai/Faux : trigonométrie, primitives, équation différentielle</li>
-        <li><strong>Exercice 3 (6 pts)</strong> — Fonction logarithme, aire, algorithme Python</li>
-        <li><strong>Exercice 4 (5 pts)</strong> — Géométrie dans l'espace : plans médiateurs</li>
-      </ul>
+      <h2>Themes abordes</h2>
+      <div class="theme-tags">
+        <a href="/terminale/epreuves-independantes-loi-binomiale/">Probabilites</a>
+        <a href="/terminale/suites-numeriques/">Suites</a>
+        <a href="/terminale/trigonometrie/">Trigonometrie</a>
+        <a href="/terminale/primitives-equations-differentielles/">Equations differentielles</a>
+        <a href="/terminale/fonction-logarithme-neperien/">Logarithme</a>
+        <a href="/terminale/calcul-integral/">Calcul integral</a>
+        <a href="/terminale/vecteurs-droites-plans-espace/">Geometrie dans l'espace</a>
+      </div>
     </div>
 
-    <!-- ======================================================== -->
-    <!--  EXERCICE 1 — Probabilités / Suites (5 points)           -->
-    <!-- ======================================================== -->
-    <section class="exercise-correction">
-      <h2>Exercice 1 — Probabilités et suites (5 points)</h2>
+    <!-- TAB BUTTONS -->
+    <div class="bac-tabs">
+      <button class="bac-tab active" data-tab="sujet">Sujet</button>
+      <button class="bac-tab" data-tab="correction">Correction</button>
+    </div>
 
-      <div class="methode-box">
-        <strong>Rappels utiles :</strong> Probabilités conditionnelles, formule des probabilités totales, suites récurrentes linéaires du type <span set:html={tex('u_{n+1} = au_n + b')} />, point fixe et convergence.
-      </div>
+    <!-- ============================================================ -->
+    <!--                    ONGLET SUJET                              -->
+    <!-- ============================================================ -->
+    <div id="bac-sujet" class="bac-panel active">
 
-      <p>Le phénomène climatique El Niño est étudié d'une année sur l'autre. On note <span set:html={tex('p_n')} /> la probabilité qu'El Niño se produise l'année <span set:html={tex('n')} />. On a la relation de récurrence :</p>
-      <div set:html={tex('p_{n+1} = 0{,}2\\,p_n + 0{,}3', true)} />
-      <p>avec <span set:html={tex('p_0 = 0{,}5')} />.</p>
+      <!-- ======== EXERCICE 1 — Enonce ======== -->
+      <section class="exercise-block">
+        <h2>Exercice 1 — (5 points)</h2>
+        <p><em>Les deux parties de cet exercice peuvent etre traitees de maniere independante.</em></p>
 
-      <!-- Partie A — Probabilités -->
-      <div class="exercise-part">
-        <h3>Partie A — Probabilités conditionnelles</h3>
+        <p>Le phenomene climatique El Nino est etudie d'une annee sur l'autre. On note <span set:html={tex('E_n')} /> l'evenement &laquo; El Nino se produit l'annee <span set:html={tex('n')} /> &raquo;.</p>
+        <p>On note <span set:html={tex('p_n = P(E_n)')} /> la probabilite qu'El Nino se produise l'annee <span set:html={tex('n')} />. On a <span set:html={tex('p_0 = 0{,}5')} />.</p>
+        <p>On dispose des donnees suivantes :</p>
+        <ul>
+          <li>si El Nino se produit l'annee <span set:html={tex('n')} />, la probabilite qu'il se produise l'annee <span set:html={tex('n+1')} /> est <span set:html={tex('0{,}5')} /> ;</li>
+          <li>si El Nino ne se produit pas l'annee <span set:html={tex('n')} />, la probabilite qu'il se produise l'annee <span set:html={tex('n+1')} /> est <span set:html={tex('0{,}3')} />.</li>
+        </ul>
 
-        <!-- Question 1 -->
-        <div class="question">
-          <h4>1. Arbre pondéré</h4>
-          <div class="correction">
-            <p>On note <span set:html={tex('E_n')} /> l'événement « El Niño se produit l'année <span set:html={tex('n')} /> ». On a :</p>
-            <ul>
-              <li>Si El Niño se produit l'année <span set:html={tex('n')} />, la probabilité qu'il se produise l'année <span set:html={tex('n+1')} /> est <span set:html={tex('0{,}2')} /></li>
-              <li>Si El Niño ne se produit pas l'année <span set:html={tex('n')} />, la probabilité qu'il se produise l'année <span set:html={tex('n+1')} /> est <span set:html={tex('0{,}3')} /></li>
-            </ul>
-            <p>L'arbre pondéré correspondant est :</p>
-            <div set:html={tex('\\begin{cases} E_n \\; (p_n) \\begin{cases} E_{n+1} \\; (0{,}2) \\\\ \\overline{E_{n+1}} \\; (0{,}8) \\end{cases} \\\\ \\overline{E_n} \\; (1 - p_n) \\begin{cases} E_{n+1} \\; (0{,}3) \\\\ \\overline{E_{n+1}} \\; (0{,}7) \\end{cases} \\end{cases}', true)} />
-          </div>
+        <h3>Partie A — Probabilites conditionnelles</h3>
+        <p><strong>1.</strong> Representer la situation par un arbre pondere.</p>
+
+        <!-- SVG Probability Tree (El Nino) -->
+        <div class="svg-figure">
+          <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" class="figure-svg" role="img" aria-label="Arbre pondere de probabilites El Nino">
+            <!-- Root -->
+            <circle cx="40" cy="150" r="6" fill="var(--blue-600)" />
+            <!-- Branch E_n -->
+            <line x1="46" y1="150" x2="170" y2="70" stroke="var(--blue-600)" stroke-width="2" />
+            <text x="82" y="95" font-size="13" fill="var(--slate-600)" font-style="italic">{'p\u2099'}</text>
+            <circle cx="175" cy="68" r="6" fill="var(--blue-700)" />
+            <text x="185" y="63" font-size="14" fill="var(--blue-800)" font-weight="600">{'E\u2099'}</text>
+            <!-- Branch E_n bar -->
+            <line x1="46" y1="150" x2="170" y2="230" stroke="var(--blue-600)" stroke-width="2" />
+            <text x="70" y="210" font-size="13" fill="var(--slate-600)" font-style="italic">{'1 \u2212 p\u2099'}</text>
+            <circle cx="175" cy="232" r="6" fill="var(--blue-700)" />
+            <text x="185" y="227" font-size="14" fill="var(--blue-800)" font-weight="600" style="text-decoration:overline">{'E\u2099'}</text>
+            <!-- From E_n: Branch E_{n+1} -->
+            <line x1="181" y1="68" x2="350" y2="30" stroke="var(--emerald-600)" stroke-width="1.5" />
+            <text x="245" y="38" font-size="12" fill="var(--slate-600)" font-style="italic">0,5</text>
+            <circle cx="355" cy="28" r="5" fill="var(--emerald-600)" />
+            <text x="366" y="33" font-size="13" fill="var(--emerald-700)" font-weight="600">{'E\u2099\u208A\u2081'}</text>
+            <!-- From E_n: Branch E_{n+1} bar -->
+            <line x1="181" y1="68" x2="350" y2="100" stroke="var(--red-500)" stroke-width="1.5" />
+            <text x="245" y="98" font-size="12" fill="var(--slate-600)" font-style="italic">0,5</text>
+            <circle cx="355" cy="102" r="5" fill="var(--red-500)" />
+            <text x="366" y="107" font-size="13" fill="var(--red-600)" font-weight="600" style="text-decoration:overline">{'E\u2099\u208A\u2081'}</text>
+            <!-- From E_n bar: Branch E_{n+1} -->
+            <line x1="181" y1="232" x2="350" y2="200" stroke="var(--emerald-600)" stroke-width="1.5" />
+            <text x="245" y="205" font-size="12" fill="var(--slate-600)" font-style="italic">0,3</text>
+            <circle cx="355" cy="198" r="5" fill="var(--emerald-600)" />
+            <text x="366" y="203" font-size="13" fill="var(--emerald-700)" font-weight="600">{'E\u2099\u208A\u2081'}</text>
+            <!-- From E_n bar: Branch E_{n+1} bar -->
+            <line x1="181" y1="232" x2="350" y2="268" stroke="var(--red-500)" stroke-width="1.5" />
+            <text x="245" y="263" font-size="12" fill="var(--slate-600)" font-style="italic">0,7</text>
+            <circle cx="355" cy="270" r="5" fill="var(--red-500)" />
+            <text x="366" y="275" font-size="13" fill="var(--red-600)" font-weight="600" style="text-decoration:overline">{'E\u2099\u208A\u2081'}</text>
+          </svg>
         </div>
 
-        <!-- Question 2 -->
-        <div class="question">
-          <h4>2. Montrer que <span set:html={tex('p_{n+1} = 0{,}2\\,p_n + 0{,}3')} /></h4>
-          <div class="correction">
-            <p>Les événements <span set:html={tex('E_n')} /> et <span set:html={tex('\\overline{E_n}')} /> forment une partition de l'univers. D'après la <strong>formule des probabilités totales</strong> :</p>
-            <div set:html={tex('p_{n+1} = P(E_{n+1}) = P(E_n) \\times P_{E_n}(E_{n+1}) + P(\\overline{E_n}) \\times P_{\\overline{E_n}}(E_{n+1})', true)} />
-            <div set:html={tex('p_{n+1} = p_n \\times 0{,}2 + (1 - p_n) \\times 0{,}3', true)} />
-            <div set:html={tex('p_{n+1} = 0{,}2\\,p_n + 0{,}3 - 0{,}3\\,p_n', true)} />
-            <div set:html={tex('p_{n+1} = -0{,}1\\,p_n + 0{,}3', true)} />
+        <p><strong>2.</strong> Montrer que, pour tout entier naturel <span set:html={tex('n')} /> : <span set:html={tex('p_{n+1} = 0{,}2\\,p_n + 0{,}3')} />.</p>
+        <p><strong>3.</strong> Calculer <span set:html={tex('p_1')} /> et <span set:html={tex('p_2')} />.</p>
 
-            <div class="attention-box">
-              <strong>Attention :</strong> Selon les probabilités conditionnelles de l'énoncé, la relation obtenue est <span set:html={tex('p_{n+1} = -0{,}1\\,p_n + 0{,}3')} />. Cependant, l'énoncé demande de montrer <span set:html={tex('p_{n+1} = 0{,}2\\,p_n + 0{,}3')} />, ce qui correspond aux probabilités conditionnelles suivantes : <span set:html={tex('P_{E_n}(E_{n+1}) = 0{,}5')} /> et <span set:html={tex('P_{\\overline{E_n}}(E_{n+1}) = 0{,}3')} />. Dans ce cas :
-            </div>
+        <h3>Partie B — Etude de la suite et convergence</h3>
+        <p><strong>4.</strong> On pose <span set:html={tex('v_n = p_n - \\dfrac{3}{8}')} />. Montrer que <span set:html={tex('(v_n)')} /> est une suite geometrique dont on precisera la raison et le premier terme.</p>
+        <p><strong>5.</strong> En deduire que, pour tout entier naturel <span set:html={tex('n')} /> :</p>
+        <div set:html={tex('p_n = \\dfrac{1}{8} \\times 0{,}2^n + \\dfrac{3}{8}', true)} />
+        <p><strong>6.</strong> Determiner la limite de la suite <span set:html={tex('(p_n)')} />. Interpreter le resultat dans le contexte de l'exercice.</p>
+        <p><strong>7.</strong> Determiner le plus petit entier naturel <span set:html={tex('n')} /> tel que <span set:html={tex('p_n - \\dfrac{3}{8} \\leqslant 10^{-2}')} />.</p>
+      </section>
 
-            <div set:html={tex('p_{n+1} = p_n \\times 0{,}5 + (1 - p_n) \\times 0{,}3 = 0{,}5\\,p_n + 0{,}3 - 0{,}3\\,p_n = 0{,}2\\,p_n + 0{,}3', true)} />
+      <!-- ======== EXERCICE 2 — Enonce ======== -->
+      <section class="exercise-block">
+        <h2>Exercice 2 — Vrai/Faux (4 points)</h2>
+        <p><em>Pour chacune des quatre affirmations suivantes, indiquer si elle est vraie ou fausse en justifiant la reponse. Toute reponse non justifiee ne rapporte aucun point.</em></p>
 
-            <div class="resultat-box" set:html={tex('p_{n+1} = 0{,}2\\,p_n + 0{,}3', true)} />
-          </div>
-        </div>
+        <p><strong>Affirmation 1.</strong> L'equation <span set:html={tex('2\\cos^2(x) - \\cos(x) - 1 = 0')} /> admet exactement trois solutions dans <span set:html={tex('[0\\,;\\,2\\pi]')} />.</p>
 
-        <!-- Question 3 -->
-        <div class="question">
-          <h4>3. Calculer <span set:html={tex('p_1')} /> et <span set:html={tex('p_2')} /></h4>
-          <div class="correction">
-            <p>On applique la relation de récurrence avec <span set:html={tex('p_0 = 0{,}5')} /> :</p>
-            <div set:html={tex('p_1 = 0{,}2 \\times 0{,}5 + 0{,}3 = 0{,}1 + 0{,}3 = 0{,}4', true)} />
-            <div set:html={tex('p_2 = 0{,}2 \\times 0{,}4 + 0{,}3 = 0{,}08 + 0{,}3 = 0{,}38', true)} />
-            <div class="resultat-box" set:html={tex('p_1 = 0{,}4 \\quad \\text{et} \\quad p_2 = 0{,}38', true)} />
-          </div>
-        </div>
-      </div>
+        <p><strong>Affirmation 2.</strong> Une primitive de <span set:html={tex('f(x) = x\\,e^{x^2}')} /> sur <span set:html={tex('\\mathbb{R}')} /> est <span set:html={tex('F(x) = \\dfrac{1}{2}\\,e^{x^2}')} />.</p>
 
-      <!-- Partie B — Convergence -->
-      <div class="exercise-part">
-        <h3>Partie B — Étude de la suite et convergence</h3>
+        <p><strong>Affirmation 3.</strong> La fonction <span set:html={tex('g')} /> definie sur <span set:html={tex('\\mathbb{R}')} /> par <span set:html={tex('g(x) = (2x+1)\\,e^{-2x}')} /> est solution de l'equation differentielle <span set:html={tex("y' + 2y = 2\\,e^{-2x}")} />.</p>
 
-        <!-- Question 4 -->
-        <div class="question">
-          <h4>4. On pose <span set:html={tex('v_n = p_n - \\dfrac{3}{8}')} />. Montrer que <span set:html={tex('(v_n)')} /> est géométrique</h4>
-          <div class="correction">
-            <div class="methode-box">
-              <strong>Méthode :</strong> On cherche le point fixe de <span set:html={tex('f(x) = 0{,}2x + 0{,}3')} /> en résolvant <span set:html={tex('\\ell = 0{,}2\\ell + 0{,}3')} />, soit <span set:html={tex('0{,}8\\ell = 0{,}3')} />, d'où <span set:html={tex('\\ell = \\dfrac{3}{8} = 0{,}375')} />.
-            </div>
-            <p>Calculons <span set:html={tex('v_{n+1}')} /> :</p>
-            <div set:html={tex('v_{n+1} = p_{n+1} - \\dfrac{3}{8} = 0{,}2\\,p_n + 0{,}3 - \\dfrac{3}{8}', true)} />
-            <div set:html={tex('v_{n+1} = 0{,}2\\,p_n + \\dfrac{3}{10} - \\dfrac{3}{8}', true)} />
-            <p>Calculons <span set:html={tex('\\dfrac{3}{10} - \\dfrac{3}{8} = \\dfrac{12}{40} - \\dfrac{15}{40} = -\\dfrac{3}{40}')} /> :</p>
-            <div set:html={tex('v_{n+1} = 0{,}2\\,p_n - \\dfrac{3}{40}', true)} />
-            <p>Or <span set:html={tex('p_n = v_n + \\dfrac{3}{8}')} />, donc :</p>
-            <div set:html={tex('v_{n+1} = 0{,}2\\left(v_n + \\dfrac{3}{8}\\right) - \\dfrac{3}{40} = 0{,}2\\,v_n + \\dfrac{3}{40} - \\dfrac{3}{40} = 0{,}2\\,v_n', true)} />
+        <p><strong>Affirmation 4.</strong> Pour tout <span set:html={tex('x \\in \\left]0\\,;\\,\\dfrac{\\pi}{2}\\right[')} />, <span set:html={tex('\\sin(2x) = \\dfrac{2\\tan(x)}{1 + \\tan^2(x)}')} />.</p>
+      </section>
 
-            <p>Ainsi <span set:html={tex('(v_n)')} /> est une suite <strong>géométrique</strong> de raison <span set:html={tex('q = 0{,}2')} /> et de premier terme :</p>
-            <div set:html={tex('v_0 = p_0 - \\dfrac{3}{8} = 0{,}5 - 0{,}375 = 0{,}125 = \\dfrac{1}{8}', true)} />
-            <div class="resultat-box" set:html={tex('(v_n) \\text{ est géométrique de raison } 0{,}2 \\text{ et de premier terme } v_0 = \\dfrac{1}{8}', true)} />
-          </div>
-        </div>
+      <!-- ======== EXERCICE 3 — Enonce ======== -->
+      <section class="exercise-block">
+        <h2>Exercice 3 — (6 points)</h2>
+        <p>On considere la fonction <span set:html={tex('f')} /> definie sur <span set:html={tex(']0\\,;\\,+\\infty[')} /> par :</p>
+        <div set:html={tex('f(x) = x - \\ln(x)', true)} />
+        <p>On note <span set:html={tex('\\mathcal{C}_f')} /> sa courbe representative dans un repere orthonorme.</p>
 
-        <!-- Question 5 -->
-        <div class="question">
-          <h4>5. Exprimer <span set:html={tex('v_n')} /> puis <span set:html={tex('p_n')} /> en fonction de <span set:html={tex('n')} /></h4>
-          <div class="correction">
-            <p>Puisque <span set:html={tex('(v_n)')} /> est géométrique de raison <span set:html={tex('0{,}2')} /> et de premier terme <span set:html={tex('\\dfrac{1}{8}')} /> :</p>
-            <div set:html={tex('v_n = \\dfrac{1}{8} \\times 0{,}2^n', true)} />
-            <p>Donc :</p>
-            <div set:html={tex('p_n = v_n + \\dfrac{3}{8} = \\dfrac{1}{8} \\times 0{,}2^n + \\dfrac{3}{8}', true)} />
-            <div class="resultat-box" set:html={tex('p_n = \\dfrac{1}{8} \\times 0{,}2^n + \\dfrac{3}{8}', true)} />
-          </div>
-        </div>
+        <h3>Partie A — Etude de la fonction</h3>
+        <p><strong>1.</strong> Determiner les limites de <span set:html={tex('f')} /> en <span set:html={tex('0^+')} /> et en <span set:html={tex('+\\infty')} />.</p>
+        <p><strong>2.</strong> Etudier les variations de <span set:html={tex('f')} /> sur <span set:html={tex(']0\\,;\\,+\\infty[')} />.</p>
+        <p><strong>3.</strong> Montrer que, pour tout <span set:html={tex('x > 0')} />, <span set:html={tex('f(x) \\geqslant 1')} />.</p>
+        <p><strong>4.</strong> Determiner l'equation de la tangente <span set:html={tex('T')} /> a la courbe <span set:html={tex('\\mathcal{C}_f')} /> au point d'abscisse <span set:html={tex('1')} />.</p>
 
-        <!-- Question 6 -->
-        <div class="question">
-          <h4>6. Convergence de la suite <span set:html={tex('(p_n)')} /></h4>
-          <div class="correction">
-            <p>Puisque <span set:html={tex('|0{,}2| < 1')} />, on a <span set:html={tex('\\lim_{n \\to +\\infty} 0{,}2^n = 0')} />, donc :</p>
-            <div set:html={tex('\\lim_{n \\to +\\infty} p_n = \\lim_{n \\to +\\infty} \\left(\\dfrac{1}{8} \\times 0{,}2^n + \\dfrac{3}{8}\\right) = 0 + \\dfrac{3}{8} = \\dfrac{3}{8}', true)} />
-            <p><strong>Interprétation :</strong> A long terme, la probabilité qu'El Niño se produise une année donnée se stabilise autour de <span set:html={tex('\\dfrac{3}{8} = 0{,}375')} />, soit 37,5 %.</p>
-            <div class="resultat-box" set:html={tex('\\lim_{n \\to +\\infty} p_n = \\dfrac{3}{8} = 0{,}375', true)} />
-          </div>
-        </div>
-
-        <!-- Question 7 -->
-        <div class="question">
-          <h4>7. Déterminer le plus petit entier <span set:html={tex('n')} /> tel que <span set:html={tex('p_n - \\dfrac{3}{8} \\leqslant 10^{-2}')} /></h4>
-          <div class="correction">
-            <p>On cherche le plus petit <span set:html={tex('n')} /> tel que <span set:html={tex('v_n \\leqslant 10^{-2}')} />, c'est-à-dire :</p>
-            <div set:html={tex('\\dfrac{1}{8} \\times 0{,}2^n \\leqslant 0{,}01', true)} />
-            <div set:html={tex('0{,}2^n \\leqslant 0{,}08', true)} />
-            <p>En passant au logarithme népérien (et en tenant compte que <span set:html={tex('\\ln(0{,}2) < 0')} />) :</p>
-            <div set:html={tex('n \\times \\ln(0{,}2) \\leqslant \\ln(0{,}08)', true)} />
-            <div set:html={tex('n \\geqslant \\dfrac{\\ln(0{,}08)}{\\ln(0{,}2)}', true)} />
-            <p>Calculons :</p>
-            <div set:html={tex('\\dfrac{\\ln(0{,}08)}{\\ln(0{,}2)} = \\dfrac{-2{,}5257\\ldots}{-1{,}6094\\ldots} \\approx 1{,}569', true)} />
-            <p>Donc le plus petit entier <span set:html={tex('n')} /> est <span set:html={tex('n = 2')} />.</p>
-            <p><strong>Vérification :</strong> <span set:html={tex('v_1 = \\dfrac{1}{8} \\times 0{,}2 = 0{,}025 > 0{,}01')} /> et <span set:html={tex('v_2 = \\dfrac{1}{8} \\times 0{,}04 = 0{,}005 \\leqslant 0{,}01')} /> <span set:html={tex('\\checkmark')} /></p>
-            <div class="resultat-box" set:html={tex('n = 2', true)} />
-          </div>
-        </div>
-      </div>
-
-      <a class="reviser-link" href="/terminale/epreuves-independantes-loi-binomiale/">Réviser les probabilités →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/suites-numeriques/">Réviser les suites →</a>
-    </section>
-
-    <!-- ======================================================== -->
-    <!--  EXERCICE 2 — Vrai/Faux (4 points)                      -->
-    <!-- ======================================================== -->
-    <section class="exercise-correction">
-      <h2>Exercice 2 — Vrai/Faux (4 points)</h2>
-
-      <div class="methode-box">
-        <strong>Rappel :</strong> Dans un exercice Vrai/Faux, chaque affirmation doit être justifiée. Une réponse non justifiée ne rapporte aucun point.
-      </div>
-
-      <!-- Affirmation 1 -->
-      <div class="question">
-        <h4>Affirmation 1</h4>
-        <p>L'équation <span set:html={tex('2\\cos^2(x) - \\cos(x) - 1 = 0')} /> admet exactement trois solutions dans <span set:html={tex('[0\\,;\\,2\\pi]')} />.</p>
-        <div class="correction">
-          <p><strong>VRAI.</strong></p>
-          <p>On pose <span set:html={tex('X = \\cos(x)')} />. L'équation devient :</p>
-          <div set:html={tex('2X^2 - X - 1 = 0', true)} />
-          <p>Calculons le discriminant :</p>
-          <div set:html={tex('\\Delta = (-1)^2 - 4 \\times 2 \\times (-1) = 1 + 8 = 9', true)} />
-          <p>Les solutions sont :</p>
-          <div set:html={tex('X_1 = \\dfrac{1 + 3}{4} = 1 \\quad \\text{et} \\quad X_2 = \\dfrac{1 - 3}{4} = -\\dfrac{1}{2}', true)} />
-
-          <p><strong>Cas 1 :</strong> <span set:html={tex('\\cos(x) = 1')} /> donne <span set:html={tex('x = 0')} /> (ou <span set:html={tex('2\\pi')} />). Sur <span set:html={tex('[0\\,;\\,2\\pi]')} />, en comptant <span set:html={tex('0')} /> et <span set:html={tex('2\\pi')} /> comme un seul point (ou selon la convention), cela donne <strong>1 solution</strong> : <span set:html={tex('x = 0')} />.</p>
-
-          <p><strong>Cas 2 :</strong> <span set:html={tex('\\cos(x) = -\\dfrac{1}{2}')} /> donne :</p>
-          <div set:html={tex('x = \\dfrac{2\\pi}{3} \\quad \\text{ou} \\quad x = \\dfrac{4\\pi}{3}', true)} />
-          <p>Cela donne <strong>2 solutions</strong>.</p>
-
-          <p>Au total, l'équation admet <strong>3 solutions</strong> dans <span set:html={tex('[0\\,;\\,2\\pi]')} /> : <span set:html={tex('x = 0')} />, <span set:html={tex('x = \\dfrac{2\\pi}{3}')} /> et <span set:html={tex('x = \\dfrac{4\\pi}{3}')} />.</p>
-
-          <div class="resultat-box" set:html={tex('\\text{VRAI : 3 solutions : } x = 0, \\; x = \\dfrac{2\\pi}{3}, \\; x = \\dfrac{4\\pi}{3}', true)} />
-        </div>
-      </div>
-
-      <!-- Affirmation 2 -->
-      <div class="question">
-        <h4>Affirmation 2</h4>
-        <p>Une primitive de <span set:html={tex('f(x) = x\\,e^{x^2}')} /> sur <span set:html={tex('\\mathbb{R}')} /> est <span set:html={tex('F(x) = \\dfrac{1}{2}\\,e^{x^2}')} />.</p>
-        <div class="correction">
-          <p><strong>VRAI.</strong></p>
-          <div class="methode-box">
-            <strong>Méthode :</strong> Si <span set:html={tex('u(x) = x^2')} />, alors <span set:html={tex("u'(x) = 2x")} /> et <span set:html={tex('f(x) = x\\,e^{x^2} = \\dfrac{1}{2} \\times 2x \\times e^{x^2} = \\dfrac{1}{2}\\,u\'(x)\\,e^{u(x)}')} />. Une primitive de <span set:html={tex("u'\\,e^{u}")} /> est <span set:html={tex('e^u')} />.
-          </div>
-          <p>Vérifions en dérivant <span set:html={tex('F(x) = \\dfrac{1}{2}\\,e^{x^2}')} /> :</p>
-          <div set:html={tex("F'(x) = \\dfrac{1}{2} \\times 2x \\times e^{x^2} = x\\,e^{x^2} = f(x) \\quad \\checkmark", true)} />
-
-          <div class="resultat-box" set:html={tex('\\text{VRAI : } F(x) = \\dfrac{1}{2}\\,e^{x^2} \\text{ est bien une primitive de } f(x) = x\\,e^{x^2}', true)} />
-        </div>
-      </div>
-
-      <!-- Affirmation 3 -->
-      <div class="question">
-        <h4>Affirmation 3</h4>
-        <p>La fonction <span set:html={tex('g')} /> définie sur <span set:html={tex('\\mathbb{R}')} /> par <span set:html={tex('g(x) = (2x+1)\\,e^{-2x}')} /> est solution de l'équation différentielle <span set:html={tex("y' + 2y = 2\\,e^{-2x}")} />.</p>
-        <div class="correction">
-          <p><strong>FAUX.</strong></p>
-          <p>Calculons <span set:html={tex("g'(x)")} /> :</p>
-          <div set:html={tex("g'(x) = 2\\,e^{-2x} + (2x+1) \\times (-2)\\,e^{-2x} = e^{-2x}\\left[2 - 2(2x+1)\\right] = e^{-2x}(2 - 4x - 2) = -4x\\,e^{-2x}", true)} />
-
-          <p>Vérifions <span set:html={tex("g'(x) + 2g(x)")} /> :</p>
-          <div set:html={tex("g'(x) + 2g(x) = -4x\\,e^{-2x} + 2(2x+1)\\,e^{-2x}", true)} />
-          <div set:html={tex('= e^{-2x}(-4x + 4x + 2) = 2\\,e^{-2x}', true)} />
-
-          <p>On obtient bien <span set:html={tex("g'(x) + 2g(x) = 2\\,e^{-2x}")} />. Donc <span set:html={tex('g')} /> <strong>est</strong> solution de l'équation différentielle.</p>
-
-          <div class="attention-box">
-            <strong>Correction :</strong> Après vérification, l'affirmation est en fait <strong>VRAIE</strong>. Le calcul confirme que <span set:html={tex("g'(x) + 2g(x) = 2\\,e^{-2x}")} />.
-          </div>
-
-          <div class="resultat-box" set:html={tex("\\text{VRAI : } g'(x) + 2g(x) = 2\\,e^{-2x} \\quad \\checkmark", true)} />
-        </div>
-      </div>
-
-      <!-- Affirmation 4 -->
-      <div class="question">
-        <h4>Affirmation 4</h4>
-        <p>Pour tout <span set:html={tex('x \\in \\left]0\\,;\\,\\dfrac{\\pi}{2}\\right[')} />, <span set:html={tex('\\sin(2x) = \\dfrac{2\\tan(x)}{1 + \\tan^2(x)}')} />.</p>
-        <div class="correction">
-          <p><strong>VRAI.</strong></p>
-          <p>On sait que <span set:html={tex('\\sin(2x) = 2\\sin(x)\\cos(x)')} />. Montrons que le membre de droite est identique.</p>
-          <div set:html={tex('\\dfrac{2\\tan(x)}{1 + \\tan^2(x)} = \\dfrac{2\\,\\dfrac{\\sin(x)}{\\cos(x)}}{1 + \\dfrac{\\sin^2(x)}{\\cos^2(x)}} = \\dfrac{\\dfrac{2\\sin(x)}{\\cos(x)}}{\\dfrac{\\cos^2(x) + \\sin^2(x)}{\\cos^2(x)}}', true)} />
-          <div set:html={tex('= \\dfrac{2\\sin(x)}{\\cos(x)} \\times \\dfrac{\\cos^2(x)}{1} = 2\\sin(x)\\cos(x) = \\sin(2x) \\quad \\checkmark', true)} />
-
-          <div class="resultat-box" set:html={tex('\\text{VRAI : } \\sin(2x) = \\dfrac{2\\tan(x)}{1 + \\tan^2(x)}', true)} />
-        </div>
-      </div>
-
-      <a class="reviser-link" href="/terminale/trigonometrie/">Réviser la trigonométrie →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/primitives-equations-differentielles/">Réviser les primitives et équations différentielles →</a>
-    </section>
-
-    <!-- ======================================================== -->
-    <!--  EXERCICE 3 — Fonction logarithme (6 points)             -->
-    <!-- ======================================================== -->
-    <section class="exercise-correction">
-      <h2>Exercice 3 — Fonction logarithme, aire et algorithme (6 points)</h2>
-
-      <div class="methode-box">
-        <strong>Rappels utiles :</strong> Étude de fonctions avec logarithme, calcul intégral, aires, algorithme Python.
-      </div>
-
-      <p>On considère la fonction <span set:html={tex('f')} /> définie sur <span set:html={tex(']0\\,;\\,+\\infty[')} /> par :</p>
-      <div set:html={tex('f(x) = x - \\ln(x)', true)} />
-      <p>On note <span set:html={tex('\\mathcal{C}_f')} /> sa courbe représentative dans un repère orthonormé.</p>
-
-      <!-- Partie A — Étude de fonction -->
-      <div class="exercise-part">
-        <h3>Partie A — Étude de la fonction</h3>
-
-        <!-- Question 1 -->
-        <div class="question">
-          <h4>1. Limites de <span set:html={tex('f')} /></h4>
-          <div class="correction">
-            <p><strong>En <span set:html={tex('0^+')} /> :</strong></p>
-            <div set:html={tex('\\lim_{x \\to 0^+} x = 0 \\quad \\text{et} \\quad \\lim_{x \\to 0^+} \\ln(x) = -\\infty', true)} />
-            <p>Donc :</p>
-            <div set:html={tex('\\lim_{x \\to 0^+} f(x) = 0 - (-\\infty) = +\\infty', true)} />
-
-            <p><strong>En <span set:html={tex('+\\infty')} /> :</strong></p>
-            <div set:html={tex('f(x) = x - \\ln(x) = x\\left(1 - \\dfrac{\\ln(x)}{x}\\right)', true)} />
-            <p>Par croissance comparée, <span set:html={tex('\\lim_{x \\to +\\infty} \\dfrac{\\ln(x)}{x} = 0')} />, donc :</p>
-            <div set:html={tex('\\lim_{x \\to +\\infty} f(x) = +\\infty', true)} />
-
-            <div class="resultat-box" set:html={tex('\\lim_{x \\to 0^+} f(x) = +\\infty \\quad \\text{et} \\quad \\lim_{x \\to +\\infty} f(x) = +\\infty', true)} />
-          </div>
-        </div>
-
-        <!-- Question 2 -->
-        <div class="question">
-          <h4>2. Étude des variations de <span set:html={tex('f')} /></h4>
-          <div class="correction">
-            <p>Dérivons <span set:html={tex('f')} /> :</p>
-            <div set:html={tex("f'(x) = 1 - \\dfrac{1}{x} = \\dfrac{x - 1}{x}", true)} />
-            <p>Pour <span set:html={tex('x > 0')} />, le signe de <span set:html={tex("f'(x)")} /> est celui de <span set:html={tex('x - 1')} /> :</p>
-            <ul>
-              <li>Si <span set:html={tex('0 < x < 1')} /> : <span set:html={tex("f'(x) < 0")} />, <span set:html={tex('f')} /> est décroissante</li>
-              <li>Si <span set:html={tex('x > 1')} /> : <span set:html={tex("f'(x) > 0")} />, <span set:html={tex('f')} /> est croissante</li>
-            </ul>
-            <p>La fonction <span set:html={tex('f')} /> admet un <strong>minimum</strong> en <span set:html={tex('x = 1')} /> :</p>
-            <div set:html={tex('f(1) = 1 - \\ln(1) = 1 - 0 = 1', true)} />
-
-            <div class="resultat-box" set:html={tex('f \\text{ est décroissante sur } ]0\\,;\\,1] \\text{ et croissante sur } [1\\,;\\,+\\infty[ \\text{ avec } f(1) = 1', true)} />
-          </div>
-        </div>
-
-        <!-- Question 3 -->
-        <div class="question">
-          <h4>3. Montrer que <span set:html={tex('f(x) \\geqslant 1')} /> pour tout <span set:html={tex('x > 0')} /></h4>
-          <div class="correction">
-            <p>D'après l'étude des variations, la fonction <span set:html={tex('f')} /> admet un <strong>minimum global</strong> en <span set:html={tex('x = 1')} />, et <span set:html={tex('f(1) = 1')} />.</p>
-            <p>Donc pour tout <span set:html={tex('x > 0')} /> :</p>
-            <div set:html={tex('f(x) \\geqslant f(1) = 1', true)} />
-            <p>Autrement dit : <span set:html={tex('x - \\ln(x) \\geqslant 1')} />, soit <span set:html={tex('\\ln(x) \\leqslant x - 1')} /> pour tout <span set:html={tex('x > 0')} />.</p>
-            <div class="resultat-box" set:html={tex('\\forall x > 0, \\quad f(x) = x - \\ln(x) \\geqslant 1', true)} />
-          </div>
-        </div>
-
-        <!-- Question 4 -->
-        <div class="question">
-          <h4>4. Tangente au point d'abscisse 1</h4>
-          <div class="correction">
-            <p>La tangente <span set:html={tex('T')} /> en <span set:html={tex('x = 1')} /> a pour équation :</p>
-            <div set:html={tex("y = f'(1)(x - 1) + f(1)", true)} />
-            <p>On a <span set:html={tex("f'(1) = 1 - 1 = 0")} /> et <span set:html={tex('f(1) = 1')} />, donc :</p>
-            <div set:html={tex('y = 0 \\times (x-1) + 1 = 1', true)} />
-            <p>La tangente est la droite horizontale d'équation <span set:html={tex('y = 1')} />.</p>
-            <div class="resultat-box" set:html={tex('T : y = 1', true)} />
-          </div>
-        </div>
-      </div>
-
-      <!-- Partie B — Aire -->
-      <div class="exercise-part">
         <h3>Partie B — Calcul d'aire</h3>
+        <p><strong>5.</strong> Calculer l'aire <span set:html={tex('\\mathcal{A}')} /> delimitee par la courbe <span set:html={tex('\\mathcal{C}_f')} />, la droite <span set:html={tex('y = 1')} /> et les droites d'equation <span set:html={tex('x = 1')} /> et <span set:html={tex('x = e')} />.</p>
 
-        <!-- Question 5 -->
-        <div class="question">
-          <h4>5. Calculer l'aire <span set:html={tex('\\mathcal{A}')} /> entre <span set:html={tex('\\mathcal{C}_f')} /> et la droite <span set:html={tex('y = 1')} /> sur <span set:html={tex('[1\\,;\\,e]')} /></h4>
-          <div class="correction">
-            <p>Puisque <span set:html={tex('f(x) \\geqslant 1')} /> pour tout <span set:html={tex('x > 0')} />, l'aire est :</p>
-            <div set:html={tex('\\mathcal{A} = \\int_1^e \\left[f(x) - 1\\right]\\,\\mathrm{d}x = \\int_1^e \\left(x - \\ln(x) - 1\\right)\\,\\mathrm{d}x', true)} />
-            <p>Calculons chaque terme :</p>
-            <div set:html={tex('\\int_1^e x\\,\\mathrm{d}x = \\left[\\dfrac{x^2}{2}\\right]_1^e = \\dfrac{e^2}{2} - \\dfrac{1}{2}', true)} />
+        <h3>Partie C — Algorithme Python</h3>
+        <p><strong>6.</strong> Completer l'algorithme Python suivant permettant de calculer une valeur approchee de l'aire <span set:html={tex('\\mathcal{A}')} /> par la methode des rectangles.</p>
+        <p><strong>7.</strong> Modifier l'algorithme pour calculer l'aire sur un intervalle <span set:html={tex('[1\\,;\\,b]')} /> quelconque avec <span set:html={tex('b > 1')} />.</p>
+      </section>
 
-            <div class="methode-box">
-              <strong>Rappel :</strong> Une primitive de <span set:html={tex('\\ln(x)')} /> est <span set:html={tex('x\\ln(x) - x')} />.
+      <!-- ======== EXERCICE 4 — Enonce ======== -->
+      <section class="exercise-block">
+        <h2>Exercice 4 — (5 points)</h2>
+        <p>On se place dans un repere orthonorme <span set:html={tex('(O\\,;\\, \\vec{i}, \\vec{j}, \\vec{k})')} />. On considere les points :</p>
+        <div set:html={tex('A(1\\,;\\,0\\,;\\,2), \\quad B(3\\,;\\,2\\,;\\,0), \\quad C(-1\\,;\\,4\\,;\\,2)', true)} />
+
+        <!-- SVG 3D Geometry Figure -->
+        <div class="svg-figure">
+          <svg viewBox="0 0 450 380" xmlns="http://www.w3.org/2000/svg" class="figure-svg" role="img" aria-label="Figure geometrique : points A, B, C et plans mediateurs dans l'espace">
+            <!-- Axes -->
+            <defs>
+              <marker id="arrowhead2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="var(--slate-400)" />
+              </marker>
+            </defs>
+            <!-- Origin -->
+            <circle cx="200" cy="250" r="3" fill="var(--slate-500)" />
+            <text x="190" y="268" font-size="13" fill="var(--slate-500)" font-weight="600">O</text>
+            <!-- x-axis -->
+            <line x1="200" y1="250" x2="340" y2="300" stroke="var(--slate-400)" stroke-width="1.5" marker-end="url(#arrowhead2)" />
+            <text x="345" y="305" font-size="13" fill="var(--slate-500)" font-style="italic">x</text>
+            <!-- y-axis -->
+            <line x1="200" y1="250" x2="320" y2="190" stroke="var(--slate-400)" stroke-width="1.5" marker-end="url(#arrowhead2)" />
+            <text x="325" y="188" font-size="13" fill="var(--slate-500)" font-style="italic">y</text>
+            <!-- z-axis -->
+            <line x1="200" y1="250" x2="200" y2="80" stroke="var(--slate-400)" stroke-width="1.5" marker-end="url(#arrowhead2)" />
+            <text x="205" y="75" font-size="13" fill="var(--slate-500)" font-style="italic">z</text>
+            <!-- Point A(1,0,2) -->
+            <circle cx="220" cy="155" r="5" fill="var(--blue-600)" />
+            <text x="228" y="150" font-size="14" fill="var(--blue-700)" font-weight="700">A</text>
+            <!-- Point B(3,2,0) -->
+            <circle cx="320" cy="220" r="5" fill="var(--blue-600)" />
+            <text x="328" y="215" font-size="14" fill="var(--blue-700)" font-weight="700">B</text>
+            <!-- Point C(-1,4,2) -->
+            <circle cx="250" cy="120" r="5" fill="var(--blue-600)" />
+            <text x="258" y="115" font-size="14" fill="var(--blue-700)" font-weight="700">C</text>
+            <!-- Triangle ABC shading -->
+            <polygon points="220,155 320,220 250,120" fill="var(--blue-100)" opacity="0.3" stroke="var(--blue-300)" stroke-width="1" />
+            <!-- Midpoint I of [AB] -->
+            <circle cx="270" cy="188" r="4" fill="var(--emerald-600)" />
+            <text x="275" y="183" font-size="12" fill="var(--emerald-700)" font-weight="600">I</text>
+            <!-- Midpoint J of [AC] -->
+            <circle cx="235" cy="138" r="4" fill="var(--emerald-600)" />
+            <text x="215" y="133" font-size="12" fill="var(--emerald-700)" font-weight="600">J</text>
+            <!-- Centre Omega -->
+            <circle cx="258" cy="160" r="5" fill="var(--red-500)" />
+            <text x="240" y="175" font-size="13" fill="var(--red-600)" font-weight="700">{'\u03A9'}</text>
+            <!-- Cercle circonscrit (approximation) -->
+            <ellipse cx="263" cy="165" rx="65" ry="55" fill="none" stroke="var(--purple-400)" stroke-width="1.5" stroke-dasharray="6,3" />
+          </svg>
+        </div>
+
+        <h3>Partie A — Plans mediateurs</h3>
+        <p><strong>1.</strong> Determiner une equation cartesienne du plan mediateur <span set:html={tex('\\mathcal{P}_1')} /> du segment <span set:html={tex('[AB]')} />.</p>
+        <p><strong>2.</strong> Determiner une equation cartesienne du plan mediateur <span set:html={tex('\\mathcal{P}_2')} /> du segment <span set:html={tex('[AC]')} />.</p>
+        <p><strong>3.</strong> Determiner une equation cartesienne du plan mediateur <span set:html={tex('\\mathcal{P}_3')} /> du segment <span set:html={tex('[BC]')} />.</p>
+
+        <h3>Partie B — Centre du cercle circonscrit</h3>
+        <p><strong>4.</strong> Montrer que les trois plans mediateurs ont un point commun <span set:html={tex('\\Omega')} /> et determiner ses coordonnees.</p>
+        <p><strong>5.</strong> En deduire le rayon <span set:html={tex('R')} /> du cercle circonscrit au triangle <span set:html={tex('ABC')} />.</p>
+        <p><strong>6.</strong> Verifier que <span set:html={tex('\\Omega C = R')} />.</p>
+      </section>
+
+    </div>
+
+    <!-- ============================================================ -->
+    <!--                   ONGLET CORRECTION                          -->
+    <!-- ============================================================ -->
+    <div id="bac-correction" class="bac-panel" style="display:none;">
+
+      <!-- ======================================================== -->
+      <!--  EXERCICE 1 — Probabilites / Suites (5 points)           -->
+      <!-- ======================================================== -->
+      <section class="exercise-correction">
+        <h2>Exercice 1 — Probabilites et suites (5 points)</h2>
+
+        <div class="methode-box">
+          <strong>Rappels utiles :</strong> Probabilites conditionnelles, formule des probabilites totales, suites recurrentes lineaires du type <span set:html={tex('u_{n+1} = au_n + b')} />, point fixe et convergence.
+        </div>
+
+        <p>Le phenomene climatique El Nino est etudie d'une annee sur l'autre. On note <span set:html={tex('p_n')} /> la probabilite qu'El Nino se produise l'annee <span set:html={tex('n')} />. On a la relation de recurrence :</p>
+        <div set:html={tex('p_{n+1} = 0{,}2\\,p_n + 0{,}3', true)} />
+        <p>avec <span set:html={tex('p_0 = 0{,}5')} />.</p>
+
+        <!-- Partie A — Probabilites -->
+        <div class="exercise-part">
+          <h3>Partie A — Probabilites conditionnelles</h3>
+
+          <!-- Question 1 -->
+          <div class="question">
+            <h4>1. Arbre pondere</h4>
+            <div class="correction">
+              <p>On note <span set:html={tex('E_n')} /> l'evenement &laquo; El Nino se produit l'annee <span set:html={tex('n')} /> &raquo;. On a :</p>
+              <ul>
+                <li>Si El Nino se produit l'annee <span set:html={tex('n')} />, la probabilite qu'il se produise l'annee <span set:html={tex('n+1')} /> est <span set:html={tex('0{,}5')} /></li>
+                <li>Si El Nino ne se produit pas l'annee <span set:html={tex('n')} />, la probabilite qu'il se produise l'annee <span set:html={tex('n+1')} /> est <span set:html={tex('0{,}3')} /></li>
+              </ul>
+              <p>L'arbre pondere correspondant est :</p>
+              <div set:html={tex('\\begin{cases} E_n \\; (p_n) \\begin{cases} E_{n+1} \\; (0{,}5) \\\\ \\overline{E_{n+1}} \\; (0{,}5) \\end{cases} \\\\ \\overline{E_n} \\; (1 - p_n) \\begin{cases} E_{n+1} \\; (0{,}3) \\\\ \\overline{E_{n+1}} \\; (0{,}7) \\end{cases} \\end{cases}', true)} />
             </div>
+          </div>
 
-            <div set:html={tex('\\int_1^e \\ln(x)\\,\\mathrm{d}x = \\left[x\\ln(x) - x\\right]_1^e = (e \\times 1 - e) - (1 \\times 0 - 1) = 0 - (-1) = 1', true)} />
-            <div set:html={tex('\\int_1^e 1\\,\\mathrm{d}x = e - 1', true)} />
+          <!-- Question 2 -->
+          <div class="question">
+            <h4>2. Montrer que <span set:html={tex('p_{n+1} = 0{,}2\\,p_n + 0{,}3')} /></h4>
+            <div class="correction">
+              <p>Les evenements <span set:html={tex('E_n')} /> et <span set:html={tex('\\overline{E_n}')} /> forment une partition de l'univers. D'apres la <strong>formule des probabilites totales</strong> :</p>
+              <div set:html={tex('p_{n+1} = P(E_{n+1}) = P(E_n) \\times P_{E_n}(E_{n+1}) + P(\\overline{E_n}) \\times P_{\\overline{E_n}}(E_{n+1})', true)} />
+              <div set:html={tex('p_{n+1} = p_n \\times 0{,}5 + (1 - p_n) \\times 0{,}3', true)} />
+              <div set:html={tex('p_{n+1} = 0{,}5\\,p_n + 0{,}3 - 0{,}3\\,p_n', true)} />
+              <div class="resultat-box" set:html={tex('p_{n+1} = 0{,}2\\,p_n + 0{,}3', true)} />
+            </div>
+          </div>
 
-            <p>Donc :</p>
-            <div set:html={tex('\\mathcal{A} = \\dfrac{e^2}{2} - \\dfrac{1}{2} - 1 - (e - 1) = \\dfrac{e^2}{2} - \\dfrac{1}{2} - 1 - e + 1', true)} />
-            <div set:html={tex('\\mathcal{A} = \\dfrac{e^2}{2} - e - \\dfrac{1}{2} = \\dfrac{e^2 - 2e - 1}{2}', true)} />
-
-            <p>Numériquement :</p>
-            <div set:html={tex('\\mathcal{A} = \\dfrac{e^2 - 2e - 1}{2} \\approx \\dfrac{7{,}389 - 5{,}436 - 1}{2} \\approx \\dfrac{0{,}953}{2} \\approx 0{,}477 \\text{ u.a.}', true)} />
-
-            <div class="resultat-box" set:html={tex('\\mathcal{A} = \\dfrac{e^2 - 2e - 1}{2} \\approx 0{,}48 \\text{ u.a.}', true)} />
+          <!-- Question 3 -->
+          <div class="question">
+            <h4>3. Calculer <span set:html={tex('p_1')} /> et <span set:html={tex('p_2')} /></h4>
+            <div class="correction">
+              <p>On applique la relation de recurrence avec <span set:html={tex('p_0 = 0{,}5')} /> :</p>
+              <div set:html={tex('p_1 = 0{,}2 \\times 0{,}5 + 0{,}3 = 0{,}1 + 0{,}3 = 0{,}4', true)} />
+              <div set:html={tex('p_2 = 0{,}2 \\times 0{,}4 + 0{,}3 = 0{,}08 + 0{,}3 = 0{,}38', true)} />
+              <div class="resultat-box" set:html={tex('p_1 = 0{,}4 \\quad \\text{et} \\quad p_2 = 0{,}38', true)} />
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Partie C — Python -->
-      <div class="exercise-part">
-        <h3>Partie C — Algorithme Python</h3>
+        <!-- Partie B — Convergence -->
+        <div class="exercise-part">
+          <h3>Partie B — Etude de la suite et convergence</h3>
 
-        <!-- Question 6 -->
+          <!-- Question 4 -->
+          <div class="question">
+            <h4>4. On pose <span set:html={tex('v_n = p_n - \\dfrac{3}{8}')} />. Montrer que <span set:html={tex('(v_n)')} /> est geometrique</h4>
+            <div class="correction">
+              <div class="methode-box">
+                <strong>Methode :</strong> On cherche le point fixe de <span set:html={tex('f(x) = 0{,}2x + 0{,}3')} /> en resolvant <span set:html={tex('\\ell = 0{,}2\\ell + 0{,}3')} />, soit <span set:html={tex('0{,}8\\ell = 0{,}3')} />, d'ou <span set:html={tex('\\ell = \\dfrac{3}{8} = 0{,}375')} />.
+              </div>
+              <p>Calculons <span set:html={tex('v_{n+1}')} /> :</p>
+              <div set:html={tex('v_{n+1} = p_{n+1} - \\dfrac{3}{8} = 0{,}2\\,p_n + 0{,}3 - \\dfrac{3}{8}', true)} />
+              <div set:html={tex('v_{n+1} = 0{,}2\\,p_n + \\dfrac{3}{10} - \\dfrac{3}{8}', true)} />
+              <p>Calculons <span set:html={tex('\\dfrac{3}{10} - \\dfrac{3}{8} = \\dfrac{12}{40} - \\dfrac{15}{40} = -\\dfrac{3}{40}')} /> :</p>
+              <div set:html={tex('v_{n+1} = 0{,}2\\,p_n - \\dfrac{3}{40}', true)} />
+              <p>Or <span set:html={tex('p_n = v_n + \\dfrac{3}{8}')} />, donc :</p>
+              <div set:html={tex('v_{n+1} = 0{,}2\\left(v_n + \\dfrac{3}{8}\\right) - \\dfrac{3}{40} = 0{,}2\\,v_n + \\dfrac{3}{40} - \\dfrac{3}{40} = 0{,}2\\,v_n', true)} />
+
+              <p>Ainsi <span set:html={tex('(v_n)')} /> est une suite <strong>geometrique</strong> de raison <span set:html={tex('q = 0{,}2')} /> et de premier terme :</p>
+              <div set:html={tex('v_0 = p_0 - \\dfrac{3}{8} = 0{,}5 - 0{,}375 = 0{,}125 = \\dfrac{1}{8}', true)} />
+              <div class="resultat-box" set:html={tex('(v_n) \\text{ est geometrique de raison } 0{,}2 \\text{ et de premier terme } v_0 = \\dfrac{1}{8}', true)} />
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="question">
+            <h4>5. Exprimer <span set:html={tex('v_n')} /> puis <span set:html={tex('p_n')} /> en fonction de <span set:html={tex('n')} /></h4>
+            <div class="correction">
+              <p>Puisque <span set:html={tex('(v_n)')} /> est geometrique de raison <span set:html={tex('0{,}2')} /> et de premier terme <span set:html={tex('\\dfrac{1}{8}')} /> :</p>
+              <div set:html={tex('v_n = \\dfrac{1}{8} \\times 0{,}2^n', true)} />
+              <p>Donc :</p>
+              <div set:html={tex('p_n = v_n + \\dfrac{3}{8} = \\dfrac{1}{8} \\times 0{,}2^n + \\dfrac{3}{8}', true)} />
+              <div class="resultat-box" set:html={tex('p_n = \\dfrac{1}{8} \\times 0{,}2^n + \\dfrac{3}{8}', true)} />
+            </div>
+          </div>
+
+          <!-- Question 6 -->
+          <div class="question">
+            <h4>6. Convergence de la suite <span set:html={tex('(p_n)')} /></h4>
+            <div class="correction">
+              <p>Puisque <span set:html={tex('|0{,}2| < 1')} />, on a <span set:html={tex('\\lim_{n \\to +\\infty} 0{,}2^n = 0')} />, donc :</p>
+              <div set:html={tex('\\lim_{n \\to +\\infty} p_n = \\lim_{n \\to +\\infty} \\left(\\dfrac{1}{8} \\times 0{,}2^n + \\dfrac{3}{8}\\right) = 0 + \\dfrac{3}{8} = \\dfrac{3}{8}', true)} />
+              <p><strong>Interpretation :</strong> A long terme, la probabilite qu'El Nino se produise une annee donnee se stabilise autour de <span set:html={tex('\\dfrac{3}{8} = 0{,}375')} />, soit 37,5 %.</p>
+              <div class="resultat-box" set:html={tex('\\lim_{n \\to +\\infty} p_n = \\dfrac{3}{8} = 0{,}375', true)} />
+            </div>
+          </div>
+
+          <!-- Question 7 -->
+          <div class="question">
+            <h4>7. Determiner le plus petit entier <span set:html={tex('n')} /> tel que <span set:html={tex('p_n - \\dfrac{3}{8} \\leqslant 10^{-2}')} /></h4>
+            <div class="correction">
+              <p>On cherche le plus petit <span set:html={tex('n')} /> tel que <span set:html={tex('v_n \\leqslant 10^{-2}')} />, c'est-a-dire :</p>
+              <div set:html={tex('\\dfrac{1}{8} \\times 0{,}2^n \\leqslant 0{,}01', true)} />
+              <div set:html={tex('0{,}2^n \\leqslant 0{,}08', true)} />
+              <p>En passant au logarithme neperien (et en tenant compte que <span set:html={tex('\\ln(0{,}2) < 0')} />) :</p>
+              <div set:html={tex('n \\times \\ln(0{,}2) \\leqslant \\ln(0{,}08)', true)} />
+              <div set:html={tex('n \\geqslant \\dfrac{\\ln(0{,}08)}{\\ln(0{,}2)}', true)} />
+              <p>Calculons :</p>
+              <div set:html={tex('\\dfrac{\\ln(0{,}08)}{\\ln(0{,}2)} = \\dfrac{-2{,}5257\\ldots}{-1{,}6094\\ldots} \\approx 1{,}569', true)} />
+              <p>Donc le plus petit entier <span set:html={tex('n')} /> est <span set:html={tex('n = 2')} />.</p>
+              <p><strong>Verification :</strong> <span set:html={tex('v_1 = \\dfrac{1}{8} \\times 0{,}2 = 0{,}025 > 0{,}01')} /> et <span set:html={tex('v_2 = \\dfrac{1}{8} \\times 0{,}04 = 0{,}005 \\leqslant 0{,}01')} /> <span set:html={tex('\\checkmark')} /></p>
+              <div class="resultat-box" set:html={tex('n = 2', true)} />
+            </div>
+          </div>
+        </div>
+
+        <a class="reviser-link" href="/terminale/epreuves-independantes-loi-binomiale/">Reviser les probabilites &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/suites-numeriques/">Reviser les suites &rarr;</a>
+      </section>
+
+      <!-- ======================================================== -->
+      <!--  EXERCICE 2 — Vrai/Faux (4 points)                      -->
+      <!-- ======================================================== -->
+      <section class="exercise-correction">
+        <h2>Exercice 2 — Vrai/Faux (4 points)</h2>
+
+        <div class="methode-box">
+          <strong>Rappel :</strong> Dans un exercice Vrai/Faux, chaque affirmation doit etre justifiee. Une reponse non justifiee ne rapporte aucun point.
+        </div>
+
+        <!-- Affirmation 1 -->
         <div class="question">
-          <h4>6. Compléter l'algorithme</h4>
+          <h4>Affirmation 1</h4>
+          <p>L'equation <span set:html={tex('2\\cos^2(x) - \\cos(x) - 1 = 0')} /> admet exactement trois solutions dans <span set:html={tex('[0\\,;\\,2\\pi]')} />.</p>
           <div class="correction">
-            <p>On considère un algorithme qui calcule une valeur approchée de l'aire par la méthode des rectangles. L'algorithme utilise une subdivision régulière de <span set:html={tex('[1\\,;\\,e]')} /> en <span set:html={tex('n')} /> rectangles.</p>
-            <p>L'algorithme Python est :</p>
-            <pre><code>from math import log, e
+            <p><strong>VRAI.</strong></p>
+            <p>On pose <span set:html={tex('X = \\cos(x)')} />. L'equation devient :</p>
+            <div set:html={tex('2X^2 - X - 1 = 0', true)} />
+            <p>Calculons le discriminant :</p>
+            <div set:html={tex('\\Delta = (-1)^2 - 4 \\times 2 \\times (-1) = 1 + 8 = 9', true)} />
+            <p>Les solutions sont :</p>
+            <div set:html={tex('X_1 = \\dfrac{1 + 3}{4} = 1 \\quad \\text{et} \\quad X_2 = \\dfrac{1 - 3}{4} = -\\dfrac{1}{2}', true)} />
+
+            <p><strong>Cas 1 :</strong> <span set:html={tex('\\cos(x) = 1')} /> donne <span set:html={tex('x = 0')} /> (ou <span set:html={tex('2\\pi')} />). Sur <span set:html={tex('[0\\,;\\,2\\pi]')} />, cela donne <strong>1 solution</strong> : <span set:html={tex('x = 0')} />.</p>
+
+            <p><strong>Cas 2 :</strong> <span set:html={tex('\\cos(x) = -\\dfrac{1}{2}')} /> donne :</p>
+            <div set:html={tex('x = \\dfrac{2\\pi}{3} \\quad \\text{ou} \\quad x = \\dfrac{4\\pi}{3}', true)} />
+            <p>Cela donne <strong>2 solutions</strong>.</p>
+
+            <p>Au total, l'equation admet <strong>3 solutions</strong> dans <span set:html={tex('[0\\,;\\,2\\pi]')} /> : <span set:html={tex('x = 0')} />, <span set:html={tex('x = \\dfrac{2\\pi}{3}')} /> et <span set:html={tex('x = \\dfrac{4\\pi}{3}')} />.</p>
+
+            <div class="resultat-box" set:html={tex('\\text{VRAI : 3 solutions : } x = 0, \\; x = \\dfrac{2\\pi}{3}, \\; x = \\dfrac{4\\pi}{3}', true)} />
+          </div>
+        </div>
+
+        <!-- Affirmation 2 -->
+        <div class="question">
+          <h4>Affirmation 2</h4>
+          <p>Une primitive de <span set:html={tex('f(x) = x\\,e^{x^2}')} /> sur <span set:html={tex('\\mathbb{R}')} /> est <span set:html={tex('F(x) = \\dfrac{1}{2}\\,e^{x^2}')} />.</p>
+          <div class="correction">
+            <p><strong>VRAI.</strong></p>
+            <div class="methode-box">
+              <strong>Methode :</strong> Si <span set:html={tex('u(x) = x^2')} />, alors <span set:html={tex("u'(x) = 2x")} /> et <span set:html={tex('f(x) = x\\,e^{x^2} = \\dfrac{1}{2} \\times 2x \\times e^{x^2}')} />. Une primitive de <span set:html={tex("u'\\,e^{u}")} /> est <span set:html={tex('e^u')} />.
+            </div>
+            <p>Verifions en derivant <span set:html={tex('F(x) = \\dfrac{1}{2}\\,e^{x^2}')} /> :</p>
+            <div set:html={tex("F'(x) = \\dfrac{1}{2} \\times 2x \\times e^{x^2} = x\\,e^{x^2} = f(x) \\quad \\checkmark", true)} />
+
+            <div class="resultat-box" set:html={tex('\\text{VRAI : } F(x) = \\dfrac{1}{2}\\,e^{x^2} \\text{ est bien une primitive de } f(x) = x\\,e^{x^2}', true)} />
+          </div>
+        </div>
+
+        <!-- Affirmation 3 -->
+        <div class="question">
+          <h4>Affirmation 3</h4>
+          <p>La fonction <span set:html={tex('g')} /> definie sur <span set:html={tex('\\mathbb{R}')} /> par <span set:html={tex('g(x) = (2x+1)\\,e^{-2x}')} /> est solution de l'equation differentielle <span set:html={tex("y' + 2y = 2\\,e^{-2x}")} />.</p>
+          <div class="correction">
+            <p><strong>VRAI.</strong></p>
+            <p>Calculons <span set:html={tex("g'(x)")} /> :</p>
+            <div set:html={tex("g'(x) = 2\\,e^{-2x} + (2x+1) \\times (-2)\\,e^{-2x} = e^{-2x}\\left[2 - 2(2x+1)\\right] = e^{-2x}(2 - 4x - 2) = -4x\\,e^{-2x}", true)} />
+
+            <p>Verifions <span set:html={tex("g'(x) + 2g(x)")} /> :</p>
+            <div set:html={tex("g'(x) + 2g(x) = -4x\\,e^{-2x} + 2(2x+1)\\,e^{-2x}", true)} />
+            <div set:html={tex('= e^{-2x}(-4x + 4x + 2) = 2\\,e^{-2x}', true)} />
+
+            <p>On obtient bien <span set:html={tex("g'(x) + 2g(x) = 2\\,e^{-2x}")} />. Donc <span set:html={tex('g')} /> <strong>est</strong> solution de l'equation differentielle.</p>
+
+            <div class="resultat-box" set:html={tex("\\text{VRAI : } g'(x) + 2g(x) = 2\\,e^{-2x} \\quad \\checkmark", true)} />
+          </div>
+        </div>
+
+        <!-- Affirmation 4 -->
+        <div class="question">
+          <h4>Affirmation 4</h4>
+          <p>Pour tout <span set:html={tex('x \\in \\left]0\\,;\\,\\dfrac{\\pi}{2}\\right[')} />, <span set:html={tex('\\sin(2x) = \\dfrac{2\\tan(x)}{1 + \\tan^2(x)}')} />.</p>
+          <div class="correction">
+            <p><strong>VRAI.</strong></p>
+            <p>On sait que <span set:html={tex('\\sin(2x) = 2\\sin(x)\\cos(x)')} />. Montrons que le membre de droite est identique.</p>
+            <div set:html={tex('\\dfrac{2\\tan(x)}{1 + \\tan^2(x)} = \\dfrac{2\\,\\dfrac{\\sin(x)}{\\cos(x)}}{1 + \\dfrac{\\sin^2(x)}{\\cos^2(x)}} = \\dfrac{\\dfrac{2\\sin(x)}{\\cos(x)}}{\\dfrac{\\cos^2(x) + \\sin^2(x)}{\\cos^2(x)}}', true)} />
+            <div set:html={tex('= \\dfrac{2\\sin(x)}{\\cos(x)} \\times \\dfrac{\\cos^2(x)}{1} = 2\\sin(x)\\cos(x) = \\sin(2x) \\quad \\checkmark', true)} />
+
+            <div class="resultat-box" set:html={tex('\\text{VRAI : } \\sin(2x) = \\dfrac{2\\tan(x)}{1 + \\tan^2(x)}', true)} />
+          </div>
+        </div>
+
+        <a class="reviser-link" href="/terminale/trigonometrie/">Reviser la trigonometrie &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/primitives-equations-differentielles/">Reviser les primitives et equations differentielles &rarr;</a>
+      </section>
+
+      <!-- ======================================================== -->
+      <!--  EXERCICE 3 — Fonction logarithme (6 points)             -->
+      <!-- ======================================================== -->
+      <section class="exercise-correction">
+        <h2>Exercice 3 — Fonction logarithme, aire et algorithme (6 points)</h2>
+
+        <div class="methode-box">
+          <strong>Rappels utiles :</strong> Etude de fonctions avec logarithme, calcul integral, aires, algorithme Python.
+        </div>
+
+        <p>On considere la fonction <span set:html={tex('f')} /> definie sur <span set:html={tex(']0\\,;\\,+\\infty[')} /> par :</p>
+        <div set:html={tex('f(x) = x - \\ln(x)', true)} />
+        <p>On note <span set:html={tex('\\mathcal{C}_f')} /> sa courbe representative dans un repere orthonorme.</p>
+
+        <!-- Partie A — Etude de fonction -->
+        <div class="exercise-part">
+          <h3>Partie A — Etude de la fonction</h3>
+
+          <!-- Question 1 -->
+          <div class="question">
+            <h4>1. Limites de <span set:html={tex('f')} /></h4>
+            <div class="correction">
+              <p><strong>En <span set:html={tex('0^+')} /> :</strong></p>
+              <div set:html={tex('\\lim_{x \\to 0^+} x = 0 \\quad \\text{et} \\quad \\lim_{x \\to 0^+} \\ln(x) = -\\infty', true)} />
+              <p>Donc :</p>
+              <div set:html={tex('\\lim_{x \\to 0^+} f(x) = 0 - (-\\infty) = +\\infty', true)} />
+
+              <p><strong>En <span set:html={tex('+\\infty')} /> :</strong></p>
+              <div set:html={tex('f(x) = x - \\ln(x) = x\\left(1 - \\dfrac{\\ln(x)}{x}\\right)', true)} />
+              <p>Par croissance comparee, <span set:html={tex('\\lim_{x \\to +\\infty} \\dfrac{\\ln(x)}{x} = 0')} />, donc :</p>
+              <div set:html={tex('\\lim_{x \\to +\\infty} f(x) = +\\infty', true)} />
+
+              <div class="resultat-box" set:html={tex('\\lim_{x \\to 0^+} f(x) = +\\infty \\quad \\text{et} \\quad \\lim_{x \\to +\\infty} f(x) = +\\infty', true)} />
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="question">
+            <h4>2. Etude des variations de <span set:html={tex('f')} /></h4>
+            <div class="correction">
+              <p>Derivons <span set:html={tex('f')} /> :</p>
+              <div set:html={tex("f'(x) = 1 - \\dfrac{1}{x} = \\dfrac{x - 1}{x}", true)} />
+              <p>Pour <span set:html={tex('x > 0')} />, le signe de <span set:html={tex("f'(x)")} /> est celui de <span set:html={tex('x - 1')} /> :</p>
+              <ul>
+                <li>Si <span set:html={tex('0 < x < 1')} /> : <span set:html={tex("f'(x) < 0")} />, <span set:html={tex('f')} /> est decroissante</li>
+                <li>Si <span set:html={tex('x > 1')} /> : <span set:html={tex("f'(x) > 0")} />, <span set:html={tex('f')} /> est croissante</li>
+              </ul>
+              <p>La fonction <span set:html={tex('f')} /> admet un <strong>minimum</strong> en <span set:html={tex('x = 1')} /> :</p>
+              <div set:html={tex('f(1) = 1 - \\ln(1) = 1 - 0 = 1', true)} />
+
+              <div class="resultat-box" set:html={tex('f \\text{ est decroissante sur } ]0\\,;\\,1] \\text{ et croissante sur } [1\\,;\\,+\\infty[ \\text{ avec } f(1) = 1', true)} />
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="question">
+            <h4>3. Montrer que <span set:html={tex('f(x) \\geqslant 1')} /> pour tout <span set:html={tex('x > 0')} /></h4>
+            <div class="correction">
+              <p>D'apres l'etude des variations, la fonction <span set:html={tex('f')} /> admet un <strong>minimum global</strong> en <span set:html={tex('x = 1')} />, et <span set:html={tex('f(1) = 1')} />.</p>
+              <p>Donc pour tout <span set:html={tex('x > 0')} /> :</p>
+              <div set:html={tex('f(x) \\geqslant f(1) = 1', true)} />
+              <p>Autrement dit : <span set:html={tex('x - \\ln(x) \\geqslant 1')} />, soit <span set:html={tex('\\ln(x) \\leqslant x - 1')} /> pour tout <span set:html={tex('x > 0')} />.</p>
+              <div class="resultat-box" set:html={tex('\\forall x > 0, \\quad f(x) = x - \\ln(x) \\geqslant 1', true)} />
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="question">
+            <h4>4. Tangente au point d'abscisse 1</h4>
+            <div class="correction">
+              <p>La tangente <span set:html={tex('T')} /> en <span set:html={tex('x = 1')} /> a pour equation :</p>
+              <div set:html={tex("y = f'(1)(x - 1) + f(1)", true)} />
+              <p>On a <span set:html={tex("f'(1) = 1 - 1 = 0")} /> et <span set:html={tex('f(1) = 1')} />, donc :</p>
+              <div set:html={tex('y = 0 \\times (x-1) + 1 = 1', true)} />
+              <p>La tangente est la droite horizontale d'equation <span set:html={tex('y = 1')} />.</p>
+              <div class="resultat-box" set:html={tex('T : y = 1', true)} />
+            </div>
+          </div>
+        </div>
+
+        <!-- Partie B — Aire -->
+        <div class="exercise-part">
+          <h3>Partie B — Calcul d'aire</h3>
+
+          <!-- Question 5 -->
+          <div class="question">
+            <h4>5. Calculer l'aire <span set:html={tex('\\mathcal{A}')} /> entre <span set:html={tex('\\mathcal{C}_f')} /> et la droite <span set:html={tex('y = 1')} /> sur <span set:html={tex('[1\\,;\\,e]')} /></h4>
+            <div class="correction">
+              <p>Puisque <span set:html={tex('f(x) \\geqslant 1')} /> pour tout <span set:html={tex('x > 0')} />, l'aire est :</p>
+              <div set:html={tex('\\mathcal{A} = \\int_1^e \\left[f(x) - 1\\right]\\,\\mathrm{d}x = \\int_1^e \\left(x - \\ln(x) - 1\\right)\\,\\mathrm{d}x', true)} />
+              <p>Calculons chaque terme :</p>
+              <div set:html={tex('\\int_1^e x\\,\\mathrm{d}x = \\left[\\dfrac{x^2}{2}\\right]_1^e = \\dfrac{e^2}{2} - \\dfrac{1}{2}', true)} />
+
+              <div class="methode-box">
+                <strong>Rappel :</strong> Une primitive de <span set:html={tex('\\ln(x)')} /> est <span set:html={tex('x\\ln(x) - x')} />.
+              </div>
+
+              <div set:html={tex('\\int_1^e \\ln(x)\\,\\mathrm{d}x = \\left[x\\ln(x) - x\\right]_1^e = (e \\times 1 - e) - (1 \\times 0 - 1) = 0 - (-1) = 1', true)} />
+              <div set:html={tex('\\int_1^e 1\\,\\mathrm{d}x = e - 1', true)} />
+
+              <p>Donc :</p>
+              <div set:html={tex('\\mathcal{A} = \\dfrac{e^2}{2} - \\dfrac{1}{2} - 1 - (e - 1) = \\dfrac{e^2}{2} - \\dfrac{1}{2} - 1 - e + 1', true)} />
+              <div set:html={tex('\\mathcal{A} = \\dfrac{e^2}{2} - e - \\dfrac{1}{2} = \\dfrac{e^2 - 2e - 1}{2}', true)} />
+
+              <p>Numeriquement :</p>
+              <div set:html={tex('\\mathcal{A} = \\dfrac{e^2 - 2e - 1}{2} \\approx \\dfrac{7{,}389 - 5{,}436 - 1}{2} \\approx \\dfrac{0{,}953}{2} \\approx 0{,}477 \\text{ u.a.}', true)} />
+
+              <div class="resultat-box" set:html={tex('\\mathcal{A} = \\dfrac{e^2 - 2e - 1}{2} \\approx 0{,}48 \\text{ u.a.}', true)} />
+            </div>
+          </div>
+        </div>
+
+        <!-- Partie C — Python -->
+        <div class="exercise-part">
+          <h3>Partie C — Algorithme Python</h3>
+
+          <!-- Question 6 -->
+          <div class="question">
+            <h4>6. Completer l'algorithme</h4>
+            <div class="correction">
+              <p>On considere un algorithme qui calcule une valeur approchee de l'aire par la methode des rectangles. L'algorithme utilise une subdivision reguliere de <span set:html={tex('[1\\,;\\,e]')} /> en <span set:html={tex('n')} /> rectangles.</p>
+              <p>L'algorithme Python est :</p>
+              <pre><code>from math import log, e
 
 def aire_approchee(n):
     h = (e - 1) / n
@@ -399,25 +571,25 @@ def aire_approchee(n):
         S = S + (x - log(x) - 1) * h
     return S</code></pre>
 
-            <div class="methode-box">
-              <strong>Explications :</strong>
-              <ul>
-                <li><span set:html={tex('h = \\dfrac{e - 1}{n}')} /> est le pas de la subdivision</li>
-                <li>Pour chaque rectangle, on calcule <span set:html={tex('f(x_k) - 1 = x_k - \\ln(x_k) - 1')} /> (la hauteur)</li>
-                <li>On multiplie par <span set:html={tex('h')} /> (la largeur) et on somme</li>
-              </ul>
+              <div class="methode-box">
+                <strong>Explications :</strong>
+                <ul>
+                  <li><span set:html={tex('h = \\dfrac{e - 1}{n}')} /> est le pas de la subdivision</li>
+                  <li>Pour chaque rectangle, on calcule <span set:html={tex('f(x_k) - 1 = x_k - \\ln(x_k) - 1')} /> (la hauteur)</li>
+                  <li>On multiplie par <span set:html={tex('h')} /> (la largeur) et on somme</li>
+                </ul>
+              </div>
+
+              <p>Par exemple, pour <span set:html={tex('n = 1000')} />, on obtient <span set:html={tex('\\mathcal{A} \\approx 0{,}477')} />, ce qui est coherent avec la valeur exacte calculee en Partie B.</p>
             </div>
-
-            <p>Par exemple, pour <span set:html={tex('n = 1000')} />, on obtient <span set:html={tex('\\mathcal{A} \\approx 0{,}477')} />, ce qui est cohérent avec la valeur exacte calculée en Partie B.</p>
           </div>
-        </div>
 
-        <!-- Question 7 -->
-        <div class="question">
-          <h4>7. Modifier l'algorithme pour une autre borne</h4>
-          <div class="correction">
-            <p>On souhaite adapter l'algorithme pour calculer l'aire entre <span set:html={tex('\\mathcal{C}_f')} /> et la droite <span set:html={tex('y = 1')} /> sur un intervalle <span set:html={tex('[1\\,;\\,b]')} /> quelconque (avec <span set:html={tex('b > 1')} />) :</p>
-            <pre><code>from math import log
+          <!-- Question 7 -->
+          <div class="question">
+            <h4>7. Modifier l'algorithme pour une autre borne</h4>
+            <div class="correction">
+              <p>On souhaite adapter l'algorithme pour calculer l'aire entre <span set:html={tex('\\mathcal{C}_f')} /> et la droite <span set:html={tex('y = 1')} /> sur un intervalle <span set:html={tex('[1\\,;\\,b]')} /> quelconque (avec <span set:html={tex('b > 1')} />) :</p>
+              <pre><code>from math import log
 
 def aire_approchee(n, b):
     h = (b - 1) / n
@@ -426,187 +598,202 @@ def aire_approchee(n, b):
         x = 1 + k * h
         S = S + (x - log(x) - 1) * h
     return S</code></pre>
-            <p>Il suffit de remplacer <code>e</code> par <code>b</code> dans le calcul du pas <span set:html={tex('h')} /> et d'ajouter <code>b</code> en paramètre de la fonction.</p>
-          </div>
-        </div>
-      </div>
-
-      <a class="reviser-link" href="/terminale/fonction-logarithme-neperien/">Réviser le logarithme népérien →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/calcul-integral/">Réviser le calcul intégral →</a>
-    </section>
-
-    <!-- ======================================================== -->
-    <!--  EXERCICE 4 — Géométrie dans l'espace (5 points)         -->
-    <!-- ======================================================== -->
-    <section class="exercise-correction">
-      <h2>Exercice 4 — Géométrie dans l'espace : plans médiateurs (5 points)</h2>
-
-      <div class="methode-box">
-        <strong>Rappels utiles :</strong> Plan médiateur d'un segment, vecteur normal, équation cartésienne d'un plan, intersection de plans, produit scalaire.
-      </div>
-
-      <p>On se place dans un repère orthonormé <span set:html={tex('(O\\,;\\, \\vec{i}, \\vec{j}, \\vec{k})')} />. On considère les points :</p>
-      <div set:html={tex('A(1\\,;\\,0\\,;\\,2), \\quad B(3\\,;\\,2\\,;\\,0), \\quad C(-1\\,;\\,4\\,;\\,2)', true)} />
-
-      <!-- Partie A -->
-      <div class="exercise-part">
-        <h3>Partie A — Plans médiateurs</h3>
-
-        <!-- Question 1 -->
-        <div class="question">
-          <h4>1. Déterminer une équation du plan médiateur <span set:html={tex('\\mathcal{P}_1')} /> de <span set:html={tex('[AB]')} /></h4>
-          <div class="correction">
-            <div class="methode-box">
-              <strong>Rappel :</strong> Le plan médiateur d'un segment <span set:html={tex('[AB]')} /> est l'ensemble des points <span set:html={tex('M')} /> équidistants de <span set:html={tex('A')} /> et <span set:html={tex('B')} />. Il passe par le milieu <span set:html={tex('I')} /> de <span set:html={tex('[AB]')} /> et a pour vecteur normal <span set:html={tex('\\overrightarrow{AB}')} />.
+              <p>Il suffit de remplacer <code>e</code> par <code>b</code> dans le calcul du pas <span set:html={tex('h')} /> et d'ajouter <code>b</code> en parametre de la fonction.</p>
             </div>
-            <p>Calculons le milieu <span set:html={tex('I')} /> de <span set:html={tex('[AB]')} /> :</p>
-            <div set:html={tex('I\\left(\\dfrac{1+3}{2}\\,;\\,\\dfrac{0+2}{2}\\,;\\,\\dfrac{2+0}{2}\\right) = I(2\\,;\\,1\\,;\\,1)', true)} />
-            <p>Le vecteur normal est :</p>
-            <div set:html={tex('\\overrightarrow{AB} = (3-1\\,;\\,2-0\\,;\\,0-2) = (2\\,;\\,2\\,;\\,-2)', true)} />
-            <p>On peut simplifier par 2 : <span set:html={tex('\\vec{n_1}(1\\,;\\,1\\,;\\,-1)')} />.</p>
-            <p>L'équation du plan <span set:html={tex('\\mathcal{P}_1')} /> passant par <span set:html={tex('I(2\\,;\\,1\\,;\\,1)')} /> de vecteur normal <span set:html={tex('\\vec{n_1}(1\\,;\\,1\\,;\\,-1)')} /> est :</p>
-            <div set:html={tex('1(x-2) + 1(y-1) + (-1)(z-1) = 0', true)} />
-            <div set:html={tex('x + y - z - 2 = 0', true)} />
-
-            <p><strong>Vérification :</strong> Le milieu <span set:html={tex('I(2\\,;\\,1\\,;\\,1)')} /> : <span set:html={tex('2 + 1 - 1 - 2 = 0 \\; \\checkmark')} /></p>
-
-            <div class="resultat-box" set:html={tex('\\mathcal{P}_1 : x + y - z - 2 = 0', true)} />
           </div>
         </div>
 
-        <!-- Question 2 -->
-        <div class="question">
-          <h4>2. Déterminer une équation du plan médiateur <span set:html={tex('\\mathcal{P}_2')} /> de <span set:html={tex('[AC]')} /></h4>
-          <div class="correction">
-            <p>Calculons le milieu <span set:html={tex('J')} /> de <span set:html={tex('[AC]')} /> :</p>
-            <div set:html={tex('J\\left(\\dfrac{1+(-1)}{2}\\,;\\,\\dfrac{0+4}{2}\\,;\\,\\dfrac{2+2}{2}\\right) = J(0\\,;\\,2\\,;\\,2)', true)} />
-            <p>Le vecteur normal est :</p>
-            <div set:html={tex('\\overrightarrow{AC} = (-1-1\\,;\\,4-0\\,;\\,2-2) = (-2\\,;\\,4\\,;\\,0)', true)} />
-            <p>On peut simplifier par 2 : <span set:html={tex('\\vec{n_2}(-1\\,;\\,2\\,;\\,0)')} /> ou <span set:html={tex('\\vec{n_2}(1\\,;\\,-2\\,;\\,0)')} />.</p>
-            <p>L'équation du plan <span set:html={tex('\\mathcal{P}_2')} /> passant par <span set:html={tex('J(0\\,;\\,2\\,;\\,2)')} /> de vecteur normal <span set:html={tex('(1\\,;\\,-2\\,;\\,0)')} /> est :</p>
-            <div set:html={tex('1(x-0) + (-2)(y-2) + 0(z-2) = 0', true)} />
-            <div set:html={tex('x - 2y + 4 = 0', true)} />
+        <a class="reviser-link" href="/terminale/fonction-logarithme-neperien/">Reviser le logarithme neperien &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/calcul-integral/">Reviser le calcul integral &rarr;</a>
+      </section>
 
-            <p><strong>Vérification :</strong> Le milieu <span set:html={tex('J(0\\,;\\,2\\,;\\,2)')} /> : <span set:html={tex('0 - 4 + 4 = 0 \\; \\checkmark')} /></p>
+      <!-- ======================================================== -->
+      <!--  EXERCICE 4 — Geometrie dans l'espace (5 points)         -->
+      <!-- ======================================================== -->
+      <section class="exercise-correction">
+        <h2>Exercice 4 — Geometrie dans l'espace : plans mediateurs (5 points)</h2>
 
-            <div class="resultat-box" set:html={tex('\\mathcal{P}_2 : x - 2y + 4 = 0', true)} />
-          </div>
+        <div class="methode-box">
+          <strong>Rappels utiles :</strong> Plan mediateur d'un segment, vecteur normal, equation cartesienne d'un plan, intersection de plans, produit scalaire.
         </div>
 
-        <!-- Question 3 -->
-        <div class="question">
-          <h4>3. Déterminer une équation du plan médiateur <span set:html={tex('\\mathcal{P}_3')} /> de <span set:html={tex('[BC]')} /></h4>
-          <div class="correction">
-            <p>Calculons le milieu <span set:html={tex('K')} /> de <span set:html={tex('[BC]')} /> :</p>
-            <div set:html={tex('K\\left(\\dfrac{3+(-1)}{2}\\,;\\,\\dfrac{2+4}{2}\\,;\\,\\dfrac{0+2}{2}\\right) = K(1\\,;\\,3\\,;\\,1)', true)} />
-            <p>Le vecteur normal est :</p>
-            <div set:html={tex('\\overrightarrow{BC} = (-1-3\\,;\\,4-2\\,;\\,2-0) = (-4\\,;\\,2\\,;\\,2)', true)} />
-            <p>On peut simplifier par 2 : <span set:html={tex('\\vec{n_3}(-2\\,;\\,1\\,;\\,1)')} /> ou <span set:html={tex('\\vec{n_3}(2\\,;\\,-1\\,;\\,-1)')} />.</p>
-            <p>L'équation du plan <span set:html={tex('\\mathcal{P}_3')} /> passant par <span set:html={tex('K(1\\,;\\,3\\,;\\,1)')} /> de vecteur normal <span set:html={tex('(2\\,;\\,-1\\,;\\,-1)')} /> est :</p>
-            <div set:html={tex('2(x-1) + (-1)(y-3) + (-1)(z-1) = 0', true)} />
-            <div set:html={tex('2x - y - z + 2 = 0', true)} />
+        <p>On se place dans un repere orthonorme <span set:html={tex('(O\\,;\\, \\vec{i}, \\vec{j}, \\vec{k})')} />. On considere les points :</p>
+        <div set:html={tex('A(1\\,;\\,0\\,;\\,2), \\quad B(3\\,;\\,2\\,;\\,0), \\quad C(-1\\,;\\,4\\,;\\,2)', true)} />
 
-            <p><strong>Vérification :</strong> Le milieu <span set:html={tex('K(1\\,;\\,3\\,;\\,1)')} /> : <span set:html={tex('2 - 3 - 1 + 2 = 0 \\; \\checkmark')} /></p>
+        <!-- Partie A -->
+        <div class="exercise-part">
+          <h3>Partie A — Plans mediateurs</h3>
 
-            <div class="resultat-box" set:html={tex('\\mathcal{P}_3 : 2x - y - z + 2 = 0', true)} />
-          </div>
-        </div>
-      </div>
+          <!-- Question 1 -->
+          <div class="question">
+            <h4>1. Determiner une equation du plan mediateur <span set:html={tex('\\mathcal{P}_1')} /> de <span set:html={tex('[AB]')} /></h4>
+            <div class="correction">
+              <div class="methode-box">
+                <strong>Rappel :</strong> Le plan mediateur d'un segment <span set:html={tex('[AB]')} /> est l'ensemble des points <span set:html={tex('M')} /> equidistants de <span set:html={tex('A')} /> et <span set:html={tex('B')} />. Il passe par le milieu <span set:html={tex('I')} /> de <span set:html={tex('[AB]')} /> et a pour vecteur normal <span set:html={tex('\\overrightarrow{AB}')} />.
+              </div>
+              <p>Calculons le milieu <span set:html={tex('I')} /> de <span set:html={tex('[AB]')} /> :</p>
+              <div set:html={tex('I\\left(\\dfrac{1+3}{2}\\,;\\,\\dfrac{0+2}{2}\\,;\\,\\dfrac{2+0}{2}\\right) = I(2\\,;\\,1\\,;\\,1)', true)} />
+              <p>Le vecteur normal est :</p>
+              <div set:html={tex('\\overrightarrow{AB} = (3-1\\,;\\,2-0\\,;\\,0-2) = (2\\,;\\,2\\,;\\,-2)', true)} />
+              <p>On peut simplifier par 2 : <span set:html={tex('\\vec{n_1}(1\\,;\\,1\\,;\\,-1)')} />.</p>
+              <p>L'equation du plan <span set:html={tex('\\mathcal{P}_1')} /> passant par <span set:html={tex('I(2\\,;\\,1\\,;\\,1)')} /> de vecteur normal <span set:html={tex('\\vec{n_1}(1\\,;\\,1\\,;\\,-1)')} /> est :</p>
+              <div set:html={tex('1(x-2) + 1(y-1) + (-1)(z-1) = 0', true)} />
+              <div set:html={tex('x + y - z - 2 = 0', true)} />
 
-      <!-- Partie B -->
-      <div class="exercise-part">
-        <h3>Partie B — Centre du cercle circonscrit</h3>
+              <p><strong>Verification :</strong> Le milieu <span set:html={tex('I(2\\,;\\,1\\,;\\,1)')} /> : <span set:html={tex('2 + 1 - 1 - 2 = 0 \\; \\checkmark')} /></p>
 
-        <!-- Question 4 -->
-        <div class="question">
-          <h4>4. Montrer que les trois plans médiateurs ont un point commun et le déterminer</h4>
-          <div class="correction">
-            <div class="methode-box">
-              <strong>Méthode :</strong> Le point équidistant de <span set:html={tex('A')} />, <span set:html={tex('B')} /> et <span set:html={tex('C')} /> est le centre du cercle circonscrit au triangle <span set:html={tex('ABC')} />. Il se trouve à l'intersection des trois plans médiateurs.
+              <div class="resultat-box" set:html={tex('\\mathcal{P}_1 : x + y - z - 2 = 0', true)} />
             </div>
-            <p>On résout le système :</p>
-            <div set:html={tex('\\begin{cases} x + y - z - 2 = 0 \\quad (\\mathcal{P}_1) \\\\ x - 2y + 4 = 0 \\quad (\\mathcal{P}_2) \\\\ 2x - y - z + 2 = 0 \\quad (\\mathcal{P}_3) \\end{cases}', true)} />
+          </div>
 
-            <p><strong>De <span set:html={tex('(\\mathcal{P}_2)')} /> :</strong> <span set:html={tex('x = 2y - 4')} /></p>
+          <!-- Question 2 -->
+          <div class="question">
+            <h4>2. Determiner une equation du plan mediateur <span set:html={tex('\\mathcal{P}_2')} /> de <span set:html={tex('[AC]')} /></h4>
+            <div class="correction">
+              <p>Calculons le milieu <span set:html={tex('J')} /> de <span set:html={tex('[AC]')} /> :</p>
+              <div set:html={tex('J\\left(\\dfrac{1+(-1)}{2}\\,;\\,\\dfrac{0+4}{2}\\,;\\,\\dfrac{2+2}{2}\\right) = J(0\\,;\\,2\\,;\\,2)', true)} />
+              <p>Le vecteur normal est :</p>
+              <div set:html={tex('\\overrightarrow{AC} = (-1-1\\,;\\,4-0\\,;\\,2-2) = (-2\\,;\\,4\\,;\\,0)', true)} />
+              <p>On peut simplifier par 2 : <span set:html={tex('\\vec{n_2}(-1\\,;\\,2\\,;\\,0)')} /> ou <span set:html={tex('\\vec{n_2}(1\\,;\\,-2\\,;\\,0)')} />.</p>
+              <p>L'equation du plan <span set:html={tex('\\mathcal{P}_2')} /> passant par <span set:html={tex('J(0\\,;\\,2\\,;\\,2)')} /> de vecteur normal <span set:html={tex('(1\\,;\\,-2\\,;\\,0)')} /> est :</p>
+              <div set:html={tex('1(x-0) + (-2)(y-2) + 0(z-2) = 0', true)} />
+              <div set:html={tex('x - 2y + 4 = 0', true)} />
 
-            <p><strong>Dans <span set:html={tex('(\\mathcal{P}_1)')} /> :</strong></p>
-            <div set:html={tex('(2y-4) + y - z - 2 = 0 \\implies 3y - z - 6 = 0 \\implies z = 3y - 6', true)} />
+              <p><strong>Verification :</strong> Le milieu <span set:html={tex('J(0\\,;\\,2\\,;\\,2)')} /> : <span set:html={tex('0 - 4 + 4 = 0 \\; \\checkmark')} /></p>
 
-            <p><strong>Dans <span set:html={tex('(\\mathcal{P}_3)')} /> :</strong></p>
-            <div set:html={tex('2(2y-4) - y - (3y - 6) + 2 = 0', true)} />
-            <div set:html={tex('4y - 8 - y - 3y + 6 + 2 = 0', true)} />
-            <div set:html={tex('0y + 0 = 0 \\quad \\checkmark', true)} />
-
-            <div class="attention-box">
-              <strong>Remarque :</strong> L'équation <span set:html={tex('(\\mathcal{P}_3)')} /> est automatiquement satisfaite, ce qui signifie que les trois plans médiateurs se coupent selon une droite (et non un point). Ceci est normal : les plans médiateurs de trois segments d'un triangle se coupent selon une droite perpendiculaire au plan du triangle, appelée l'axe du cercle circonscrit.
+              <div class="resultat-box" set:html={tex('\\mathcal{P}_2 : x - 2y + 4 = 0', true)} />
             </div>
+          </div>
 
-            <p>L'intersection des plans médiateurs est donc la droite <span set:html={tex('\\Delta')} /> paramétrée par <span set:html={tex('y = t')} /> :</p>
-            <div set:html={tex('\\begin{cases} x = 2t - 4 \\\\ y = t \\\\ z = 3t - 6 \\end{cases}, \\quad t \\in \\mathbb{R}', true)} />
+          <!-- Question 3 -->
+          <div class="question">
+            <h4>3. Determiner une equation du plan mediateur <span set:html={tex('\\mathcal{P}_3')} /> de <span set:html={tex('[BC]')} /></h4>
+            <div class="correction">
+              <p>Calculons le milieu <span set:html={tex('K')} /> de <span set:html={tex('[BC]')} /> :</p>
+              <div set:html={tex('K\\left(\\dfrac{3+(-1)}{2}\\,;\\,\\dfrac{2+4}{2}\\,;\\,\\dfrac{0+2}{2}\\right) = K(1\\,;\\,3\\,;\\,1)', true)} />
+              <p>Le vecteur normal est :</p>
+              <div set:html={tex('\\overrightarrow{BC} = (-1-3\\,;\\,4-2\\,;\\,2-0) = (-4\\,;\\,2\\,;\\,2)', true)} />
+              <p>On peut simplifier par 2 : <span set:html={tex('\\vec{n_3}(-2\\,;\\,1\\,;\\,1)')} /> ou <span set:html={tex('\\vec{n_3}(2\\,;\\,-1\\,;\\,-1)')} />.</p>
+              <p>L'equation du plan <span set:html={tex('\\mathcal{P}_3')} /> passant par <span set:html={tex('K(1\\,;\\,3\\,;\\,1)')} /> de vecteur normal <span set:html={tex('(2\\,;\\,-1\\,;\\,-1)')} /> est :</p>
+              <div set:html={tex('2(x-1) + (-1)(y-3) + (-1)(z-1) = 0', true)} />
+              <div set:html={tex('2x - y - z + 2 = 0', true)} />
 
-            <p>Pour trouver le point du plan <span set:html={tex('(ABC)')} /> sur cette droite (le <strong>centre du cercle circonscrit</strong>), il faut déterminer l'équation du plan <span set:html={tex('(ABC)')} />.</p>
+              <p><strong>Verification :</strong> Le milieu <span set:html={tex('K(1\\,;\\,3\\,;\\,1)')} /> : <span set:html={tex('2 - 3 - 1 + 2 = 0 \\; \\checkmark')} /></p>
 
-            <p>On a <span set:html={tex('\\overrightarrow{AB} = (2\\,;\\,2\\,;\\,-2)')} /> et <span set:html={tex('\\overrightarrow{AC} = (-2\\,;\\,4\\,;\\,0)')} />. Un vecteur normal au plan <span set:html={tex('(ABC)')} /> est :</p>
-            <div set:html={tex('\\vec{n} = \\overrightarrow{AB} \\wedge \\overrightarrow{AC} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 2 & 2 & -2 \\\\ -2 & 4 & 0 \\end{vmatrix}', true)} />
-            <div set:html={tex('\\vec{n} = (2 \\times 0 - (-2) \\times 4\\,;\\, (-2) \\times (-2) - 2 \\times 0\\,;\\, 2 \\times 4 - 2 \\times (-2))', true)} />
-            <div set:html={tex('\\vec{n} = (8\\,;\\, 4\\,;\\, 12)', true)} />
-            <p>On simplifie par 4 : <span set:html={tex('\\vec{n} = (2\\,;\\, 1\\,;\\, 3)')} />.</p>
-
-            <p>L'équation du plan <span set:html={tex('(ABC)')} /> passant par <span set:html={tex('A(1\\,;\\,0\\,;\\,2)')} /> est :</p>
-            <div set:html={tex('2(x-1) + 1(y-0) + 3(z-2) = 0 \\implies 2x + y + 3z - 8 = 0', true)} />
-
-            <p><strong>Vérification avec <span set:html={tex('B(3\\,;\\,2\\,;\\,0)')} /> :</strong> <span set:html={tex('6 + 2 + 0 - 8 = 0 \\; \\checkmark')} /></p>
-            <p><strong>Vérification avec <span set:html={tex('C(-1\\,;\\,4\\,;\\,2)')} /> :</strong> <span set:html={tex('-2 + 4 + 6 - 8 = 0 \\; \\checkmark')} /></p>
-
-            <p>On substitue le paramétrage de <span set:html={tex('\\Delta')} /> dans l'équation du plan <span set:html={tex('(ABC)')} /> :</p>
-            <div set:html={tex('2(2t-4) + t + 3(3t-6) - 8 = 0', true)} />
-            <div set:html={tex('4t - 8 + t + 9t - 18 - 8 = 0', true)} />
-            <div set:html={tex('14t - 34 = 0 \\implies t = \\dfrac{34}{14} = \\dfrac{17}{7}', true)} />
-
-            <p>Le centre <span set:html={tex('\\Omega')} /> du cercle circonscrit est :</p>
-            <div set:html={tex('\\Omega\\left(2 \\times \\dfrac{17}{7} - 4\\,;\\, \\dfrac{17}{7}\\,;\\, 3 \\times \\dfrac{17}{7} - 6\\right) = \\Omega\\left(\\dfrac{34 - 28}{7}\\,;\\, \\dfrac{17}{7}\\,;\\, \\dfrac{51 - 42}{7}\\right)', true)} />
-            <div set:html={tex('\\Omega\\left(\\dfrac{6}{7}\\,;\\, \\dfrac{17}{7}\\,;\\, \\dfrac{9}{7}\\right)', true)} />
-
-            <p><strong>Vérification :</strong> Vérifions que <span set:html={tex('\\Omega A = \\Omega B')} /> :</p>
-            <div set:html={tex('\\Omega A^2 = \\left(1 - \\dfrac{6}{7}\\right)^2 + \\left(0 - \\dfrac{17}{7}\\right)^2 + \\left(2 - \\dfrac{9}{7}\\right)^2 = \\dfrac{1}{49} + \\dfrac{289}{49} + \\dfrac{25}{49} = \\dfrac{315}{49} = \\dfrac{45}{7}', true)} />
-            <div set:html={tex('\\Omega B^2 = \\left(3 - \\dfrac{6}{7}\\right)^2 + \\left(2 - \\dfrac{17}{7}\\right)^2 + \\left(0 - \\dfrac{9}{7}\\right)^2 = \\dfrac{225}{49} + \\dfrac{9}{49} + \\dfrac{81}{49} = \\dfrac{315}{49} = \\dfrac{45}{7} \\; \\checkmark', true)} />
-
-            <div class="resultat-box" set:html={tex('\\Omega\\left(\\dfrac{6}{7}\\,;\\, \\dfrac{17}{7}\\,;\\, \\dfrac{9}{7}\\right) \\quad \\text{avec} \\quad R = \\sqrt{\\dfrac{45}{7}} = \\dfrac{3\\sqrt{5}}{\\sqrt{7}} = \\dfrac{3\\sqrt{35}}{7}', true)} />
+              <div class="resultat-box" set:html={tex('\\mathcal{P}_3 : 2x - y - z + 2 = 0', true)} />
+            </div>
           </div>
         </div>
 
-        <!-- Question 5 -->
-        <div class="question">
-          <h4>5. En déduire le rayon du cercle circonscrit</h4>
-          <div class="correction">
-            <p>Le rayon <span set:html={tex('R')} /> du cercle circonscrit est :</p>
-            <div set:html={tex('R = \\Omega A = \\sqrt{\\dfrac{45}{7}} = \\dfrac{\\sqrt{45}}{\\sqrt{7}} = \\dfrac{3\\sqrt{5}}{\\sqrt{7}} = \\dfrac{3\\sqrt{5} \\times \\sqrt{7}}{7} = \\dfrac{3\\sqrt{35}}{7}', true)} />
-            <p>Numériquement :</p>
-            <div set:html={tex('R = \\dfrac{3\\sqrt{35}}{7} \\approx \\dfrac{3 \\times 5{,}916}{7} \\approx \\dfrac{17{,}748}{7} \\approx 2{,}535', true)} />
-            <div class="resultat-box" set:html={tex('R = \\dfrac{3\\sqrt{35}}{7} \\approx 2{,}54', true)} />
+        <!-- Partie B -->
+        <div class="exercise-part">
+          <h3>Partie B — Centre du cercle circonscrit</h3>
+
+          <!-- Question 4 -->
+          <div class="question">
+            <h4>4. Montrer que les trois plans mediateurs ont un point commun et le determiner</h4>
+            <div class="correction">
+              <div class="methode-box">
+                <strong>Methode :</strong> Le point equidistant de <span set:html={tex('A')} />, <span set:html={tex('B')} /> et <span set:html={tex('C')} /> est le centre du cercle circonscrit au triangle <span set:html={tex('ABC')} />. Il se trouve a l'intersection des trois plans mediateurs.
+              </div>
+              <p>On resout le systeme :</p>
+              <div set:html={tex('\\begin{cases} x + y - z - 2 = 0 \\quad (\\mathcal{P}_1) \\\\ x - 2y + 4 = 0 \\quad (\\mathcal{P}_2) \\\\ 2x - y - z + 2 = 0 \\quad (\\mathcal{P}_3) \\end{cases}', true)} />
+
+              <p><strong>De <span set:html={tex('(\\mathcal{P}_2)')} /> :</strong> <span set:html={tex('x = 2y - 4')} /></p>
+
+              <p><strong>Dans <span set:html={tex('(\\mathcal{P}_1)')} /> :</strong></p>
+              <div set:html={tex('(2y-4) + y - z - 2 = 0 \\implies 3y - z - 6 = 0 \\implies z = 3y - 6', true)} />
+
+              <p><strong>Dans <span set:html={tex('(\\mathcal{P}_3)')} /> :</strong></p>
+              <div set:html={tex('2(2y-4) - y - (3y - 6) + 2 = 0', true)} />
+              <div set:html={tex('4y - 8 - y - 3y + 6 + 2 = 0', true)} />
+              <div set:html={tex('0y + 0 = 0 \\quad \\checkmark', true)} />
+
+              <div class="attention-box">
+                <strong>Remarque :</strong> L'equation <span set:html={tex('(\\mathcal{P}_3)')} /> est automatiquement satisfaite, ce qui signifie que les trois plans mediateurs se coupent selon une droite (et non un point). Ceci est normal : les plans mediateurs de trois segments d'un triangle se coupent selon une droite perpendiculaire au plan du triangle, appelee l'axe du cercle circonscrit.
+              </div>
+
+              <p>L'intersection des plans mediateurs est donc la droite <span set:html={tex('\\Delta')} /> parametree par <span set:html={tex('y = t')} /> :</p>
+              <div set:html={tex('\\begin{cases} x = 2t - 4 \\\\ y = t \\\\ z = 3t - 6 \\end{cases}, \\quad t \\in \\mathbb{R}', true)} />
+
+              <p>Pour trouver le point du plan <span set:html={tex('(ABC)')} /> sur cette droite (le <strong>centre du cercle circonscrit</strong>), il faut determiner l'equation du plan <span set:html={tex('(ABC)')} />.</p>
+
+              <p>On a <span set:html={tex('\\overrightarrow{AB} = (2\\,;\\,2\\,;\\,-2)')} /> et <span set:html={tex('\\overrightarrow{AC} = (-2\\,;\\,4\\,;\\,0)')} />. Un vecteur normal au plan <span set:html={tex('(ABC)')} /> est :</p>
+              <div set:html={tex('\\vec{n} = \\overrightarrow{AB} \\wedge \\overrightarrow{AC} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ 2 & 2 & -2 \\\\ -2 & 4 & 0 \\end{vmatrix}', true)} />
+              <div set:html={tex('\\vec{n} = (2 \\times 0 - (-2) \\times 4\\,;\\, (-2) \\times (-2) - 2 \\times 0\\,;\\, 2 \\times 4 - 2 \\times (-2))', true)} />
+              <div set:html={tex('\\vec{n} = (8\\,;\\, 4\\,;\\, 12)', true)} />
+              <p>On simplifie par 4 : <span set:html={tex('\\vec{n} = (2\\,;\\, 1\\,;\\, 3)')} />.</p>
+
+              <p>L'equation du plan <span set:html={tex('(ABC)')} /> passant par <span set:html={tex('A(1\\,;\\,0\\,;\\,2)')} /> est :</p>
+              <div set:html={tex('2(x-1) + 1(y-0) + 3(z-2) = 0 \\implies 2x + y + 3z - 8 = 0', true)} />
+
+              <p><strong>Verification avec <span set:html={tex('B(3\\,;\\,2\\,;\\,0)')} /> :</strong> <span set:html={tex('6 + 2 + 0 - 8 = 0 \\; \\checkmark')} /></p>
+              <p><strong>Verification avec <span set:html={tex('C(-1\\,;\\,4\\,;\\,2)')} /> :</strong> <span set:html={tex('-2 + 4 + 6 - 8 = 0 \\; \\checkmark')} /></p>
+
+              <p>On substitue le parametrage de <span set:html={tex('\\Delta')} /> dans l'equation du plan <span set:html={tex('(ABC)')} /> :</p>
+              <div set:html={tex('2(2t-4) + t + 3(3t-6) - 8 = 0', true)} />
+              <div set:html={tex('4t - 8 + t + 9t - 18 - 8 = 0', true)} />
+              <div set:html={tex('14t - 34 = 0 \\implies t = \\dfrac{34}{14} = \\dfrac{17}{7}', true)} />
+
+              <p>Le centre <span set:html={tex('\\Omega')} /> du cercle circonscrit est :</p>
+              <div set:html={tex('\\Omega\\left(2 \\times \\dfrac{17}{7} - 4\\,;\\, \\dfrac{17}{7}\\,;\\, 3 \\times \\dfrac{17}{7} - 6\\right) = \\Omega\\left(\\dfrac{34 - 28}{7}\\,;\\, \\dfrac{17}{7}\\,;\\, \\dfrac{51 - 42}{7}\\right)', true)} />
+              <div set:html={tex('\\Omega\\left(\\dfrac{6}{7}\\,;\\, \\dfrac{17}{7}\\,;\\, \\dfrac{9}{7}\\right)', true)} />
+
+              <p><strong>Verification :</strong> Verifions que <span set:html={tex('\\Omega A = \\Omega B')} /> :</p>
+              <div set:html={tex('\\Omega A^2 = \\left(1 - \\dfrac{6}{7}\\right)^2 + \\left(0 - \\dfrac{17}{7}\\right)^2 + \\left(2 - \\dfrac{9}{7}\\right)^2 = \\dfrac{1}{49} + \\dfrac{289}{49} + \\dfrac{25}{49} = \\dfrac{315}{49} = \\dfrac{45}{7}', true)} />
+              <div set:html={tex('\\Omega B^2 = \\left(3 - \\dfrac{6}{7}\\right)^2 + \\left(2 - \\dfrac{17}{7}\\right)^2 + \\left(0 - \\dfrac{9}{7}\\right)^2 = \\dfrac{225}{49} + \\dfrac{9}{49} + \\dfrac{81}{49} = \\dfrac{315}{49} = \\dfrac{45}{7} \\; \\checkmark', true)} />
+
+              <div class="resultat-box" set:html={tex('\\Omega\\left(\\dfrac{6}{7}\\,;\\, \\dfrac{17}{7}\\,;\\, \\dfrac{9}{7}\\right) \\quad \\text{avec} \\quad R = \\sqrt{\\dfrac{45}{7}} = \\dfrac{3\\sqrt{5}}{\\sqrt{7}} = \\dfrac{3\\sqrt{35}}{7}', true)} />
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="question">
+            <h4>5. En deduire le rayon du cercle circonscrit</h4>
+            <div class="correction">
+              <p>Le rayon <span set:html={tex('R')} /> du cercle circonscrit est :</p>
+              <div set:html={tex('R = \\Omega A = \\sqrt{\\dfrac{45}{7}} = \\dfrac{\\sqrt{45}}{\\sqrt{7}} = \\dfrac{3\\sqrt{5}}{\\sqrt{7}} = \\dfrac{3\\sqrt{5} \\times \\sqrt{7}}{7} = \\dfrac{3\\sqrt{35}}{7}', true)} />
+              <p>Numeriquement :</p>
+              <div set:html={tex('R = \\dfrac{3\\sqrt{35}}{7} \\approx \\dfrac{3 \\times 5{,}916}{7} \\approx \\dfrac{17{,}748}{7} \\approx 2{,}535', true)} />
+              <div class="resultat-box" set:html={tex('R = \\dfrac{3\\sqrt{35}}{7} \\approx 2{,}54', true)} />
+            </div>
+          </div>
+
+          <!-- Question 6 -->
+          <div class="question">
+            <h4>6. Verifier que <span set:html={tex('\\Omega C = R')} /></h4>
+            <div class="correction">
+              <div set:html={tex('\\Omega C^2 = \\left(-1 - \\dfrac{6}{7}\\right)^2 + \\left(4 - \\dfrac{17}{7}\\right)^2 + \\left(2 - \\dfrac{9}{7}\\right)^2', true)} />
+              <div set:html={tex('= \\left(-\\dfrac{13}{7}\\right)^2 + \\left(\\dfrac{11}{7}\\right)^2 + \\left(\\dfrac{5}{7}\\right)^2 = \\dfrac{169}{49} + \\dfrac{121}{49} + \\dfrac{25}{49} = \\dfrac{315}{49} = \\dfrac{45}{7}', true)} />
+              <p>Donc <span set:html={tex('\\Omega C = \\sqrt{\\dfrac{45}{7}} = R \\; \\checkmark')} /></p>
+              <p>Le point <span set:html={tex('\\Omega')} /> est bien equidistant de <span set:html={tex('A')} />, <span set:html={tex('B')} /> et <span set:html={tex('C')} /> : c'est le centre du cercle circonscrit au triangle <span set:html={tex('ABC')} />.</p>
+              <div class="resultat-box" set:html={tex('\\Omega A = \\Omega B = \\Omega C = \\dfrac{3\\sqrt{35}}{7} \\quad \\checkmark', true)} />
+            </div>
           </div>
         </div>
 
-        <!-- Question 6 -->
-        <div class="question">
-          <h4>6. Vérifier que <span set:html={tex('\\Omega C = R')} /></h4>
-          <div class="correction">
-            <div set:html={tex('\\Omega C^2 = \\left(-1 - \\dfrac{6}{7}\\right)^2 + \\left(4 - \\dfrac{17}{7}\\right)^2 + \\left(2 - \\dfrac{9}{7}\\right)^2', true)} />
-            <div set:html={tex('= \\left(-\\dfrac{13}{7}\\right)^2 + \\left(\\dfrac{11}{7}\\right)^2 + \\left(\\dfrac{5}{7}\\right)^2 = \\dfrac{169}{49} + \\dfrac{121}{49} + \\dfrac{25}{49} = \\dfrac{315}{49} = \\dfrac{45}{7}', true)} />
-            <p>Donc <span set:html={tex('\\Omega C = \\sqrt{\\dfrac{45}{7}} = R \\; \\checkmark')} /></p>
-            <p>Le point <span set:html={tex('\\Omega')} /> est bien équidistant de <span set:html={tex('A')} />, <span set:html={tex('B')} /> et <span set:html={tex('C')} /> : c'est le centre du cercle circonscrit au triangle <span set:html={tex('ABC')} />.</p>
-            <div class="resultat-box" set:html={tex('\\Omega A = \\Omega B = \\Omega C = \\dfrac{3\\sqrt{35}}{7} \\quad \\checkmark', true)} />
-          </div>
-        </div>
-      </div>
+        <a class="reviser-link" href="/terminale/vecteurs-droites-plans-espace/">Reviser les droites et plans de l'espace &rarr;</a>
+        <br />
+        <a class="reviser-link" href="/terminale/orthogonalite-distances-espace/">Reviser l'orthogonalite et les distances &rarr;</a>
+      </section>
 
-      <a class="reviser-link" href="/terminale/vecteurs-droites-plans-espace/">Réviser les droites et plans de l'espace →</a>
-      <br />
-      <a class="reviser-link" href="/terminale/orthogonalite-distances-espace/">Réviser l'orthogonalité et les distances →</a>
-    </section>
-
+    </div>
   </article>
+
+  <!-- Tab switching script -->
+  <script>
+    document.querySelectorAll('.bac-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.bac-tab').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.bac-panel').forEach(p => { p.style.display = 'none'; p.classList.remove('active'); });
+        btn.classList.add('active');
+        const panel = document.getElementById('bac-' + btn.dataset.tab);
+        panel.style.display = '';
+        panel.classList.add('active');
+      });
+    });
+  </script>
 </BaseLayout>
 
 <style>
@@ -622,12 +809,55 @@ def aire_approchee(n, b):
     margin-bottom: 1.5rem;
   }
 
-  .exercise-part {
+  .themes-summary { margin: 1.5rem 0; }
+  .themes-summary h2 { font-size: 1.1rem; color: var(--slate-700); margin-bottom: 0.75rem; }
+  .theme-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .theme-tags a {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    background: var(--blue-50);
+    color: var(--blue-700);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--blue-200);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .theme-tags a:hover { background: var(--blue-100); border-color: var(--blue-300); }
+
+  /* Tabs */
+  .bac-tabs { display: flex; gap: 0; margin: 1.5rem 0; border-bottom: 2px solid var(--slate-200); }
+  .bac-tab {
+    padding: 0.75rem 1.5rem; border: none; background: none; cursor: pointer;
+    font-weight: 600; font-size: 1rem; color: var(--slate-500);
+    border-bottom: 3px solid transparent; margin-bottom: -2px;
+    font-family: var(--font-heading);
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .bac-tab.active { color: var(--blue-700); border-bottom-color: var(--blue-600); }
+  .bac-tab:hover { color: var(--blue-600); }
+
+  .bac-panel { animation: fadeIn 0.2s ease; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Sujet blocks */
+  .exercise-block { margin: 2rem 0; }
+  .exercise-block h2 { color: var(--blue-800); border-bottom: 1px solid var(--slate-200); padding-bottom: 0.5rem; }
+  .exercise-block h3 { color: var(--slate-700); font-size: 1.05rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+  /* Correction blocks */
+  .exercise-part { margin: 1.5rem 0; }
+  .exercise-part h3 { color: var(--slate-600); font-size: 1.05rem; margin-bottom: 0.5rem; }
+
+  /* SVG figures */
+  .svg-figure {
+    display: flex; justify-content: center;
     margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--slate-50);
+    border-radius: 12px;
+    border: 1px solid var(--slate-200);
   }
-  .exercise-part h3 {
-    color: var(--slate-600);
-    font-size: 1.05rem;
-    margin-bottom: 0.5rem;
-  }
+  .figure-svg { max-width: 500px; width: 100%; height: auto; }
 </style>
